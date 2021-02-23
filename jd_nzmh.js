@@ -8,7 +8,7 @@
 ============Quantumultx===============
 [task_local]
 #女装盲盒
-0 7 19-25 2 * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_nzmh.js, tag=女装盲盒, img-url=https://raw.GIT_HUBusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+0 7 19-25 2 * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_nzmh.js, tag=女装盲盒, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 
 ================Loon==============
 [Script]

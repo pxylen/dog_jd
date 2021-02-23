@@ -7,7 +7,7 @@
 ===============Quantumultx===============
 [task_local]
 #进店领豆
-10 0 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_shop.js, tag=进店领豆, img-url=https://raw.GIT_HUBusercontent.com/58xinian/icon/master/jd_shop.png, enabled=true
+10 0 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_shop.js, tag=进店领豆, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jd_shop.png, enabled=true
 ================Loon============
 [Script]
 cron "10 0 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_shop.js,tag=进店领豆
