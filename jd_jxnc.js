@@ -1,72 +1,72 @@
 /*
-ç‰¹åˆ«å£°æ˜ï¼š
-æœ¬è„šæœ¬æ¬è¿è‡ª https://github.com/whyour/hundun/blob/master/quanx/jx_nc.js
-æ„Ÿè°¢ @whyour å¤§ä½¬
+ÌØ±ğÉùÃ÷£º
+±¾½Å±¾°áÔË×Ô https://github.com/whyour/hundun/blob/master/quanx/jx_nc.js
+¸ĞĞ» @whyour ´óÀĞ
 
-äº¬å–œå†œåœº:è„šæœ¬æ›´æ–°åœ°å€ https://jdsharedresourcescdn.azureedge.net/jdresource/jd_jxnc.js
-æ›´æ–°æ—¶é—´ï¼š2021-01-10 22:47:51
-æ´»åŠ¨å…¥å£ï¼šäº¬å–œAPPæˆ‘çš„-äº¬å–œå†œåœº
-ä¸œä¸œå†œåœºæ´»åŠ¨é“¾æ¥ï¼šhttps://wqsh.jd.com/sns/201912/12/jxnc/detail.html?ptag=7155.9.32&smp=b47f4790d7b2a024e75279f55f6249b9&active=jdnc_1_chelizi1205_2
-å·²æ”¯æŒIOSåŒäº¬ä¸œè´¦å·,Node.jsæ”¯æŒNä¸ªäº¬ä¸œè´¦å·
-ç†è®ºä¸Šè„šæœ¬å…¼å®¹: QuantumultX, Surge, Loon, JSBox, Node.js
-åŠ©åŠ›ç shareCodeè¯·å…ˆæ‰‹åŠ¨è¿è¡Œè„šæœ¬æŸ¥çœ‹æ‰“å°å¯çœ‹åˆ°
+¾©Ï²Å©³¡:½Å±¾¸üĞÂµØÖ· https://jdsharedresourcescdn.azureedge.net/jdresource/jd_jxnc.js
+¸üĞÂÊ±¼ä£º2021-01-10 22:47:51
+»î¶¯Èë¿Ú£º¾©Ï²APPÎÒµÄ-¾©Ï²Å©³¡
+¶«¶«Å©³¡»î¶¯Á´½Ó£ºhttps://wqsh.jd.com/sns/201912/12/jxnc/detail.html?ptag=7155.9.32&smp=b47f4790d7b2a024e75279f55f6249b9&active=jdnc_1_chelizi1205_2
+ÒÑÖ§³ÖIOSË«¾©¶«ÕËºÅ,Node.jsÖ§³ÖN¸ö¾©¶«ÕËºÅ
+ÀíÂÛÉÏ½Å±¾¼æÈİ: QuantumultX, Surge, Loon, JSBox, Node.js
+ÖúÁ¦ÂëshareCodeÇëÏÈÊÖ¶¯ÔËĞĞ½Å±¾²é¿´´òÓ¡¿É¿´µ½
 
 hostname = wq.jd.com
 
 ==========================Quantumultx=========================
 [task_local]
-0 9,12,18 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_jxnc.js, tag=äº¬å–œå†œåœº, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jxnc.png, enabled=true
+0 9,12,18 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_jxnc.js, tag=¾©Ï²Å©³¡, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jxnc.png, enabled=true
 [rewrite_local]
-# äº¬å–œå†œåœºAPPç§å­Token
+# ¾©Ï²Å©³¡APPÖÖ×ÓToken
 ^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask url script-request-header https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js
 =========================Loon=============================
 [Script]
-http-request ^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js, requires-body=false, timeout=3600, tag=äº¬å–œå†œåœºcookie
-cron "0 9,12,18 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_jxnc.js,tag=äº¬å–œå†œåœº
+http-request ^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js, requires-body=false, timeout=3600, tag=¾©Ï²Å©³¡cookie
+cron "0 9,12,18 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_jxnc.js,tag=¾©Ï²Å©³¡
 
 =========================Surge============================
-äº¬å–œå†œåœº = type=cron,cronexp="0 9,12,18 * * *",timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_jxnc.js
-äº¬å–œå†œåœºcookie = type=http-request,pattern=^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask,requires-body=0,max-size=0,script-path= https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js
+¾©Ï²Å©³¡ = type=cron,cronexp="0 9,12,18 * * *",timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_jxnc.js
+¾©Ï²Å©³¡cookie = type=http-request,pattern=^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask,requires-body=0,max-size=0,script-path= https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js
  
-=========================å°ç«ç®­===========================
-äº¬å–œå†œåœº = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_jxnc.js, cronexpr="0 9,12,18 * * *", timeout=3600, enable=true
-äº¬å–œå†œåœºAPPç§å­cookie = type=http-request,script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js,pattern=^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask,max-size=131072,timeout=3600,enable=true
+=========================Ğ¡»ğ¼ı===========================
+¾©Ï²Å©³¡ = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_jxnc.js, cronexpr="0 9,12,18 * * *", timeout=3600, enable=true
+¾©Ï²Å©³¡APPÖÖ×Ócookie = type=http-request,script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js,pattern=^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask,max-size=131072,timeout=3600,enable=true
 
-ç‰¹åˆ«è¯´æ˜ï¼š
-è„šæœ¬è¿è¡Œå¿…é¡»å¡«å†™ç§å­tokenï¼ŒiOSç”¨æˆ·ä½¿ç”¨ä»£ç†å¯ä»¥ç›´æ¥è·å–ï¼›Androidç”¨æˆ·éœ€è¦æŠ“åŒ…è·å–ç§å­tokenï¼Œæ‰‹åŠ¨åšäº¬å–œå†œåœºä»»æ„ä»»åŠ¡å³å¯è·å–ç§å­tokenï¼Œæ¨èä½¿ç”¨elecV2Pï¼ˆä½¿ç”¨è®¾ç½®ç±»ä¼¼iOSç”¨æˆ·çš„ä»£ç†è½¯ä»¶ï¼‰æˆ–è€…HttpCanaryï¼Œæœç´¢å…³é”®å­—"farm_jstoken"ï¼ŒtokenæŒ‰ç…§{"farm_jstoken":"xxx","timestamp":"xxx","phoneid":"xxx-xxx"}æ ¼å¼å¡«å†™å³å¯
+ÌØ±ğËµÃ÷£º
+½Å±¾ÔËĞĞ±ØĞëÌîĞ´ÖÖ×Ótoken£¬iOSÓÃ»§Ê¹ÓÃ´úÀí¿ÉÒÔÖ±½Ó»ñÈ¡£»AndroidÓÃ»§ĞèÒª×¥°ü»ñÈ¡ÖÖ×Ótoken£¬ÊÖ¶¯×ö¾©Ï²Å©³¡ÈÎÒâÈÎÎñ¼´¿É»ñÈ¡ÖÖ×Ótoken£¬ÍÆ¼öÊ¹ÓÃelecV2P£¨Ê¹ÓÃÉèÖÃÀàËÆiOSÓÃ»§µÄ´úÀíÈí¼ş£©»òÕßHttpCanary£¬ËÑË÷¹Ø¼ü×Ö"farm_jstoken"£¬token°´ÕÕ{"farm_jstoken":"xxx","timestamp":"xxx","phoneid":"xxx-xxx"}¸ñÊ½ÌîĞ´¼´¿É
 
 */
 
-const $ = new Env('äº¬å–œå†œåœº');
-let notify = ''; // nodejs å‘é€é€šçŸ¥è„šæœ¬
-let notifyLevel = $.isNode() ? process.env.JXNC_NOTIFY_LEVEL || 3 : 3; // é€šçŸ¥çº§åˆ« 0=åªé€šçŸ¥æˆç†Ÿ;1=æœ¬æ¬¡è·å¾—æ°´æ»´>0;2=ä»»åŠ¡æ‰§è¡Œ;3=ä»»åŠ¡æ‰§è¡Œ+æœªç§æ¤ç§å­;
-let notifyBool = true; // ä»£ç å†…éƒ¨ä½¿ç”¨ï¼Œæ§åˆ¶æ˜¯å¦é€šçŸ¥
-let cookieArr = []; // ç”¨æˆ· cookie æ•°ç»„
-let currentCookie = ''; // å½“å‰ç”¨æˆ· cookie
-let tokenNull = {'farm_jstoken': '', 'phoneid': '', 'timestamp': ''}; // å†…ç½®ä¸€ä»½ç©ºçš„ token
-let tokenArr = []; // ç”¨æˆ· token æ•°ç»„
-let currentToken = {}; // å½“å‰ç”¨æˆ· token
-let shareCode = ''; // å†…ç½®åŠ©åŠ›ç 
-let jxncShareCodeArr = []; // ç”¨æˆ· åŠ©åŠ›ç  æ•°ç»„
-let currentShareCode = []; // å½“å‰ç”¨æˆ· è¦åŠ©åŠ›çš„åŠ©åŠ›ç 
-const openUrl = `openjd://virtual?params=${encodeURIComponent('{ "category": "jump", "des": "m", "url": "https://wqsh.jd.com/sns/201912/12/jxnc/detail.html?ptag=7155.9.32&smp=b47f4790d7b2a024e75279f55f6249b9&active=jdnc_1_chelizi1205_2"}',)}`; // æ‰“å¼€äº¬å–œå†œåœº
-let subTitle = '', message = '', option = {'open-url': openUrl}; // æ¶ˆæ¯å‰¯æ ‡é¢˜ï¼Œæ¶ˆæ¯æ­£æ–‡ï¼Œæ¶ˆæ¯æ‰©å±•å‚æ•°
+const $ = new Env('¾©Ï²Å©³¡');
+let notify = ''; // nodejs ·¢ËÍÍ¨Öª½Å±¾
+let notifyLevel = $.isNode() ? process.env.JXNC_NOTIFY_LEVEL || 3 : 3; // Í¨Öª¼¶±ğ 0=Ö»Í¨Öª³ÉÊì;1=±¾´Î»ñµÃË®µÎ>0;2=ÈÎÎñÖ´ĞĞ;3=ÈÎÎñÖ´ĞĞ+Î´ÖÖÖ²ÖÖ×Ó;
+let notifyBool = true; // ´úÂëÄÚ²¿Ê¹ÓÃ£¬¿ØÖÆÊÇ·ñÍ¨Öª
+let cookieArr = []; // ÓÃ»§ cookie Êı×é
+let currentCookie = ''; // µ±Ç°ÓÃ»§ cookie
+let tokenNull = {'farm_jstoken': '', 'phoneid': '', 'timestamp': ''}; // ÄÚÖÃÒ»·İ¿ÕµÄ token
+let tokenArr = []; // ÓÃ»§ token Êı×é
+let currentToken = {}; // µ±Ç°ÓÃ»§ token
+let shareCode = ''; // ÄÚÖÃÖúÁ¦Âë
+let jxncShareCodeArr = []; // ÓÃ»§ ÖúÁ¦Âë Êı×é
+let currentShareCode = []; // µ±Ç°ÓÃ»§ ÒªÖúÁ¦µÄÖúÁ¦Âë
+const openUrl = `openjd://virtual?params=${encodeURIComponent('{ "category": "jump", "des": "m", "url": "https://wqsh.jd.com/sns/201912/12/jxnc/detail.html?ptag=7155.9.32&smp=b47f4790d7b2a024e75279f55f6249b9&active=jdnc_1_chelizi1205_2"}',)}`; // ´ò¿ª¾©Ï²Å©³¡
+let subTitle = '', message = '', option = {'open-url': openUrl}; // ÏûÏ¢¸±±êÌâ£¬ÏûÏ¢ÕıÎÄ£¬ÏûÏ¢À©Õ¹²ÎÊı
 const JXNC_API_HOST = 'https://wq.jd.com/';
 
-$.detail = []; // ä»Šæ—¥æ˜ç»†åˆ—è¡¨
+$.detail = []; // ½ñÈÕÃ÷Ï¸ÁĞ±í
 $.helpTask = null;
-$.allTask = []; // ä»»åŠ¡åˆ—è¡¨
-$.info = {}; // ç”¨æˆ·ä¿¡æ¯
+$.allTask = []; // ÈÎÎñÁĞ±í
+$.info = {}; // ÓÃ»§ĞÅÏ¢
 $.answer = 3;
 $.drip = 0;
-$.maxHelpNum = $.isNode() ? 8 : 4; // éšæœºåŠ©åŠ›æœ€å¤§æ‰§è¡Œæ¬¡æ•°
-$.helpNum = 0; // å½“å‰è´¦å· éšæœºåŠ©åŠ›æ¬¡æ•°
-let assistUserShareCode = 0; // éšæœºåŠ©åŠ›ç”¨æˆ· share code
+$.maxHelpNum = $.isNode() ? 8 : 4; // Ëæ»úÖúÁ¦×î´óÖ´ĞĞ´ÎÊı
+$.helpNum = 0; // µ±Ç°ÕËºÅ Ëæ»úÖúÁ¦´ÎÊı
+let assistUserShareCode = 0; // Ëæ»úÖúÁ¦ÓÃ»§ share code
 
 !(async () => {
     await requireConfig();
     if (!cookieArr[0]) {
-        $.msg($.name, 'ã€æç¤ºã€‘è¯·å…ˆè·å–äº¬ä¸œè´¦å·ä¸€cookie\nç›´æ¥ä½¿ç”¨NobyDaçš„äº¬ä¸œç­¾åˆ°è·å–', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+        $.msg($.name, '¡¾ÌáÊ¾¡¿ÇëÏÈ»ñÈ¡¾©¶«ÕËºÅÒ»cookie\nÖ±½ÓÊ¹ÓÃNobyDaµÄ¾©¶«Ç©µ½»ñÈ¡', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
         return;
     }
 
@@ -77,13 +77,13 @@ let assistUserShareCode = 0; // éšæœºåŠ©åŠ›ç”¨æˆ· share code
             $.index = i + 1;
             $.isLogin = true;
             $.nickName = '';
-            $.log(`\n************* æ£€æŸ¥ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.UserName} cookie æ˜¯å¦æœ‰æ•ˆ *************`);
+            $.log(`\n************* ¼ì²é¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.UserName} cookie ÊÇ·ñÓĞĞ§ *************`);
             await TotalBean();
-            $.log(`å¼€å§‹ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName || $.UserName}\n`);
+            $.log(`¿ªÊ¼¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName || $.UserName}\n`);
             if (!$.isLogin) {
-                $.msg($.name, `ã€æç¤ºã€‘cookieå·²å¤±æ•ˆ`, `äº¬ä¸œè´¦å·${$.index} ${$.nickName || $.UserName}\nè¯·é‡æ–°ç™»å½•è·å–\nhttps://bean.m.jd.com/`, {"open-url": "https://bean.m.jd.com/"});
+                $.msg($.name, `¡¾ÌáÊ¾¡¿cookieÒÑÊ§Ğ§`, `¾©¶«ÕËºÅ${$.index} ${$.nickName || $.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡\nhttps://bean.m.jd.com/`, {"open-url": "https://bean.m.jd.com/"});
                 if ($.isNode()) {
-                    await notify.sendNotify(`${$.name}cookieå·²å¤±æ•ˆ - ${$.UserName}`, `äº¬ä¸œè´¦å·${$.index} ${$.UserName}\nè¯·é‡æ–°ç™»å½•è·å–cookie`);
+                    await notify.sendNotify(`${$.name}cookieÒÑÊ§Ğ§ - ${$.UserName}`, `¾©¶«ÕËºÅ${$.index} ${$.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡cookie`);
                 }
                 continue
             }
@@ -92,23 +92,23 @@ let assistUserShareCode = 0; // éšæœºåŠ©åŠ›ç”¨æˆ· share code
             option = {};
             $.answer = 3;
             $.helpNum = 0;
-            notifyBool = notifyLevel > 0; // åˆå§‹åŒ–æ˜¯å¦æ¨é€
-            await tokenFormat(); // å¤„ç†å½“å‰è´¦å· token
-            await shareCodesFormat(); // å¤„ç†å½“å‰è´¦å· åŠ©åŠ›ç 
-            await jdJXNC(); // æ‰§è¡Œå½“å‰è´¦å· ä¸»ä»£ç æµç¨‹
+            notifyBool = notifyLevel > 0; // ³õÊ¼»¯ÊÇ·ñÍÆËÍ
+            await tokenFormat(); // ´¦Àíµ±Ç°ÕËºÅ token
+            await shareCodesFormat(); // ´¦Àíµ±Ç°ÕËºÅ ÖúÁ¦Âë
+            await jdJXNC(); // Ö´ĞĞµ±Ç°ÕËºÅ Ö÷´úÂëÁ÷³Ì
         }
     }
 })()
     .catch((e) => {
-        $.log('', `âŒ ${$.name}, å¤±è´¥! åŸå› : ${e}!`, '')
+        $.log('', `? ${$.name}, Ê§°Ü! Ô­Òò: ${e}!`, '')
         console.log(e);
     })
     .finally(() => {
         $.done();
     })
 
-// æ£€æŸ¥äº’åŠ©ç æ ¼å¼æ˜¯å¦ä¸º json
-// æˆåŠŸè¿”å› json å¯¹è±¡ï¼Œå¤±è´¥è¿”å› ''
+// ¼ì²é»¥ÖúÂë¸ñÊ½ÊÇ·ñÎª json
+// ³É¹¦·µ»Ø json ¶ÔÏó£¬Ê§°Ü·µ»Ø ''
 function changeShareCodeJson(code) {
     try {
         let json = code && JSON.parse(code);
@@ -118,16 +118,16 @@ function changeShareCodeJson(code) {
     }
 }
 
-// åŠ è½½é…ç½® cookie token shareCode
+// ¼ÓÔØÅäÖÃ cookie token shareCode
 function requireConfig() {
     return new Promise(async resolve => {
-        $.log('å¼€å§‹è·å–é…ç½®æ–‡ä»¶\n')
+        $.log('¿ªÊ¼»ñÈ¡ÅäÖÃÎÄ¼ş\n')
         notify = $.isNode() ? require('./sendNotify') : '';
-        //Node.jsç”¨æˆ·è¯·åœ¨jdCookie.jså¤„å¡«å†™äº¬ä¸œck;
+        //Node.jsÓÃ»§ÇëÔÚjdCookie.js´¦ÌîĞ´¾©¶«ck;
         const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
         const jdTokenNode = $.isNode() ? require('./jdJxncTokens.js') : '';
         const jdJxncShareCodeNode = $.isNode() ? require('./jdJxncShareCodes.js') : '';
-        //IOSç­‰ç”¨æˆ·ç›´æ¥ç”¨NobyDaçš„jd cookie
+        //IOSµÈÓÃ»§Ö±½ÓÓÃNobyDaµÄjd cookie
         if ($.isNode()) {
             Object.keys(jdCookieNode).forEach((item) => {
                 if (jdCookieNode[item]) {
@@ -140,7 +140,7 @@ function requireConfig() {
             cookieArr.push(...[$.getdata('CookieJD'), $.getdata('CookieJD2')]);
         }
 
-        $.log(`å…±${cookieArr.length}ä¸ªäº¬ä¸œè´¦å·\n`);
+        $.log(`¹²${cookieArr.length}¸ö¾©¶«ÕËºÅ\n`);
 
         if ($.isNode()) {
             Object.keys(jdTokenNode).forEach((item) => {
@@ -161,16 +161,16 @@ function requireConfig() {
             })
         }
 
-        // æ£€æŸ¥äº’åŠ©ç æ˜¯å¦ä¸º json [smp,active,joinnum] æ ¼å¼ï¼Œå¦åˆ™è¿›è¡Œé€šçŸ¥
+        // ¼ì²é»¥ÖúÂëÊÇ·ñÎª json [smp,active,joinnum] ¸ñÊ½£¬·ñÔò½øĞĞÍ¨Öª
         for (let i = 0; i < jxncShareCodeArr.length; i++) {
             if (jxncShareCodeArr[i]) {
                 let tmpJxncShareStr = jxncShareCodeArr[i];
                 let tmpjsonShareCodeArr = tmpJxncShareStr.split('@');
                 if (!changeShareCodeJson(tmpjsonShareCodeArr[0])) {
-                    $.log('äº’åŠ©ç æ ¼å¼å·²å˜æ›´ï¼Œè¯·é‡æ–°å¡«å†™äº’åŠ©ç ');
-                    $.msg($.name, 'äº’åŠ©ç æ ¼å¼å˜æ›´é€šçŸ¥', 'äº’åŠ©ç æ ¼å¼å˜æ›´ï¼Œè¯·é‡æ–°å¡«å†™ â€¼ï¸â€¼ï¸', option);
+                    $.log('»¥ÖúÂë¸ñÊ½ÒÑ±ä¸ü£¬ÇëÖØĞÂÌîĞ´»¥ÖúÂë');
+                    $.msg($.name, '»¥ÖúÂë¸ñÊ½±ä¸üÍ¨Öª', '»¥ÖúÂë¸ñÊ½±ä¸ü£¬ÇëÖØĞÂÌîĞ´ ????', option);
                     if ($.isNode()) {
-                        await notify.sendNotify(`${$.name}`, `äº’åŠ©ç æ ¼å¼å˜æ›´ï¼Œè¯·é‡æ–°å¡«å†™ â€¼ï¸â€¼ï¸`);
+                        await notify.sendNotify(`${$.name}`, `»¥ÖúÂë¸ñÊ½±ä¸ü£¬ÇëÖØĞÂÌîĞ´ ????`);
                     }
                 }
                 break;
@@ -178,8 +178,8 @@ function requireConfig() {
         }
 
         // console.log(`jdFruitShareArr::${JSON.stringify(jxncShareCodeArr)}`)
-        // console.log(`jdFruitShareArrè´¦å·é•¿åº¦::${jxncShareCodeArr.length}`)
-        $.log(`æ‚¨æä¾›äº†${jxncShareCodeArr.length}ä¸ªè´¦å·çš„äº¬å–œå†œåœºåŠ©åŠ›ç `);
+        // console.log(`jdFruitShareArrÕËºÅ³¤¶È::${jxncShareCodeArr.length}`)
+        $.log(`ÄúÌá¹©ÁË${jxncShareCodeArr.length}¸öÕËºÅµÄ¾©Ï²Å©³¡ÖúÁ¦Âë`);
 
         try {
             let options = {
@@ -194,19 +194,19 @@ function requireConfig() {
                 },
                 "timeout": 10000,
             }
-            $.get(options, (err, resp, data) => { // åˆå§‹åŒ–å†…ç½®å˜é‡
+            $.get(options, (err, resp, data) => { // ³õÊ¼»¯ÄÚÖÃ±äÁ¿
                 if (!err) {
                     shareCode = data;
                 }
             });
         } catch (e) {
-            // è·å–å†…ç½®åŠ©åŠ›ç å¤±è´¥
+            // »ñÈ¡ÄÚÖÃÖúÁ¦ÂëÊ§°Ü
         }
         resolve()
     })
 }
 
-// æŸ¥è¯¢äº¬ä¸œè´¦æˆ·ä¿¡æ¯ï¼ˆæ£€æŸ¥ cookie æ˜¯å¦æœ‰æ•ˆï¼‰
+// ²éÑ¯¾©¶«ÕË»§ĞÅÏ¢£¨¼ì²é cookie ÊÇ·ñÓĞĞ§£©
 function TotalBean() {
     return new Promise(async resolve => {
         const options = {
@@ -226,17 +226,17 @@ function TotalBean() {
             try {
                 if (err) {
                     console.log(`${JSON.stringify(err)}`)
-                    console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+                    console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
                 } else {
                     if (data) {
                         data = JSON.parse(data);
                         if (data['retcode'] === 13) {
-                            $.isLogin = false; //cookieè¿‡æœŸ
+                            $.isLogin = false; //cookie¹ıÆÚ
                             return
                         }
                         $.nickName = data['base'].nickname;
                     } else {
-                        console.log(`äº¬ä¸œæœåŠ¡å™¨è¿”å›ç©ºæ•°æ®`)
+                        console.log(`¾©¶«·şÎñÆ÷·µ»Ø¿ÕÊı¾İ`)
                     }
                 }
             } catch (e) {
@@ -248,7 +248,7 @@ function TotalBean() {
     })
 }
 
-// å¤„ç†å½“å‰è´¦å·token
+// ´¦Àíµ±Ç°ÕËºÅtoken
 function tokenFormat() {
     return new Promise(async resolve => {
         if (tokenArr[$.index - 1] && tokenArr[$.index - 1].farm_jstoken) {
@@ -260,36 +260,36 @@ function tokenFormat() {
     })
 }
 
-// å¤„ç†å½“å‰è´¦å·åŠ©åŠ›ç 
+// ´¦Àíµ±Ç°ÕËºÅÖúÁ¦Âë
 function shareCodesFormat() {
     return new Promise(async resolve => {
-        // console.log(`ç¬¬${$.index}ä¸ªäº¬ä¸œè´¦å·çš„åŠ©åŠ›ç :::${jdFruitShareArr[$.index - 1]}`)
+        // console.log(`µÚ${$.index}¸ö¾©¶«ÕËºÅµÄÖúÁ¦Âë:::${jdFruitShareArr[$.index - 1]}`)
         if (jxncShareCodeArr[$.index - 1]) {
             currentShareCode = jxncShareCodeArr[$.index - 1].split('@');
             currentShareCode.push(...(shareCode.split('@')));
         } else {
-            $.log(`ç”±äºæ‚¨ç¬¬${$.index}ä¸ªäº¬ä¸œè´¦å·æœªæä¾›shareCode,å°†é‡‡çº³æœ¬è„šæœ¬è‡ªå¸¦çš„åŠ©åŠ›ç `)
+            $.log(`ÓÉÓÚÄúµÚ${$.index}¸ö¾©¶«ÕËºÅÎ´Ìá¹©shareCode,½«²ÉÄÉ±¾½Å±¾×Ô´øµÄÖúÁ¦Âë`)
             currentShareCode = shareCode.split('@');
         }
-        $.log(`ç¬¬${$.index}ä¸ªäº¬ä¸œè´¦å·å°†è¦åŠ©åŠ›çš„å¥½å‹${JSON.stringify(currentShareCode)}`)
+        $.log(`µÚ${$.index}¸ö¾©¶«ÕËºÅ½«ÒªÖúÁ¦µÄºÃÓÑ${JSON.stringify(currentShareCode)}`)
         resolve();
     })
 }
 
 async function jdJXNC() {
-    subTitle = `ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName}`;
-    $.log(`è·å–ç”¨æˆ·ä¿¡æ¯ & ä»»åŠ¡åˆ—è¡¨`);
+    subTitle = `¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName}`;
+    $.log(`»ñÈ¡ÓÃ»§ĞÅÏ¢ & ÈÎÎñÁĞ±í`);
     const startInfo = await getTaskList();
     if (startInfo) {
-        message += `ã€æ°´æœåç§°ã€‘${startInfo.prizename}\n`;
-        if (startInfo.target <= startInfo.score) { // æ°´æ»´å·²æ»¡
-            if (startInfo.activestatus === 2) { // æˆç†Ÿæœªæ”¶å–
+        message += `¡¾Ë®¹ûÃû³Æ¡¿${startInfo.prizename}\n`;
+        if (startInfo.target <= startInfo.score) { // Ë®µÎÒÑÂú
+            if (startInfo.activestatus === 2) { // ³ÉÊìÎ´ÊÕÈ¡
                 notifyBool = true;
-                $.log(`ã€æˆç†Ÿã€‘æ°´æœå·²æˆç†Ÿè¯·åŠæ—¶æ”¶å–ï¼Œactivestatusï¼š${startInfo.activestatus}\n`);
-                message += `ã€æˆç†Ÿã€‘æ°´æœå·²æˆç†Ÿè¯·åŠæ—¶æ”¶å–ï¼Œactivestatusï¼š${startInfo.activestatus}\n`;
-            } else if (startInfo.activestatus === 0) { // æœªç§æ¤ï¼ˆæˆç†Ÿå·²æ”¶å–ï¼‰
-                $.log('è´¦å·æœªé€‰æ‹©ç§å­ï¼Œè¯·å…ˆå»äº¬å–œå†œåœºé€‰æ‹©ç§å­ã€‚\nå¦‚æœé€‰æ‹© APP ä¸“å±ç§å­ï¼Œå¿…é¡»æä¾› tokenã€‚');
-                message += 'è´¦å·æœªé€‰æ‹©ç§å­ï¼Œè¯·å…ˆå»äº¬å–œå†œåœºé€‰æ‹©ç§å­ã€‚\nå¦‚æœé€‰æ‹© APP ä¸“å±ç§å­ï¼Œå¿…é¡»æä¾› tokenã€‚\n';
+                $.log(`¡¾³ÉÊì¡¿Ë®¹ûÒÑ³ÉÊìÇë¼°Ê±ÊÕÈ¡£¬activestatus£º${startInfo.activestatus}\n`);
+                message += `¡¾³ÉÊì¡¿Ë®¹ûÒÑ³ÉÊìÇë¼°Ê±ÊÕÈ¡£¬activestatus£º${startInfo.activestatus}\n`;
+            } else if (startInfo.activestatus === 0) { // Î´ÖÖÖ²£¨³ÉÊìÒÑÊÕÈ¡£©
+                $.log('ÕËºÅÎ´Ñ¡ÔñÖÖ×Ó£¬ÇëÏÈÈ¥¾©Ï²Å©³¡Ñ¡ÔñÖÖ×Ó¡£\nÈç¹ûÑ¡Ôñ APP ×¨ÊôÖÖ×Ó£¬±ØĞëÌá¹© token¡£');
+                message += 'ÕËºÅÎ´Ñ¡ÔñÖÖ×Ó£¬ÇëÏÈÈ¥¾©Ï²Å©³¡Ñ¡ÔñÖÖ×Ó¡£\nÈç¹ûÑ¡Ôñ APP ×¨ÊôÖÖ×Ó£¬±ØĞëÌá¹© token¡£\n';
                 notifyBool = notifyBool && notifyLevel >= 3;
             }
         } else {
@@ -298,7 +298,7 @@ async function jdJXNC() {
                 "active": $.info.active,
                 "joinnum": $.info.joinnum,
             };
-            $.log(`ã€äº¬ä¸œè´¦å·${$.index}ï¼ˆ${$.nickName || $.UserName}ï¼‰çš„${$.name}å¥½å‹äº’åŠ©ç ã€‘` + JSON.stringify(shareCodeJson));
+            $.log(`¡¾¾©¶«ÕËºÅ${$.index}£¨${$.nickName || $.UserName}£©µÄ${$.name}ºÃÓÑ»¥ÖúÂë¡¿` + JSON.stringify(shareCodeJson));
             await $.wait(500);
             const isOk = await browserTask();
             if (isOk) {
@@ -331,7 +331,7 @@ async function jdJXNC() {
     await showMsg()
 }
 
-// è·å–ä»»åŠ¡åˆ—è¡¨ä¸ç”¨æˆ·ä¿¡æ¯
+// »ñÈ¡ÈÎÎñÁĞ±íÓëÓÃ»§ĞÅÏ¢
 function getTaskList() {
     return new Promise(async resolve => {
         $.get(taskUrl('query', `type=1`), async (err, resp, data) => {
@@ -342,10 +342,10 @@ function getTaskList() {
                 $.helpTask = task.filter(x => x.tasktype === 2)[0] || {eachtimeget: 0, limit: 0};
                 $.allTask = task.filter(x => x.tasktype !== 3 && x.tasktype !== 2 && parseInt(x.left) > 0);
                 $.info = other;
-                $.log(`è·å–ä»»åŠ¡åˆ—è¡¨ ${retmsg} æ€»å…±${$.allTask.length}ä¸ªä»»åŠ¡ï¼`);
+                $.log(`»ñÈ¡ÈÎÎñÁĞ±í ${retmsg} ×Ü¹²${$.allTask.length}¸öÈÎÎñ£¡`);
                 if (!$.info.active) {
-                    $.log('è´¦å·æœªé€‰æ‹©ç§å­ï¼Œè¯·å…ˆå»äº¬å–œå†œåœºé€‰æ‹©ç§å­ã€‚\nå¦‚æœé€‰æ‹© APP ä¸“å±ç§å­ï¼Œå¿…é¡»æä¾› tokenã€‚');
-                    message += 'è´¦å·æœªé€‰æ‹©ç§å­ï¼Œè¯·å…ˆå»äº¬å–œå†œåœºé€‰æ‹©ç§å­ã€‚\nå¦‚æœé€‰æ‹© APP ä¸“å±ç§å­ï¼Œå¿…é¡»æä¾› tokenã€‚\n';
+                    $.log('ÕËºÅÎ´Ñ¡ÔñÖÖ×Ó£¬ÇëÏÈÈ¥¾©Ï²Å©³¡Ñ¡ÔñÖÖ×Ó¡£\nÈç¹ûÑ¡Ôñ APP ×¨ÊôÖÖ×Ó£¬±ØĞëÌá¹© token¡£');
+                    message += 'ÕËºÅÎ´Ñ¡ÔñÖÖ×Ó£¬ÇëÏÈÈ¥¾©Ï²Å©³¡Ñ¡ÔñÖÖ×Ó¡£\nÈç¹ûÑ¡Ôñ APP ×¨ÊôÖÖ×Ó£¬±ØĞëÌá¹© token¡£\n';
                     notifyBool = notifyBool && notifyLevel >= 3;
                     resolve(false);
                 }
@@ -365,7 +365,7 @@ function browserTask() {
         const times = Math.max(...[...tasks].map(x => x.limit));
         for (let i = 0; i < tasks.length; i++) {
             const task = tasks[i];
-            $.log(`å¼€å§‹ç¬¬${i + 1}ä¸ªä»»åŠ¡ï¼š${task.taskname}`);
+            $.log(`¿ªÊ¼µÚ${i + 1}¸öÈÎÎñ£º${task.taskname}`);
             const status = [0];
             for (let i = 0; i < times; i++) {
                 const random = Math.random() * 3;
@@ -377,20 +377,20 @@ function browserTask() {
                     break;
                 }
             }
-            if (status[0] === 1017) { // ret:1017 retmsg:"score full" æ°´æ»´å·²æ»¡ï¼Œæœå®æˆç†Ÿï¼Œè·³è¿‡æ‰€æœ‰ä»»åŠ¡
-                $.log('æ°´æ»´å·²æ»¡ï¼Œæœå®æˆç†Ÿï¼Œè·³è¿‡æ‰€æœ‰ä»»åŠ¡');
+            if (status[0] === 1017) { // ret:1017 retmsg:"score full" Ë®µÎÒÑÂú£¬¹ûÊµ³ÉÊì£¬Ìø¹ıËùÓĞÈÎÎñ
+                $.log('Ë®µÎÒÑÂú£¬¹ûÊµ³ÉÊì£¬Ìø¹ıËùÓĞÈÎÎñ');
                 resolve(true);
                 break;
             }
             if (status[0] === 1032) {
-                $.log('ä»»åŠ¡æ‰§è¡Œå¤±è´¥ï¼Œç§æ¤çš„ APP ä¸“å±ç§å­ï¼Œè¯·æä¾› token æˆ–ç§æ¤é APP ç§å­');
-                message += 'ä»»åŠ¡æ‰§è¡Œå¤±è´¥ï¼Œç§æ¤çš„ APP ä¸“å±ç§å­ï¼Œè¯·æä¾› token æˆ–ç§æ¤é APP ç§å­\n';
+                $.log('ÈÎÎñÖ´ĞĞÊ§°Ü£¬ÖÖÖ²µÄ APP ×¨ÊôÖÖ×Ó£¬ÇëÌá¹© token »òÖÖÖ²·Ç APP ÖÖ×Ó');
+                message += 'ÈÎÎñÖ´ĞĞÊ§°Ü£¬ÖÖÖ²µÄ APP ×¨ÊôÖÖ×Ó£¬ÇëÌá¹© token »òÖÖÖ²·Ç APP ÖÖ×Ó\n';
                 notifyBool = notifyBool && notifyLevel >= 2;
                 resolve(false);
                 return;
             }
 
-            $.log(`ç»“æŸç¬¬${i + 1}ä¸ªä»»åŠ¡ï¼š${task.taskname}`);
+            $.log(`½áÊøµÚ${i + 1}¸öÈÎÎñ£º${task.taskname}`);
         }
         resolve(true);
     });
@@ -400,11 +400,11 @@ function answerTask() {
     const _answerTask = $.allTask.filter(x => x.tasklevel === 6);
     if (!_answerTask || !_answerTask[0]) return;
     const {tasklevel, left, taskname, eachtimeget} = _answerTask[0];
-    $.log(`å‡†å¤‡åšç­”é¢˜ä»»åŠ¡ï¼š${taskname}`);
+    $.log(`×¼±¸×ö´ğÌâÈÎÎñ£º${taskname}`);
     return new Promise(async resolve => {
         if (parseInt(left) <= 0) {
             resolve(false);
-            $.log(`${taskname}[åšä»»åŠ¡]ï¼š ä»»åŠ¡å·²å®Œæˆï¼Œè·³è¿‡`);
+            $.log(`${taskname}[×öÈÎÎñ]£º ÈÎÎñÒÑÍê³É£¬Ìø¹ı`);
             return;
         }
         $.get(
@@ -418,13 +418,13 @@ function answerTask() {
                 try {
                     const res = data.match(/try\{whyour\(([\s\S]*)\)\;\}catch\(e\)\{\}/)[1];
                     let {ret, retmsg, right} = JSON.parse(res);
-                    retmsg = retmsg !== '' ? retmsg : 'æˆåŠŸ';
-                    $.log(`${taskname}[åšä»»åŠ¡]ï¼šret:${ret} retmsg:"${retmsg.indexOf('æ´»åŠ¨å¤ªç«çˆ†äº†') !== -1 ? 'ä»»åŠ¡è¿›è¡Œä¸­æˆ–è€…æœªåˆ°ä»»åŠ¡æ—¶é—´' : retmsg}"`);
+                    retmsg = retmsg !== '' ? retmsg : '³É¹¦';
+                    $.log(`${taskname}[×öÈÎÎñ]£ºret:${ret} retmsg:"${retmsg.indexOf('»î¶¯Ì«»ğ±¬ÁË') !== -1 ? 'ÈÎÎñ½øĞĞÖĞ»òÕßÎ´µ½ÈÎÎñÊ±¼ä' : retmsg}"`);
                     if (ret === 0 && right === 1) {
                         $.drip += eachtimeget;
                     }
-                    // ret:1017 retmsg:"score full" æ°´æ»´å·²æ»¡ï¼Œæœå®æˆç†Ÿï¼Œè·³è¿‡ç­”é¢˜
-                    // ret:1012 retmsg:"has complte" å·²å®Œæˆï¼Œè·³è¿‡ç­”é¢˜
+                    // ret:1017 retmsg:"score full" Ë®µÎÒÑÂú£¬¹ûÊµ³ÉÊì£¬Ìø¹ı´ğÌâ
+                    // ret:1012 retmsg:"has complte" ÒÑÍê³É£¬Ìø¹ı´ğÌâ
                     if (ret === 1017 || ret === 1012) {
                         resolve();
                         return;
@@ -446,35 +446,35 @@ function answerTask() {
 
 function getMessage(endInfo, startInfo) {
     const need = endInfo.target - endInfo.score;
-    const get = endInfo.modifyscore; // æœ¬æ¬¡å˜æ›´è·å¾—æ°´æ»´
-    const leaveGet = startInfo.modifyscore; // ç¦»å¼€æ—¶è·å¾—æ°´æ»´
-    let dayGet = 0; // ä»Šæ—¥å…±è·å–æ°´æ»´æ•°
+    const get = endInfo.modifyscore; // ±¾´Î±ä¸ü»ñµÃË®µÎ
+    const leaveGet = startInfo.modifyscore; // Àë¿ªÊ±»ñµÃË®µÎ
+    let dayGet = 0; // ½ñÈÕ¹²»ñÈ¡Ë®µÎÊı
     if ($.detail) {
-        let dayTime = new Date(new Date().toLocaleDateString()).getTime() / 1000; // ä»Šæ—¥ 0 ç‚¹æ—¶é—´æˆ³ï¼ˆ10ä½æ•°ï¼‰
+        let dayTime = new Date(new Date().toLocaleDateString()).getTime() / 1000; // ½ñÈÕ 0 µãÊ±¼ä´Á£¨10Î»Êı£©
         $.detail.forEach(function (item, index) {
             if (item.time >= dayTime && item.score) {
                 dayGet += item.score;
             }
         });
     }
-    message += `ã€æ°´æ»´ã€‘æœ¬æ¬¡è·å¾—${get} ç¦»çº¿è·å¾—${leaveGet} ä»Šæ—¥è·å¾—${dayGet} è¿˜éœ€æ°´æ»´${need}\n`;
+    message += `¡¾Ë®µÎ¡¿±¾´Î»ñµÃ${get} ÀëÏß»ñµÃ${leaveGet} ½ñÈÕ»ñµÃ${dayGet} »¹ĞèË®µÎ${need}\n`;
     if (need <= 0) {
         notifyBool = true;
-        message += `ã€æˆç†Ÿã€‘æ°´æœå·²æˆç†Ÿè¯·åŠæ—¶æ”¶å–ï¼ŒdeliverStateï¼š${endInfo.deliverState}\n`;
+        message += `¡¾³ÉÊì¡¿Ë®¹ûÒÑ³ÉÊìÇë¼°Ê±ÊÕÈ¡£¬deliverState£º${endInfo.deliverState}\n`;
         return;
     }
     if (get > 0 || leaveGet > 0 || dayGet > 0) {
         const day = Math.ceil(need / (dayGet > 0 ? dayGet : (get + leaveGet)));
-        message += `ã€é¢„æµ‹ã€‘è¿˜éœ€ ${day} å¤©\n`;
+        message += `¡¾Ô¤²â¡¿»¹Ğè ${day} Ìì\n`;
     }
-    if (get > 0 || leaveGet > 0) { // æœ¬æ¬¡ æˆ– ç¦»çº¿ æœ‰æ°´æ»´
+    if (get > 0 || leaveGet > 0) { // ±¾´Î »ò ÀëÏß ÓĞË®µÎ
         notifyBool = notifyBool && notifyLevel >= 1;
     } else {
         notifyBool = notifyBool && notifyLevel >= 2;
     }
 }
 
-// æäº¤åŠ©åŠ›ç 
+// Ìá½»ÖúÁ¦Âë
 function submitInviteId(userName) {
     return new Promise(resolve => {
         if (!$.info || !$.info.smp) {
@@ -490,13 +490,13 @@ function submitInviteId(userName) {
                 (err, resp, _data) => {
                     try {
                         const {code, data = {}} = JSON.parse(_data);
-                        $.log(`é‚€è¯·ç æäº¤ï¼š${code}`);
+                        $.log(`ÑûÇëÂëÌá½»£º${code}`);
                         if (data.value) {
-                            message += 'ã€é‚€è¯·ç ã€‘æäº¤æˆåŠŸï¼\n';
+                            message += '¡¾ÑûÇëÂë¡¿Ìá½»³É¹¦£¡\n';
                         }
                     } catch (e) {
                         // $.logErr(e, resp);
-                        $.log('é‚€è¯·ç æäº¤å¤±è´¥ API è¿”å›å¼‚å¸¸');
+                        $.log('ÑûÇëÂëÌá½»Ê§°Ü API ·µ»ØÒì³£');
                     } finally {
                         resolve();
                     }
@@ -515,21 +515,21 @@ function getAssistUser() {
             $.get({url: `https://api.ninesix.cc/api/jx-nc?active=${$.info.active}`, timeout: 10000}, async (err, resp, _data) => {
                 try {
                     const {code, data: {value, extra = {}} = {}} = JSON.parse(_data);
-                    if (value && extra.active) { //  && extra.joinnum æˆªæ­¢ 2021-01-22 16:39:09 API çº¿ä¸Šè¿˜æœªéƒ¨ç½²æ–°çš„ joinnum å‚æ•°ä»£ç ï¼Œæš‚æ—¶é»˜è®¤ 1 å…¼å®¹
+                    if (value && extra.active) { //  && extra.joinnum ½ØÖ¹ 2021-01-22 16:39:09 API ÏßÉÏ»¹Î´²¿ÊğĞÂµÄ joinnum ²ÎÊı´úÂë£¬ÔİÊ±Ä¬ÈÏ 1 ¼æÈİ
                         let shareCodeJson = {
                             'smp': value,
                             'active': extra.active,
                             'joinnum': extra.joinnum || 1
                         };
-                        $.log(`è·å–éšæœºåŠ©åŠ›ç æˆåŠŸ ` + JSON.stringify(shareCodeJson));
+                        $.log(`»ñÈ¡Ëæ»úÖúÁ¦Âë³É¹¦ ` + JSON.stringify(shareCodeJson));
                         resolve(shareCodeJson);
                         return;
                     } else {
-                        $.log(`è·å–éšæœºåŠ©åŠ›ç å¤±è´¥ ${code}`);
+                        $.log(`»ñÈ¡Ëæ»úÖúÁ¦ÂëÊ§°Ü ${code}`);
                     }
                 } catch (e) {
                     // $.logErr(e, resp);
-                    $.log('è·å–éšæœºåŠ©åŠ›ç å¤±è´¥ API è¿”å›å¼‚å¸¸');
+                    $.log('»ñÈ¡Ëæ»úÖúÁ¦ÂëÊ§°Ü API ·µ»ØÒì³£');
                 } finally {
                     resolve(false);
                 }
@@ -541,15 +541,15 @@ function getAssistUser() {
     });
 }
 
-// ä¸ºå¥½å‹åŠ©åŠ› return true ç»§ç»­åŠ©åŠ›  false åŠ©åŠ›ç»“æŸ
+// ÎªºÃÓÑÖúÁ¦ return true ¼ÌĞøÖúÁ¦  false ÖúÁ¦½áÊø
 async function helpFriends() {
     for (let code of currentShareCode) {
         if (!code) {
             continue
         }
         let tmpShareCodeJson = changeShareCodeJson(code);
-        if (!tmpShareCodeJson) { //é json æ ¼å¼è·³è¿‡
-            console.log('åŠ©åŠ›ç é json æ ¼å¼ï¼Œè·³è¿‡')
+        if (!tmpShareCodeJson) { //·Ç json ¸ñÊ½Ìø¹ı
+            console.log('ÖúÁ¦Âë·Ç json ¸ñÊ½£¬Ìø¹ı')
             continue;
         }
         const next = await helpShareCode(tmpShareCodeJson['smp'], tmpShareCodeJson['active'], tmpShareCodeJson['joinnum']);
@@ -561,37 +561,37 @@ async function helpFriends() {
     return true;
 }
 
-// æ‰§è¡ŒåŠ©åŠ› return true ç»§ç»­åŠ©åŠ›  false åŠ©åŠ›ç»“æŸ
+// Ö´ĞĞÖúÁ¦ return true ¼ÌĞøÖúÁ¦  false ÖúÁ¦½áÊø
 function helpShareCode(smp, active, joinnum) {
     return new Promise(async resolve => {
-        if (smp === $.info.smp) { // è‡ªå·±çš„åŠ©åŠ›ç ï¼Œè·³è¿‡ï¼Œç»§ç»­æ‰§è¡Œ
-            $.log('åŠ©åŠ›ç ä¸å½“å‰è´¦å·ç›¸åŒï¼Œè·³è¿‡åŠ©åŠ›ã€‚å‡†å¤‡è¿›è¡Œä¸‹ä¸€ä¸ªåŠ©åŠ›');
+        if (smp === $.info.smp) { // ×Ô¼ºµÄÖúÁ¦Âë£¬Ìø¹ı£¬¼ÌĞøÖ´ĞĞ
+            $.log('ÖúÁ¦ÂëÓëµ±Ç°ÕËºÅÏàÍ¬£¬Ìø¹ıÖúÁ¦¡£×¼±¸½øĞĞÏÂÒ»¸öÖúÁ¦');
             resolve(true);
         }
-        $.log(`å³å°†åŠ©åŠ› share {"smp":"${smp}","active":"${active}","joinnum":"${joinnum}"}`);
+        $.log(`¼´½«ÖúÁ¦ share {"smp":"${smp}","active":"${active}","joinnum":"${joinnum}"}`);
         $.get(
             taskUrl('help', `active=${active}&joinnum=${joinnum}&smp=${smp}`),
             async (err, resp, data) => {
                 try {
                     const res = data.match(/try\{whyour\(([\s\S]*)\)\;\}catch\(e\)\{\}/)[1];
                     const {ret, retmsg = ''} = JSON.parse(res);
-                    $.log(`åŠ©åŠ›ç»“æœï¼šret=${ret} retmsg="${retmsg ? retmsg : 'OK'}"`);
-                    // ret=0 åŠ©åŠ›æˆåŠŸ
-                    // ret=1011 active ä¸åŒ
-                    // ret=1012 has complete å·²å®Œæˆ
-                    // ret=1013 retmsg="has expired" å·²è¿‡æœŸ
-                    // ret=1009 retmsg="today has help p2p" ä»Šå¤©å·²åŠ©åŠ›è¿‡
-                    // ret=1021 cannot help self ä¸èƒ½åŠ©åŠ›è‡ªå·±
-                    // ret=1032 retmsg="err operate env" è¢«åŠ©åŠ›è€…ä¸º APP ä¸“å±ç§å­ï¼Œå½“å‰åŠ©åŠ›è´¦å·æœªé…ç½® TOKEN
+                    $.log(`ÖúÁ¦½á¹û£ºret=${ret} retmsg="${retmsg ? retmsg : 'OK'}"`);
+                    // ret=0 ÖúÁ¦³É¹¦
+                    // ret=1011 active ²»Í¬
+                    // ret=1012 has complete ÒÑÍê³É
+                    // ret=1013 retmsg="has expired" ÒÑ¹ıÆÚ
+                    // ret=1009 retmsg="today has help p2p" ½ñÌìÒÑÖúÁ¦¹ı
+                    // ret=1021 cannot help self ²»ÄÜÖúÁ¦×Ô¼º
+                    // ret=1032 retmsg="err operate env" ±»ÖúÁ¦ÕßÎª APP ×¨ÊôÖÖ×Ó£¬µ±Ç°ÖúÁ¦ÕËºÅÎ´ÅäÖÃ TOKEN
                     // if (ret === 0 || ret === 1009 || ret === 1011 || ret === 1012 || ret === 1021 || ret === 1032) {
                     //     resolve(true);
                     //     return;
                     // }
-                    // ret 1016 å½“å‰è´¦å·è¾¾åˆ°åŠ©åŠ›ä¸Šé™
-                    // ret 147 filter å½“å‰è´¦å·é»‘å·äº†
+                    // ret 1016 µ±Ç°ÕËºÅ´ïµ½ÖúÁ¦ÉÏÏŞ
+                    // ret 147 filter µ±Ç°ÕËºÅºÚºÅÁË
                     if (ret === 147 || ret === 1016) {
                         if (ret === 147) {
-                            $.log(`\n\n  !!!!!!!!   å½“å‰è´¦å·é»‘å·äº†  !!!!!!!!  \n\n`);
+                            $.log(`\n\n  !!!!!!!!   µ±Ç°ÕËºÅºÚºÅÁË  !!!!!!!!  \n\n`);
                         }
                         resolve(false);
                         return;
@@ -612,7 +612,7 @@ function helpShareCode(smp, active, joinnum) {
 function doTask({tasklevel, left, taskname, eachtimeget}) {
     return new Promise(async resolve => {
         if (parseInt(left) <= 0) {
-            $.log(`${taskname}[åšä»»åŠ¡]ï¼š ä»»åŠ¡å·²å®Œæˆï¼Œè·³è¿‡`);
+            $.log(`${taskname}[×öÈÎÎñ]£º ÈÎÎñÒÑÍê³É£¬Ìø¹ı`);
             resolve(false);
         }
         $.get(
@@ -624,8 +624,8 @@ function doTask({tasklevel, left, taskname, eachtimeget}) {
                 try {
                     const res = data.match(/try\{whyour\(([\s\S]*)\)\;\}catch\(e\)\{\}/)[1];
                     let {ret, retmsg} = JSON.parse(res);
-                    retmsg = retmsg !== '' ? retmsg : 'æˆåŠŸ';
-                    $.log(`${taskname}[åšä»»åŠ¡]ï¼šret:${ret} retmsg:"${retmsg.indexOf('æ´»åŠ¨å¤ªç«çˆ†äº†') !== -1 ? 'ä»»åŠ¡è¿›è¡Œä¸­æˆ–è€…æœªåˆ°ä»»åŠ¡æ—¶é—´' : retmsg}"`);
+                    retmsg = retmsg !== '' ? retmsg : '³É¹¦';
+                    $.log(`${taskname}[×öÈÎÎñ]£ºret:${ret} retmsg:"${retmsg.indexOf('»î¶¯Ì«»ğ±¬ÁË') !== -1 ? 'ÈÎÎñ½øĞĞÖĞ»òÕßÎ´µ½ÈÎÎñÊ±¼ä' : retmsg}"`);
                     if (ret === 0) {
                         $.drip += eachtimeget;
                     }
@@ -660,12 +660,12 @@ async function showMsg() {
     if (notifyBool) {
         $.msg($.name, subTitle, message, option);
         if ($.isNode()) {
-            await notify.sendNotify(`${$.name} - è´¦å·${$.index} - ${$.nickName}`, `${subTitle}\n${message}`);
+            await notify.sendNotify(`${$.name} - ÕËºÅ${$.index} - ${$.nickName}`, `${subTitle}\n${message}`);
         }
     } else {
-        $.log(`${$.name} - notify é€šçŸ¥å·²å…³é—­\nè´¦å·${$.index} - ${$.nickName}\n${subTitle}\n${message}`);
+        $.log(`${$.name} - notify Í¨ÖªÒÑ¹Ø±Õ\nÕËºÅ${$.index} - ${$.nickName}\n${subTitle}\n${message}`);
     }
 }
 
 // prettier-ignore
-function Env(t,e){"undefined"!=typeof process&&JSON.stringify(process.env).indexOf("GIT_HUB")>-1&&process.exit(0);class s{constructor(t){this.env=t}send(t,e="GET"){t="string"==typeof t?{url:t}:t;let s=this.get;return"POST"===e&&(s=this.post),new Promise((e,i)=>{s.call(this,t,(t,s,r)=>{t?i(t):e(s)})})}get(t){return this.send.call(this.env,t)}post(t){return this.send.call(this.env,t,"POST")}}return new class{constructor(t,e){this.name=t,this.http=new s(this),this.data=null,this.dataFile="box.dat",this.logs=[],this.isMute=!1,this.isNeedRewrite=!1,this.logSeparator="\n",this.startTime=(new Date).getTime(),Object.assign(this,e),this.log("",`ğŸ””${this.name}, å¼€å§‹!`)}isNode(){return"undefined"!=typeof module&&!!module.exports}isQuanX(){return"undefined"!=typeof $task}isSurge(){return"undefined"!=typeof $httpClient&&"undefined"==typeof $loon}isLoon(){return"undefined"!=typeof $loon}toObj(t,e=null){try{return JSON.parse(t)}catch{return e}}toStr(t,e=null){try{return JSON.stringify(t)}catch{return e}}getjson(t,e){let s=e;const i=this.getdata(t);if(i)try{s=JSON.parse(this.getdata(t))}catch{}return s}setjson(t,e){try{return this.setdata(JSON.stringify(t),e)}catch{return!1}}getScript(t){return new Promise(e=>{this.get({url:t},(t,s,i)=>e(i))})}runScript(t,e){return new Promise(s=>{let i=this.getdata("@chavy_boxjs_userCfgs.httpapi");i=i?i.replace(/\n/g,"").trim():i;let r=this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");r=r?1*r:20,r=e&&e.timeout?e.timeout:r;const[o,h]=i.split("@"),n={url:`http://${h}/v1/scripting/evaluate`,body:{script_text:t,mock_type:"cron",timeout:r},headers:{"X-Key":o,Accept:"*/*"}};this.post(n,(t,e,i)=>s(i))}).catch(t=>this.logErr(t))}loaddata(){if(!this.isNode())return{};{this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e);if(!s&&!i)return{};{const i=s?t:e;try{return JSON.parse(this.fs.readFileSync(i))}catch(t){return{}}}}}writedata(){if(this.isNode()){this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e),r=JSON.stringify(this.data);s?this.fs.writeFileSync(t,r):i?this.fs.writeFileSync(e,r):this.fs.writeFileSync(t,r)}}lodash_get(t,e,s){const i=e.replace(/\[(\d+)\]/g,".$1").split(".");let r=t;for(const t of i)if(r=Object(r)[t],void 0===r)return s;return r}lodash_set(t,e,s){return Object(t)!==t?t:(Array.isArray(e)||(e=e.toString().match(/[^.[\]]+/g)||[]),e.slice(0,-1).reduce((t,s,i)=>Object(t[s])===t[s]?t[s]:t[s]=Math.abs(e[i+1])>>0==+e[i+1]?[]:{},t)[e[e.length-1]]=s,t)}getdata(t){let e=this.getval(t);if(/^@/.test(t)){const[,s,i]=/^@(.*?)\.(.*?)$/.exec(t),r=s?this.getval(s):"";if(r)try{const t=JSON.parse(r);e=t?this.lodash_get(t,i,""):e}catch(t){e=""}}return e}setdata(t,e){let s=!1;if(/^@/.test(e)){const[,i,r]=/^@(.*?)\.(.*?)$/.exec(e),o=this.getval(i),h=i?"null"===o?null:o||"{}":"{}";try{const e=JSON.parse(h);this.lodash_set(e,r,t),s=this.setval(JSON.stringify(e),i)}catch(e){const o={};this.lodash_set(o,r,t),s=this.setval(JSON.stringify(o),i)}}else s=this.setval(t,e);return s}getval(t){return this.isSurge()||this.isLoon()?$persistentStore.read(t):this.isQuanX()?$prefs.valueForKey(t):this.isNode()?(this.data=this.loaddata(),this.data[t]):this.data&&this.data[t]||null}setval(t,e){return this.isSurge()||this.isLoon()?$persistentStore.write(t,e):this.isQuanX()?$prefs.setValueForKey(t,e):this.isNode()?(this.data=this.loaddata(),this.data[e]=t,this.writedata(),!0):this.data&&this.data[e]||null}initGotEnv(t){this.got=this.got?this.got:require("got"),this.cktough=this.cktough?this.cktough:require("tough-cookie"),this.ckjar=this.ckjar?this.ckjar:new this.cktough.CookieJar,t&&(t.headers=t.headers?t.headers:{},void 0===t.headers.Cookie&&void 0===t.cookieJar&&(t.cookieJar=this.ckjar))}get(t,e=(()=>{})){t.headers&&(delete t.headers["Content-Type"],delete t.headers["Content-Length"]),this.isSurge()||this.isLoon()?(this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.get(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)})):this.isQuanX()?(this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t))):this.isNode()&&(this.initGotEnv(t),this.got(t).on("redirect",(t,e)=>{try{if(t.headers["set-cookie"]){const s=t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();s&&this.ckjar.setCookieSync(s,null),e.cookieJar=this.ckjar}}catch(t){this.logErr(t)}}).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)}))}post(t,e=(()=>{})){if(t.body&&t.headers&&!t.headers["Content-Type"]&&(t.headers["Content-Type"]="application/x-www-form-urlencoded"),t.headers&&delete t.headers["Content-Length"],this.isSurge()||this.isLoon())this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.post(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)});else if(this.isQuanX())t.method="POST",this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t));else if(this.isNode()){this.initGotEnv(t);const{url:s,...i}=t;this.got.post(s,i).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)})}}time(t,e=null){const s=e?new Date(e):new Date;let i={"M+":s.getMonth()+1,"d+":s.getDate(),"H+":s.getHours(),"m+":s.getMinutes(),"s+":s.getSeconds(),"q+":Math.floor((s.getMonth()+3)/3),S:s.getMilliseconds()};/(y+)/.test(t)&&(t=t.replace(RegExp.$1,(s.getFullYear()+"").substr(4-RegExp.$1.length)));for(let e in i)new RegExp("("+e+")").test(t)&&(t=t.replace(RegExp.$1,1==RegExp.$1.length?i[e]:("00"+i[e]).substr((""+i[e]).length)));return t}msg(e=t,s="",i="",r){const o=t=>{if(!t)return t;if("string"==typeof t)return this.isLoon()?t:this.isQuanX()?{"open-url":t}:this.isSurge()?{url:t}:void 0;if("object"==typeof t){if(this.isLoon()){let e=t.openUrl||t.url||t["open-url"],s=t.mediaUrl||t["media-url"];return{openUrl:e,mediaUrl:s}}if(this.isQuanX()){let e=t["open-url"]||t.url||t.openUrl,s=t["media-url"]||t.mediaUrl;return{"open-url":e,"media-url":s}}if(this.isSurge()){let e=t.url||t.openUrl||t["open-url"];return{url:e}}}};if(this.isMute||(this.isSurge()||this.isLoon()?$notification.post(e,s,i,o(r)):this.isQuanX()&&$notify(e,s,i,o(r))),!this.isMuteLog){let t=["","==============ğŸ“£ç³»ç»Ÿé€šçŸ¥ğŸ“£=============="];t.push(e),s&&t.push(s),i&&t.push(i),console.log(t.join("\n")),this.logs=this.logs.concat(t)}}log(...t){t.length>0&&(this.logs=[...this.logs,...t]),console.log(t.join(this.logSeparator))}logErr(t,e){const s=!this.isSurge()&&!this.isQuanX()&&!this.isLoon();s?this.log("",`â—ï¸${this.name}, é”™è¯¯!`,t.stack):this.log("",`â—ï¸${this.name}, é”™è¯¯!`,t)}wait(t){return new Promise(e=>setTimeout(e,t))}done(t={}){const e=(new Date).getTime(),s=(e-this.startTime)/1e3;this.log("",`ğŸ””${this.name}, ç»“æŸ! ğŸ•› ${s} ç§’`),this.log(),(this.isSurge()||this.isQuanX()||this.isLoon())&&$done(t)}}(t,e)}
+function Env(t,e){"undefined"!=typeof process&&JSON.stringify(process.env).indexOf("GIT_HUB")>-1&&process.exit(0);class s{constructor(t){this.env=t}send(t,e="GET"){t="string"==typeof t?{url:t}:t;let s=this.get;return"POST"===e&&(s=this.post),new Promise((e,i)=>{s.call(this,t,(t,s,r)=>{t?i(t):e(s)})})}get(t){return this.send.call(this.env,t)}post(t){return this.send.call(this.env,t,"POST")}}return new class{constructor(t,e){this.name=t,this.http=new s(this),this.data=null,this.dataFile="box.dat",this.logs=[],this.isMute=!1,this.isNeedRewrite=!1,this.logSeparator="\n",this.startTime=(new Date).getTime(),Object.assign(this,e),this.log("",`?${this.name}, ¿ªÊ¼!`)}isNode(){return"undefined"!=typeof module&&!!module.exports}isQuanX(){return"undefined"!=typeof $task}isSurge(){return"undefined"!=typeof $httpClient&&"undefined"==typeof $loon}isLoon(){return"undefined"!=typeof $loon}toObj(t,e=null){try{return JSON.parse(t)}catch{return e}}toStr(t,e=null){try{return JSON.stringify(t)}catch{return e}}getjson(t,e){let s=e;const i=this.getdata(t);if(i)try{s=JSON.parse(this.getdata(t))}catch{}return s}setjson(t,e){try{return this.setdata(JSON.stringify(t),e)}catch{return!1}}getScript(t){return new Promise(e=>{this.get({url:t},(t,s,i)=>e(i))})}runScript(t,e){return new Promise(s=>{let i=this.getdata("@chavy_boxjs_userCfgs.httpapi");i=i?i.replace(/\n/g,"").trim():i;let r=this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");r=r?1*r:20,r=e&&e.timeout?e.timeout:r;const[o,h]=i.split("@"),n={url:`http://${h}/v1/scripting/evaluate`,body:{script_text:t,mock_type:"cron",timeout:r},headers:{"X-Key":o,Accept:"*/*"}};this.post(n,(t,e,i)=>s(i))}).catch(t=>this.logErr(t))}loaddata(){if(!this.isNode())return{};{this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e);if(!s&&!i)return{};{const i=s?t:e;try{return JSON.parse(this.fs.readFileSync(i))}catch(t){return{}}}}}writedata(){if(this.isNode()){this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e),r=JSON.stringify(this.data);s?this.fs.writeFileSync(t,r):i?this.fs.writeFileSync(e,r):this.fs.writeFileSync(t,r)}}lodash_get(t,e,s){const i=e.replace(/\[(\d+)\]/g,".$1").split(".");let r=t;for(const t of i)if(r=Object(r)[t],void 0===r)return s;return r}lodash_set(t,e,s){return Object(t)!==t?t:(Array.isArray(e)||(e=e.toString().match(/[^.[\]]+/g)||[]),e.slice(0,-1).reduce((t,s,i)=>Object(t[s])===t[s]?t[s]:t[s]=Math.abs(e[i+1])>>0==+e[i+1]?[]:{},t)[e[e.length-1]]=s,t)}getdata(t){let e=this.getval(t);if(/^@/.test(t)){const[,s,i]=/^@(.*?)\.(.*?)$/.exec(t),r=s?this.getval(s):"";if(r)try{const t=JSON.parse(r);e=t?this.lodash_get(t,i,""):e}catch(t){e=""}}return e}setdata(t,e){let s=!1;if(/^@/.test(e)){const[,i,r]=/^@(.*?)\.(.*?)$/.exec(e),o=this.getval(i),h=i?"null"===o?null:o||"{}":"{}";try{const e=JSON.parse(h);this.lodash_set(e,r,t),s=this.setval(JSON.stringify(e),i)}catch(e){const o={};this.lodash_set(o,r,t),s=this.setval(JSON.stringify(o),i)}}else s=this.setval(t,e);return s}getval(t){return this.isSurge()||this.isLoon()?$persistentStore.read(t):this.isQuanX()?$prefs.valueForKey(t):this.isNode()?(this.data=this.loaddata(),this.data[t]):this.data&&this.data[t]||null}setval(t,e){return this.isSurge()||this.isLoon()?$persistentStore.write(t,e):this.isQuanX()?$prefs.setValueForKey(t,e):this.isNode()?(this.data=this.loaddata(),this.data[e]=t,this.writedata(),!0):this.data&&this.data[e]||null}initGotEnv(t){this.got=this.got?this.got:require("got"),this.cktough=this.cktough?this.cktough:require("tough-cookie"),this.ckjar=this.ckjar?this.ckjar:new this.cktough.CookieJar,t&&(t.headers=t.headers?t.headers:{},void 0===t.headers.Cookie&&void 0===t.cookieJar&&(t.cookieJar=this.ckjar))}get(t,e=(()=>{})){t.headers&&(delete t.headers["Content-Type"],delete t.headers["Content-Length"]),this.isSurge()||this.isLoon()?(this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.get(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)})):this.isQuanX()?(this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t))):this.isNode()&&(this.initGotEnv(t),this.got(t).on("redirect",(t,e)=>{try{if(t.headers["set-cookie"]){const s=t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();s&&this.ckjar.setCookieSync(s,null),e.cookieJar=this.ckjar}}catch(t){this.logErr(t)}}).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)}))}post(t,e=(()=>{})){if(t.body&&t.headers&&!t.headers["Content-Type"]&&(t.headers["Content-Type"]="application/x-www-form-urlencoded"),t.headers&&delete t.headers["Content-Length"],this.isSurge()||this.isLoon())this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.post(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)});else if(this.isQuanX())t.method="POST",this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t));else if(this.isNode()){this.initGotEnv(t);const{url:s,...i}=t;this.got.post(s,i).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)})}}time(t,e=null){const s=e?new Date(e):new Date;let i={"M+":s.getMonth()+1,"d+":s.getDate(),"H+":s.getHours(),"m+":s.getMinutes(),"s+":s.getSeconds(),"q+":Math.floor((s.getMonth()+3)/3),S:s.getMilliseconds()};/(y+)/.test(t)&&(t=t.replace(RegExp.$1,(s.getFullYear()+"").substr(4-RegExp.$1.length)));for(let e in i)new RegExp("("+e+")").test(t)&&(t=t.replace(RegExp.$1,1==RegExp.$1.length?i[e]:("00"+i[e]).substr((""+i[e]).length)));return t}msg(e=t,s="",i="",r){const o=t=>{if(!t)return t;if("string"==typeof t)return this.isLoon()?t:this.isQuanX()?{"open-url":t}:this.isSurge()?{url:t}:void 0;if("object"==typeof t){if(this.isLoon()){let e=t.openUrl||t.url||t["open-url"],s=t.mediaUrl||t["media-url"];return{openUrl:e,mediaUrl:s}}if(this.isQuanX()){let e=t["open-url"]||t.url||t.openUrl,s=t["media-url"]||t.mediaUrl;return{"open-url":e,"media-url":s}}if(this.isSurge()){let e=t.url||t.openUrl||t["open-url"];return{url:e}}}};if(this.isMute||(this.isSurge()||this.isLoon()?$notification.post(e,s,i,o(r)):this.isQuanX()&&$notify(e,s,i,o(r))),!this.isMuteLog){let t=["","==============?ÏµÍ³Í¨Öª?=============="];t.push(e),s&&t.push(s),i&&t.push(i),console.log(t.join("\n")),this.logs=this.logs.concat(t)}}log(...t){t.length>0&&(this.logs=[...this.logs,...t]),console.log(t.join(this.logSeparator))}logErr(t,e){const s=!this.isSurge()&&!this.isQuanX()&&!this.isLoon();s?this.log("",`??${this.name}, ´íÎó!`,t.stack):this.log("",`??${this.name}, ´íÎó!`,t)}wait(t){return new Promise(e=>setTimeout(e,t))}done(t={}){const e=(new Date).getTime(),s=(e-this.startTime)/1e3;this.log("",`?${this.name}, ½áÊø! ? ${s} Ãë`),this.log(),(this.isSurge()||this.isQuanX()||this.isLoon())&&$done(t)}}(t,e)}

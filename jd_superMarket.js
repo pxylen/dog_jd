@@ -5,75 +5,75 @@
  * @Last Modified time: 2021-1-29 21:22:37
  */
 /*
-ä¸œä¸œè¶…å¸‚
-æ´»åŠ¨å…¥å£ï¼šäº¬ä¸œAPPé¦–é¡µ-äº¬ä¸œè¶…å¸‚-åº•éƒ¨ä¸œä¸œè¶…å¸‚
+¶«¶«³¬ÊĞ
+»î¶¯Èë¿Ú£º¾©¶«APPÊ×Ò³-¾©¶«³¬ÊĞ-µ×²¿¶«¶«³¬ÊĞ
 Some Functions Modified From https://github.com/Zero-S1/JD_tools/blob/master/JD_superMarket.py
-æ”¯æŒäº¬ä¸œåŒè´¦å·
-ä¸œä¸œè¶…å¸‚å…‘æ¢å¥–å“è¯·ä½¿ç”¨æ­¤è„šæœ¬ https://jdsharedresourcescdn.azureedge.net/jdresource/jd_blueCoin.js
-è„šæœ¬å…¼å®¹: QuantumultX, Surge, Loon, JSBox, Node.js
+Ö§³Ö¾©¶«Ë«ÕËºÅ
+¶«¶«³¬ÊĞ¶Ò»»½±Æ·ÇëÊ¹ÓÃ´Ë½Å±¾ https://jdsharedresourcescdn.azureedge.net/jdresource/jd_blueCoin.js
+½Å±¾¼æÈİ: QuantumultX, Surge, Loon, JSBox, Node.js
 =================QuantumultX==============
 [task_local]
-#ä¸œä¸œè¶…å¸‚
-11 * * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_superMarket.js, tag=ä¸œä¸œè¶…å¸‚, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jxc.png, enabled=true
+#¶«¶«³¬ÊĞ
+11 * * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_superMarket.js, tag=¶«¶«³¬ÊĞ, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jxc.png, enabled=true
 ===========Loon===============
 [Script]
-cron "11 * * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_superMarket.js,tag=ä¸œä¸œè¶…å¸‚
+cron "11 * * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_superMarket.js,tag=¶«¶«³¬ÊĞ
 =======Surge===========
-ä¸œä¸œè¶…å¸‚ = type=cron,cronexp="11 * * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_superMarket.js
-==============å°ç«ç®­=============
-ä¸œä¸œè¶…å¸‚ = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_superMarket.js, cronexpr="11 * * * *", timeout=3600, enable=true
+¶«¶«³¬ÊĞ = type=cron,cronexp="11 * * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_superMarket.js
+==============Ğ¡»ğ¼ı=============
+¶«¶«³¬ÊĞ = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_superMarket.js, cronexpr="11 * * * *", timeout=3600, enable=true
  */
-const $ = new Env('ä¸œä¸œè¶…å¸‚');
-//Node.jsç”¨æˆ·è¯·åœ¨jdCookie.jså¤„å¡«å†™äº¬ä¸œck;
-//IOSç­‰ç”¨æˆ·ç›´æ¥ç”¨NobyDaçš„jd cookie
+const $ = new Env('¶«¶«³¬ÊĞ');
+//Node.jsÓÃ»§ÇëÔÚjdCookie.js´¦ÌîĞ´¾©¶«ck;
+//IOSµÈÓÃ»§Ö±½ÓÓÃNobyDaµÄjd cookie
 let cookiesArr = [], cookie = '', jdSuperMarketShareArr = [], notify, newShareCodes;
 
-let jdNotify = true;//ç”¨æ¥æ˜¯å¦å…³é—­å¼¹çª—é€šçŸ¥ï¼Œtrueè¡¨ç¤ºå…³é—­ï¼Œfalseè¡¨ç¤ºå¼€å¯ã€‚
-let superMarketUpgrade = true;//è‡ªåŠ¨å‡çº§,é¡ºåº:è§£é”å‡çº§å•†å“ã€å‡çº§è´§æ¶,trueè¡¨ç¤ºè‡ªåŠ¨å‡çº§,falseè¡¨ç¤ºå…³é—­è‡ªåŠ¨å‡çº§
-let businessCircleJump = true;//å°äºå¯¹æ–¹300çƒ­åŠ›å€¼è‡ªåŠ¨æ›´æ¢å•†åœˆé˜Ÿä¼,trueè¡¨ç¤ºè¿è¡Œ,falseè¡¨ç¤ºç¦æ­¢
-let drawLotteryFlag = false;//æ˜¯å¦ç”¨500è“å¸å»æŠ½å¥–ï¼Œtrueè¡¨ç¤ºå¼€å¯ï¼Œfalseè¡¨ç¤ºå…³é—­ã€‚é»˜è®¤å…³é—­
-let joinPkTeam = true;//æ˜¯å¦è‡ªåŠ¨åŠ å…¥PKé˜Ÿä¼
+let jdNotify = true;//ÓÃÀ´ÊÇ·ñ¹Ø±Õµ¯´°Í¨Öª£¬true±íÊ¾¹Ø±Õ£¬false±íÊ¾¿ªÆô¡£
+let superMarketUpgrade = true;//×Ô¶¯Éı¼¶,Ë³Ğò:½âËøÉı¼¶ÉÌÆ·¡¢Éı¼¶»õ¼Ü,true±íÊ¾×Ô¶¯Éı¼¶,false±íÊ¾¹Ø±Õ×Ô¶¯Éı¼¶
+let businessCircleJump = true;//Ğ¡ÓÚ¶Ô·½300ÈÈÁ¦Öµ×Ô¶¯¸ü»»ÉÌÈ¦¶ÓÎé,true±íÊ¾ÔËĞĞ,false±íÊ¾½ûÖ¹
+let drawLotteryFlag = false;//ÊÇ·ñÓÃ500À¶±ÒÈ¥³é½±£¬true±íÊ¾¿ªÆô£¬false±íÊ¾¹Ø±Õ¡£Ä¬ÈÏ¹Ø±Õ
+let joinPkTeam = true;//ÊÇ·ñ×Ô¶¯¼ÓÈëPK¶ÓÎé
 let message = '', subTitle;
 const JD_API_HOST = 'https://api.m.jd.com/api';
 
-//åŠ©åŠ›å¥½å‹åˆ†äº«ç 
-//æ­¤æ­¤å†…å®¹æ˜¯IOSç”¨æˆ·ä¸‹è½½è„šæœ¬åˆ°æœ¬åœ°ä½¿ç”¨ï¼Œå¡«å†™äº’åŠ©ç çš„åœ°æ–¹ï¼ŒåŒä¸€äº¬ä¸œè´¦å·çš„å¥½å‹äº’åŠ©ç è¯·ä½¿ç”¨@ç¬¦å·éš”å¼€ã€‚
-//ä¸‹é¢ç»™å‡ºä¸¤ä¸ªè´¦å·çš„å¡«å†™ç¤ºä¾‹ï¼ˆiOSåªæ”¯æŒ2ä¸ªäº¬ä¸œè´¦å·ï¼‰
-let shareCodes = [ // IOSæœ¬åœ°è„šæœ¬ç”¨æˆ·è¿™ä¸ªåˆ—è¡¨å¡«å…¥ä½ è¦åŠ©åŠ›çš„å¥½å‹çš„shareCode
-  //è´¦å·ä¸€çš„å¥½å‹shareCode,ä¸åŒå¥½å‹çš„shareCodeä¸­é—´ç”¨@ç¬¦å·éš”å¼€
+//ÖúÁ¦ºÃÓÑ·ÖÏíÂë
+//´Ë´ËÄÚÈİÊÇIOSÓÃ»§ÏÂÔØ½Å±¾µ½±¾µØÊ¹ÓÃ£¬ÌîĞ´»¥ÖúÂëµÄµØ·½£¬Í¬Ò»¾©¶«ÕËºÅµÄºÃÓÑ»¥ÖúÂëÇëÊ¹ÓÃ@·ûºÅ¸ô¿ª¡£
+//ÏÂÃæ¸ø³öÁ½¸öÕËºÅµÄÌîĞ´Ê¾Àı£¨iOSÖ»Ö§³Ö2¸ö¾©¶«ÕËºÅ£©
+let shareCodes = [ // IOS±¾µØ½Å±¾ÓÃ»§Õâ¸öÁĞ±íÌîÈëÄãÒªÖúÁ¦µÄºÃÓÑµÄshareCode
+  //ÕËºÅÒ»µÄºÃÓÑshareCode,²»Í¬ºÃÓÑµÄshareCodeÖĞ¼äÓÃ@·ûºÅ¸ô¿ª
   '-4msulYas0O2JsRhE-2TA5XZmBQ@eU9Yar_mb_9z92_WmXNG0w@eU9YaejjYv4g8T2EwnsVhQ',
-  //è´¦å·äºŒçš„å¥½å‹shareCode,ä¸åŒå¥½å‹çš„shareCodeä¸­é—´ç”¨@ç¬¦å·éš”å¼€
+  //ÕËºÅ¶şµÄºÃÓÑshareCode,²»Í¬ºÃÓÑµÄshareCodeÖĞ¼äÓÃ@·ûºÅ¸ô¿ª
   'aURoM7PtY_Q@eU9Ya-y2N_5z9DvXwyIV0A@eU9YaOnjYK4j-GvWmXIWhA',
 ]
 
 !(async () => {
   await requireConfig();
   if (!cookiesArr[0]) {
-    $.msg($.name, 'ã€æç¤ºã€‘è¯·å…ˆè·å–äº¬ä¸œè´¦å·ä¸€cookie\nç›´æ¥ä½¿ç”¨NobyDaçš„äº¬ä¸œç­¾åˆ°è·å–', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+    $.msg($.name, '¡¾ÌáÊ¾¡¿ÇëÏÈ»ñÈ¡¾©¶«ÕËºÅÒ»cookie\nÖ±½ÓÊ¹ÓÃNobyDaµÄ¾©¶«Ç©µ½»ñÈ¡', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
   }
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
       cookie = cookiesArr[i];
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=(.+?);/) && cookie.match(/pt_pin=(.+?);/)[1])
       $.index = i + 1;
-      $.coincount = 0;//æ”¶å–äº†å¤šå°‘ä¸ªè“å¸
+      $.coincount = 0;//ÊÕÈ¡ÁË¶àÉÙ¸öÀ¶±Ò
       $.coinerr = "";
       $.blueCionTimes = 0;
       $.isLogin = true;
       $.nickName = '';
       await TotalBean();
-      console.log(`\nå¼€å§‹ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName || $.UserName}\n`);
+      console.log(`\n¿ªÊ¼¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName || $.UserName}\n`);
       if (!$.isLogin) {
-        $.msg($.name, `ã€æç¤ºã€‘cookieå·²å¤±æ•ˆ`, `äº¬ä¸œè´¦å·${$.index} ${$.nickName || $.UserName}\nè¯·é‡æ–°ç™»å½•è·å–\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+        $.msg($.name, `¡¾ÌáÊ¾¡¿cookieÒÑÊ§Ğ§`, `¾©¶«ÕËºÅ${$.index} ${$.nickName || $.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
 
         if ($.isNode()) {
-          await notify.sendNotify(`${$.name}cookieå·²å¤±æ•ˆ - ${$.UserName}`, `äº¬ä¸œè´¦å·${$.index} ${$.UserName}\nè¯·é‡æ–°ç™»å½•è·å–cookie`);
+          await notify.sendNotify(`${$.name}cookieÒÑÊ§Ğ§ - ${$.UserName}`, `¾©¶«ÕËºÅ${$.index} ${$.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡cookie`);
         }
         continue
       }
       message = '';
       subTitle = '';
-      //await shareCodesFormat();//æ ¼å¼åŒ–åŠ©åŠ›ç 
+      //await shareCodesFormat();//¸ñÊ½»¯ÖúÁ¦Âë
       await jdSuperMarket();
       await showMsg();
       // await businessCircleActivity();
@@ -81,24 +81,24 @@ let shareCodes = [ // IOSæœ¬åœ°è„šæœ¬ç”¨æˆ·è¿™ä¸ªåˆ—è¡¨å¡«å…¥ä½ è¦åŠ©åŠ›çš„å¥½å
   }
 })()
     .catch((e) => {
-      $.log('', `âŒ ${$.name}, å¤±è´¥! åŸå› : ${e}!`, '')
+      $.log('', `? ${$.name}, Ê§°Ü! Ô­Òò: ${e}!`, '')
     })
     .finally(() => {
       $.done();
     })
 async function jdSuperMarket() {
-  await receiveGoldCoin();//æ”¶é‡‘å¸
-  await businessCircleActivity();//å•†åœˆæ´»åŠ¨
-  await receiveBlueCoin();//æ”¶è“å¸ï¼ˆå°è´¹ï¼‰
-  // await receiveLimitProductBlueCoin();//æ”¶é™æ—¶å•†å“çš„è“å¸
-  await daySign();//æ¯æ—¥ç­¾åˆ°
+  await receiveGoldCoin();//ÊÕ½ğ±Ò
+  await businessCircleActivity();//ÉÌÈ¦»î¶¯
+  await receiveBlueCoin();//ÊÕÀ¶±Ò£¨Ğ¡·Ñ£©
+  // await receiveLimitProductBlueCoin();//ÊÕÏŞÊ±ÉÌÆ·µÄÀ¶±Ò
+  await daySign();//Ã¿ÈÕÇ©µ½
   await BeanSign()//
-  await doDailyTask();//åšæ—¥å¸¸ä»»åŠ¡ï¼Œåˆ†äº«ï¼Œå…³æ³¨åº—é“ºï¼Œ
-  // await help();//å•†åœˆåŠ©åŠ›
-  //await smtgQueryPkTask();//åšå•†å“PKä»»åŠ¡
-  await drawLottery();//æŠ½å¥–åŠŸèƒ½(æ‹›è´¢è¿›å®)
-  // await myProductList();//è´§æ¶
-  // await upgrade();//å‡çº§è´§æ¶å’Œå•†å“
+  await doDailyTask();//×öÈÕ³£ÈÎÎñ£¬·ÖÏí£¬¹Ø×¢µêÆÌ£¬
+  // await help();//ÉÌÈ¦ÖúÁ¦
+  //await smtgQueryPkTask();//×öÉÌÆ·PKÈÎÎñ
+  await drawLottery();//³é½±¹¦ÄÜ(ÕĞ²Æ½ø±¦)
+  // await myProductList();//»õ¼Ü
+  // await upgrade();//Éı¼¶»õ¼ÜºÍÉÌÆ·
   // await manageProduct();
   // await limitTimeProduct();
   await smtg_shopIndex();
@@ -107,15 +107,15 @@ async function jdSuperMarket() {
   await Home();
 }
 function showMsg() {
-  $.log(`ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName}\n${message}`);
+  $.log(`¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName}\n${message}`);
   jdNotify = $.getdata('jdSuperMarketNotify') ? $.getdata('jdSuperMarketNotify') : jdNotify;
   if (!jdNotify || jdNotify === 'false') {
-    $.msg($.name, subTitle ,`ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName}\n${message}`);
+    $.msg($.name, subTitle ,`¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName}\n${message}`);
   }
 }
-//æŠ½å¥–åŠŸèƒ½(æ‹›è´¢è¿›å®)
+//³é½±¹¦ÄÜ(ÕĞ²Æ½ø±¦)
 async function drawLottery() {
-  console.log(`\næ³¨æ„âš :ä¸œä¸œè¶…å¸‚æŠ½å¥–å·²æ”¹ç‰ˆ,èŠ±è´¹500è“å¸æŠ½å¥–ä¸€æ¬¡,ç°åœ¨è„šæœ¬é»˜è®¤å·²å…³é—­æŠ½å¥–åŠŸèƒ½\n`);
+  console.log(`\n×¢Òâ?:¶«¶«³¬ÊĞ³é½±ÒÑ¸Ä°æ,»¨·Ñ500À¶±Ò³é½±Ò»´Î,ÏÖÔÚ½Å±¾Ä¬ÈÏÒÑ¹Ø±Õ³é½±¹¦ÄÜ\n`);
   drawLotteryFlag = $.getdata('jdSuperMarketLottery') ? $.getdata('jdSuperMarketLottery') : drawLotteryFlag;
   if ($.isNode() && process.env.SUPERMARKET_LOTTERY) {
     drawLotteryFlag = process.env.SUPERMARKET_LOTTERY;
@@ -126,80 +126,80 @@ async function drawLottery() {
       const { result } = smtg_lotteryIndexRes.data
       if (result.blueCoins > result.costCoins && result.remainedDrawTimes > 0) {
         const drawLotteryRes = await smtg_drawLottery();
-        console.log(`\nèŠ±è´¹${result.costCoins}è“å¸æŠ½å¥–ç»“æœ${JSON.stringify(drawLotteryRes)}`);
+        console.log(`\n»¨·Ñ${result.costCoins}À¶±Ò³é½±½á¹û${JSON.stringify(drawLotteryRes)}`);
         await drawLottery();
       } else {
-        console.log(`\næŠ½å¥–å¤±è´¥:å·²æŠ½å¥–æˆ–è€…è“å¸ä¸è¶³`);
-        console.log(`å¤±è´¥è¯¦æƒ…ï¼š\nç°æœ‰è“å¸:${result.blueCoins},æŠ½å¥–æ¬¡æ•°:${result.remainedDrawTimes}`)
+        console.log(`\n³é½±Ê§°Ü:ÒÑ³é½±»òÕßÀ¶±Ò²»×ã`);
+        console.log(`Ê§°ÜÏêÇé£º\nÏÖÓĞÀ¶±Ò:${result.blueCoins},³é½±´ÎÊı:${result.remainedDrawTimes}`)
       }
     }
   } else {
-    console.log(`è®¾ç½®çš„ä¸ºä¸æŠ½å¥–\n`)
+    console.log(`ÉèÖÃµÄÎª²»³é½±\n`)
   }
 }
 async function help() {
   return
-  console.log(`\nå¼€å§‹åŠ©åŠ›å¥½å‹`);
+  console.log(`\n¿ªÊ¼ÖúÁ¦ºÃÓÑ`);
   for (let code of newShareCodes) {
     if (!code) continue;
     const res = await smtgDoAssistPkTask(code);
-    console.log(`åŠ©åŠ›å¥½å‹${JSON.stringify(res)}`);
+    console.log(`ÖúÁ¦ºÃÓÑ${JSON.stringify(res)}`);
   }
 }
 async function doDailyTask() {
   const smtgQueryShopTaskRes = await smtgQueryShopTask();
   if (smtgQueryShopTaskRes.code === 0 && smtgQueryShopTaskRes.data.success) {
     const taskList = smtgQueryShopTaskRes.data.result.taskList;
-    console.log(`\næ—¥å¸¸èµšé’±ä»»åŠ¡       å®ŒæˆçŠ¶æ€`)
+    console.log(`\nÈÕ³£×¬Ç®ÈÎÎñ       Íê³É×´Ì¬`)
     for (let item of taskList) {
-      console.log(` ${item['title'].length < 4 ? item['title']+`\xa0` : item['title'].slice(-4)}         ${item['finishNum'] === item['targetNum'] ? 'å·²å®Œæˆ':'æœªå®Œæˆ'} ${item['finishNum']}/${item['targetNum']}`)
+      console.log(` ${item['title'].length < 4 ? item['title']+`\xa0` : item['title'].slice(-4)}         ${item['finishNum'] === item['targetNum'] ? 'ÒÑÍê³É':'Î´Íê³É'} ${item['finishNum']}/${item['targetNum']}`)
     }
     for (let item of taskList) {
-      //é¢†å¥–
+      //Áì½±
       if (item.taskStatus === 1 && item.prizeStatus === 1) {
         const res = await smtgObtainShopTaskPrize(item.taskId);
-        console.log(`\né¢†å–åšå®Œä»»åŠ¡çš„å¥–åŠ±${JSON.stringify(res)}\n`)
+        console.log(`\nÁìÈ¡×öÍêÈÎÎñµÄ½±Àø${JSON.stringify(res)}\n`)
       }
-      //åšä»»åŠ¡
+      //×öÈÎÎñ
       if ((item.type === 1 || item.type === 11) && item.taskStatus === 0) {
-        // åˆ†äº«ä»»åŠ¡
+        // ·ÖÏíÈÎÎñ
         const res = await smtgDoShopTask(item.taskId);
-        console.log(`${item.subTitle}ç»“æœ${JSON.stringify(res)}`)
+        console.log(`${item.subTitle}½á¹û${JSON.stringify(res)}`)
       }
       if (item.type === 2) {
-        //é€›ä¼šåœº
+        //¹ä»á³¡
         if (item.taskStatus === 0) {
-          console.log('å¼€å§‹é€›ä¼šåœº')
+          console.log('¿ªÊ¼¹ä»á³¡')
           const itemId = item.content[item.type].itemId;
           const res = await smtgDoShopTask(item.taskId, itemId);
-          console.log(`${item.subTitle}ç»“æœ${JSON.stringify(res)}`);
+          console.log(`${item.subTitle}½á¹û${JSON.stringify(res)}`);
         }
       }
       if (item.type === 8) {
-        //å…³æ³¨åº—é“º
+        //¹Ø×¢µêÆÌ
         if (item.taskStatus === 0) {
-          console.log('å¼€å§‹å…³æ³¨åº—é“º')
+          console.log('¿ªÊ¼¹Ø×¢µêÆÌ')
           const itemId = item.content[item.type].itemId;
           const res = await smtgDoShopTask(item.taskId, itemId);
-          console.log(`${item.subTitle}ç»“æœ${JSON.stringify(res)}`);
+          console.log(`${item.subTitle}½á¹û${JSON.stringify(res)}`);
         }
       }
       if (item.type === 9) {
-        //å¼€å¡é¢†è“å¸ä»»åŠ¡
+        //¿ª¿¨ÁìÀ¶±ÒÈÎÎñ
         if (item.taskStatus === 0) {
-          console.log('å¼€å§‹å¼€å¡é¢†è“å¸ä»»åŠ¡')
+          console.log('¿ªÊ¼¿ª¿¨ÁìÀ¶±ÒÈÎÎñ')
           const itemId = item.content[item.type].itemId;
           const res = await smtgDoShopTask(item.taskId, itemId);
-          console.log(`${item.subTitle}ç»“æœ${JSON.stringify(res)}`);
+          console.log(`${item.subTitle}½á¹û${JSON.stringify(res)}`);
         }
       }
       if (item.type === 10) {
-        //å…³æ³¨å•†å“é¢†è“å¸
+        //¹Ø×¢ÉÌÆ·ÁìÀ¶±Ò
         if (item.taskStatus === 0) {
-          console.log('å…³æ³¨å•†å“')
+          console.log('¹Ø×¢ÉÌÆ·')
           const itemId = item.content[item.type].itemId;
           const res = await smtgDoShopTask(item.taskId, itemId);
-          console.log(`${item.subTitle}ç»“æœ${JSON.stringify(res)}`);
+          console.log(`${item.subTitle}½á¹û${JSON.stringify(res)}`);
         }
       }
       if ((item.type === 8 || item.type === 2 || item.type === 10) && item.taskStatus === 0) {
@@ -212,45 +212,45 @@ async function doDailyTask() {
 async function receiveGoldCoin() {
   $.goldCoinData = await smtgReceiveCoin({ "type": 0 });
   if ($.goldCoinData.data.bizCode === 0) {
-    console.log(`é¢†å–é‡‘å¸æˆåŠŸ${$.goldCoinData.data.result.receivedGold}`)
-    message += `ã€é¢†å–é‡‘å¸ã€‘${$.goldCoinData.data.result.receivedGold}ä¸ª\n`;
+    console.log(`ÁìÈ¡½ğ±Ò³É¹¦${$.goldCoinData.data.result.receivedGold}`)
+    message += `¡¾ÁìÈ¡½ğ±Ò¡¿${$.goldCoinData.data.result.receivedGold}¸ö\n`;
   } else {
     console.log(`${$.goldCoinData.data.bizMsg}`);
   }
 }
 
-//é¢†é™æ—¶å•†å“çš„è“å¸
+//ÁìÏŞÊ±ÉÌÆ·µÄÀ¶±Ò
 async function receiveLimitProductBlueCoin() {
   const res = await smtgReceiveCoin({ "type": 1 });
-  console.log(`\né™æ—¶å•†å“é¢†è“å¸ç»“æœï¼š[${res.data.bizMsg}]\n`);
+  console.log(`\nÏŞÊ±ÉÌÆ·ÁìÀ¶±Ò½á¹û£º[${res.data.bizMsg}]\n`);
   if (res.data.bizCode === 0) {
-    message += `ã€é™æ—¶å•†å“ã€‘è·å¾—${res.data.result.receivedBlue}ä¸ªè“å¸\n`;
+    message += `¡¾ÏŞÊ±ÉÌÆ·¡¿»ñµÃ${res.data.result.receivedBlue}¸öÀ¶±Ò\n`;
   }
 }
-//é¢†è“å¸
+//ÁìÀ¶±Ò
 function receiveBlueCoin(timeout = 0) {
   return new Promise((resolve) => {
     setTimeout( ()=>{
       $.get(taskUrl('smtg_receiveCoin', {"type": 2, "channel": "18"}), async (err, resp, data) => {
         try {
           if (err) {
-            console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+            console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
             console.log(JSON.stringify(err));
           } else {
             data = JSON.parse(data);
             $.data = data;
             if ($.data.data.bizCode !== 0 && $.data.data.bizCode !== 809) {
               $.coinerr = `${$.data.data.bizMsg}`;
-              message += `ã€æ”¶å–å°è´¹ã€‘${$.data.data.bizMsg}\n`;
-              console.log(`æ”¶å–è“å¸å¤±è´¥ï¼š${$.data.data.bizMsg}`)
+              message += `¡¾ÊÕÈ¡Ğ¡·Ñ¡¿${$.data.data.bizMsg}\n`;
+              console.log(`ÊÕÈ¡À¶±ÒÊ§°Ü£º${$.data.data.bizMsg}`)
               return
             }
             if  ($.data.data.bizCode === 0) {
               $.coincount += $.data.data.result.receivedBlue;
               $.blueCionTimes ++;
-              console.log(`ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName} ç¬¬${$.blueCionTimes}æ¬¡é¢†è“å¸æˆåŠŸï¼Œè·å¾—${$.data.data.result.receivedBlue}ä¸ª\n`)
+              console.log(`¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName} µÚ${$.blueCionTimes}´ÎÁìÀ¶±Ò³É¹¦£¬»ñµÃ${$.data.data.result.receivedBlue}¸ö\n`)
               if (!$.data.data.result.isNextReceived) {
-                message += `ã€æ”¶å–å°è´¹ã€‘${$.coincount}ä¸ª\n`;
+                message += `¡¾ÊÕÈ¡Ğ¡·Ñ¡¿${$.coincount}¸ö\n`;
                 return
               }
             }
@@ -274,25 +274,25 @@ async function daySign() {
       $.todayDay = signList.data.result.todayDay;
     }
     if (signDataRes.code === 0 && signDataRes.data.success) {
-      message += `ã€ç¬¬${$.todayDay}æ—¥ç­¾åˆ°ã€‘æˆåŠŸï¼Œå¥–åŠ±${signDataRes.data.result.rewardBlue}è“å¸\n`
+      message += `¡¾µÚ${$.todayDay}ÈÕÇ©µ½¡¿³É¹¦£¬½±Àø${signDataRes.data.result.rewardBlue}À¶±Ò\n`
     } else {
-      message += `ã€ç¬¬${$.todayDay}æ—¥ç­¾åˆ°ã€‘${signDataRes.data.bizMsg}\n`
+      message += `¡¾µÚ${$.todayDay}ÈÕÇ©µ½¡¿${signDataRes.data.bizMsg}\n`
     }
   }
 }
 async function BeanSign() {
   const beanSignRes = await smtgSign({"channel": "1"});
   if (beanSignRes && beanSignRes.data['bizCode'] === 0) {
-    console.log(`æ¯å¤©ä»æŒ‡å®šå…¥å£è¿›å…¥æ¸¸æˆ,å¯è·å¾—é¢å¤–å¥–åŠ±:${JSON.stringify(beanSignRes)}`)
+    console.log(`Ã¿Ìì´ÓÖ¸¶¨Èë¿Ú½øÈëÓÎÏ·,¿É»ñµÃ¶îÍâ½±Àø:${JSON.stringify(beanSignRes)}`)
   }
 }
-//æ¯æ—¥ç­¾åˆ°
+//Ã¿ÈÕÇ©µ½
 function smtgSign(body) {
   return new Promise((resolve) => {
     $.get(taskUrl('smtg_sign', body), async (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -306,9 +306,9 @@ function smtgSign(body) {
   })
 }
 
-// å•†åœˆæ´»åŠ¨
+// ÉÌÈ¦»î¶¯
 async function businessCircleActivity() {
-  // console.log(`\nå•†åœˆPKå¥–åŠ±,æ¬¡æ—¥å•†åœˆå¤§æˆ˜å¼€å§‹çš„æ—¶å€™è‡ªåŠ¨é¢†é¢†å–\n`)
+  // console.log(`\nÉÌÈ¦PK½±Àø,´ÎÈÕÉÌÈ¦´óÕ½¿ªÊ¼µÄÊ±ºò×Ô¶¯ÁìÁìÈ¡\n`)
   joinPkTeam = $.isNode() ? (process.env.JOIN_PK_TEAM ? process.env.JOIN_PK_TEAM : `${joinPkTeam}`) : ($.getdata('JOIN_PK_TEAM') ? $.getdata('JOIN_PK_TEAM') : `${joinPkTeam}`);
   const smtg_getTeamPkDetailInfoRes = await smtg_getTeamPkDetailInfo();
   if (smtg_getTeamPkDetailInfoRes && smtg_getTeamPkDetailInfoRes.data.bizCode === 0) {
@@ -320,10 +320,10 @@ async function businessCircleActivity() {
     if (joinStatus === 0) {
       if (joinPkTeam === 'true') {
         await getTeam();
-        console.log(`\næ³¨ï¼šPKä¼šåœ¨æ¯å¤©çš„ä¸ƒç‚¹è‡ªåŠ¨éšæœºåŠ å…¥LXK9301åˆ›å»ºçš„é˜Ÿä¼\n`)
+        console.log(`\n×¢£ºPK»áÔÚÃ¿ÌìµÄÆßµã×Ô¶¯Ëæ»ú¼ÓÈëLXK9301´´½¨µÄ¶ÓÎé\n`)
         await updatePkActivityIdCDN('https://gitee.com/lxk0301/updateTeam/raw/master/shareCodes/jd_updateTeam.json');
         console.log(`\nupdatePkActivityId[pkActivityId]:::${$.updatePkActivityIdRes.pkActivityId}`);
-        console.log(`\näº¬ä¸œæœåŠ¡å™¨è¿”å›çš„[pkActivityId] ${pkActivityId}`);
+        console.log(`\n¾©¶«·şÎñÆ÷·µ»ØµÄ[pkActivityId] ${pkActivityId}`);
         if ($.updatePkActivityIdRes && ($.updatePkActivityIdRes.pkActivityId === pkActivityId)) {
           let Teams = []
           Teams = $.updatePkActivityIdRes['Teams'] || Teams;
@@ -332,69 +332,69 @@ async function businessCircleActivity() {
 
           const res = await smtg_joinPkTeam(Teams[randomNum] && Teams[randomNum].teamId, Teams[randomNum] && Teams[randomNum].inviteCode, pkActivityId);
           if (res && res.data.bizCode === 0) {
-            console.log(`åŠ å…¥æˆ˜é˜ŸæˆåŠŸ`)
+            console.log(`¼ÓÈëÕ½¶Ó³É¹¦`)
           } else if (res && res.data.bizCode === 229) {
-            console.log(`åŠ å…¥æˆ˜é˜Ÿå¤±è´¥,è¯¥æˆ˜é˜Ÿå·²æ»¡\næ— æ³•åŠ å…¥`)
+            console.log(`¼ÓÈëÕ½¶ÓÊ§°Ü,¸ÃÕ½¶ÓÒÑÂú\nÎŞ·¨¼ÓÈë`)
           } else {
-            console.log(`åŠ å…¥æˆ˜é˜Ÿå…¶ä»–æœªçŸ¥æƒ…å†µ:${JSON.stringify(res)}`)
+            console.log(`¼ÓÈëÕ½¶ÓÆäËûÎ´ÖªÇé¿ö:${JSON.stringify(res)}`)
           }
         } else {
-          console.log('\nupdatePkActivityIdè¯·æ±‚è¿”å›çš„pkActivityIdä¸äº¬ä¸œæœåŠ¡å™¨è¿”å›ä¸ä¸€è‡´,æš‚æ—¶ä¸åŠ å…¥æˆ˜é˜Ÿ')
+          console.log('\nupdatePkActivityIdÇëÇó·µ»ØµÄpkActivityIdÓë¾©¶«·şÎñÆ÷·µ»Ø²»Ò»ÖÂ,ÔİÊ±²»¼ÓÈëÕ½¶Ó')
         }
       }
     } else if (joinStatus === 1) {
       if (teamId) {
         console.log(`inviteCode: [${inviteCode}]`);
-        console.log(`PKé˜Ÿä¼teamId: [${teamId}]`);
-        console.log(`PKé˜Ÿä¼åç§°: [${currentUserPkInfo && currentUserPkInfo.teamName}]`);
-        console.log(`æˆ‘é‚€è¯·çš„äººæ•°:${inviteCount}\n`)
-        console.log(`\næˆ‘æ–¹æˆ˜é˜Ÿæˆ˜é˜Ÿ [${currentUserPkInfo && currentUserPkInfo.teamName}]/ã€${currentUserPkInfo && currentUserPkInfo.teamCount}ã€‘`);
-        console.log(`å¯¹æ–¹æˆ˜é˜Ÿæˆ˜é˜Ÿ [${pkUserPkInfo && pkUserPkInfo.teamName}]/ã€${pkUserPkInfo && pkUserPkInfo.teamCount}ã€‘\n`);
+        console.log(`PK¶ÓÎéteamId: [${teamId}]`);
+        console.log(`PK¶ÓÎéÃû³Æ: [${currentUserPkInfo && currentUserPkInfo.teamName}]`);
+        console.log(`ÎÒÑûÇëµÄÈËÊı:${inviteCount}\n`)
+        console.log(`\nÎÒ·½Õ½¶ÓÕ½¶Ó [${currentUserPkInfo && currentUserPkInfo.teamName}]/¡¾${currentUserPkInfo && currentUserPkInfo.teamCount}¡¿`);
+        console.log(`¶Ô·½Õ½¶ÓÕ½¶Ó [${pkUserPkInfo && pkUserPkInfo.teamName}]/¡¾${pkUserPkInfo && pkUserPkInfo.teamCount}¡¿\n`);
       }
     }
     if (pkStatus === 1) {
-      console.log(`å•†åœˆPKè¿›è¡Œä¸­\n`)
+      console.log(`ÉÌÈ¦PK½øĞĞÖĞ\n`)
       if (!teamId) {
         const receivedPkTeamPrize = await smtg_receivedPkTeamPrize();
-        console.log(`å•†åœˆPKå¥–åŠ±é¢†å–ç»“æœï¼š${JSON.stringify(receivedPkTeamPrize)}\n`)
+        console.log(`ÉÌÈ¦PK½±ÀøÁìÈ¡½á¹û£º${JSON.stringify(receivedPkTeamPrize)}\n`)
         if (receivedPkTeamPrize.data.bizCode === 0) {
           if (receivedPkTeamPrize.data.result.pkResult === 1) {
             const { pkTeamPrizeInfoVO } = receivedPkTeamPrize.data.result;
-            message += `ã€å•†åœˆPKå¥–åŠ±ã€‘${pkTeamPrizeInfoVO.blueCoin}è“å¸é¢†å–æˆåŠŸ\n`;
+            message += `¡¾ÉÌÈ¦PK½±Àø¡¿${pkTeamPrizeInfoVO.blueCoin}À¶±ÒÁìÈ¡³É¹¦\n`;
             if ($.isNode()) {
-              await notify.sendNotify(`${$.name} - è´¦å·${$.index} - ${$.nickName}`, `ã€äº¬ä¸œè´¦å·${$.index}ã€‘ ${$.nickName}\nã€å•†åœˆé˜Ÿä¼ã€‘PKè·èƒœ\nã€å¥–åŠ±ã€‘${pkTeamPrizeInfoVO.blueCoin}è“å¸é¢†å–æˆåŠŸ`)
+              await notify.sendNotify(`${$.name} - ÕËºÅ${$.index} - ${$.nickName}`, `¡¾¾©¶«ÕËºÅ${$.index}¡¿ ${$.nickName}\n¡¾ÉÌÈ¦¶ÓÎé¡¿PK»ñÊ¤\n¡¾½±Àø¡¿${pkTeamPrizeInfoVO.blueCoin}À¶±ÒÁìÈ¡³É¹¦`)
             }
           } else if (receivedPkTeamPrize.data.result.pkResult === 2) {
             if ($.isNode()) {
-              await notify.sendNotify(`${$.name} - è´¦å·${$.index} - ${$.nickName}`, `ã€äº¬ä¸œè´¦å·${$.index}ã€‘ ${$.nickName}\nã€å•†åœˆé˜Ÿä¼ã€‘PKå¤±è´¥`)
+              await notify.sendNotify(`${$.name} - ÕËºÅ${$.index} - ${$.nickName}`, `¡¾¾©¶«ÕËºÅ${$.index}¡¿ ${$.nickName}\n¡¾ÉÌÈ¦¶ÓÎé¡¿PKÊ§°Ü`)
             }
           }
         }
       }
     } else if (pkStatus === 2) {
-      console.log(`å•†åœˆPKç»“æŸäº†`)
+      console.log(`ÉÌÈ¦PK½áÊøÁË`)
       if (prizeInfo.pkPrizeStatus === 2) {
-        console.log(`å¼€å§‹é¢†å–å•†åœˆPKå¥–åŠ±`);
+        console.log(`¿ªÊ¼ÁìÈ¡ÉÌÈ¦PK½±Àø`);
         // const receivedPkTeamPrize = await smtg_receivedPkTeamPrize();
-        // console.log(`å•†åœˆPKå¥–åŠ±é¢†å–ç»“æœï¼š${JSON.stringify(receivedPkTeamPrize)}`)
+        // console.log(`ÉÌÈ¦PK½±ÀøÁìÈ¡½á¹û£º${JSON.stringify(receivedPkTeamPrize)}`)
         // if (receivedPkTeamPrize.data.bizCode === 0) {
         //   if (receivedPkTeamPrize.data.result.pkResult === 1) {
         //     const { pkTeamPrizeInfoVO } = receivedPkTeamPrize.data.result;
-        //     message += `ã€å•†åœˆPKå¥–åŠ±ã€‘${pkTeamPrizeInfoVO.blueCoin}è“å¸é¢†å–æˆåŠŸ\n`;
+        //     message += `¡¾ÉÌÈ¦PK½±Àø¡¿${pkTeamPrizeInfoVO.blueCoin}À¶±ÒÁìÈ¡³É¹¦\n`;
         //     if ($.isNode()) {
-        //       await notify.sendNotify(`${$.name} - è´¦å·${$.index} - ${$.nickName}`, `ã€äº¬ä¸œè´¦å·${$.index}ã€‘ ${$.nickName}\nã€å•†åœˆé˜Ÿä¼ã€‘PKè·èƒœ\nã€å¥–åŠ±ã€‘${pkTeamPrizeInfoVO.blueCoin}è“å¸é¢†å–æˆåŠŸ`)
+        //       await notify.sendNotify(`${$.name} - ÕËºÅ${$.index} - ${$.nickName}`, `¡¾¾©¶«ÕËºÅ${$.index}¡¿ ${$.nickName}\n¡¾ÉÌÈ¦¶ÓÎé¡¿PK»ñÊ¤\n¡¾½±Àø¡¿${pkTeamPrizeInfoVO.blueCoin}À¶±ÒÁìÈ¡³É¹¦`)
         //     }
         //   } else if (receivedPkTeamPrize.data.result.pkResult === 2) {
         //     if ($.isNode()) {
-        //       await notify.sendNotify(`${$.name} - è´¦å·${$.index} - ${$.nickName}`, `ã€äº¬ä¸œè´¦å·${$.index}ã€‘ ${$.nickName}\nã€å•†åœˆé˜Ÿä¼ã€‘PKå¤±è´¥`)
+        //       await notify.sendNotify(`${$.name} - ÕËºÅ${$.index} - ${$.nickName}`, `¡¾¾©¶«ÕËºÅ${$.index}¡¿ ${$.nickName}\n¡¾ÉÌÈ¦¶ÓÎé¡¿PKÊ§°Ü`)
         //     }
         //   }
         // }
       } else if (prizeInfo.pkPrizeStatus === 1) {
-        console.log(`å•†åœˆPKå¥–åŠ±å·²ç»é¢†å–\n`)
+        console.log(`ÉÌÈ¦PK½±ÀøÒÑ¾­ÁìÈ¡\n`)
       }
     } else if (pkStatus === 3) {
-      console.log(`å•†åœˆPKæš‚åœä¸­\n`)
+      console.log(`ÉÌÈ¦PKÔİÍ£ÖĞ\n`)
     }
   } else {
     console.log(`\n${JSON.stringify(smtg_getTeamPkDetailInfoRes)}\n`)
@@ -403,101 +403,101 @@ async function businessCircleActivity() {
   const businessCirclePKDetailRes = await smtg_businessCirclePKDetail();
   if (businessCirclePKDetailRes && businessCirclePKDetailRes.data.bizCode === 0) {
     const { businessCircleVO, otherBusinessCircleVO, inviteCode, pkSettleTime } = businessCirclePKDetailRes.data.result;
-    console.log(`\nã€æ‚¨çš„å•†åœˆinviteCodeäº’åŠ©ç ã€‘ï¼š\n${inviteCode}\n\n`);
+    console.log(`\n¡¾ÄúµÄÉÌÈ¦inviteCode»¥ÖúÂë¡¿£º\n${inviteCode}\n\n`);
     const businessCircleIndexRes = await smtg_businessCircleIndex();
     const { result } = businessCircleIndexRes.data;
     const { pkPrizeStatus, pkStatus  } = result;
     if (pkPrizeStatus === 2) {
-      console.log(`å¼€å§‹é¢†å–å•†åœˆPKå¥–åŠ±`);
+      console.log(`¿ªÊ¼ÁìÈ¡ÉÌÈ¦PK½±Àø`);
       const getPkPrizeRes = await smtg_getPkPrize();
-      console.log(`å•†åœˆPKå¥–åŠ±é¢†å–ç»“æœï¼š${JSON.stringify(getPkPrizeRes)}`)
+      console.log(`ÉÌÈ¦PK½±ÀøÁìÈ¡½á¹û£º${JSON.stringify(getPkPrizeRes)}`)
       if (getPkPrizeRes.data.bizCode === 0) {
         const { pkPersonPrizeInfoVO, pkTeamPrizeInfoVO } = getPkPrizeRes.data.result;
-        message += `ã€å•†åœˆPKå¥–åŠ±ã€‘${pkPersonPrizeInfoVO.blueCoin + pkTeamPrizeInfoVO.blueCoin}è“å¸é¢†å–æˆåŠŸ\n`;
+        message += `¡¾ÉÌÈ¦PK½±Àø¡¿${pkPersonPrizeInfoVO.blueCoin + pkTeamPrizeInfoVO.blueCoin}À¶±ÒÁìÈ¡³É¹¦\n`;
       }
     }
-    console.log(`æˆ‘æ–¹å•†åœˆäººæ°”å€¼/å¯¹æ–¹å•†åœˆäººæ°”å€¼ï¼š${businessCircleVO.hotPoint}/${otherBusinessCircleVO.hotPoint}`);
-    console.log(`æˆ‘æ–¹å•†åœˆæˆå‘˜æ•°é‡/å¯¹æ–¹å•†åœˆæˆå‘˜æ•°é‡ï¼š${businessCircleVO.memberCount}/${otherBusinessCircleVO.memberCount}`);
-    message += `ã€æˆ‘æ–¹å•†åœˆã€‘${businessCircleVO.memberCount}/${businessCircleVO.hotPoint}\n`;
-    message += `ã€å¯¹æ–¹å•†åœˆã€‘${otherBusinessCircleVO.memberCount}/${otherBusinessCircleVO.hotPoint}\n`;
-    // message += `ã€æˆ‘æ–¹å•†åœˆäººæ°”å€¼ã€‘${businessCircleVO.hotPoint}\n`;
-    // message += `ã€å¯¹æ–¹å•†åœˆäººæ°”å€¼ã€‘${otherBusinessCircleVO.hotPoint}\n`;
+    console.log(`ÎÒ·½ÉÌÈ¦ÈËÆøÖµ/¶Ô·½ÉÌÈ¦ÈËÆøÖµ£º${businessCircleVO.hotPoint}/${otherBusinessCircleVO.hotPoint}`);
+    console.log(`ÎÒ·½ÉÌÈ¦³ÉÔ±ÊıÁ¿/¶Ô·½ÉÌÈ¦³ÉÔ±ÊıÁ¿£º${businessCircleVO.memberCount}/${otherBusinessCircleVO.memberCount}`);
+    message += `¡¾ÎÒ·½ÉÌÈ¦¡¿${businessCircleVO.memberCount}/${businessCircleVO.hotPoint}\n`;
+    message += `¡¾¶Ô·½ÉÌÈ¦¡¿${otherBusinessCircleVO.memberCount}/${otherBusinessCircleVO.hotPoint}\n`;
+    // message += `¡¾ÎÒ·½ÉÌÈ¦ÈËÆøÖµ¡¿${businessCircleVO.hotPoint}\n`;
+    // message += `¡¾¶Ô·½ÉÌÈ¦ÈËÆøÖµ¡¿${otherBusinessCircleVO.hotPoint}\n`;
     businessCircleJump = $.getdata('jdBusinessCircleJump') ? $.getdata('jdBusinessCircleJump') : businessCircleJump;
     if ($.isNode() && process.env.jdBusinessCircleJump) {
       businessCircleJump = process.env.jdBusinessCircleJump;
     }
     if (`${businessCircleJump}` === 'false') {
-      console.log(`\nå°äºå¯¹æ–¹300çƒ­åŠ›å€¼è‡ªåŠ¨æ›´æ¢å•†åœˆé˜Ÿä¼: æ‚¨è®¾ç½®çš„æ˜¯ç¦æ­¢è‡ªåŠ¨æ›´æ¢å•†åœˆé˜Ÿä¼\n`);
+      console.log(`\nĞ¡ÓÚ¶Ô·½300ÈÈÁ¦Öµ×Ô¶¯¸ü»»ÉÌÈ¦¶ÓÎé: ÄúÉèÖÃµÄÊÇ½ûÖ¹×Ô¶¯¸ü»»ÉÌÈ¦¶ÓÎé\n`);
       return
     }
     if (otherBusinessCircleVO.hotPoint - businessCircleVO.hotPoint > 300 && (Date.now() > (pkSettleTime - 24 * 60 * 60 * 1000))) {
-      //é€€å‡ºè¯¥å•†åœˆ
+      //ÍË³ö¸ÃÉÌÈ¦
       if (inviteCode === '-4msulYas0O2JsRhE-2TA5XZmBQ') return;
-      console.log(`å•†åœˆPKå·²è¿‡1å¤©ï¼Œå¯¹æ–¹å•†åœˆäººæ°”å€¼è¿˜å¤§äºæˆ‘æ–¹å•†åœˆäººæ°”å€¼300ï¼Œé€€å‡ºè¯¥å•†åœˆé‡æ–°åŠ å…¥`);
+      console.log(`ÉÌÈ¦PKÒÑ¹ı1Ìì£¬¶Ô·½ÉÌÈ¦ÈËÆøÖµ»¹´óÓÚÎÒ·½ÉÌÈ¦ÈËÆøÖµ300£¬ÍË³ö¸ÃÉÌÈ¦ÖØĞÂ¼ÓÈë`);
       await smtg_quitBusinessCircle();
     } else if (otherBusinessCircleVO.hotPoint > businessCircleVO.hotPoint && (Date.now() > (pkSettleTime - 24 * 60 * 60 * 1000 * 2))) {
-      //é€€å‡ºè¯¥å•†åœˆ
+      //ÍË³ö¸ÃÉÌÈ¦
       if (inviteCode === '-4msulYas0O2JsRhE-2TA5XZmBQ') return;
-      console.log(`å•†åœˆPKå·²è¿‡2å¤©ï¼Œå¯¹æ–¹å•†åœˆäººæ°”å€¼è¿˜å¤§äºæˆ‘æ–¹å•†åœˆäººæ°”å€¼ï¼Œé€€å‡ºè¯¥å•†åœˆé‡æ–°åŠ å…¥`);
+      console.log(`ÉÌÈ¦PKÒÑ¹ı2Ìì£¬¶Ô·½ÉÌÈ¦ÈËÆøÖµ»¹´óÓÚÎÒ·½ÉÌÈ¦ÈËÆøÖµ£¬ÍË³ö¸ÃÉÌÈ¦ÖØĞÂ¼ÓÈë`);
       await smtg_quitBusinessCircle();
     }
   } else if (businessCirclePKDetailRes && businessCirclePKDetailRes.data.bizCode === 222) {
     console.log(`${businessCirclePKDetailRes.data.bizMsg}`);
-    console.log(`å¼€å§‹é¢†å–å•†åœˆPKå¥–åŠ±`);
+    console.log(`¿ªÊ¼ÁìÈ¡ÉÌÈ¦PK½±Àø`);
     const getPkPrizeRes = await smtg_getPkPrize();
-    console.log(`å•†åœˆPKå¥–åŠ±é¢†å–ç»“æœï¼š${JSON.stringify(getPkPrizeRes)}`)
+    console.log(`ÉÌÈ¦PK½±ÀøÁìÈ¡½á¹û£º${JSON.stringify(getPkPrizeRes)}`)
     if (getPkPrizeRes && getPkPrizeRes.data.bizCode === 0) {
       const { pkPersonPrizeInfoVO, pkTeamPrizeInfoVO } = getPkPrizeRes.data.result;
-      $.msg($.name, '', `ã€äº¬ä¸œè´¦å·${$.index}ã€‘ ${$.nickName}\nã€å•†åœˆPKå¥–åŠ±ã€‘${pkPersonPrizeInfoVO.blueCoin + pkTeamPrizeInfoVO.blueCoin}è“å¸é¢†å–æˆåŠŸ`)
+      $.msg($.name, '', `¡¾¾©¶«ÕËºÅ${$.index}¡¿ ${$.nickName}\n¡¾ÉÌÈ¦PK½±Àø¡¿${pkPersonPrizeInfoVO.blueCoin + pkTeamPrizeInfoVO.blueCoin}À¶±ÒÁìÈ¡³É¹¦`)
       if ($.isNode()) {
-        await notify.sendNotify(`${$.name} - è´¦å·${$.index} - ${$.nickName}`, `ã€äº¬ä¸œè´¦å·${$.index}ã€‘ ${$.nickName}\nã€å•†åœˆPKå¥–åŠ±ã€‘${pkPersonPrizeInfoVO.blueCoin + pkTeamPrizeInfoVO.blueCoin}è“å¸é¢†å–æˆåŠŸ`)
+        await notify.sendNotify(`${$.name} - ÕËºÅ${$.index} - ${$.nickName}`, `¡¾¾©¶«ÕËºÅ${$.index}¡¿ ${$.nickName}\n¡¾ÉÌÈ¦PK½±Àø¡¿${pkPersonPrizeInfoVO.blueCoin + pkTeamPrizeInfoVO.blueCoin}À¶±ÒÁìÈ¡³É¹¦`)
       }
     }
   } else if (businessCirclePKDetailRes && businessCirclePKDetailRes.data.bizCode === 206) {
-    console.log(`æ‚¨æš‚æœªåŠ å…¥å•†åœˆ,ç°åœ¨ç»™æ‚¨åŠ å…¥LXK9301çš„å•†åœˆ`);
+    console.log(`ÄúÔİÎ´¼ÓÈëÉÌÈ¦,ÏÖÔÚ¸øÄú¼ÓÈëLXK9301µÄÉÌÈ¦`);
     const joinBusinessCircleRes = await smtg_joinBusinessCircle(myCircleId);
-    console.log(`å‚åŠ å•†åœˆç»“æœï¼š${JSON.stringify(joinBusinessCircleRes)}`)
+    console.log(`²Î¼ÓÉÌÈ¦½á¹û£º${JSON.stringify(joinBusinessCircleRes)}`)
     if (joinBusinessCircleRes.data.bizCode !== 0) {
-      console.log(`æ‚¨åŠ å…¥LXK9301çš„å•†åœˆå¤±è´¥ï¼Œç°åœ¨ç»™æ‚¨éšæœºåŠ å…¥ä¸€ä¸ªå•†åœˆ`);
+      console.log(`Äú¼ÓÈëLXK9301µÄÉÌÈ¦Ê§°Ü£¬ÏÖÔÚ¸øÄúËæ»ú¼ÓÈëÒ»¸öÉÌÈ¦`);
       const BusinessCircleList = await smtg_getBusinessCircleList();
       if (BusinessCircleList.data.bizCode === 0) {
         const { businessCircleVOList } = BusinessCircleList.data.result;
         const { circleId } = businessCircleVOList[randomNumber(0, businessCircleVOList.length)];
         const joinBusinessCircleRes = await smtg_joinBusinessCircle(circleId);
-        console.log(`éšæœºåŠ å…¥å•†åœˆç»“æœï¼š${JSON.stringify(joinBusinessCircleRes)}`)
+        console.log(`Ëæ»ú¼ÓÈëÉÌÈ¦½á¹û£º${JSON.stringify(joinBusinessCircleRes)}`)
       }
     }
   } else {
-    console.log(`è®¿é—®å•†åœˆè¯¦æƒ…å¤±è´¥ï¼š${JSON.stringify(businessCirclePKDetailRes)}`);
+    console.log(`·ÃÎÊÉÌÈ¦ÏêÇéÊ§°Ü£º${JSON.stringify(businessCirclePKDetailRes)}`);
   }
 }
-//æˆ‘çš„è´§æ¶
+//ÎÒµÄ»õ¼Ü
 async function myProductList() {
   const shelfListRes = await smtg_shelfList();
   if (shelfListRes.data.bizCode === 0) {
     const { shelfList } = shelfListRes.data.result;
-    console.log(`\nè´§æ¶æ•°é‡:${shelfList && shelfList.length}`)
+    console.log(`\n»õ¼ÜÊıÁ¿:${shelfList && shelfList.length}`)
     for (let item of shelfList) {
       console.log(`\nshelfId/name : ${item.shelfId}/${item.name}`);
-      console.log(`è´§æ¶ç­‰çº§ level ${item.level}/${item.maxLevel}`);
-      console.log(`ä¸Šæ¶çŠ¶æ€ groundStatus ${item.groundStatus}`);
-      console.log(`è§£é”çŠ¶æ€ unlockStatus ${item.unlockStatus}`);
-      console.log(`å‡çº§çŠ¶æ€ upgradeStatus ${item.upgradeStatus}`);
+      console.log(`»õ¼ÜµÈ¼¶ level ${item.level}/${item.maxLevel}`);
+      console.log(`ÉÏ¼Ü×´Ì¬ groundStatus ${item.groundStatus}`);
+      console.log(`½âËø×´Ì¬ unlockStatus ${item.unlockStatus}`);
+      console.log(`Éı¼¶×´Ì¬ upgradeStatus ${item.upgradeStatus}`);
       if (item.unlockStatus === 0) {
-        console.log(`${item.name}ä¸å¯è§£é”`)
+        console.log(`${item.name}²»¿É½âËø`)
       } else if (item.unlockStatus === 1) {
-        console.log(`${item.name}å¯è§£é”`);
+        console.log(`${item.name}¿É½âËø`);
         await smtg_unlockShelf(item.shelfId);
       } else if (item.unlockStatus === 2) {
-        console.log(`${item.name}å·²ç»è§£é”`)
+        console.log(`${item.name}ÒÑ¾­½âËø`)
       }
       if (item.groundStatus === 1) {
-        console.log(`${item.name}å¯ä¸Šæ¶`);
+        console.log(`${item.name}¿ÉÉÏ¼Ü`);
         const productListRes = await smtg_shelfProductList(item.shelfId);
         if (productListRes.data.bizCode === 0) {
           const { productList } = productListRes.data.result;
           if (productList && productList.length > 0) {
-            // æ­¤å¤„é™æ—¶å•†å“æœªåˆ†é…æ‰ä¼šå‡ºç°
+            // ´Ë´¦ÏŞÊ±ÉÌÆ·Î´·ÖÅä²Å»á³öÏÖ
             let limitTimeProduct = [];
             for (let item of productList) {
               if (item.productType === 2) {
@@ -505,19 +505,19 @@ async function myProductList() {
               }
             }
             if (limitTimeProduct && limitTimeProduct.length > 0) {
-              //ä¸Šæ¶é™æ—¶å•†å“
+              //ÉÏ¼ÜÏŞÊ±ÉÌÆ·
               await smtg_ground(limitTimeProduct[0].productId, item.shelfId);
             } else {
               await smtg_ground(productList[productList.length - 1].productId, item.shelfId);
             }
           } else {
-            console.log("æ— å¯ä¸Šæ¶äº§å“");
+            console.log("ÎŞ¿ÉÉÏ¼Ü²úÆ·");
             await unlockProductByCategory(item.shelfId.split('-')[item.shelfId.split('-').length - 1])
           }
         }
       } else if (item.groundStatus === 2 || item.groundStatus === 3) {
         if (item.productInfo.productType === 2) {
-          console.log(`[${item.name}][é™æ—¶å•†å“]`)
+          console.log(`[${item.name}][ÏŞÊ±ÉÌÆ·]`)
         } else if (item.productInfo.productType === 1){
           console.log(`[${item.name}]`)
         } else {
@@ -527,7 +527,7 @@ async function myProductList() {
     }
   }
 }
-//æ ¹æ®ç±»å‹è§£é”ä¸€ä¸ªå•†å“,è´§æ¶å¯ä¸Šæ¶å•†å“æ—¶è°ƒç”¨
+//¸ù¾İÀàĞÍ½âËøÒ»¸öÉÌÆ·,»õ¼Ü¿ÉÉÏ¼ÜÉÌÆ·Ê±µ÷ÓÃ
 async function unlockProductByCategory(category) {
   const smtgProductListRes = await smtg_productList();
   if (smtgProductListRes.data.bizCode === 0) {
@@ -539,25 +539,25 @@ async function unlockProductByCategory(category) {
       }
     }
     if (productListByCategory && productListByCategory.length > 0) {
-      console.log(`å¾…è§£é”çš„å•†å“æ•°é‡:${productListByCategory.length}`);
+      console.log(`´ı½âËøµÄÉÌÆ·ÊıÁ¿:${productListByCategory.length}`);
       await smtg_unlockProduct(productListByCategory[productListByCategory.length - 1]['productId']);
     } else {
-      console.log("è¯¥ç±»å‹å•†å“æš‚æ—¶æ— æ³•è§£é”");
+      console.log("¸ÃÀàĞÍÉÌÆ·ÔİÊ±ÎŞ·¨½âËø");
     }
   }
 }
-//å‡çº§è´§æ¶å’Œå•†å“
+//Éı¼¶»õ¼ÜºÍÉÌÆ·
 async function upgrade() {
   superMarketUpgrade = $.getdata('jdSuperMarketUpgrade') ? $.getdata('jdSuperMarketUpgrade') : superMarketUpgrade;
   if ($.isNode() && process.env.SUPERMARKET_UPGRADE) {
     superMarketUpgrade = process.env.SUPERMARKET_UPGRADE;
   }
   if (`${superMarketUpgrade}` === 'false') {
-    console.log(`\nè‡ªåŠ¨å‡çº§: æ‚¨è®¾ç½®çš„æ˜¯å…³é—­è‡ªåŠ¨å‡çº§\n`);
+    console.log(`\n×Ô¶¯Éı¼¶: ÄúÉèÖÃµÄÊÇ¹Ø±Õ×Ô¶¯Éı¼¶\n`);
     return
   }
-  console.log(`\n*************å¼€å§‹æ£€æµ‹å‡çº§å•†å“ï¼Œå¦‚é‡åˆ°å•†å“èƒ½è§£é”ï¼Œåˆ™ä¼˜å…ˆè§£é”***********`)
-  console.log('ç›®å‰æ²¡æœ‰å¹³ç¨³å‡çº§,åªå–å€’æ•°å‡ ä¸ªå•†å“è¿›è¡Œå‡çº§,æ™®é€šè´§æ¶å–å€’æ•°4ä¸ªå•†å“,å†°æŸœè´§æ¶å–å€’æ•°3ä¸ªå•†å“,æ°´æœè´§æ¶å–å€’æ•°2ä¸ªå•†å“')
+  console.log(`\n*************¿ªÊ¼¼ì²âÉı¼¶ÉÌÆ·£¬ÈçÓöµ½ÉÌÆ·ÄÜ½âËø£¬ÔòÓÅÏÈ½âËø***********`)
+  console.log('Ä¿Ç°Ã»ÓĞÆ½ÎÈÉı¼¶,Ö»È¡µ¹Êı¼¸¸öÉÌÆ·½øĞĞÉı¼¶,ÆÕÍ¨»õ¼ÜÈ¡µ¹Êı4¸öÉÌÆ·,±ù¹ñ»õ¼ÜÈ¡µ¹Êı3¸öÉÌÆ·,Ë®¹û»õ¼ÜÈ¡µ¹Êı2¸öÉÌÆ·')
   const smtgProductListRes = await smtg_productList();
   if (smtgProductListRes.data.bizCode === 0) {
     let productType1 = [], shelfCategory_1 = [], shelfCategory_2 = [], shelfCategory_3 = [];
@@ -582,25 +582,25 @@ async function upgrade() {
     shelfCategory_2 = shelfCategory_2.slice(-3);
     shelfCategory_3 = shelfCategory_3.slice(-2);
     const shelfCategorys = shelfCategory_1.concat(shelfCategory_2).concat(shelfCategory_3);
-    console.log(`\nå•†å“åç§°       å½’å±è´§æ¶     ç›®å‰ç­‰çº§    è§£é”çŠ¶æ€    å¯å‡çº§çŠ¶æ€`)
+    console.log(`\nÉÌÆ·Ãû³Æ       ¹éÊô»õ¼Ü     Ä¿Ç°µÈ¼¶    ½âËø×´Ì¬    ¿ÉÉı¼¶×´Ì¬`)
     for (let item of shelfCategorys) {
-      console.log(`  ${item["name"].length<3?item["name"]+`\xa0`:item["name"]}       ${item['shelfCategory'] === 1 ? 'æ™®é€šè´§æ¶' : item['shelfCategory'] === 2 ? 'å†°æŸœè´§æ¶' : item['shelfCategory'] === 3 ? 'æ°´æœè´§æ¶':'æœªçŸ¥è´§æ¶'}       ${item["unlockStatus"] === 0 ? '---' : item["level"]+'çº§'}     ${item["unlockStatus"] === 0 ? 'æœªè§£é”' : 'å·²è§£é”'}      ${item["upgradeStatus"] === 1 ? 'å¯ä»¥å‡çº§' : item["upgradeStatus"] === 0 ? 'ä¸å¯å‡çº§':item["upgradeStatus"]}`)
+      console.log(`  ${item["name"].length<3?item["name"]+`\xa0`:item["name"]}       ${item['shelfCategory'] === 1 ? 'ÆÕÍ¨»õ¼Ü' : item['shelfCategory'] === 2 ? '±ù¹ñ»õ¼Ü' : item['shelfCategory'] === 3 ? 'Ë®¹û»õ¼Ü':'Î´Öª»õ¼Ü'}       ${item["unlockStatus"] === 0 ? '---' : item["level"]+'¼¶'}     ${item["unlockStatus"] === 0 ? 'Î´½âËø' : 'ÒÑ½âËø'}      ${item["upgradeStatus"] === 1 ? '¿ÉÒÔÉı¼¶' : item["upgradeStatus"] === 0 ? '²»¿ÉÉı¼¶':item["upgradeStatus"]}`)
     }
     shelfCategorys.sort(sortSyData);
     for (let item of shelfCategorys) {
       if (item['unlockStatus'] === 1) {
-        console.log(`\nå¼€å§‹è§£é”å•†å“ï¼š${item['name']}`)
+        console.log(`\n¿ªÊ¼½âËøÉÌÆ·£º${item['name']}`)
         await smtg_unlockProduct(item['productId']);
         break;
       }
       if (item['upgradeStatus'] === 1) {
-        console.log(`\nå¼€å§‹å‡çº§å•†å“ï¼š${item['name']}`)
+        console.log(`\n¿ªÊ¼Éı¼¶ÉÌÆ·£º${item['name']}`)
         await smtg_upgradeProduct(item['productId']);
         break;
       }
     }
   }
-  console.log('\n**********å¼€å§‹æ£€æŸ¥èƒ½å¦å‡çº§è´§æ¶***********');
+  console.log('\n**********¿ªÊ¼¼ì²éÄÜ·ñÉı¼¶»õ¼Ü***********');
   const shelfListRes = await smtg_shelfList();
   if (shelfListRes.data.bizCode === 0) {
     const { shelfList } = shelfListRes.data.result;
@@ -610,32 +610,32 @@ async function upgrade() {
         shelfList_upgrade.push(item);
       }
     }
-    console.log(`å¾…å‡çº§è´§æ¶æ•°é‡${shelfList_upgrade.length}ä¸ª`);
+    console.log(`´ıÉı¼¶»õ¼ÜÊıÁ¿${shelfList_upgrade.length}¸ö`);
     if (shelfList_upgrade && shelfList_upgrade.length > 0) {
       shelfList_upgrade.sort(sortSyData);
-      console.log("\nå¯å‡çº§è´§æ¶å         ç­‰çº§     å‡çº§æ‰€éœ€é‡‘å¸");
+      console.log("\n¿ÉÉı¼¶»õ¼ÜÃû         µÈ¼¶     Éı¼¶ËùĞè½ğ±Ò");
       for (let item of shelfList_upgrade) {
         console.log(` [${item["name"]}]         ${item["level"]}/${item["maxLevel"]}         ${item["upgradeCostGold"]}`);
       }
-      console.log(`å¼€å§‹å‡çº§[${shelfList_upgrade[0].name}]è´§æ¶ï¼Œå½“å‰ç­‰çº§${shelfList_upgrade[0].level}ï¼Œæ‰€éœ€é‡‘å¸${shelfList_upgrade[0].upgradeCostGold}\n`);
+      console.log(`¿ªÊ¼Éı¼¶[${shelfList_upgrade[0].name}]»õ¼Ü£¬µ±Ç°µÈ¼¶${shelfList_upgrade[0].level}£¬ËùĞè½ğ±Ò${shelfList_upgrade[0].upgradeCostGold}\n`);
       await smtg_upgradeShelf(shelfList_upgrade[0].shelfId);
     }
   }
 }
 async function manageProduct() {
-  console.log(`å®‰æ’ä¸Šè´§(å•ä»·æœ€å¤§å•†å“)`);
+  console.log(`°²ÅÅÉÏ»õ(µ¥¼Û×î´óÉÌÆ·)`);
   const shelfListRes = await smtg_shelfList();
   if (shelfListRes.data.bizCode === 0) {
     const { shelfList } = shelfListRes.data.result;
-    console.log(`æˆ‘çš„è´§æ¶æ•°é‡:${shelfList && shelfList.length}`);
-    let shelfListUnlock = [];//å¯ä»¥ä¸Šæ¶çš„è´§æ¶
+    console.log(`ÎÒµÄ»õ¼ÜÊıÁ¿:${shelfList && shelfList.length}`);
+    let shelfListUnlock = [];//¿ÉÒÔÉÏ¼ÜµÄ»õ¼Ü
     for (let item of shelfList) {
       if (item['groundStatus'] === 1 || item['groundStatus'] === 2) {
         shelfListUnlock.push(item);
       }
     }
     for (let item of shelfListUnlock) {
-      const productListRes = await smtg_shelfProductList(item.shelfId);//æŸ¥è¯¢è¯¥è´§æ¶å¯ä»¥ä¸Šæ¶çš„å•†å“
+      const productListRes = await smtg_shelfProductList(item.shelfId);//²éÑ¯¸Ã»õ¼Ü¿ÉÒÔÉÏ¼ÜµÄÉÌÆ·
       if (productListRes.data.bizCode === 0) {
         const { productList } = productListRes.data.result;
         let productNow = [], productList2 = [];
@@ -654,7 +654,7 @@ async function manageProduct() {
           // console.log(productList2)
           if (productNow && productNow.length > 0) {
             if (productList2.slice(-1)[0]['productId'] === productNow[0]['productId']) {
-              console.log(`è´§æ¶[${item.shelfId}]${productNow[0]['name']}å·²ä¸Šæ¶\n`)
+              console.log(`»õ¼Ü[${item.shelfId}]${productNow[0]['name']}ÒÑÉÏ¼Ü\n`)
               continue;
             }
           }
@@ -671,8 +671,8 @@ async function limitTimeProduct() {
     let productList2 = [];
     for (let item of productList) {
       if (item['productType'] === 2 && item['groundStatus'] === 1) {
-        //æœªä¸Šæ¶å¹¶ä¸”é™æ—¶å•†å“
-        console.log(`å‡ºç°é™æ—¶å•†å“[${item.name}]`)
+        //Î´ÉÏ¼Ü²¢ÇÒÏŞÊ±ÉÌÆ·
+        console.log(`³öÏÖÏŞÊ±ÉÌÆ·[${item.name}]`)
         productList2.push(item);
       }
     }
@@ -691,18 +691,18 @@ async function limitTimeProduct() {
           if (shelfList2 && shelfList2.length > 0) {
             const groundRes = await smtg_ground(item2['productId'], shelfList2.slice(-1)[0]);
             if (groundRes.data.bizCode === 0) {
-              console.log(`é™æ—¶å•†å“ä¸Šæ¶æˆåŠŸ`);
-              message += `ã€é™æ—¶å•†å“ã€‘ä¸Šæ¶æˆåŠŸ\n`;
+              console.log(`ÏŞÊ±ÉÌÆ·ÉÏ¼Ü³É¹¦`);
+              message += `¡¾ÏŞÊ±ÉÌÆ·¡¿ÉÏ¼Ü³É¹¦\n`;
             }
           }
         }
       }
     } else {
-      console.log(`é™æ—¶å•†å“å·²ç»ä¸Šæ¶æˆ–æš‚æ— é™æ—¶å•†å“`);
+      console.log(`ÏŞÊ±ÉÌÆ·ÒÑ¾­ÉÏ¼Ü»òÔİÎŞÏŞÊ±ÉÌÆ·`);
     }
   }
 }
-//é¢†å–åº—é“ºå‡çº§çš„è“å¸å¥–åŠ±
+//ÁìÈ¡µêÆÌÉı¼¶µÄÀ¶±Ò½±Àø
 async function receiveUserUpgradeBlue() {
   $.receiveUserUpgradeBlue = 0;
   if ($.userUpgradeBlueVos && $.userUpgradeBlueVos.length > 0) {
@@ -713,12 +713,12 @@ async function receiveUserUpgradeBlue() {
         $.receiveUserUpgradeBlue += receiveCoin.data.result['receivedBlue']
       }
     }
-    $.log(`åº—é“ºå‡çº§å¥–åŠ±è·å–:${$.receiveUserUpgradeBlue}è“å¸\n`)
+    $.log(`µêÆÌÉı¼¶½±Àø»ñÈ¡:${$.receiveUserUpgradeBlue}À¶±Ò\n`)
   }
   const res = await smtgReceiveCoin({"type": 4, "channel": "18"})
   // $.log(`${JSON.stringify(res)}\n`)
   if (res && res.data['bizCode'] === 0) {
-    console.log(`\næ”¶å–è¥ä¸šé¢ï¼šè·å¾— ${res.data.result['receivedTurnover']}è“å¸\n`);
+    console.log(`\nÊÕÈ¡ÓªÒµ¶î£º»ñµÃ ${res.data.result['receivedTurnover']}À¶±Ò\n`);
   }
 }
 async function Home() {
@@ -727,50 +727,50 @@ async function Home() {
     const { result } = homeRes.data;
     const { shopName, totalBlue } = result;
     subTitle = shopName;
-    message += `ã€æ€»è“å¸ã€‘${totalBlue}ä¸ª\n`;
+    message += `¡¾×ÜÀ¶±Ò¡¿${totalBlue}¸ö\n`;
   }
 }
-//=============================================è„šæœ¬ä½¿ç”¨åˆ°çš„äº¬ä¸œAPI=====================================
+//=============================================½Å±¾Ê¹ÓÃµ½µÄ¾©¶«API=====================================
 
-//===æ–°ç‰ˆæœ¬
+//===ĞÂ°æ±¾
 
-//æŸ¥è¯¢æœ‰å“ªäº›è´§æ¶
+//²éÑ¯ÓĞÄÄĞ©»õ¼Ü
 function smtg_shopIndex() {
   return new Promise((resolve) => {
     $.get(taskUrl('smtg_shopIndex', { "channel": 1 }), async (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
           if (data && data.data['bizCode'] === 0) {
             const { shopId, shelfList, merchandiseList, level } = data.data['result'];
-            message += `ã€åº—é“ºç­‰çº§ã€‘${level}\n`;
+            message += `¡¾µêÆÌµÈ¼¶¡¿${level}\n`;
             if (shelfList && shelfList.length > 0) {
               for (let item of shelfList) {
-                //status: 2å¯è§£é”,1å¯å‡çº§,-1ä¸å¯è§£é”
+                //status: 2¿É½âËø,1¿ÉÉı¼¶,-1²»¿É½âËø
                 if (item['status'] === 2) {
-                  $.log(`${item['name']}å¯è§£é”\n`)
+                  $.log(`${item['name']}¿É½âËø\n`)
                   await smtg_shelfUnlock({ shopId, "shelfId": item['id'], "channel": 1 })
                 } else if (item['status'] === 1) {
-                  $.log(`${item['name']}å¯å‡çº§\n`)
+                  $.log(`${item['name']}¿ÉÉı¼¶\n`)
                   await smtg_shelfUpgrade({ shopId, "shelfId": item['id'], "channel": 1, "targetLevel": item['level'] + 1 });
                 } else if (item['status'] === -1) {
-                  $.log(`[${item['name']}] æœªè§£é”`)
+                  $.log(`[${item['name']}] Î´½âËø`)
                 } else if (item['status'] === 0) {
-                  $.log(`[${item['name']}] å·²è§£é”ï¼Œå½“å‰ç­‰çº§ï¼š${item['level']}çº§`)
+                  $.log(`[${item['name']}] ÒÑ½âËø£¬µ±Ç°µÈ¼¶£º${item['level']}¼¶`)
                 } else {
-                  $.log(`æœªçŸ¥åº—é“ºçŠ¶æ€(status)ï¼š${item['status']}\n`)
+                  $.log(`Î´ÖªµêÆÌ×´Ì¬(status)£º${item['status']}\n`)
                 }
               }
             }
             if (data.data['result']['forSaleMerchandise']) {
-              $.log(`\né™æ—¶å•†å“${data.data['result']['forSaleMerchandise']['name']}å·²ä¸Šæ¶`)
+              $.log(`\nÏŞÊ±ÉÌÆ·${data.data['result']['forSaleMerchandise']['name']}ÒÑÉÏ¼Ü`)
             } else {
               if (merchandiseList && merchandiseList.length > 0) {
                 for (let  item of merchandiseList) {
-                  console.log(`å‘ç°é™æ—¶å•†å“${item.name}\n`);
+                  console.log(`·¢ÏÖÏŞÊ±ÉÌÆ·${item.name}\n`);
                   await smtg_sellMerchandise({"shopId": shopId,"merchandiseId": item['id'],"channel":"18"})
                 }
               }
@@ -785,16 +785,16 @@ function smtg_shopIndex() {
     })
   })
 }
-//è§£é”åº—é“º
+//½âËøµêÆÌ
 function smtg_shelfUnlock(body) {
   return new Promise((resolve) => {
     $.get(taskUrl('smtg_shelfUnlock', body), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
-          $.log(`è§£é”åº—é“ºç»“æœ:${data}\n`)
+          $.log(`½âËøµêÆÌ½á¹û:${data}\n`)
           data = JSON.parse(data);
         }
       } catch (e) {
@@ -810,10 +810,10 @@ function smtg_shelfUpgrade(body) {
     $.get(taskUrl('smtg_shelfUpgrade', body), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
-          $.log(`åº—é“ºå‡çº§ç»“æœ:${data}\n`)
+          $.log(`µêÆÌÉı¼¶½á¹û:${data}\n`)
           data = JSON.parse(data);
         }
       } catch (e) {
@@ -824,16 +824,16 @@ function smtg_shelfUpgrade(body) {
     })
   })
 }
-//å”®å–é™æ—¶å•†å“API
+//ÊÛÂôÏŞÊ±ÉÌÆ·API
 function smtg_sellMerchandise(body) {
   return new Promise((resolve) => {
     $.get(taskUrl('smtg_sellMerchandise', body), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
-          $.log(`é™æ—¶å•†å“å”®å–ç»“æœ:${data}\n`)
+          $.log(`ÏŞÊ±ÉÌÆ·ÊÛÂô½á¹û:${data}\n`)
           data = JSON.parse(data);
         }
       } catch (e) {
@@ -844,14 +844,14 @@ function smtg_sellMerchandise(body) {
     })
   })
 }
-//æ–°ç‰ˆä¸œä¸œè¶…å¸‚
+//ĞÂ°æ¶«¶«³¬ÊĞ
 function updatePkActivityId(url = 'https://raw.githubusercontent.com/LXK9301/updateTeam/master/jd_updateTeam.json') {
   return new Promise(resolve => {
     $.get({url}, async (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          // console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          // console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           $.updatePkActivityIdRes = JSON.parse(data);
         }
@@ -872,7 +872,7 @@ function updatePkActivityIdCDN(url) {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           $.updatePkActivityIdRes = JSON.parse(data);
         }
@@ -898,7 +898,7 @@ function smtgDoShopTask(taskId, itemId) {
     $.get(taskUrl('smtg_doShopTask', body), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -919,7 +919,7 @@ function smtgObtainShopTaskPrize(taskId) {
     $.get(taskUrl('smtg_obtainShopTaskPrize', body), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -937,7 +937,7 @@ function smtgQueryShopTask() {
     $.get(taskUrl('smtg_queryShopTask'), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -956,7 +956,7 @@ function smtgSignList() {
       try {
         // console.log('ddd----ddd', data)
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -974,7 +974,7 @@ function smtgHome() {
     $.get(taskUrl('smtg_newHome', { "channel": "18" }), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -982,7 +982,7 @@ function smtgHome() {
             const { result } = data.data;
             const { shopName, totalBlue, userUpgradeBlueVos, turnoverProgress } = result;
             $.userUpgradeBlueVos = userUpgradeBlueVos;
-            $.turnoverProgress = turnoverProgress;//æ˜¯å¦å¯è§£é”
+            $.turnoverProgress = turnoverProgress;//ÊÇ·ñ¿É½âËø
           }
         }
       } catch (e) {
@@ -993,30 +993,30 @@ function smtgHome() {
     })
   })
 }
-//æŸ¥è¯¢å•†åœˆä»»åŠ¡åˆ—è¡¨
+//²éÑ¯ÉÌÈ¦ÈÎÎñÁĞ±í
 function smtgQueryPkTask() {
   return new Promise( (resolve) => {
     $.get(taskUrl('smtg_queryPkTask'), async (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
           if (data.code === 0) {
             if (data.data.bizCode === 0) {
               const { taskList } = data.data.result;
-              console.log(`\n å•†åœˆä»»åŠ¡     çŠ¶æ€`)
+              console.log(`\n ÉÌÈ¦ÈÎÎñ     ×´Ì¬`)
               for (let item of taskList) {
                 if (item.taskStatus === 1) {
                   if (item.prizeStatus === 1) {
-                    //ä»»åŠ¡å·²åšå®Œï¼Œä½†æœªé¢†å–å¥–åŠ±ï¼Œ ç°åœ¨ä¸ºæ‚¨é¢†å–å¥–åŠ±
+                    //ÈÎÎñÒÑ×öÍê£¬µ«Î´ÁìÈ¡½±Àø£¬ ÏÖÔÚÎªÄúÁìÈ¡½±Àø
                     await smtgObtainPkTaskPrize(item.taskId);
                   } else if (item.prizeStatus === 0) {
-                    console.log(`[${item.title}] å·²åšå®Œ ${item.finishNum}/${item.targetNum}`);
+                    console.log(`[${item.title}] ÒÑ×öÍê ${item.finishNum}/${item.targetNum}`);
                   }
                 } else {
-                  console.log(`[${item.title}] æœªåšå®Œ ${item.finishNum}/${item.targetNum}`)
+                  console.log(`[${item.title}] Î´×öÍê ${item.finishNum}/${item.targetNum}`)
                   if (item.content) {
                     const { itemId } = item.content[item.type];
                     console.log('itemId', itemId)
@@ -1037,13 +1037,13 @@ function smtgQueryPkTask() {
     })
   })
 }
-//PKé‚€è¯·å¥½å‹
+//PKÑûÇëºÃÓÑ
 function smtgDoAssistPkTask(code) {
   return new Promise((resolve) => {
     $.get(taskUrl('smtg_doAssistPkTask', {"inviteCode": code}), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -1061,7 +1061,7 @@ function smtgReceiveCoin(body) {
     $.get(taskUrl('smtg_receiveCoin', body), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -1074,13 +1074,13 @@ function smtgReceiveCoin(body) {
     })
   })
 }
-//é¢†å–PKä»»åŠ¡åšå®Œåçš„å¥–åŠ±
+//ÁìÈ¡PKÈÎÎñ×öÍêºóµÄ½±Àø
 function smtgObtainPkTaskPrize(taskId) {
   return new Promise((resolve) => {
     $.get(taskUrl('smtg_obtainPkTaskPrize', {"taskId": taskId}), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -1098,7 +1098,7 @@ function smtgDoPkTask(taskId, itemId) {
     $.get(taskUrl('smtg_doPkTask', {"taskId": taskId, "itemId": itemId}), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -1116,7 +1116,7 @@ function smtg_joinPkTeam(teamId, inviteCode, sharePkActivityId) {
     $.get(taskUrl('smtg_joinPkTeam', { teamId, inviteCode, "channel": "3", sharePkActivityId }), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -1134,7 +1134,7 @@ function smtg_getTeamPkDetailInfo() {
     $.get(taskUrl('smtg_getTeamPkDetailInfo'), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -1152,7 +1152,7 @@ function smtg_businessCirclePKDetail() {
     $.get(taskUrl('smtg_businessCirclePKDetail'), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -1170,7 +1170,7 @@ function smtg_getBusinessCircleList() {
     $.get(taskUrl('smtg_getBusinessCircleList'), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -1183,13 +1183,13 @@ function smtg_getBusinessCircleList() {
     })
   })
 }
-//åŠ å…¥å•†åœˆAPI
+//¼ÓÈëÉÌÈ¦API
 function smtg_joinBusinessCircle(circleId) {
   return new Promise((resolve) => {
     $.get(taskUrl('smtg_joinBusinessCircle', { circleId }), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -1207,7 +1207,7 @@ function smtg_businessCircleIndex() {
     $.get(taskUrl('smtg_businessCircleIndex'), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -1225,7 +1225,7 @@ function smtg_receivedPkTeamPrize() {
     $.get(taskUrl('smtg_receivedPkTeamPrize', {"channel": "1"}), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -1238,13 +1238,13 @@ function smtg_receivedPkTeamPrize() {
     })
   })
 }
-//é¢†å–å•†åœˆPKå¥–åŠ±
+//ÁìÈ¡ÉÌÈ¦PK½±Àø
 function smtg_getPkPrize() {
   return new Promise((resolve) => {
     $.get(taskUrl('smtg_getPkPrize'), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -1262,7 +1262,7 @@ function smtg_quitBusinessCircle() {
     $.get(taskUrl('smtg_quitBusinessCircle'), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -1275,13 +1275,13 @@ function smtg_quitBusinessCircle() {
     })
   })
 }
-//æˆ‘çš„è´§æ¶
+//ÎÒµÄ»õ¼Ü
 function smtg_shelfList() {
   return new Promise((resolve) => {
     $.get(taskUrl('smtg_shelfList'), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -1294,15 +1294,15 @@ function smtg_shelfList() {
     })
   })
 }
-//æ£€æŸ¥æŸä¸ªè´§æ¶å¯ä»¥ä¸Šæ¶çš„å•†å“åˆ—è¡¨
+//¼ì²éÄ³¸ö»õ¼Ü¿ÉÒÔÉÏ¼ÜµÄÉÌÆ·ÁĞ±í
 function smtg_shelfProductList(shelfId) {
   return new Promise((resolve) => {
-    console.log(`å¼€å§‹æ£€æŸ¥è´§æ¶[${shelfId}] å¯ä¸Šæ¶äº§å“`)
+    console.log(`¿ªÊ¼¼ì²é»õ¼Ü[${shelfId}] ¿ÉÉÏ¼Ü²úÆ·`)
     $.get(taskUrl('smtg_shelfProductList', { shelfId }), (err, resp, data) => {
       try {
-        // console.log(`æ£€æŸ¥è´§æ¶[${shelfId}] å¯ä¸Šæ¶äº§å“ç»“æœ:${data}`)
+        // console.log(`¼ì²é»õ¼Ü[${shelfId}] ¿ÉÉÏ¼Ü²úÆ·½á¹û:${data}`)
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -1315,17 +1315,17 @@ function smtg_shelfProductList(shelfId) {
     })
   })
 }
-//å‡çº§å•†å“
+//Éı¼¶ÉÌÆ·
 function smtg_upgradeProduct(productId) {
   return new Promise((resolve) => {
     $.get(taskUrl('smtg_upgradeProduct', { productId }), (err, resp, data) => {
       try {
-        // console.log(`å‡çº§å•†å“productId[${productId}]ç»“æœ:${data}`);
+        // console.log(`Éı¼¶ÉÌÆ·productId[${productId}]½á¹û:${data}`);
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
-          console.log(`å‡çº§å•†å“ç»“æœ\n${data}`);
+          console.log(`Éı¼¶ÉÌÆ·½á¹û\n${data}`);
           data = JSON.parse(data);
         }
       } catch (e) {
@@ -1336,15 +1336,15 @@ function smtg_upgradeProduct(productId) {
     })
   })
 }
-//è§£é”å•†å“
+//½âËøÉÌÆ·
 function smtg_unlockProduct(productId) {
   return new Promise((resolve) => {
-    console.log(`å¼€å§‹è§£é”å•†å“`)
+    console.log(`¿ªÊ¼½âËøÉÌÆ·`)
     $.get(taskUrl('smtg_unlockProduct', { productId }), (err, resp, data) => {
       try {
-        // console.log(`è§£é”å•†å“productId[${productId}]ç»“æœ:${data}`);
+        // console.log(`½âËøÉÌÆ·productId[${productId}]½á¹û:${data}`);
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -1357,17 +1357,17 @@ function smtg_unlockProduct(productId) {
     })
   })
 }
-//å‡çº§è´§æ¶
+//Éı¼¶»õ¼Ü
 function smtg_upgradeShelf(shelfId) {
   return new Promise((resolve) => {
     $.get(taskUrl('smtg_upgradeShelf', { shelfId }), (err, resp, data) => {
       try {
-        // console.log(`å‡çº§è´§æ¶shelfId[${shelfId}]ç»“æœ:${data}`);
+        // console.log(`Éı¼¶»õ¼ÜshelfId[${shelfId}]½á¹û:${data}`);
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
-          console.log(`å‡çº§è´§æ¶ç»“æœ\n${data}`)
+          console.log(`Éı¼¶»õ¼Ü½á¹û\n${data}`)
           data = JSON.parse(data);
         }
       } catch (e) {
@@ -1378,15 +1378,15 @@ function smtg_upgradeShelf(shelfId) {
     })
   })
 }
-//è§£é”è´§æ¶
+//½âËø»õ¼Ü
 function smtg_unlockShelf(shelfId) {
   return new Promise((resolve) => {
-    console.log(`å¼€å§‹è§£é”è´§æ¶`)
+    console.log(`¿ªÊ¼½âËø»õ¼Ü`)
     $.get(taskUrl('smtg_unlockShelf', { shelfId }), (err, resp, data) => {
       try {
-        // console.log(`è§£é”è´§æ¶shelfId[${shelfId}]ç»“æœ:${data}`);
+        // console.log(`½âËø»õ¼ÜshelfId[${shelfId}]½á¹û:${data}`);
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -1403,9 +1403,9 @@ function smtg_ground(productId, shelfId) {
   return new Promise((resolve) => {
     $.get(taskUrl('smtg_ground', { productId, shelfId }), (err, resp, data) => {
       try {
-        // console.log(`ä¸Šæ¶å•†å“ç»“æœ:${data}`);
+        // console.log(`ÉÏ¼ÜÉÌÆ·½á¹û:${data}`);
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -1423,7 +1423,7 @@ function smtg_productList() {
     $.get(taskUrl('smtg_productList'), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -1441,7 +1441,7 @@ function smtg_lotteryIndex() {
     $.get(taskUrl('smtg_lotteryIndex', {"costType":1,"channel":1}), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -1460,7 +1460,7 @@ function smtg_drawLottery() {
     $.get(taskUrl('smtg_drawLottery', {"costType":1,"channel":1}), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œè¶…å¸‚: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+          console.log('\n¶«¶«³¬ÊĞ: API²éÑ¯ÇëÇóÊ§°Ü ????')
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -1479,28 +1479,28 @@ function sortSyData(a, b) {
 function sortTotalPriceGold(a, b) {
   return a['previewTotalPriceGold'] - b['previewTotalPriceGold']
 }
-//æ ¼å¼åŒ–åŠ©åŠ›ç 
+//¸ñÊ½»¯ÖúÁ¦Âë
 function shareCodesFormat() {
   return new Promise(resolve => {
-    console.log(`ç¬¬${$.index}ä¸ªäº¬ä¸œè´¦å·çš„åŠ©åŠ›ç :::${jdSuperMarketShareArr[$.index - 1]}`)
+    console.log(`µÚ${$.index}¸ö¾©¶«ÕËºÅµÄÖúÁ¦Âë:::${jdSuperMarketShareArr[$.index - 1]}`)
     if (jdSuperMarketShareArr[$.index - 1]) {
       newShareCodes = jdSuperMarketShareArr[$.index - 1].split('@');
     } else {
-      console.log(`ç”±äºæ‚¨æœªæä¾›ä¸äº¬äº¬ä¸œè´¦å·ç›¸å¯¹åº”çš„shareCode,ä¸‹é¢åŠ©åŠ›å°†é‡‡çº³æœ¬è„šæœ¬è‡ªå¸¦çš„åŠ©åŠ›ç \n`)
+      console.log(`ÓÉÓÚÄúÎ´Ìá¹©Óë¾©¾©¶«ÕËºÅÏà¶ÔÓ¦µÄshareCode,ÏÂÃæÖúÁ¦½«²ÉÄÉ±¾½Å±¾×Ô´øµÄÖúÁ¦Âë\n`)
       const tempIndex = $.index > shareCodes.length ? (shareCodes.length - 1) : ($.index - 1);
       newShareCodes = shareCodes[tempIndex].split('@');
     }
-    console.log(`æ ¼å¼åŒ–åç¬¬${$.index}ä¸ªäº¬ä¸œè´¦å·çš„åŠ©åŠ›ç ${JSON.stringify(newShareCodes)}`)
+    console.log(`¸ñÊ½»¯ºóµÚ${$.index}¸ö¾©¶«ÕËºÅµÄÖúÁ¦Âë${JSON.stringify(newShareCodes)}`)
     resolve();
   })
 }
 function requireConfig() {
   return new Promise(resolve => {
-    // console.log('\nå¼€å§‹è·å–ä¸œä¸œè¶…å¸‚é…ç½®æ–‡ä»¶\n')
+    // console.log('\n¿ªÊ¼»ñÈ¡¶«¶«³¬ÊĞÅäÖÃÎÄ¼ş\n')
     notify = $.isNode() ? require('./sendNotify') : '';
-    //Node.jsç”¨æˆ·è¯·åœ¨jdCookie.jså¤„å¡«å†™äº¬ä¸œck;
+    //Node.jsÓÃ»§ÇëÔÚjdCookie.js´¦ÌîĞ´¾©¶«ck;
     const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
-    //IOSç­‰ç”¨æˆ·ç›´æ¥ç”¨NobyDaçš„jd cookie
+    //IOSµÈÓÃ»§Ö±½ÓÓÃNobyDaµÄjd cookie
     if ($.isNode()) {
       Object.keys(jdCookieNode).forEach((item) => {
         if (jdCookieNode[item]) {
@@ -1511,10 +1511,10 @@ function requireConfig() {
     } else {
       cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
     }
-    console.log(`å…±${cookiesArr.length}ä¸ªäº¬ä¸œè´¦å·\n`);
-    // console.log(`ä¸œä¸œè¶…å¸‚å·²æ”¹ç‰ˆ,ç›®å‰æš‚ä¸ç”¨åŠ©åŠ›, æ•…æ— åŠ©åŠ›ç `)
-    // console.log(`\nä¸œä¸œè¶…å¸‚å•†åœˆåŠ©åŠ›ç ::${JSON.stringify(jdSuperMarketShareArr)}`);
-    // console.log(`æ‚¨æä¾›äº†${jdSuperMarketShareArr.length}ä¸ªè´¦å·çš„åŠ©åŠ›ç \n`);
+    console.log(`¹²${cookiesArr.length}¸ö¾©¶«ÕËºÅ\n`);
+    // console.log(`¶«¶«³¬ÊĞÒÑ¸Ä°æ,Ä¿Ç°Ôİ²»ÓÃÖúÁ¦, ¹ÊÎŞÖúÁ¦Âë`)
+    // console.log(`\n¶«¶«³¬ÊĞÉÌÈ¦ÖúÁ¦Âë::${JSON.stringify(jdSuperMarketShareArr)}`);
+    // console.log(`ÄúÌá¹©ÁË${jdSuperMarketShareArr.length}¸öÕËºÅµÄÖúÁ¦Âë\n`);
     resolve()
   })
 }
@@ -1537,17 +1537,17 @@ function TotalBean() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           if (data) {
             data = JSON.parse(data);
             if (data['retcode'] === 13) {
-              $.isLogin = false; //cookieè¿‡æœŸ
+              $.isLogin = false; //cookie¹ıÆÚ
               return
             }
             $.nickName = data['base'].nickname;
           } else {
-            console.log(`äº¬ä¸œæœåŠ¡å™¨è¿”å›ç©ºæ•°æ®`)
+            console.log(`¾©¶«·şÎñÆ÷·µ»Ø¿ÕÊı¾İ`)
           }
         }
       } catch (e) {
@@ -1565,7 +1565,7 @@ function getTeam() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           data = JSON.parse(data);
           $.getTeams = data['data'];
@@ -1593,9 +1593,9 @@ function taskUrl(function_id, body = {}) {
   }
 }
 /**
- * ç”Ÿæˆéšæœºæ•°å­—
- * @param {number} min æœ€å°å€¼ï¼ˆåŒ…å«ï¼‰
- * @param {number} max æœ€å¤§å€¼ï¼ˆä¸åŒ…å«ï¼‰
+ * Éú³ÉËæ»úÊı×Ö
+ * @param {number} min ×îĞ¡Öµ£¨°üº¬£©
+ * @param {number} max ×î´óÖµ£¨²»°üº¬£©
  */
 function randomNumber(min = 0, max = 100) {
   return Math.min(Math.floor(min + Math.random() * (max - min)), max);
@@ -1606,10 +1606,10 @@ function jsonParse(str) {
       return JSON.parse(str);
     } catch (e) {
       console.log(e);
-      $.msg($.name, '', 'è¯·å‹¿éšæ„åœ¨BoxJsè¾“å…¥æ¡†ä¿®æ”¹å†…å®¹\nå»ºè®®é€šè¿‡è„šæœ¬å»è·å–cookie')
+      $.msg($.name, '', 'ÇëÎğËæÒâÔÚBoxJsÊäÈë¿òĞŞ¸ÄÄÚÈİ\n½¨ÒéÍ¨¹ı½Å±¾È¥»ñÈ¡cookie')
       return [];
     }
   }
 }
 // prettier-ignore
-function Env(t,e){"undefined"!=typeof process&&JSON.stringify(process.env).indexOf("GIT_HUB")>-1&&process.exit(0);class s{constructor(t){this.env=t}send(t,e="GET"){t="string"==typeof t?{url:t}:t;let s=this.get;return"POST"===e&&(s=this.post),new Promise((e,i)=>{s.call(this,t,(t,s,r)=>{t?i(t):e(s)})})}get(t){return this.send.call(this.env,t)}post(t){return this.send.call(this.env,t,"POST")}}return new class{constructor(t,e){this.name=t,this.http=new s(this),this.data=null,this.dataFile="box.dat",this.logs=[],this.isMute=!1,this.isNeedRewrite=!1,this.logSeparator="\n",this.startTime=(new Date).getTime(),Object.assign(this,e),this.log("",`ğŸ””${this.name}, å¼€å§‹!`)}isNode(){return"undefined"!=typeof module&&!!module.exports}isQuanX(){return"undefined"!=typeof $task}isSurge(){return"undefined"!=typeof $httpClient&&"undefined"==typeof $loon}isLoon(){return"undefined"!=typeof $loon}toObj(t,e=null){try{return JSON.parse(t)}catch{return e}}toStr(t,e=null){try{return JSON.stringify(t)}catch{return e}}getjson(t,e){let s=e;const i=this.getdata(t);if(i)try{s=JSON.parse(this.getdata(t))}catch{}return s}setjson(t,e){try{return this.setdata(JSON.stringify(t),e)}catch{return!1}}getScript(t){return new Promise(e=>{this.get({url:t},(t,s,i)=>e(i))})}runScript(t,e){return new Promise(s=>{let i=this.getdata("@chavy_boxjs_userCfgs.httpapi");i=i?i.replace(/\n/g,"").trim():i;let r=this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");r=r?1*r:20,r=e&&e.timeout?e.timeout:r;const[o,h]=i.split("@"),n={url:`http://${h}/v1/scripting/evaluate`,body:{script_text:t,mock_type:"cron",timeout:r},headers:{"X-Key":o,Accept:"*/*"}};this.post(n,(t,e,i)=>s(i))}).catch(t=>this.logErr(t))}loaddata(){if(!this.isNode())return{};{this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e);if(!s&&!i)return{};{const i=s?t:e;try{return JSON.parse(this.fs.readFileSync(i))}catch(t){return{}}}}}writedata(){if(this.isNode()){this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e),r=JSON.stringify(this.data);s?this.fs.writeFileSync(t,r):i?this.fs.writeFileSync(e,r):this.fs.writeFileSync(t,r)}}lodash_get(t,e,s){const i=e.replace(/\[(\d+)\]/g,".$1").split(".");let r=t;for(const t of i)if(r=Object(r)[t],void 0===r)return s;return r}lodash_set(t,e,s){return Object(t)!==t?t:(Array.isArray(e)||(e=e.toString().match(/[^.[\]]+/g)||[]),e.slice(0,-1).reduce((t,s,i)=>Object(t[s])===t[s]?t[s]:t[s]=Math.abs(e[i+1])>>0==+e[i+1]?[]:{},t)[e[e.length-1]]=s,t)}getdata(t){let e=this.getval(t);if(/^@/.test(t)){const[,s,i]=/^@(.*?)\.(.*?)$/.exec(t),r=s?this.getval(s):"";if(r)try{const t=JSON.parse(r);e=t?this.lodash_get(t,i,""):e}catch(t){e=""}}return e}setdata(t,e){let s=!1;if(/^@/.test(e)){const[,i,r]=/^@(.*?)\.(.*?)$/.exec(e),o=this.getval(i),h=i?"null"===o?null:o||"{}":"{}";try{const e=JSON.parse(h);this.lodash_set(e,r,t),s=this.setval(JSON.stringify(e),i)}catch(e){const o={};this.lodash_set(o,r,t),s=this.setval(JSON.stringify(o),i)}}else s=this.setval(t,e);return s}getval(t){return this.isSurge()||this.isLoon()?$persistentStore.read(t):this.isQuanX()?$prefs.valueForKey(t):this.isNode()?(this.data=this.loaddata(),this.data[t]):this.data&&this.data[t]||null}setval(t,e){return this.isSurge()||this.isLoon()?$persistentStore.write(t,e):this.isQuanX()?$prefs.setValueForKey(t,e):this.isNode()?(this.data=this.loaddata(),this.data[e]=t,this.writedata(),!0):this.data&&this.data[e]||null}initGotEnv(t){this.got=this.got?this.got:require("got"),this.cktough=this.cktough?this.cktough:require("tough-cookie"),this.ckjar=this.ckjar?this.ckjar:new this.cktough.CookieJar,t&&(t.headers=t.headers?t.headers:{},void 0===t.headers.Cookie&&void 0===t.cookieJar&&(t.cookieJar=this.ckjar))}get(t,e=(()=>{})){t.headers&&(delete t.headers["Content-Type"],delete t.headers["Content-Length"]),this.isSurge()||this.isLoon()?(this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.get(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)})):this.isQuanX()?(this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t))):this.isNode()&&(this.initGotEnv(t),this.got(t).on("redirect",(t,e)=>{try{if(t.headers["set-cookie"]){const s=t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();s&&this.ckjar.setCookieSync(s,null),e.cookieJar=this.ckjar}}catch(t){this.logErr(t)}}).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)}))}post(t,e=(()=>{})){if(t.body&&t.headers&&!t.headers["Content-Type"]&&(t.headers["Content-Type"]="application/x-www-form-urlencoded"),t.headers&&delete t.headers["Content-Length"],this.isSurge()||this.isLoon())this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.post(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)});else if(this.isQuanX())t.method="POST",this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t));else if(this.isNode()){this.initGotEnv(t);const{url:s,...i}=t;this.got.post(s,i).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)})}}time(t,e=null){const s=e?new Date(e):new Date;let i={"M+":s.getMonth()+1,"d+":s.getDate(),"H+":s.getHours(),"m+":s.getMinutes(),"s+":s.getSeconds(),"q+":Math.floor((s.getMonth()+3)/3),S:s.getMilliseconds()};/(y+)/.test(t)&&(t=t.replace(RegExp.$1,(s.getFullYear()+"").substr(4-RegExp.$1.length)));for(let e in i)new RegExp("("+e+")").test(t)&&(t=t.replace(RegExp.$1,1==RegExp.$1.length?i[e]:("00"+i[e]).substr((""+i[e]).length)));return t}msg(e=t,s="",i="",r){const o=t=>{if(!t)return t;if("string"==typeof t)return this.isLoon()?t:this.isQuanX()?{"open-url":t}:this.isSurge()?{url:t}:void 0;if("object"==typeof t){if(this.isLoon()){let e=t.openUrl||t.url||t["open-url"],s=t.mediaUrl||t["media-url"];return{openUrl:e,mediaUrl:s}}if(this.isQuanX()){let e=t["open-url"]||t.url||t.openUrl,s=t["media-url"]||t.mediaUrl;return{"open-url":e,"media-url":s}}if(this.isSurge()){let e=t.url||t.openUrl||t["open-url"];return{url:e}}}};if(this.isMute||(this.isSurge()||this.isLoon()?$notification.post(e,s,i,o(r)):this.isQuanX()&&$notify(e,s,i,o(r))),!this.isMuteLog){let t=["","==============ğŸ“£ç³»ç»Ÿé€šçŸ¥ğŸ“£=============="];t.push(e),s&&t.push(s),i&&t.push(i),console.log(t.join("\n")),this.logs=this.logs.concat(t)}}log(...t){t.length>0&&(this.logs=[...this.logs,...t]),console.log(t.join(this.logSeparator))}logErr(t,e){const s=!this.isSurge()&&!this.isQuanX()&&!this.isLoon();s?this.log("",`â—ï¸${this.name}, é”™è¯¯!`,t.stack):this.log("",`â—ï¸${this.name}, é”™è¯¯!`,t)}wait(t){return new Promise(e=>setTimeout(e,t))}done(t={}){const e=(new Date).getTime(),s=(e-this.startTime)/1e3;this.log("",`ğŸ””${this.name}, ç»“æŸ! ğŸ•› ${s} ç§’`),this.log(),(this.isSurge()||this.isQuanX()||this.isLoon())&&$done(t)}}(t,e)}
+function Env(t,e){"undefined"!=typeof process&&JSON.stringify(process.env).indexOf("GIT_HUB")>-1&&process.exit(0);class s{constructor(t){this.env=t}send(t,e="GET"){t="string"==typeof t?{url:t}:t;let s=this.get;return"POST"===e&&(s=this.post),new Promise((e,i)=>{s.call(this,t,(t,s,r)=>{t?i(t):e(s)})})}get(t){return this.send.call(this.env,t)}post(t){return this.send.call(this.env,t,"POST")}}return new class{constructor(t,e){this.name=t,this.http=new s(this),this.data=null,this.dataFile="box.dat",this.logs=[],this.isMute=!1,this.isNeedRewrite=!1,this.logSeparator="\n",this.startTime=(new Date).getTime(),Object.assign(this,e),this.log("",`?${this.name}, ¿ªÊ¼!`)}isNode(){return"undefined"!=typeof module&&!!module.exports}isQuanX(){return"undefined"!=typeof $task}isSurge(){return"undefined"!=typeof $httpClient&&"undefined"==typeof $loon}isLoon(){return"undefined"!=typeof $loon}toObj(t,e=null){try{return JSON.parse(t)}catch{return e}}toStr(t,e=null){try{return JSON.stringify(t)}catch{return e}}getjson(t,e){let s=e;const i=this.getdata(t);if(i)try{s=JSON.parse(this.getdata(t))}catch{}return s}setjson(t,e){try{return this.setdata(JSON.stringify(t),e)}catch{return!1}}getScript(t){return new Promise(e=>{this.get({url:t},(t,s,i)=>e(i))})}runScript(t,e){return new Promise(s=>{let i=this.getdata("@chavy_boxjs_userCfgs.httpapi");i=i?i.replace(/\n/g,"").trim():i;let r=this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");r=r?1*r:20,r=e&&e.timeout?e.timeout:r;const[o,h]=i.split("@"),n={url:`http://${h}/v1/scripting/evaluate`,body:{script_text:t,mock_type:"cron",timeout:r},headers:{"X-Key":o,Accept:"*/*"}};this.post(n,(t,e,i)=>s(i))}).catch(t=>this.logErr(t))}loaddata(){if(!this.isNode())return{};{this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e);if(!s&&!i)return{};{const i=s?t:e;try{return JSON.parse(this.fs.readFileSync(i))}catch(t){return{}}}}}writedata(){if(this.isNode()){this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e),r=JSON.stringify(this.data);s?this.fs.writeFileSync(t,r):i?this.fs.writeFileSync(e,r):this.fs.writeFileSync(t,r)}}lodash_get(t,e,s){const i=e.replace(/\[(\d+)\]/g,".$1").split(".");let r=t;for(const t of i)if(r=Object(r)[t],void 0===r)return s;return r}lodash_set(t,e,s){return Object(t)!==t?t:(Array.isArray(e)||(e=e.toString().match(/[^.[\]]+/g)||[]),e.slice(0,-1).reduce((t,s,i)=>Object(t[s])===t[s]?t[s]:t[s]=Math.abs(e[i+1])>>0==+e[i+1]?[]:{},t)[e[e.length-1]]=s,t)}getdata(t){let e=this.getval(t);if(/^@/.test(t)){const[,s,i]=/^@(.*?)\.(.*?)$/.exec(t),r=s?this.getval(s):"";if(r)try{const t=JSON.parse(r);e=t?this.lodash_get(t,i,""):e}catch(t){e=""}}return e}setdata(t,e){let s=!1;if(/^@/.test(e)){const[,i,r]=/^@(.*?)\.(.*?)$/.exec(e),o=this.getval(i),h=i?"null"===o?null:o||"{}":"{}";try{const e=JSON.parse(h);this.lodash_set(e,r,t),s=this.setval(JSON.stringify(e),i)}catch(e){const o={};this.lodash_set(o,r,t),s=this.setval(JSON.stringify(o),i)}}else s=this.setval(t,e);return s}getval(t){return this.isSurge()||this.isLoon()?$persistentStore.read(t):this.isQuanX()?$prefs.valueForKey(t):this.isNode()?(this.data=this.loaddata(),this.data[t]):this.data&&this.data[t]||null}setval(t,e){return this.isSurge()||this.isLoon()?$persistentStore.write(t,e):this.isQuanX()?$prefs.setValueForKey(t,e):this.isNode()?(this.data=this.loaddata(),this.data[e]=t,this.writedata(),!0):this.data&&this.data[e]||null}initGotEnv(t){this.got=this.got?this.got:require("got"),this.cktough=this.cktough?this.cktough:require("tough-cookie"),this.ckjar=this.ckjar?this.ckjar:new this.cktough.CookieJar,t&&(t.headers=t.headers?t.headers:{},void 0===t.headers.Cookie&&void 0===t.cookieJar&&(t.cookieJar=this.ckjar))}get(t,e=(()=>{})){t.headers&&(delete t.headers["Content-Type"],delete t.headers["Content-Length"]),this.isSurge()||this.isLoon()?(this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.get(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)})):this.isQuanX()?(this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t))):this.isNode()&&(this.initGotEnv(t),this.got(t).on("redirect",(t,e)=>{try{if(t.headers["set-cookie"]){const s=t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();s&&this.ckjar.setCookieSync(s,null),e.cookieJar=this.ckjar}}catch(t){this.logErr(t)}}).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)}))}post(t,e=(()=>{})){if(t.body&&t.headers&&!t.headers["Content-Type"]&&(t.headers["Content-Type"]="application/x-www-form-urlencoded"),t.headers&&delete t.headers["Content-Length"],this.isSurge()||this.isLoon())this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.post(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)});else if(this.isQuanX())t.method="POST",this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t));else if(this.isNode()){this.initGotEnv(t);const{url:s,...i}=t;this.got.post(s,i).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)})}}time(t,e=null){const s=e?new Date(e):new Date;let i={"M+":s.getMonth()+1,"d+":s.getDate(),"H+":s.getHours(),"m+":s.getMinutes(),"s+":s.getSeconds(),"q+":Math.floor((s.getMonth()+3)/3),S:s.getMilliseconds()};/(y+)/.test(t)&&(t=t.replace(RegExp.$1,(s.getFullYear()+"").substr(4-RegExp.$1.length)));for(let e in i)new RegExp("("+e+")").test(t)&&(t=t.replace(RegExp.$1,1==RegExp.$1.length?i[e]:("00"+i[e]).substr((""+i[e]).length)));return t}msg(e=t,s="",i="",r){const o=t=>{if(!t)return t;if("string"==typeof t)return this.isLoon()?t:this.isQuanX()?{"open-url":t}:this.isSurge()?{url:t}:void 0;if("object"==typeof t){if(this.isLoon()){let e=t.openUrl||t.url||t["open-url"],s=t.mediaUrl||t["media-url"];return{openUrl:e,mediaUrl:s}}if(this.isQuanX()){let e=t["open-url"]||t.url||t.openUrl,s=t["media-url"]||t.mediaUrl;return{"open-url":e,"media-url":s}}if(this.isSurge()){let e=t.url||t.openUrl||t["open-url"];return{url:e}}}};if(this.isMute||(this.isSurge()||this.isLoon()?$notification.post(e,s,i,o(r)):this.isQuanX()&&$notify(e,s,i,o(r))),!this.isMuteLog){let t=["","==============?ÏµÍ³Í¨Öª?=============="];t.push(e),s&&t.push(s),i&&t.push(i),console.log(t.join("\n")),this.logs=this.logs.concat(t)}}log(...t){t.length>0&&(this.logs=[...this.logs,...t]),console.log(t.join(this.logSeparator))}logErr(t,e){const s=!this.isSurge()&&!this.isQuanX()&&!this.isLoon();s?this.log("",`??${this.name}, ´íÎó!`,t.stack):this.log("",`??${this.name}, ´íÎó!`,t)}wait(t){return new Promise(e=>setTimeout(e,t))}done(t={}){const e=(new Date).getTime(),s=(e-this.startTime)/1e3;this.log("",`?${this.name}, ½áÊø! ? ${s} Ãë`),this.log(),(this.isSurge()||this.isQuanX()||this.isLoon())&&$done(t)}}(t,e)}

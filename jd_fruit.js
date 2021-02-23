@@ -1,50 +1,50 @@
 /*
-ä¸œä¸œæ°´æœ:è„šæœ¬æ›´æ–°åœ°å€ https://jdsharedresourcescdn.azureedge.net/jdresource/jd_fruit.js
-æ›´æ–°æ—¶é—´ï¼š2021-2-19
-æ´»åŠ¨å…¥å£ï¼šäº¬ä¸œAPPæˆ‘çš„-æ›´å¤šå·¥å…·-ä¸œä¸œå†œåœº
-ä¸œä¸œå†œåœºæ´»åŠ¨é“¾æ¥ï¼šhttps://h5.m.jd.com/babelDiy/Zeus/3KSjXqQabiTuD1cJ28QskrpWoBKT/index.html
-å·²æ”¯æŒIOSåŒäº¬ä¸œè´¦å·,Node.jsæ”¯æŒNä¸ªäº¬ä¸œè´¦å·
-è„šæœ¬å…¼å®¹: QuantumultX, Surge, Loon, JSBox, Node.js
-äº’åŠ©ç shareCodeè¯·å…ˆæ‰‹åŠ¨è¿è¡Œè„šæœ¬æŸ¥çœ‹æ‰“å°å¯çœ‹åˆ°
-ä¸€å¤©åªèƒ½å¸®åŠ©3ä¸ªäººã€‚å¤šå‡ºçš„åŠ©åŠ›ç æ— æ•ˆ
+¶«¶«Ë®¹û:½Å±¾¸üĞÂµØÖ· https://jdsharedresourcescdn.azureedge.net/jdresource/jd_fruit.js
+¸üĞÂÊ±¼ä£º2021-2-19
+»î¶¯Èë¿Ú£º¾©¶«APPÎÒµÄ-¸ü¶à¹¤¾ß-¶«¶«Å©³¡
+¶«¶«Å©³¡»î¶¯Á´½Ó£ºhttps://h5.m.jd.com/babelDiy/Zeus/3KSjXqQabiTuD1cJ28QskrpWoBKT/index.html
+ÒÑÖ§³ÖIOSË«¾©¶«ÕËºÅ,Node.jsÖ§³ÖN¸ö¾©¶«ÕËºÅ
+½Å±¾¼æÈİ: QuantumultX, Surge, Loon, JSBox, Node.js
+»¥ÖúÂëshareCodeÇëÏÈÊÖ¶¯ÔËĞĞ½Å±¾²é¿´´òÓ¡¿É¿´µ½
+Ò»ÌìÖ»ÄÜ°ïÖú3¸öÈË¡£¶à³öµÄÖúÁ¦ÂëÎŞĞ§
 ==========================Quantumultx=========================
 [task_local]
-#jdå…è´¹æ°´æœ
-5 6-18/6 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_fruit.js, tag=ä¸œä¸œå†œåœº, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jdnc.png, enabled=true
+#jdÃâ·ÑË®¹û
+5 6-18/6 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_fruit.js, tag=¶«¶«Å©³¡, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jdnc.png, enabled=true
 =========================Loon=============================
 [Script]
-cron "5 6-18/6 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_fruit.js,tag=ä¸œä¸œå†œåœº
+cron "5 6-18/6 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_fruit.js,tag=¶«¶«Å©³¡
 
 =========================Surge============================
-ä¸œä¸œå†œåœº = type=cron,cronexp="5 6-18/6 * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_fruit.js
+¶«¶«Å©³¡ = type=cron,cronexp="5 6-18/6 * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_fruit.js
 
-=========================å°ç«ç®­===========================
-ä¸œä¸œå†œåœº = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_fruit.js, cronexpr="5 6-18/6 * * *", timeout=3600, enable=true
+=========================Ğ¡»ğ¼ı===========================
+¶«¶«Å©³¡ = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_fruit.js, cronexpr="5 6-18/6 * * *", timeout=3600, enable=true
 
-jdå…è´¹æ°´æœ æ¬çš„https://github.com/liuxiaoyucc/jd-helper/blob/a6f275d9785748014fc6cca821e58427162e9336/fruit/fruit.js
+jdÃâ·ÑË®¹û °áµÄhttps://github.com/liuxiaoyucc/jd-helper/blob/a6f275d9785748014fc6cca821e58427162e9336/fruit/fruit.js
 */
-const $ = new Env('ä¸œä¸œå†œåœº');
+const $ = new Env('¶«¶«Å©³¡');
 let cookiesArr = [], cookie = '', jdFruitShareArr = [], isBox = false, notify, newShareCodes;
-//åŠ©åŠ›å¥½å‹åˆ†äº«ç (æœ€å¤š3ä¸ª,å¦åˆ™åé¢çš„åŠ©åŠ›å¤±è´¥),åŸå› :äº¬ä¸œå†œåœºæ¯äººæ¯å¤©åªæœ‰3æ¬¡åŠ©åŠ›æœºä¼š
-//æ­¤æ­¤å†…å®¹æ˜¯IOSç”¨æˆ·ä¸‹è½½è„šæœ¬åˆ°æœ¬åœ°ä½¿ç”¨ï¼Œå¡«å†™äº’åŠ©ç çš„åœ°æ–¹ï¼ŒåŒä¸€äº¬ä¸œè´¦å·çš„å¥½å‹äº’åŠ©ç è¯·ä½¿ç”¨@ç¬¦å·éš”å¼€ã€‚
-//ä¸‹é¢ç»™å‡ºä¸¤ä¸ªè´¦å·çš„å¡«å†™ç¤ºä¾‹ï¼ˆiOSåªæ”¯æŒ2ä¸ªäº¬ä¸œè´¦å·ï¼‰
-let shareCodes = [ // è¿™ä¸ªåˆ—è¡¨å¡«å…¥ä½ è¦åŠ©åŠ›çš„å¥½å‹çš„shareCode
-   //è´¦å·ä¸€çš„å¥½å‹shareCode,ä¸åŒå¥½å‹çš„shareCodeä¸­é—´ç”¨@ç¬¦å·éš”å¼€
+//ÖúÁ¦ºÃÓÑ·ÖÏíÂë(×î¶à3¸ö,·ñÔòºóÃæµÄÖúÁ¦Ê§°Ü),Ô­Òò:¾©¶«Å©³¡Ã¿ÈËÃ¿ÌìÖ»ÓĞ3´ÎÖúÁ¦»ú»á
+//´Ë´ËÄÚÈİÊÇIOSÓÃ»§ÏÂÔØ½Å±¾µ½±¾µØÊ¹ÓÃ£¬ÌîĞ´»¥ÖúÂëµÄµØ·½£¬Í¬Ò»¾©¶«ÕËºÅµÄºÃÓÑ»¥ÖúÂëÇëÊ¹ÓÃ@·ûºÅ¸ô¿ª¡£
+//ÏÂÃæ¸ø³öÁ½¸öÕËºÅµÄÌîĞ´Ê¾Àı£¨iOSÖ»Ö§³Ö2¸ö¾©¶«ÕËºÅ£©
+let shareCodes = [ // Õâ¸öÁĞ±íÌîÈëÄãÒªÖúÁ¦µÄºÃÓÑµÄshareCode
+   //ÕËºÅÒ»µÄºÃÓÑshareCode,²»Í¬ºÃÓÑµÄshareCodeÖĞ¼äÓÃ@·ûºÅ¸ô¿ª
   '0a74407df5df4fa99672a037eec61f7e@dbb21614667246fabcfd9685b6f448f3@6fbd26cc27ac44d6a7fed34092453f77@61ff5c624949454aa88561f2cd721bf6@56db8e7bc5874668ba7d5195230d067a@b9d287c974cc498d94112f1b064cf934@23b49f5a106b4d61b2ea505d5a4e1056@8107cad4b82847a698ca7d7de9115f36',
-  //è´¦å·äºŒçš„å¥½å‹shareCode,ä¸åŒå¥½å‹çš„shareCodeä¸­é—´ç”¨@ç¬¦å·éš”å¼€
+  //ÕËºÅ¶şµÄºÃÓÑshareCode,²»Í¬ºÃÓÑµÄshareCodeÖĞ¼äÓÃ@·ûºÅ¸ô¿ª
   'b1638a774d054a05a30a17d3b4d364b8@f92cb56c6a1349f5a35f0372aa041ea0@9c52670d52ad4e1a812f894563c746ea@8175509d82504e96828afc8b1bbb9cb3@2673c3777d4443829b2a635059953a28@d2d5d435675544679413cb9145577e0f',
 ]
 let message = '', subTitle = '', option = {}, isFruitFinished = false;
-const retainWater = 100;//ä¿ç•™æ°´æ»´å¤§äºå¤šå°‘g,é»˜è®¤100g;
-let jdNotify = false;//æ˜¯å¦å…³é—­é€šçŸ¥ï¼Œfalseæ‰“å¼€é€šçŸ¥æ¨é€ï¼Œtrueå…³é—­é€šçŸ¥æ¨é€
-let jdFruitBeanCard = false;//å†œåœºä½¿ç”¨æ°´æ»´æ¢è±†å¡(å¦‚æœå‡ºç°é™æ—¶æ´»åŠ¨æ—¶100gæ°´æ¢20è±†,æ­¤æ—¶æ¯”æµ‡æ°´åˆ’ç®—,æ¨èæ¢è±†),trueè¡¨ç¤ºæ¢è±†(ä¸æµ‡æ°´),falseè¡¨ç¤ºä¸æ¢è±†(ç»§ç»­æµ‡æ°´),è„šæœ¬é»˜è®¤æ˜¯æµ‡æ°´
+const retainWater = 100;//±£ÁôË®µÎ´óÓÚ¶àÉÙg,Ä¬ÈÏ100g;
+let jdNotify = false;//ÊÇ·ñ¹Ø±ÕÍ¨Öª£¬false´ò¿ªÍ¨ÖªÍÆËÍ£¬true¹Ø±ÕÍ¨ÖªÍÆËÍ
+let jdFruitBeanCard = false;//Å©³¡Ê¹ÓÃË®µÎ»»¶¹¿¨(Èç¹û³öÏÖÏŞÊ±»î¶¯Ê±100gË®»»20¶¹,´ËÊ±±È½½Ë®»®Ëã,ÍÆ¼ö»»¶¹),true±íÊ¾»»¶¹(²»½½Ë®),false±íÊ¾²»»»¶¹(¼ÌĞø½½Ë®),½Å±¾Ä¬ÈÏÊÇ½½Ë®
 let randomCount = $.isNode() ? 20 : 5;
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
 const urlSchema = `openjd://virtual?params=%7B%20%22category%22:%20%22jump%22,%20%22des%22:%20%22m%22,%20%22url%22:%20%22https://h5.m.jd.com/babelDiy/Zeus/3KSjXqQabiTuD1cJ28QskrpWoBKT/index.html%22%20%7D`;
 !(async () => {
   await requireConfig();
   if (!cookiesArr[0]) {
-    $.msg($.name, 'ã€æç¤ºã€‘è¯·å…ˆè·å–äº¬ä¸œè´¦å·ä¸€cookie\nç›´æ¥ä½¿ç”¨NobyDaçš„äº¬ä¸œç­¾åˆ°è·å–', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+    $.msg($.name, '¡¾ÌáÊ¾¡¿ÇëÏÈ»ñÈ¡¾©¶«ÕËºÅÒ»cookie\nÖ±½ÓÊ¹ÓÃNobyDaµÄ¾©¶«Ç©µ½»ñÈ¡', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
     return;
   }
   for (let i = 0; i < cookiesArr.length; i++) {
@@ -55,12 +55,12 @@ const urlSchema = `openjd://virtual?params=%7B%20%22category%22:%20%22jump%22,%2
       $.isLogin = true;
       $.nickName = '';
       await TotalBean();
-      console.log(`\nå¼€å§‹ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName || $.UserName}\n`);
+      console.log(`\n¿ªÊ¼¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName || $.UserName}\n`);
       if (!$.isLogin) {
-        $.msg($.name, `ã€æç¤ºã€‘cookieå·²å¤±æ•ˆ`, `äº¬ä¸œè´¦å·${$.index} ${$.nickName || $.UserName}\nè¯·é‡æ–°ç™»å½•è·å–\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+        $.msg($.name, `¡¾ÌáÊ¾¡¿cookieÒÑÊ§Ğ§`, `¾©¶«ÕËºÅ${$.index} ${$.nickName || $.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
 
         if ($.isNode()) {
-          await notify.sendNotify(`${$.name}cookieå·²å¤±æ•ˆ - ${$.UserName}`, `äº¬ä¸œè´¦å·${$.index} ${$.UserName}\nè¯·é‡æ–°ç™»å½•è·å–cookie`);
+          await notify.sendNotify(`${$.name}cookieÒÑÊ§Ğ§ - ${$.UserName}`, `¾©¶«ÕËºÅ${$.index} ${$.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡cookie`);
         }
         continue
       }
@@ -73,180 +73,180 @@ const urlSchema = `openjd://virtual?params=%7B%20%22category%22:%20%22jump%22,%2
   }
 })()
     .catch((e) => {
-      $.log('', `âŒ ${$.name}, å¤±è´¥! åŸå› : ${e}!`, '')
+      $.log('', `? ${$.name}, Ê§°Ü! Ô­Òò: ${e}!`, '')
     })
     .finally(() => {
       $.done();
     })
 async function jdFruit() {
-  subTitle = `ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName}`;
+  subTitle = `¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName}`;
   try {
     await initForFarm();
     if ($.farmInfo.farmUserPro) {
       // option['media-url'] = $.farmInfo.farmUserPro.goodsImage;
-      message = `ã€æ°´æœåç§°ã€‘${$.farmInfo.farmUserPro.name}\n`;
-      console.log(`\nã€äº¬ä¸œè´¦å·${$.index}ï¼ˆ${$.nickName || $.UserName}ï¼‰çš„${$.name}å¥½å‹äº’åŠ©ç ã€‘${$.farmInfo.farmUserPro.shareCode}\n`);
-      console.log(`\nã€å·²æˆåŠŸå…‘æ¢æ°´æœã€‘${$.farmInfo.farmUserPro.winTimes}æ¬¡\n`);
-      message += `ã€å·²å…‘æ¢æ°´æœã€‘${$.farmInfo.farmUserPro.winTimes}æ¬¡\n`;
-      await masterHelpShare();//åŠ©åŠ›å¥½å‹
+      message = `¡¾Ë®¹ûÃû³Æ¡¿${$.farmInfo.farmUserPro.name}\n`;
+      console.log(`\n¡¾¾©¶«ÕËºÅ${$.index}£¨${$.nickName || $.UserName}£©µÄ${$.name}ºÃÓÑ»¥ÖúÂë¡¿${$.farmInfo.farmUserPro.shareCode}\n`);
+      console.log(`\n¡¾ÒÑ³É¹¦¶Ò»»Ë®¹û¡¿${$.farmInfo.farmUserPro.winTimes}´Î\n`);
+      message += `¡¾ÒÑ¶Ò»»Ë®¹û¡¿${$.farmInfo.farmUserPro.winTimes}´Î\n`;
+      await masterHelpShare();//ÖúÁ¦ºÃÓÑ
       if ($.farmInfo.treeState === 2 || $.farmInfo.treeState === 3) {
         option['open-url'] = urlSchema;
-        $.msg($.name, ``, `ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName || $.UserName}\nã€æé†’â°ã€‘${$.farmInfo.farmUserPro.name}å·²å¯é¢†å–\nè¯·å»äº¬ä¸œAPPæˆ–å¾®ä¿¡å°ç¨‹åºæŸ¥çœ‹\nç‚¹å‡»å¼¹çª—å³è¾¾`, option);
+        $.msg($.name, ``, `¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName || $.UserName}\n¡¾ÌáĞÑ?¡¿${$.farmInfo.farmUserPro.name}ÒÑ¿ÉÁìÈ¡\nÇëÈ¥¾©¶«APP»òÎ¢ĞÅĞ¡³ÌĞò²é¿´\nµã»÷µ¯´°¼´´ï`, option);
         if ($.isNode()) {
-          await notify.sendNotify(`${$.name} - è´¦å·${$.index} - ${$.nickName}æ°´æœå·²å¯é¢†å–`, `ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName || $.UserName}\nã€æé†’â°ã€‘${$.farmInfo.farmUserPro.name}å·²å¯é¢†å–\nè¯·å»äº¬ä¸œAPPæˆ–å¾®ä¿¡å°ç¨‹åºæŸ¥çœ‹`);
+          await notify.sendNotify(`${$.name} - ÕËºÅ${$.index} - ${$.nickName}Ë®¹ûÒÑ¿ÉÁìÈ¡`, `¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName || $.UserName}\n¡¾ÌáĞÑ?¡¿${$.farmInfo.farmUserPro.name}ÒÑ¿ÉÁìÈ¡\nÇëÈ¥¾©¶«APP»òÎ¢ĞÅĞ¡³ÌĞò²é¿´`);
         }
         return
       } else if ($.farmInfo.treeState === 1) {
-        console.log(`\n${$.farmInfo.farmUserPro.name}ç§æ¤ä¸­...\n`)
+        console.log(`\n${$.farmInfo.farmUserPro.name}ÖÖÖ²ÖĞ...\n`)
       } else if ($.farmInfo.treeState === 0) {
-        //å·²ä¸‹å•è´­ä¹°, ä½†æœªå¼€å§‹ç§æ¤æ–°çš„æ°´æœ
+        //ÒÑÏÂµ¥¹ºÂò, µ«Î´¿ªÊ¼ÖÖÖ²ĞÂµÄË®¹û
         option['open-url'] = urlSchema;
-        $.msg($.name, ``, `ã€äº¬ä¸œè´¦å·${$.index}ã€‘ ${$.nickName || $.UserName}\nã€æé†’â°ã€‘æ‚¨å¿˜äº†ç§æ¤æ–°çš„æ°´æœ\nè¯·å»äº¬ä¸œAPPæˆ–å¾®ä¿¡å°ç¨‹åºé€‰è´­å¹¶ç§æ¤æ–°çš„æ°´æœ\nç‚¹å‡»å¼¹çª—å³è¾¾`, option);
+        $.msg($.name, ``, `¡¾¾©¶«ÕËºÅ${$.index}¡¿ ${$.nickName || $.UserName}\n¡¾ÌáĞÑ?¡¿ÄúÍüÁËÖÖÖ²ĞÂµÄË®¹û\nÇëÈ¥¾©¶«APP»òÎ¢ĞÅĞ¡³ÌĞòÑ¡¹º²¢ÖÖÖ²ĞÂµÄË®¹û\nµã»÷µ¯´°¼´´ï`, option);
         if ($.isNode()) {
-          await notify.sendNotify(`${$.name} - æ‚¨å¿˜äº†ç§æ¤æ–°çš„æ°´æœ`, `äº¬ä¸œè´¦å·${$.index} ${$.nickName}\nã€æé†’â°ã€‘æ‚¨å¿˜äº†ç§æ¤æ–°çš„æ°´æœ\nè¯·å»äº¬ä¸œAPPæˆ–å¾®ä¿¡å°ç¨‹åºé€‰è´­å¹¶ç§æ¤æ–°çš„æ°´æœ`);
+          await notify.sendNotify(`${$.name} - ÄúÍüÁËÖÖÖ²ĞÂµÄË®¹û`, `¾©¶«ÕËºÅ${$.index} ${$.nickName}\n¡¾ÌáĞÑ?¡¿ÄúÍüÁËÖÖÖ²ĞÂµÄË®¹û\nÇëÈ¥¾©¶«APP»òÎ¢ĞÅĞ¡³ÌĞòÑ¡¹º²¢ÖÖÖ²ĞÂµÄË®¹û`);
         }
         return
       }
       await doDailyTask();
-      await doTenWater();//æµ‡æ°´åæ¬¡
-      await getFirstWaterAward();//é¢†å–é¦–æ¬¡æµ‡æ°´å¥–åŠ±
-      await getTenWaterAward();//é¢†å–10æµ‡æ°´å¥–åŠ±
-      await getWaterFriendGotAward();//é¢†å–ä¸º2å¥½å‹æµ‡æ°´å¥–åŠ±
+      await doTenWater();//½½Ë®Ê®´Î
+      await getFirstWaterAward();//ÁìÈ¡Ê×´Î½½Ë®½±Àø
+      await getTenWaterAward();//ÁìÈ¡10½½Ë®½±Àø
+      await getWaterFriendGotAward();//ÁìÈ¡Îª2ºÃÓÑ½½Ë®½±Àø
       await duck();
-      await doTenWaterAgain();//å†æ¬¡æµ‡æ°´
-      await predictionFruit();//é¢„æµ‹æ°´æœæˆç†Ÿæ—¶é—´
+      await doTenWaterAgain();//ÔÙ´Î½½Ë®
+      await predictionFruit();//Ô¤²âË®¹û³ÉÊìÊ±¼ä
     } else {
-      console.log(`åˆå§‹åŒ–å†œåœºæ•°æ®å¼‚å¸¸, è¯·ç™»å½•äº¬ä¸œ appæŸ¥çœ‹å†œåœº0å…ƒæ°´æœåŠŸèƒ½æ˜¯å¦æ­£å¸¸,å†œåœºåˆå§‹åŒ–æ•°æ®: ${JSON.stringify($.farmInfo)}`);
-      message = `ã€æ•°æ®å¼‚å¸¸ã€‘è¯·æ‰‹åŠ¨ç™»å½•äº¬ä¸œappæŸ¥çœ‹æ­¤è´¦å·${$.name}æ˜¯å¦æ­£å¸¸`;
+      console.log(`³õÊ¼»¯Å©³¡Êı¾İÒì³£, ÇëµÇÂ¼¾©¶« app²é¿´Å©³¡0ÔªË®¹û¹¦ÄÜÊÇ·ñÕı³£,Å©³¡³õÊ¼»¯Êı¾İ: ${JSON.stringify($.farmInfo)}`);
+      message = `¡¾Êı¾İÒì³£¡¿ÇëÊÖ¶¯µÇÂ¼¾©¶«app²é¿´´ËÕËºÅ${$.name}ÊÇ·ñÕı³£`;
     }
   } catch (e) {
-    console.log(`ä»»åŠ¡æ‰§è¡Œå¼‚å¸¸ï¼Œè¯·æ£€æŸ¥æ‰§è¡Œæ—¥å¿— â€¼ï¸â€¼ï¸`);
-    message = `ä»»åŠ¡æ‰§è¡Œå¼‚å¸¸ï¼Œè¯·æ£€æŸ¥æ‰§è¡Œæ—¥å¿— â€¼ï¸â€¼ï¸`;
+    console.log(`ÈÎÎñÖ´ĞĞÒì³££¬Çë¼ì²éÖ´ĞĞÈÕÖ¾ ????`);
+    message = `ÈÎÎñÖ´ĞĞÒì³££¬Çë¼ì²éÖ´ĞĞÈÕÖ¾ ????`;
     $.logErr(e);
   }
   await showMsg();
 }
 async function doDailyTask() {
   await taskInitForFarm();
-  console.log(`å¼€å§‹ç­¾åˆ°`);
+  console.log(`¿ªÊ¼Ç©µ½`);
   if (!$.farmTask.signInit.todaySigned) {
-    await signForFarm(); //ç­¾åˆ°
+    await signForFarm(); //Ç©µ½
     if ($.signResult.code === "0") {
-      console.log(`ã€ç­¾åˆ°æˆåŠŸã€‘è·å¾—${$.signResult.amount}gğŸ’§\\n`)
-      //message += `ã€ç­¾åˆ°æˆåŠŸã€‘è·å¾—${$.signResult.amount}gğŸ’§\n`//è¿ç»­ç­¾åˆ°${signResult.signDay}å¤©
+      console.log(`¡¾Ç©µ½³É¹¦¡¿»ñµÃ${$.signResult.amount}g?\\n`)
+      //message += `¡¾Ç©µ½³É¹¦¡¿»ñµÃ${$.signResult.amount}g?\n`//Á¬ĞøÇ©µ½${signResult.signDay}Ìì
     } else {
-      // message += `ç­¾åˆ°å¤±è´¥,è¯¦è¯¢æ—¥å¿—\n`;
-      console.log(`ç­¾åˆ°ç»“æœ:  ${JSON.stringify($.signResult)}`);
+      // message += `Ç©µ½Ê§°Ü,ÏêÑ¯ÈÕÖ¾\n`;
+      console.log(`Ç©µ½½á¹û:  ${JSON.stringify($.signResult)}`);
     }
   } else {
-    console.log(`ä»Šå¤©å·²ç­¾åˆ°,è¿ç»­ç­¾åˆ°${$.farmTask.signInit.totalSigned},ä¸‹æ¬¡ç­¾åˆ°å¯å¾—${$.farmTask.signInit.signEnergyEachAmount}g\n`);
+    console.log(`½ñÌìÒÑÇ©µ½,Á¬ĞøÇ©µ½${$.farmTask.signInit.totalSigned},ÏÂ´ÎÇ©µ½¿ÉµÃ${$.farmTask.signInit.signEnergyEachAmount}g\n`);
   }
-  // è¢«æ°´æ»´ç ¸ä¸­
-  console.log(`è¢«æ°´æ»´ç ¸ä¸­ï¼š ${$.farmInfo.todayGotWaterGoalTask.canPop ? 'æ˜¯' : 'å¦'}`);
+  // ±»Ë®µÎÔÒÖĞ
+  console.log(`±»Ë®µÎÔÒÖĞ£º ${$.farmInfo.todayGotWaterGoalTask.canPop ? 'ÊÇ' : '·ñ'}`);
   if ($.farmInfo.todayGotWaterGoalTask.canPop) {
     await gotWaterGoalTaskForFarm();
     if ($.goalResult.code === '0') {
-      console.log(`ã€è¢«æ°´æ»´ç ¸ä¸­ã€‘è·å¾—${$.goalResult.addEnergy}gğŸ’§\\n`);
-      // message += `ã€è¢«æ°´æ»´ç ¸ä¸­ã€‘è·å¾—${$.goalResult.addEnergy}gğŸ’§\n`
+      console.log(`¡¾±»Ë®µÎÔÒÖĞ¡¿»ñµÃ${$.goalResult.addEnergy}g?\\n`);
+      // message += `¡¾±»Ë®µÎÔÒÖĞ¡¿»ñµÃ${$.goalResult.addEnergy}g?\n`
     }
   }
-  console.log(`ç­¾åˆ°ç»“æŸ,å¼€å§‹å¹¿å‘Šæµè§ˆä»»åŠ¡`);
+  console.log(`Ç©µ½½áÊø,¿ªÊ¼¹ã¸æä¯ÀÀÈÎÎñ`);
   if (!$.farmTask.gotBrowseTaskAdInit.f) {
     let adverts = $.farmTask.gotBrowseTaskAdInit.userBrowseTaskAds
     let browseReward = 0
     let browseSuccess = 0
     let browseFail = 0
-    for (let advert of adverts) { //å¼€å§‹æµè§ˆå¹¿å‘Š
+    for (let advert of adverts) { //¿ªÊ¼ä¯ÀÀ¹ã¸æ
       if (advert.limit <= advert.hadFinishedTimes) {
         // browseReward+=advert.reward
-        console.log(`${advert.mainTitle}+ ' å·²å®Œæˆ`);//,è·å¾—${advert.reward}g
+        console.log(`${advert.mainTitle}+ ' ÒÑÍê³É`);//,»ñµÃ${advert.reward}g
         continue;
       }
-      console.log('æ­£åœ¨è¿›è¡Œå¹¿å‘Šæµè§ˆä»»åŠ¡: ' + advert.mainTitle);
+      console.log('ÕıÔÚ½øĞĞ¹ã¸æä¯ÀÀÈÎÎñ: ' + advert.mainTitle);
       await browseAdTaskForFarm(advert.advertId, 0);
       if ($.browseResult.code === '0') {
-        console.log(`${advert.mainTitle}æµè§ˆä»»åŠ¡å®Œæˆ`);
-        //é¢†å–å¥–åŠ±
+        console.log(`${advert.mainTitle}ä¯ÀÀÈÎÎñÍê³É`);
+        //ÁìÈ¡½±Àø
         await browseAdTaskForFarm(advert.advertId, 1);
         if ($.browseRwardResult.code === '0') {
-          console.log(`é¢†å–æµè§ˆ${advert.mainTitle}å¹¿å‘Šå¥–åŠ±æˆåŠŸ,è·å¾—${$.browseRwardResult.amount}g`)
+          console.log(`ÁìÈ¡ä¯ÀÀ${advert.mainTitle}¹ã¸æ½±Àø³É¹¦,»ñµÃ${$.browseRwardResult.amount}g`)
           browseReward += $.browseRwardResult.amount
           browseSuccess++
         } else {
           browseFail++
-          console.log(`é¢†å–æµè§ˆå¹¿å‘Šå¥–åŠ±ç»“æœ:  ${JSON.stringify($.browseRwardResult)}`)
+          console.log(`ÁìÈ¡ä¯ÀÀ¹ã¸æ½±Àø½á¹û:  ${JSON.stringify($.browseRwardResult)}`)
         }
       } else {
         browseFail++
-        console.log(`å¹¿å‘Šæµè§ˆä»»åŠ¡ç»“æœ:   ${JSON.stringify($.browseResult)}`);
+        console.log(`¹ã¸æä¯ÀÀÈÎÎñ½á¹û:   ${JSON.stringify($.browseResult)}`);
       }
     }
     if (browseFail > 0) {
-      console.log(`ã€å¹¿å‘Šæµè§ˆã€‘å®Œæˆ${browseSuccess}ä¸ª,å¤±è´¥${browseFail},è·å¾—${browseReward}gğŸ’§\\n`);
-      // message += `ã€å¹¿å‘Šæµè§ˆã€‘å®Œæˆ${browseSuccess}ä¸ª,å¤±è´¥${browseFail},è·å¾—${browseReward}gğŸ’§\n`;
+      console.log(`¡¾¹ã¸æä¯ÀÀ¡¿Íê³É${browseSuccess}¸ö,Ê§°Ü${browseFail},»ñµÃ${browseReward}g?\\n`);
+      // message += `¡¾¹ã¸æä¯ÀÀ¡¿Íê³É${browseSuccess}¸ö,Ê§°Ü${browseFail},»ñµÃ${browseReward}g?\n`;
     } else {
-      console.log(`ã€å¹¿å‘Šæµè§ˆã€‘å®Œæˆ${browseSuccess}ä¸ª,è·å¾—${browseReward}gğŸ’§\n`);
-      // message += `ã€å¹¿å‘Šæµè§ˆã€‘å®Œæˆ${browseSuccess}ä¸ª,è·å¾—${browseReward}gğŸ’§\n`;
+      console.log(`¡¾¹ã¸æä¯ÀÀ¡¿Íê³É${browseSuccess}¸ö,»ñµÃ${browseReward}g?\n`);
+      // message += `¡¾¹ã¸æä¯ÀÀ¡¿Íê³É${browseSuccess}¸ö,»ñµÃ${browseReward}g?\n`;
     }
   } else {
-    console.log(`ä»Šå¤©å·²ç»åšè¿‡æµè§ˆå¹¿å‘Šä»»åŠ¡\n`);
+    console.log(`½ñÌìÒÑ¾­×ö¹ıä¯ÀÀ¹ã¸æÈÎÎñ\n`);
   }
-  //å®šæ—¶é¢†æ°´
+  //¶¨Ê±ÁìË®
   if (!$.farmTask.gotThreeMealInit.f) {
     //
     await gotThreeMealForFarm();
     if ($.threeMeal.code === "0") {
-      console.log(`ã€å®šæ—¶é¢†æ°´ã€‘è·å¾—${$.threeMeal.amount}gğŸ’§\n`);
-      // message += `ã€å®šæ—¶é¢†æ°´ã€‘è·å¾—${$.threeMeal.amount}gğŸ’§\n`;
+      console.log(`¡¾¶¨Ê±ÁìË®¡¿»ñµÃ${$.threeMeal.amount}g?\n`);
+      // message += `¡¾¶¨Ê±ÁìË®¡¿»ñµÃ${$.threeMeal.amount}g?\n`;
     } else {
-      // message += `ã€å®šæ—¶é¢†æ°´ã€‘å¤±è´¥,è¯¦è¯¢æ—¥å¿—\n`;
-      console.log(`å®šæ—¶é¢†æ°´æˆåŠŸç»“æœ:  ${JSON.stringify($.threeMeal)}`);
+      // message += `¡¾¶¨Ê±ÁìË®¡¿Ê§°Ü,ÏêÑ¯ÈÕÖ¾\n`;
+      console.log(`¶¨Ê±ÁìË®³É¹¦½á¹û:  ${JSON.stringify($.threeMeal)}`);
     }
   } else {
-    console.log('å½“å‰ä¸åœ¨å®šæ—¶é¢†æ°´æ—¶é—´æ–­æˆ–è€…å·²ç»é¢†è¿‡\n')
+    console.log('µ±Ç°²»ÔÚ¶¨Ê±ÁìË®Ê±¼ä¶Ï»òÕßÒÑ¾­Áì¹ı\n')
   }
-  //ç»™å¥½å‹æµ‡æ°´
+  //¸øºÃÓÑ½½Ë®
   if (!$.farmTask.waterFriendTaskInit.f) {
     if ($.farmTask.waterFriendTaskInit.waterFriendCountKey < $.farmTask.waterFriendTaskInit.waterFriendMax) {
       await doFriendsWater();
     }
   } else {
-    console.log(`ç»™${$.farmTask.waterFriendTaskInit.waterFriendMax}ä¸ªå¥½å‹æµ‡æ°´ä»»åŠ¡å·²å®Œæˆ\n`)
+    console.log(`¸ø${$.farmTask.waterFriendTaskInit.waterFriendMax}¸öºÃÓÑ½½Ë®ÈÎÎñÒÑÍê³É\n`)
   }
   // await Promise.all([
-  //   clockInIn(),//æ‰“å¡é¢†æ°´
-  //   executeWaterRains(),//æ°´æ»´é›¨
-  //   masterHelpShare(),//åŠ©åŠ›å¥½å‹
-  //   getExtraAward(),//é¢†å–é¢å¤–æ°´æ»´å¥–åŠ±
-  //   turntableFarm()//å¤©å¤©æŠ½å¥–å¾—å¥½ç¤¼
+  //   clockInIn(),//´ò¿¨ÁìË®
+  //   executeWaterRains(),//Ë®µÎÓê
+  //   masterHelpShare(),//ÖúÁ¦ºÃÓÑ
+  //   getExtraAward(),//ÁìÈ¡¶îÍâË®µÎ½±Àø
+  //   turntableFarm()//ÌìÌì³é½±µÃºÃÀñ
   // ])
   await getAwardInviteFriend();
-  await clockInIn();//æ‰“å¡é¢†æ°´
-  await executeWaterRains();//æ°´æ»´é›¨
-  await getExtraAward();//é¢†å–é¢å¤–æ°´æ»´å¥–åŠ±
-  await turntableFarm()//å¤©å¤©æŠ½å¥–å¾—å¥½ç¤¼
+  await clockInIn();//´ò¿¨ÁìË®
+  await executeWaterRains();//Ë®µÎÓê
+  await getExtraAward();//ÁìÈ¡¶îÍâË®µÎ½±Àø
+  await turntableFarm()//ÌìÌì³é½±µÃºÃÀñ
 }
 async function predictionFruit() {
-  console.log('å¼€å§‹é¢„æµ‹æ°´æœæˆç†Ÿæ—¶é—´\n');
+  console.log('¿ªÊ¼Ô¤²âË®¹û³ÉÊìÊ±¼ä\n');
   await initForFarm();
   await taskInitForFarm();
-  let waterEveryDayT = $.farmTask.totalWaterTaskInit.totalWaterTaskTimes;//ä»Šå¤©åˆ°åˆ°ç›®å‰ä¸ºæ­¢ï¼Œæµ‡äº†å¤šå°‘æ¬¡æ°´
-  message += `ã€ä»Šæ—¥å…±æµ‡æ°´ã€‘${waterEveryDayT}æ¬¡\n`;
-  message += `ã€å‰©ä½™ æ°´æ»´ã€‘${$.farmInfo.farmUserPro.totalEnergy}gğŸ’§\n`;
-  message += `ã€æ°´æœğŸ‰è¿›åº¦ã€‘${(($.farmInfo.farmUserPro.treeEnergy / $.farmInfo.farmUserPro.treeTotalEnergy) * 100).toFixed(2)}%ï¼Œå·²æµ‡æ°´${$.farmInfo.farmUserPro.treeEnergy / 10}æ¬¡,è¿˜éœ€${($.farmInfo.farmUserPro.treeTotalEnergy - $.farmInfo.farmUserPro.treeEnergy) / 10}æ¬¡\n`
+  let waterEveryDayT = $.farmTask.totalWaterTaskInit.totalWaterTaskTimes;//½ñÌìµ½µ½Ä¿Ç°ÎªÖ¹£¬½½ÁË¶àÉÙ´ÎË®
+  message += `¡¾½ñÈÕ¹²½½Ë®¡¿${waterEveryDayT}´Î\n`;
+  message += `¡¾Ê£Óà Ë®µÎ¡¿${$.farmInfo.farmUserPro.totalEnergy}g?\n`;
+  message += `¡¾Ë®¹û?½ø¶È¡¿${(($.farmInfo.farmUserPro.treeEnergy / $.farmInfo.farmUserPro.treeTotalEnergy) * 100).toFixed(2)}%£¬ÒÑ½½Ë®${$.farmInfo.farmUserPro.treeEnergy / 10}´Î,»¹Ğè${($.farmInfo.farmUserPro.treeTotalEnergy - $.farmInfo.farmUserPro.treeEnergy) / 10}´Î\n`
   if ($.farmInfo.toFlowTimes > ($.farmInfo.farmUserPro.treeEnergy / 10)) {
-    message += `ã€å¼€èŠ±è¿›åº¦ã€‘å†æµ‡æ°´${$.farmInfo.toFlowTimes - $.farmInfo.farmUserPro.treeEnergy / 10}æ¬¡å¼€èŠ±\n`
+    message += `¡¾¿ª»¨½ø¶È¡¿ÔÙ½½Ë®${$.farmInfo.toFlowTimes - $.farmInfo.farmUserPro.treeEnergy / 10}´Î¿ª»¨\n`
   } else if ($.farmInfo.toFruitTimes > ($.farmInfo.farmUserPro.treeEnergy / 10)) {
-    message += `ã€ç»“æœè¿›åº¦ã€‘å†æµ‡æ°´${$.farmInfo.toFruitTimes - $.farmInfo.farmUserPro.treeEnergy / 10}æ¬¡ç»“æœ\n`
+    message += `¡¾½á¹û½ø¶È¡¿ÔÙ½½Ë®${$.farmInfo.toFruitTimes - $.farmInfo.farmUserPro.treeEnergy / 10}´Î½á¹û\n`
   }
-  // é¢„æµ‹nå¤©åæ°´æœè¯¾å¯å…‘æ¢åŠŸèƒ½
-  let waterTotalT = ($.farmInfo.farmUserPro.treeTotalEnergy - $.farmInfo.farmUserPro.treeEnergy - $.farmInfo.farmUserPro.totalEnergy) / 10;//ä¸€å…±è¿˜éœ€æµ‡å¤šå°‘æ¬¡æ°´
+  // Ô¤²ânÌìºóË®¹û¿Î¿É¶Ò»»¹¦ÄÜ
+  let waterTotalT = ($.farmInfo.farmUserPro.treeTotalEnergy - $.farmInfo.farmUserPro.treeEnergy - $.farmInfo.farmUserPro.totalEnergy) / 10;//Ò»¹²»¹Ğè½½¶àÉÙ´ÎË®
 
   let waterD = Math.ceil(waterTotalT / waterEveryDayT);
 
-  message += `ã€é¢„æµ‹ã€‘${waterD === 1 ? 'æ˜å¤©' : waterD === 2 ? 'åå¤©' : waterD + 'å¤©ä¹‹å'}(${timeFormat(24 * 60 * 60 * 1000 * waterD + Date.now())}æ—¥)å¯å…‘æ¢æ°´æœğŸ‰`
+  message += `¡¾Ô¤²â¡¿${waterD === 1 ? 'Ã÷Ìì' : waterD === 2 ? 'ºóÌì' : waterD + 'ÌìÖ®ºó'}(${timeFormat(24 * 60 * 60 * 1000 * waterD + Date.now())}ÈÕ)¿É¶Ò»»Ë®¹û?`
 }
-//æµ‡æ°´åæ¬¡
+//½½Ë®Ê®´Î
 async function doTenWater() {
   jdFruitBeanCard = $.getdata('jdFruitBeanCard') ? $.getdata('jdFruitBeanCard') : jdFruitBeanCard;
   if ($.isNode() && process.env.FRUIT_BEAN_CARD) {
@@ -254,106 +254,106 @@ async function doTenWater() {
   }
   await myCardInfoForFarm();
   const { fastCard, doubleCard, beanCard, signCard  } = $.myCardInfoRes;
-  if (`${jdFruitBeanCard}` === 'true' && JSON.stringify($.myCardInfoRes).match(`é™æ—¶ç¿»å€`) && beanCard > 0) {
-    console.log(`æ‚¨è®¾ç½®çš„æ˜¯ä½¿ç”¨æ°´æ»´æ¢è±†å¡ï¼Œä¸”èƒŒåŒ…æœ‰æ°´æ»´æ¢è±†å¡${beanCard}å¼ , è·³è¿‡10æ¬¡æµ‡æ°´ä»»åŠ¡`)
+  if (`${jdFruitBeanCard}` === 'true' && JSON.stringify($.myCardInfoRes).match(`ÏŞÊ±·­±¶`) && beanCard > 0) {
+    console.log(`ÄúÉèÖÃµÄÊÇÊ¹ÓÃË®µÎ»»¶¹¿¨£¬ÇÒ±³°üÓĞË®µÎ»»¶¹¿¨${beanCard}ÕÅ, Ìø¹ı10´Î½½Ë®ÈÎÎñ`)
     return
   }
   if ($.farmTask.totalWaterTaskInit.totalWaterTaskTimes < $.farmTask.totalWaterTaskInit.totalWaterTaskLimit) {
-    console.log(`\nå‡†å¤‡æµ‡æ°´åæ¬¡`);
+    console.log(`\n×¼±¸½½Ë®Ê®´Î`);
     let waterCount = 0;
     isFruitFinished = false;
     for (; waterCount < $.farmTask.totalWaterTaskInit.totalWaterTaskLimit - $.farmTask.totalWaterTaskInit.totalWaterTaskTimes; waterCount++) {
-      console.log(`ç¬¬${waterCount + 1}æ¬¡æµ‡æ°´`);
+      console.log(`µÚ${waterCount + 1}´Î½½Ë®`);
       await waterGoodForFarm();
-      console.log(`æœ¬æ¬¡æµ‡æ°´ç»“æœ:   ${JSON.stringify($.waterResult)}`);
+      console.log(`±¾´Î½½Ë®½á¹û:   ${JSON.stringify($.waterResult)}`);
       if ($.waterResult.code === '0') {
-        console.log(`å‰©ä½™æ°´æ»´${$.waterResult.totalEnergy}g`);
+        console.log(`Ê£ÓàË®µÎ${$.waterResult.totalEnergy}g`);
         if ($.waterResult.finished) {
-          // å·²è¯å®ï¼ŒwaterResult.finishedä¸ºtrueï¼Œè¡¨ç¤ºæ°´æœå¯ä»¥å»é¢†å–å…‘æ¢äº†
+          // ÒÑÖ¤Êµ£¬waterResult.finishedÎªtrue£¬±íÊ¾Ë®¹û¿ÉÒÔÈ¥ÁìÈ¡¶Ò»»ÁË
           isFruitFinished = true;
           break
         } else {
           if ($.waterResult.totalEnergy < 10) {
-            console.log(`æ°´æ»´ä¸å¤Ÿï¼Œç»“æŸæµ‡æ°´`)
+            console.log(`Ë®µÎ²»¹»£¬½áÊø½½Ë®`)
             break
           }
-          await gotStageAward();//é¢†å–é˜¶æ®µæ€§æ°´æ»´å¥–åŠ±
+          await gotStageAward();//ÁìÈ¡½×¶ÎĞÔË®µÎ½±Àø
         }
       } else {
-        console.log('æµ‡æ°´å‡ºç°å¤±è´¥å¼‚å¸¸,è·³å‡ºä¸åœ¨ç»§ç»­æµ‡æ°´')
+        console.log('½½Ë®³öÏÖÊ§°ÜÒì³£,Ìø³ö²»ÔÚ¼ÌĞø½½Ë®')
         break;
       }
     }
     if (isFruitFinished) {
       option['open-url'] = urlSchema;
-      $.msg($.name, ``, `ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName || $.UserName}\nã€æé†’â°ã€‘${$.farmInfo.farmUserPro.name}å·²å¯é¢†å–\nè¯·å»äº¬ä¸œAPPæˆ–å¾®ä¿¡å°ç¨‹åºæŸ¥çœ‹\nç‚¹å‡»å¼¹çª—å³è¾¾`, option);
+      $.msg($.name, ``, `¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName || $.UserName}\n¡¾ÌáĞÑ?¡¿${$.farmInfo.farmUserPro.name}ÒÑ¿ÉÁìÈ¡\nÇëÈ¥¾©¶«APP»òÎ¢ĞÅĞ¡³ÌĞò²é¿´\nµã»÷µ¯´°¼´´ï`, option);
       $.done();
       if ($.isNode()) {
-        await notify.sendNotify(`${$.name} - è´¦å·${$.index} - ${$.nickName || $.UserName}æ°´æœå·²å¯é¢†å–`, `äº¬ä¸œè´¦å·${$.index} ${$.nickName}\n${$.farmInfo.farmUserPro.name}å·²å¯é¢†å–`);
+        await notify.sendNotify(`${$.name} - ÕËºÅ${$.index} - ${$.nickName || $.UserName}Ë®¹ûÒÑ¿ÉÁìÈ¡`, `¾©¶«ÕËºÅ${$.index} ${$.nickName}\n${$.farmInfo.farmUserPro.name}ÒÑ¿ÉÁìÈ¡`);
       }
     }
   } else {
-    console.log('\nä»Šæ—¥å·²å®Œæˆ10æ¬¡æµ‡æ°´ä»»åŠ¡\n');
+    console.log('\n½ñÈÕÒÑÍê³É10´Î½½Ë®ÈÎÎñ\n');
   }
 }
-//é¢†å–é¦–æ¬¡æµ‡æ°´å¥–åŠ±
+//ÁìÈ¡Ê×´Î½½Ë®½±Àø
 async function getFirstWaterAward() {
   await taskInitForFarm();
-  //é¢†å–é¦–æ¬¡æµ‡æ°´å¥–åŠ±
+  //ÁìÈ¡Ê×´Î½½Ë®½±Àø
   if (!$.farmTask.firstWaterInit.f && $.farmTask.firstWaterInit.totalWaterTimes > 0) {
     await firstWaterTaskForFarm();
     if ($.firstWaterReward.code === '0') {
-      console.log(`ã€é¦–æ¬¡æµ‡æ°´å¥–åŠ±ã€‘è·å¾—${$.firstWaterReward.amount}gğŸ’§\n`);
-      // message += `ã€é¦–æ¬¡æµ‡æ°´å¥–åŠ±ã€‘è·å¾—${$.firstWaterReward.amount}gğŸ’§\n`;
+      console.log(`¡¾Ê×´Î½½Ë®½±Àø¡¿»ñµÃ${$.firstWaterReward.amount}g?\n`);
+      // message += `¡¾Ê×´Î½½Ë®½±Àø¡¿»ñµÃ${$.firstWaterReward.amount}g?\n`;
     } else {
-      // message += 'ã€é¦–æ¬¡æµ‡æ°´å¥–åŠ±ã€‘é¢†å–å¥–åŠ±å¤±è´¥,è¯¦è¯¢æ—¥å¿—\n';
-      console.log(`é¢†å–é¦–æ¬¡æµ‡æ°´å¥–åŠ±ç»“æœ:  ${JSON.stringify($.firstWaterReward)}`);
+      // message += '¡¾Ê×´Î½½Ë®½±Àø¡¿ÁìÈ¡½±ÀøÊ§°Ü,ÏêÑ¯ÈÕÖ¾\n';
+      console.log(`ÁìÈ¡Ê×´Î½½Ë®½±Àø½á¹û:  ${JSON.stringify($.firstWaterReward)}`);
     }
   } else {
-    console.log('é¦–æ¬¡æµ‡æ°´å¥–åŠ±å·²é¢†å–\n')
+    console.log('Ê×´Î½½Ë®½±ÀøÒÑÁìÈ¡\n')
   }
 }
-//é¢†å–åæ¬¡æµ‡æ°´å¥–åŠ±
+//ÁìÈ¡Ê®´Î½½Ë®½±Àø
 async function getTenWaterAward() {
-  //é¢†å–10æ¬¡æµ‡æ°´å¥–åŠ±
+  //ÁìÈ¡10´Î½½Ë®½±Àø
   if (!$.farmTask.totalWaterTaskInit.f && $.farmTask.totalWaterTaskInit.totalWaterTaskTimes >= $.farmTask.totalWaterTaskInit.totalWaterTaskLimit) {
     await totalWaterTaskForFarm();
     if ($.totalWaterReward.code === '0') {
-      console.log(`ã€åæ¬¡æµ‡æ°´å¥–åŠ±ã€‘è·å¾—${$.totalWaterReward.totalWaterTaskEnergy}gğŸ’§\n`);
-      // message += `ã€åæ¬¡æµ‡æ°´å¥–åŠ±ã€‘è·å¾—${$.totalWaterReward.totalWaterTaskEnergy}gğŸ’§\n`;
+      console.log(`¡¾Ê®´Î½½Ë®½±Àø¡¿»ñµÃ${$.totalWaterReward.totalWaterTaskEnergy}g?\n`);
+      // message += `¡¾Ê®´Î½½Ë®½±Àø¡¿»ñµÃ${$.totalWaterReward.totalWaterTaskEnergy}g?\n`;
     } else {
-      // message += 'ã€åæ¬¡æµ‡æ°´å¥–åŠ±ã€‘é¢†å–å¥–åŠ±å¤±è´¥,è¯¦è¯¢æ—¥å¿—\n';
-      console.log(`é¢†å–10æ¬¡æµ‡æ°´å¥–åŠ±ç»“æœ:  ${JSON.stringify($.totalWaterReward)}`);
+      // message += '¡¾Ê®´Î½½Ë®½±Àø¡¿ÁìÈ¡½±ÀøÊ§°Ü,ÏêÑ¯ÈÕÖ¾\n';
+      console.log(`ÁìÈ¡10´Î½½Ë®½±Àø½á¹û:  ${JSON.stringify($.totalWaterReward)}`);
     }
   } else if ($.farmTask.totalWaterTaskInit.totalWaterTaskTimes < $.farmTask.totalWaterTaskInit.totalWaterTaskLimit) {
-    // message += `ã€åæ¬¡æµ‡æ°´å¥–åŠ±ã€‘ä»»åŠ¡æœªå®Œæˆï¼Œä»Šæ—¥æµ‡æ°´${$.farmTask.totalWaterTaskInit.totalWaterTaskTimes}æ¬¡\n`;
-    console.log(`ã€åæ¬¡æµ‡æ°´å¥–åŠ±ã€‘ä»»åŠ¡æœªå®Œæˆï¼Œä»Šæ—¥æµ‡æ°´${$.farmTask.totalWaterTaskInit.totalWaterTaskTimes}æ¬¡\n`);
+    // message += `¡¾Ê®´Î½½Ë®½±Àø¡¿ÈÎÎñÎ´Íê³É£¬½ñÈÕ½½Ë®${$.farmTask.totalWaterTaskInit.totalWaterTaskTimes}´Î\n`;
+    console.log(`¡¾Ê®´Î½½Ë®½±Àø¡¿ÈÎÎñÎ´Íê³É£¬½ñÈÕ½½Ë®${$.farmTask.totalWaterTaskInit.totalWaterTaskTimes}´Î\n`);
   }
-  console.log('finished æ°´æœä»»åŠ¡å®Œæˆ!');
+  console.log('finished Ë®¹ûÈÎÎñÍê³É!');
 }
-//å†æ¬¡æµ‡æ°´
+//ÔÙ´Î½½Ë®
 async function doTenWaterAgain() {
-  console.log('å¼€å§‹æ£€æŸ¥å‰©ä½™æ°´æ»´èƒ½å¦å†æ¬¡æµ‡æ°´å†æ¬¡æµ‡æ°´\n');
+  console.log('¿ªÊ¼¼ì²éÊ£ÓàË®µÎÄÜ·ñÔÙ´Î½½Ë®ÔÙ´Î½½Ë®\n');
   await initForFarm();
   let totalEnergy  = $.farmInfo.farmUserPro.totalEnergy;
-  console.log(`å‰©ä½™æ°´æ»´${totalEnergy}g\n`);
+  console.log(`Ê£ÓàË®µÎ${totalEnergy}g\n`);
   await myCardInfoForFarm();
   const { fastCard, doubleCard, beanCard, signCard  } = $.myCardInfoRes;
-  console.log(`èƒŒåŒ…å·²æœ‰é“å…·:\nå¿«é€Ÿæµ‡æ°´å¡:${fastCard === -1 ? 'æœªè§£é”': fastCard + 'å¼ '}\næ°´æ»´ç¿»å€å¡:${doubleCard === -1 ? 'æœªè§£é”': doubleCard + 'å¼ '}\næ°´æ»´æ¢äº¬è±†å¡:${beanCard === -1 ? 'æœªè§£é”' : beanCard + 'å¼ '}\nåŠ ç­¾å¡:${signCard === -1 ? 'æœªè§£é”' : signCard + 'å¼ '}\n`)
+  console.log(`±³°üÒÑÓĞµÀ¾ß:\n¿ìËÙ½½Ë®¿¨:${fastCard === -1 ? 'Î´½âËø': fastCard + 'ÕÅ'}\nË®µÎ·­±¶¿¨:${doubleCard === -1 ? 'Î´½âËø': doubleCard + 'ÕÅ'}\nË®µÎ»»¾©¶¹¿¨:${beanCard === -1 ? 'Î´½âËø' : beanCard + 'ÕÅ'}\n¼ÓÇ©¿¨:${signCard === -1 ? 'Î´½âËø' : signCard + 'ÕÅ'}\n`)
   if (totalEnergy >= 100 && doubleCard > 0) {
-    //ä½¿ç”¨ç¿»å€æ°´æ»´å¡
+    //Ê¹ÓÃ·­±¶Ë®µÎ¿¨
     for (let i = 0; i < new Array(doubleCard).fill('').length; i++) {
       await userMyCardForFarm('doubleCard');
-      console.log(`ä½¿ç”¨ç¿»å€æ°´æ»´å¡ç»“æœ:${JSON.stringify($.userMyCardRes)}`);
+      console.log(`Ê¹ÓÃ·­±¶Ë®µÎ¿¨½á¹û:${JSON.stringify($.userMyCardRes)}`);
     }
     await initForFarm();
     totalEnergy = $.farmInfo.farmUserPro.totalEnergy;
   }
   if (signCard > 0) {
-    //ä½¿ç”¨åŠ ç­¾å¡
+    //Ê¹ÓÃ¼ÓÇ©¿¨
     for (let i = 0; i < new Array(signCard).fill('').length; i++) {
       await userMyCardForFarm('signCard');
-      console.log(`ä½¿ç”¨åŠ ç­¾å¡ç»“æœ:${JSON.stringify($.userMyCardRes)}`);
+      console.log(`Ê¹ÓÃ¼ÓÇ©¿¨½á¹û:${JSON.stringify($.userMyCardRes)}`);
     }
     await initForFarm();
     totalEnergy = $.farmInfo.farmUserPro.totalEnergy;
@@ -362,301 +362,301 @@ async function doTenWaterAgain() {
   if ($.isNode() && process.env.FRUIT_BEAN_CARD) {
     jdFruitBeanCard = process.env.FRUIT_BEAN_CARD;
   }
-  if (`${jdFruitBeanCard}` === 'true' && JSON.stringify($.myCardInfoRes).match('é™æ—¶ç¿»å€')) {
-    console.log(`\næ‚¨è®¾ç½®çš„æ˜¯æ°´æ»´æ¢è±†åŠŸèƒ½,ç°åœ¨ä¸ºæ‚¨æ¢è±†`);
+  if (`${jdFruitBeanCard}` === 'true' && JSON.stringify($.myCardInfoRes).match('ÏŞÊ±·­±¶')) {
+    console.log(`\nÄúÉèÖÃµÄÊÇË®µÎ»»¶¹¹¦ÄÜ,ÏÖÔÚÎªÄú»»¶¹`);
     if (totalEnergy >= 100 && $.myCardInfoRes.beanCard > 0) {
-      //ä½¿ç”¨æ°´æ»´æ¢è±†å¡
+      //Ê¹ÓÃË®µÎ»»¶¹¿¨
       await userMyCardForFarm('beanCard');
-      console.log(`ä½¿ç”¨æ°´æ»´æ¢è±†å¡ç»“æœ:${JSON.stringify($.userMyCardRes)}`);
+      console.log(`Ê¹ÓÃË®µÎ»»¶¹¿¨½á¹û:${JSON.stringify($.userMyCardRes)}`);
       if ($.userMyCardRes.code === '0') {
-        message += `ã€æ°´æ»´æ¢è±†å¡ã€‘è·å¾—${$.userMyCardRes.beanCount}ä¸ªäº¬è±†\n`;
+        message += `¡¾Ë®µÎ»»¶¹¿¨¡¿»ñµÃ${$.userMyCardRes.beanCount}¸ö¾©¶¹\n`;
         return
       }
     } else {
-      console.log(`æ‚¨ç›®å‰æ°´æ»´:${totalEnergy}g,æ°´æ»´æ¢è±†å¡${$.myCardInfoRes.beanCard}å¼ ,æš‚ä¸æ»¡è¶³æ°´æ»´æ¢è±†çš„æ¡ä»¶,ä¸ºæ‚¨ç»§ç»­æµ‡æ°´`)
+      console.log(`ÄúÄ¿Ç°Ë®µÎ:${totalEnergy}g,Ë®µÎ»»¶¹¿¨${$.myCardInfoRes.beanCard}ÕÅ,Ôİ²»Âú×ãË®µÎ»»¶¹µÄÌõ¼ş,ÎªÄú¼ÌĞø½½Ë®`)
     }
   }
   // if (totalEnergy > 100 && $.myCardInfoRes.fastCard > 0) {
-  //   //ä½¿ç”¨å¿«é€Ÿæµ‡æ°´å¡
+  //   //Ê¹ÓÃ¿ìËÙ½½Ë®¿¨
   //   await userMyCardForFarm('fastCard');
-  //   console.log(`ä½¿ç”¨å¿«é€Ÿæµ‡æ°´å¡ç»“æœ:${JSON.stringify($.userMyCardRes)}`);
+  //   console.log(`Ê¹ÓÃ¿ìËÙ½½Ë®¿¨½á¹û:${JSON.stringify($.userMyCardRes)}`);
   //   if ($.userMyCardRes.code === '0') {
-  //     console.log(`å·²ä½¿ç”¨å¿«é€Ÿæµ‡æ°´å¡æµ‡æ°´${$.userMyCardRes.waterEnergy}g`);
+  //     console.log(`ÒÑÊ¹ÓÃ¿ìËÙ½½Ë®¿¨½½Ë®${$.userMyCardRes.waterEnergy}g`);
   //   }
   //   await initForFarm();
   //   totalEnergy  = $.farmInfo.farmUserPro.totalEnergy;
   // }
-  // æ‰€æœ‰çš„æµ‡æ°´(10æ¬¡æµ‡æ°´)ä»»åŠ¡ï¼Œè·å–æ°´æ»´ä»»åŠ¡å®Œæˆåï¼Œå¦‚æœå‰©ä½™æ°´æ»´å¤§äºç­‰äº60g,åˆ™ç»§ç»­æµ‡æ°´(ä¿ç•™éƒ¨åˆ†æ°´æ»´æ˜¯ç”¨äºå®Œæˆç¬¬äºŒå¤©çš„æµ‡æ°´10æ¬¡çš„ä»»åŠ¡)
+  // ËùÓĞµÄ½½Ë®(10´Î½½Ë®)ÈÎÎñ£¬»ñÈ¡Ë®µÎÈÎÎñÍê³Éºó£¬Èç¹ûÊ£ÓàË®µÎ´óÓÚµÈÓÚ60g,Ôò¼ÌĞø½½Ë®(±£Áô²¿·ÖË®µÎÊÇÓÃÓÚÍê³ÉµÚ¶şÌìµÄ½½Ë®10´ÎµÄÈÎÎñ)
   let overageEnergy = totalEnergy - retainWater;
   if (totalEnergy >= ($.farmInfo.farmUserPro.treeTotalEnergy - $.farmInfo.farmUserPro.treeEnergy)) {
-    //å¦‚æœç°æœ‰çš„æ°´æ»´ï¼Œå¤§äºæ°´æœå¯å…‘æ¢æ‰€éœ€çš„å¯¹æ»´(ä¹Ÿå°±æ˜¯æŠŠæ°´æ»´æµ‡å®Œï¼Œæ°´æœå°±èƒ½å…‘æ¢äº†)
+    //Èç¹ûÏÖÓĞµÄË®µÎ£¬´óÓÚË®¹û¿É¶Ò»»ËùĞèµÄ¶ÔµÎ(Ò²¾ÍÊÇ°ÑË®µÎ½½Íê£¬Ë®¹û¾ÍÄÜ¶Ò»»ÁË)
     isFruitFinished = false;
     for (let i = 0; i < ($.farmInfo.farmUserPro.treeTotalEnergy - $.farmInfo.farmUserPro.treeEnergy) / 10; i++) {
       await waterGoodForFarm();
-      console.log(`æœ¬æ¬¡æµ‡æ°´ç»“æœ(æ°´æœé©¬ä¸Šå°±å¯å…‘æ¢äº†):   ${JSON.stringify($.waterResult)}`);
+      console.log(`±¾´Î½½Ë®½á¹û(Ë®¹ûÂíÉÏ¾Í¿É¶Ò»»ÁË):   ${JSON.stringify($.waterResult)}`);
       if ($.waterResult.code === '0') {
-        console.log('\næµ‡æ°´10gæˆåŠŸ\n');
+        console.log('\n½½Ë®10g³É¹¦\n');
         if ($.waterResult.finished) {
-          // å·²è¯å®ï¼ŒwaterResult.finishedä¸ºtrueï¼Œè¡¨ç¤ºæ°´æœå¯ä»¥å»é¢†å–å…‘æ¢äº†
+          // ÒÑÖ¤Êµ£¬waterResult.finishedÎªtrue£¬±íÊ¾Ë®¹û¿ÉÒÔÈ¥ÁìÈ¡¶Ò»»ÁË
           isFruitFinished = true;
           break
         } else {
-          console.log(`ç›®å‰æ°´æ»´ã€${$.waterResult.totalEnergy}ã€‘g,ç»§ç»­æµ‡æ°´ï¼Œæ°´æœé©¬ä¸Šå°±å¯ä»¥å…‘æ¢äº†`)
+          console.log(`Ä¿Ç°Ë®µÎ¡¾${$.waterResult.totalEnergy}¡¿g,¼ÌĞø½½Ë®£¬Ë®¹ûÂíÉÏ¾Í¿ÉÒÔ¶Ò»»ÁË`)
         }
       } else {
-        console.log('æµ‡æ°´å‡ºç°å¤±è´¥å¼‚å¸¸,è·³å‡ºä¸åœ¨ç»§ç»­æµ‡æ°´')
+        console.log('½½Ë®³öÏÖÊ§°ÜÒì³£,Ìø³ö²»ÔÚ¼ÌĞø½½Ë®')
         break;
       }
     }
     if (isFruitFinished) {
       option['open-url'] = urlSchema;
-      $.msg($.name, ``, `ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName || $.UserName}\nã€æé†’â°ã€‘${$.farmInfo.farmUserPro.name}å·²å¯é¢†å–\nè¯·å»äº¬ä¸œAPPæˆ–å¾®ä¿¡å°ç¨‹åºæŸ¥çœ‹\nç‚¹å‡»å¼¹çª—å³è¾¾`, option);
+      $.msg($.name, ``, `¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName || $.UserName}\n¡¾ÌáĞÑ?¡¿${$.farmInfo.farmUserPro.name}ÒÑ¿ÉÁìÈ¡\nÇëÈ¥¾©¶«APP»òÎ¢ĞÅĞ¡³ÌĞò²é¿´\nµã»÷µ¯´°¼´´ï`, option);
       $.done();
       if ($.isNode()) {
-        await notify.sendNotify(`${$.name} - è´¦å·${$.index} - ${$.nickName}æ°´æœå·²å¯é¢†å–`, `äº¬ä¸œè´¦å·${$.index} ${$.nickName}\n${$.farmInfo.farmUserPro.name}å·²å¯é¢†å–`);
+        await notify.sendNotify(`${$.name} - ÕËºÅ${$.index} - ${$.nickName}Ë®¹ûÒÑ¿ÉÁìÈ¡`, `¾©¶«ÕËºÅ${$.index} ${$.nickName}\n${$.farmInfo.farmUserPro.name}ÒÑ¿ÉÁìÈ¡`);
       }
     }
   } else if (overageEnergy >= 10) {
-    console.log("ç›®å‰å‰©ä½™æ°´æ»´ï¼šã€" + totalEnergy + "ã€‘gï¼Œå¯ç»§ç»­æµ‡æ°´");
+    console.log("Ä¿Ç°Ê£ÓàË®µÎ£º¡¾" + totalEnergy + "¡¿g£¬¿É¼ÌĞø½½Ë®");
     isFruitFinished = false;
     for (let i = 0; i < parseInt(overageEnergy / 10); i++) {
       await waterGoodForFarm();
-      console.log(`æœ¬æ¬¡æµ‡æ°´ç»“æœ:   ${JSON.stringify($.waterResult)}`);
+      console.log(`±¾´Î½½Ë®½á¹û:   ${JSON.stringify($.waterResult)}`);
       if ($.waterResult.code === '0') {
-        console.log(`\næµ‡æ°´10gæˆåŠŸ,å‰©ä½™${$.waterResult.totalEnergy}\n`)
+        console.log(`\n½½Ë®10g³É¹¦,Ê£Óà${$.waterResult.totalEnergy}\n`)
         if ($.waterResult.finished) {
-          // å·²è¯å®ï¼ŒwaterResult.finishedä¸ºtrueï¼Œè¡¨ç¤ºæ°´æœå¯ä»¥å»é¢†å–å…‘æ¢äº†
+          // ÒÑÖ¤Êµ£¬waterResult.finishedÎªtrue£¬±íÊ¾Ë®¹û¿ÉÒÔÈ¥ÁìÈ¡¶Ò»»ÁË
           isFruitFinished = true;
           break
         } else {
           await gotStageAward()
         }
       } else {
-        console.log('æµ‡æ°´å‡ºç°å¤±è´¥å¼‚å¸¸,è·³å‡ºä¸åœ¨ç»§ç»­æµ‡æ°´')
+        console.log('½½Ë®³öÏÖÊ§°ÜÒì³£,Ìø³ö²»ÔÚ¼ÌĞø½½Ë®')
         break;
       }
     }
     if (isFruitFinished) {
       option['open-url'] = urlSchema;
-      $.msg($.name, ``, `ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName || $.UserName}\nã€æé†’â°ã€‘${$.farmInfo.farmUserPro.name}å·²å¯é¢†å–\nè¯·å»äº¬ä¸œAPPæˆ–å¾®ä¿¡å°ç¨‹åºæŸ¥çœ‹\nç‚¹å‡»å¼¹çª—å³è¾¾`, option);
+      $.msg($.name, ``, `¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName || $.UserName}\n¡¾ÌáĞÑ?¡¿${$.farmInfo.farmUserPro.name}ÒÑ¿ÉÁìÈ¡\nÇëÈ¥¾©¶«APP»òÎ¢ĞÅĞ¡³ÌĞò²é¿´\nµã»÷µ¯´°¼´´ï`, option);
       $.done();
       if ($.isNode()) {
-        await notify.sendNotify(`${$.name} - è´¦å·${$.index} - ${$.nickName}æ°´æœå·²å¯é¢†å–`, `äº¬ä¸œè´¦å·${$.index} ${$.nickName}\n${$.farmInfo.farmUserPro.name}å·²å¯é¢†å–`);
+        await notify.sendNotify(`${$.name} - ÕËºÅ${$.index} - ${$.nickName}Ë®¹ûÒÑ¿ÉÁìÈ¡`, `¾©¶«ÕËºÅ${$.index} ${$.nickName}\n${$.farmInfo.farmUserPro.name}ÒÑ¿ÉÁìÈ¡`);
       }
     }
   } else {
-    console.log("ç›®å‰å‰©ä½™æ°´æ»´ï¼šã€" + totalEnergy + "ã€‘g,ä¸å†ç»§ç»­æµ‡æ°´,ä¿ç•™éƒ¨åˆ†æ°´æ»´ç”¨äºå®Œæˆç¬¬äºŒå¤©ã€åæ¬¡æµ‡æ°´å¾—æ°´æ»´ã€‘ä»»åŠ¡")
+    console.log("Ä¿Ç°Ê£ÓàË®µÎ£º¡¾" + totalEnergy + "¡¿g,²»ÔÙ¼ÌĞø½½Ë®,±£Áô²¿·ÖË®µÎÓÃÓÚÍê³ÉµÚ¶şÌì¡¾Ê®´Î½½Ë®µÃË®µÎ¡¿ÈÎÎñ")
   }
 }
-//é¢†å–é˜¶æ®µæ€§æ°´æ»´å¥–åŠ±
+//ÁìÈ¡½×¶ÎĞÔË®µÎ½±Àø
 function gotStageAward() {
   return new Promise(async resolve => {
     if ($.waterResult.waterStatus === 0 && $.waterResult.treeEnergy === 10) {
-      console.log('æœæ ‘å‘èŠ½äº†,å¥–åŠ±30gæ°´æ»´');
+      console.log('¹ûÊ÷·¢Ñ¿ÁË,½±Àø30gË®µÎ');
       await gotStageAwardForFarm('1');
-      console.log(`æµ‡æ°´é˜¶æ®µå¥–åŠ±1é¢†å–ç»“æœ ${JSON.stringify($.gotStageAwardForFarmRes)}`);
+      console.log(`½½Ë®½×¶Î½±Àø1ÁìÈ¡½á¹û ${JSON.stringify($.gotStageAwardForFarmRes)}`);
       if ($.gotStageAwardForFarmRes.code === '0') {
-        // message += `ã€æœæ ‘å‘èŠ½äº†ã€‘å¥–åŠ±${$.gotStageAwardForFarmRes.addEnergy}\n`;
-        console.log(`ã€æœæ ‘å‘èŠ½äº†ã€‘å¥–åŠ±${$.gotStageAwardForFarmRes.addEnergy}\n`);
+        // message += `¡¾¹ûÊ÷·¢Ñ¿ÁË¡¿½±Àø${$.gotStageAwardForFarmRes.addEnergy}\n`;
+        console.log(`¡¾¹ûÊ÷·¢Ñ¿ÁË¡¿½±Àø${$.gotStageAwardForFarmRes.addEnergy}\n`);
       }
     } else if ($.waterResult.waterStatus === 1) {
-      console.log('æœæ ‘å¼€èŠ±äº†,å¥–åŠ±40gæ°´æ»´');
+      console.log('¹ûÊ÷¿ª»¨ÁË,½±Àø40gË®µÎ');
       await gotStageAwardForFarm('2');
-      console.log(`æµ‡æ°´é˜¶æ®µå¥–åŠ±2é¢†å–ç»“æœ ${JSON.stringify($.gotStageAwardForFarmRes)}`);
+      console.log(`½½Ë®½×¶Î½±Àø2ÁìÈ¡½á¹û ${JSON.stringify($.gotStageAwardForFarmRes)}`);
       if ($.gotStageAwardForFarmRes.code === '0') {
-        // message += `ã€æœæ ‘å¼€èŠ±äº†ã€‘å¥–åŠ±${$.gotStageAwardForFarmRes.addEnergy}gğŸ’§\n`;
-        console.log(`ã€æœæ ‘å¼€èŠ±äº†ã€‘å¥–åŠ±${$.gotStageAwardForFarmRes.addEnergy}gğŸ’§\n`);
+        // message += `¡¾¹ûÊ÷¿ª»¨ÁË¡¿½±Àø${$.gotStageAwardForFarmRes.addEnergy}g?\n`;
+        console.log(`¡¾¹ûÊ÷¿ª»¨ÁË¡¿½±Àø${$.gotStageAwardForFarmRes.addEnergy}g?\n`);
       }
     } else if ($.waterResult.waterStatus === 2) {
-      console.log('æœæ ‘é•¿å‡ºå°æœå­å•¦, å¥–åŠ±50gæ°´æ»´');
+      console.log('¹ûÊ÷³¤³öĞ¡¹û×ÓÀ², ½±Àø50gË®µÎ');
       await gotStageAwardForFarm('3');
-      console.log(`æµ‡æ°´é˜¶æ®µå¥–åŠ±3é¢†å–ç»“æœ ${JSON.stringify($.gotStageAwardForFarmRes)}`)
+      console.log(`½½Ë®½×¶Î½±Àø3ÁìÈ¡½á¹û ${JSON.stringify($.gotStageAwardForFarmRes)}`)
       if ($.gotStageAwardForFarmRes.code === '0') {
-        // message += `ã€æœæ ‘ç»“æœäº†ã€‘å¥–åŠ±${$.gotStageAwardForFarmRes.addEnergy}gğŸ’§\n`;
-        console.log(`ã€æœæ ‘ç»“æœäº†ã€‘å¥–åŠ±${$.gotStageAwardForFarmRes.addEnergy}gğŸ’§\n`);
+        // message += `¡¾¹ûÊ÷½á¹ûÁË¡¿½±Àø${$.gotStageAwardForFarmRes.addEnergy}g?\n`;
+        console.log(`¡¾¹ûÊ÷½á¹ûÁË¡¿½±Àø${$.gotStageAwardForFarmRes.addEnergy}g?\n`);
       }
     }
     resolve()
   })
 }
-//å¤©å¤©æŠ½å¥–æ´»åŠ¨
+//ÌìÌì³é½±»î¶¯
 async function turntableFarm() {
   await initForTurntableFarm();
   if ($.initForTurntableFarmRes.code === '0') {
-    //é¢†å–å®šæ—¶å¥–åŠ± //4å°æ—¶ä¸€æ¬¡
+    //ÁìÈ¡¶¨Ê±½±Àø //4Ğ¡Ê±Ò»´Î
     let {timingIntervalHours, timingLastSysTime, sysTime, timingGotStatus, remainLotteryTimes, turntableInfos} = $.initForTurntableFarmRes;
 
     if (!timingGotStatus) {
-      console.log(`æ˜¯å¦åˆ°äº†é¢†å–å…è´¹èµ é€çš„æŠ½å¥–æœºä¼š----${sysTime > (timingLastSysTime + 60*60*timingIntervalHours*1000)}`)
+      console.log(`ÊÇ·ñµ½ÁËÁìÈ¡Ãâ·ÑÔùËÍµÄ³é½±»ú»á----${sysTime > (timingLastSysTime + 60*60*timingIntervalHours*1000)}`)
       if (sysTime > (timingLastSysTime + 60*60*timingIntervalHours*1000)) {
         await timingAwardForTurntableFarm();
-        console.log(`é¢†å–å®šæ—¶å¥–åŠ±ç»“æœ${JSON.stringify($.timingAwardRes)}`);
+        console.log(`ÁìÈ¡¶¨Ê±½±Àø½á¹û${JSON.stringify($.timingAwardRes)}`);
         await initForTurntableFarm();
         remainLotteryTimes = $.initForTurntableFarmRes.remainLotteryTimes;
       } else {
-        console.log(`å…è´¹èµ é€çš„æŠ½å¥–æœºä¼šæœªåˆ°æ—¶é—´`)
+        console.log(`Ãâ·ÑÔùËÍµÄ³é½±»ú»áÎ´µ½Ê±¼ä`)
       }
     } else {
-      console.log('4å°æ—¶å€™å…è´¹èµ é€çš„æŠ½å¥–æœºä¼šå·²é¢†å–')
+      console.log('4Ğ¡Ê±ºòÃâ·ÑÔùËÍµÄ³é½±»ú»áÒÑÁìÈ¡')
     }
     if ($.initForTurntableFarmRes.turntableBrowserAds && $.initForTurntableFarmRes.turntableBrowserAds.length > 0) {
       for (let index = 0; index < $.initForTurntableFarmRes.turntableBrowserAds.length; index++) {
         if (!$.initForTurntableFarmRes.turntableBrowserAds[index].status) {
-          console.log(`å¼€å§‹æµè§ˆå¤©å¤©æŠ½å¥–çš„ç¬¬${index + 1}ä¸ªé€›ä¼šåœºä»»åŠ¡`)
+          console.log(`¿ªÊ¼ä¯ÀÀÌìÌì³é½±µÄµÚ${index + 1}¸ö¹ä»á³¡ÈÎÎñ`)
           await browserForTurntableFarm(1, $.initForTurntableFarmRes.turntableBrowserAds[index].adId);
           if ($.browserForTurntableFarmRes.code === '0' && $.browserForTurntableFarmRes.status) {
-            console.log(`ç¬¬${index + 1}ä¸ªé€›ä¼šåœºä»»åŠ¡å®Œæˆï¼Œå¼€å§‹é¢†å–æ°´æ»´å¥–åŠ±\n`)
+            console.log(`µÚ${index + 1}¸ö¹ä»á³¡ÈÎÎñÍê³É£¬¿ªÊ¼ÁìÈ¡Ë®µÎ½±Àø\n`)
             await browserForTurntableFarm(2, $.initForTurntableFarmRes.turntableBrowserAds[index].adId);
             if ($.browserForTurntableFarmRes.code === '0') {
-              console.log(`ç¬¬${index + 1}ä¸ªé€›ä¼šåœºä»»åŠ¡é¢†å–æ°´æ»´å¥–åŠ±å®Œæˆ\n`)
+              console.log(`µÚ${index + 1}¸ö¹ä»á³¡ÈÎÎñÁìÈ¡Ë®µÎ½±ÀøÍê³É\n`)
               await initForTurntableFarm();
               remainLotteryTimes = $.initForTurntableFarmRes.remainLotteryTimes;
             }
           }
         } else {
-          console.log(`æµè§ˆå¤©å¤©æŠ½å¥–çš„ç¬¬${index + 1}ä¸ªé€›ä¼šåœºä»»åŠ¡å·²å®Œæˆ`)
+          console.log(`ä¯ÀÀÌìÌì³é½±µÄµÚ${index + 1}¸ö¹ä»á³¡ÈÎÎñÒÑÍê³É`)
         }
       }
     }
-    //å¤©å¤©æŠ½å¥–åŠ©åŠ›
-    console.log('å¼€å§‹å¤©å¤©æŠ½å¥–--å¥½å‹åŠ©åŠ›--æ¯äººæ¯å¤©åªæœ‰ä¸‰æ¬¡åŠ©åŠ›æœºä¼š.')
+    //ÌìÌì³é½±ÖúÁ¦
+    console.log('¿ªÊ¼ÌìÌì³é½±--ºÃÓÑÖúÁ¦--Ã¿ÈËÃ¿ÌìÖ»ÓĞÈı´ÎÖúÁ¦»ú»á.')
     for (let code of newShareCodes) {
       if (code === $.farmInfo.farmUserPro.shareCode) {
-        console.log('å¤©å¤©æŠ½å¥–-ä¸èƒ½è‡ªå·±ç»™è‡ªå·±åŠ©åŠ›\n')
+        console.log('ÌìÌì³é½±-²»ÄÜ×Ô¼º¸ø×Ô¼ºÖúÁ¦\n')
         continue
       }
       await lotteryMasterHelp(code);
-      // console.log('å¤©å¤©æŠ½å¥–åŠ©åŠ›ç»“æœ',lotteryMasterHelpRes.helpResult)
+      // console.log('ÌìÌì³é½±ÖúÁ¦½á¹û',lotteryMasterHelpRes.helpResult)
       if ($.lotteryMasterHelpRes.helpResult.code === '0') {
-        console.log(`å¤©å¤©æŠ½å¥–-åŠ©åŠ›${$.lotteryMasterHelpRes.helpResult.masterUserInfo.nickName}æˆåŠŸ\n`)
+        console.log(`ÌìÌì³é½±-ÖúÁ¦${$.lotteryMasterHelpRes.helpResult.masterUserInfo.nickName}³É¹¦\n`)
       } else if ($.lotteryMasterHelpRes.helpResult.code === '11') {
-        console.log(`å¤©å¤©æŠ½å¥–-ä¸è¦é‡å¤åŠ©åŠ›${$.lotteryMasterHelpRes.helpResult.masterUserInfo.nickName}\n`)
+        console.log(`ÌìÌì³é½±-²»ÒªÖØ¸´ÖúÁ¦${$.lotteryMasterHelpRes.helpResult.masterUserInfo.nickName}\n`)
       } else if ($.lotteryMasterHelpRes.helpResult.code === '13') {
-        console.log(`å¤©å¤©æŠ½å¥–-åŠ©åŠ›${$.lotteryMasterHelpRes.helpResult.masterUserInfo.nickName}å¤±è´¥,åŠ©åŠ›æ¬¡æ•°è€—å°½\n`);
+        console.log(`ÌìÌì³é½±-ÖúÁ¦${$.lotteryMasterHelpRes.helpResult.masterUserInfo.nickName}Ê§°Ü,ÖúÁ¦´ÎÊıºÄ¾¡\n`);
         break;
       }
     }
-    console.log(`---å¤©å¤©æŠ½å¥–æ¬¡æ•°remainLotteryTimes----${remainLotteryTimes}æ¬¡`)
-    //æŠ½å¥–
+    console.log(`---ÌìÌì³é½±´ÎÊıremainLotteryTimes----${remainLotteryTimes}´Î`)
+    //³é½±
     if (remainLotteryTimes > 0) {
-      console.log('å¼€å§‹æŠ½å¥–')
+      console.log('¿ªÊ¼³é½±')
       let lotteryResult = '';
       for (let i = 0; i < new Array(remainLotteryTimes).fill('').length; i++) {
         await lotteryForTurntableFarm()
-        console.log(`ç¬¬${i + 1}æ¬¡æŠ½å¥–ç»“æœ${JSON.stringify($.lotteryRes)}`);
+        console.log(`µÚ${i + 1}´Î³é½±½á¹û${JSON.stringify($.lotteryRes)}`);
         if ($.lotteryRes.code === '0') {
           turntableInfos.map((item) => {
             if (item.type === $.lotteryRes.type) {
               console.log(`lotteryRes.type${$.lotteryRes.type}`);
               if ($.lotteryRes.type.match(/bean/g) && $.lotteryRes.type.match(/bean/g)[0] === 'bean') {
-                lotteryResult += `${item.name}ä¸ªï¼Œ`;
+                lotteryResult += `${item.name}¸ö£¬`;
               } else if ($.lotteryRes.type.match(/water/g) && $.lotteryRes.type.match(/water/g)[0] === 'water') {
-                lotteryResult += `${item.name}ï¼Œ`;
+                lotteryResult += `${item.name}£¬`;
               } else {
-                lotteryResult += `${item.name}ï¼Œ`;
+                lotteryResult += `${item.name}£¬`;
               }
             }
           })
-          //æ²¡æœ‰æ¬¡æ•°äº†
+          //Ã»ÓĞ´ÎÊıÁË
           if ($.lotteryRes.remainLotteryTimes === 0) {
             break
           }
         }
       }
       if (lotteryResult) {
-        console.log(`ã€å¤©å¤©æŠ½å¥–ã€‘${lotteryResult.substr(0, lotteryResult.length - 1)}\n`)
-        // message += `ã€å¤©å¤©æŠ½å¥–ã€‘${lotteryResult.substr(0, lotteryResult.length - 1)}\n`;
+        console.log(`¡¾ÌìÌì³é½±¡¿${lotteryResult.substr(0, lotteryResult.length - 1)}\n`)
+        // message += `¡¾ÌìÌì³é½±¡¿${lotteryResult.substr(0, lotteryResult.length - 1)}\n`;
       }
     }  else {
-      console.log('å¤©å¤©æŠ½å¥–--æŠ½å¥–æœºä¼šä¸º0æ¬¡')
+      console.log('ÌìÌì³é½±--³é½±»ú»áÎª0´Î')
     }
   } else {
-    console.log('åˆå§‹åŒ–å¤©å¤©æŠ½å¥–å¾—å¥½ç¤¼å¤±è´¥')
+    console.log('³õÊ¼»¯ÌìÌì³é½±µÃºÃÀñÊ§°Ü')
   }
 }
-//é¢†å–é¢å¤–å¥–åŠ±æ°´æ»´
+//ÁìÈ¡¶îÍâ½±ÀøË®µÎ
 async function getExtraAward() {
   await masterHelpTaskInitForFarm();
   if ($.masterHelpResult.code === '0') {
     if ($.masterHelpResult.masterHelpPeoples && $.masterHelpResult.masterHelpPeoples.length >= 5) {
-      // å·²æœ‰äº”äººåŠ©åŠ›ã€‚é¢†å–åŠ©åŠ›åçš„å¥–åŠ±
+      // ÒÑÓĞÎåÈËÖúÁ¦¡£ÁìÈ¡ÖúÁ¦ºóµÄ½±Àø
       if (!$.masterHelpResult.masterGotFinal) {
         await masterGotFinishedTaskForFarm();
         if ($.masterGotFinished.code === '0') {
-          console.log(`å·²æˆåŠŸé¢†å–å¥½å‹åŠ©åŠ›å¥–åŠ±ï¼šã€${$.masterGotFinished.amount}ã€‘gæ°´`);
-          message += `ã€é¢å¤–å¥–åŠ±ã€‘${$.masterGotFinished.amount}gæ°´é¢†å–æˆåŠŸ\n`;
+          console.log(`ÒÑ³É¹¦ÁìÈ¡ºÃÓÑÖúÁ¦½±Àø£º¡¾${$.masterGotFinished.amount}¡¿gË®`);
+          message += `¡¾¶îÍâ½±Àø¡¿${$.masterGotFinished.amount}gË®ÁìÈ¡³É¹¦\n`;
         }
       } else {
-        console.log("å·²ç»é¢†å–è¿‡5å¥½å‹åŠ©åŠ›é¢å¤–å¥–åŠ±");
-        message += `ã€é¢å¤–å¥–åŠ±ã€‘å·²è¢«é¢†å–è¿‡\n`;
+        console.log("ÒÑ¾­ÁìÈ¡¹ı5ºÃÓÑÖúÁ¦¶îÍâ½±Àø");
+        message += `¡¾¶îÍâ½±Àø¡¿ÒÑ±»ÁìÈ¡¹ı\n`;
       }
     } else {
-      console.log("åŠ©åŠ›å¥½å‹æœªè¾¾åˆ°5ä¸ª");
-      message += `ã€é¢å¤–å¥–åŠ±ã€‘é¢†å–å¤±è´¥,åŸå› ï¼šç»™æ‚¨åŠ©åŠ›çš„äººæœªè¾¾5ä¸ª\n`;
+      console.log("ÖúÁ¦ºÃÓÑÎ´´ïµ½5¸ö");
+      message += `¡¾¶îÍâ½±Àø¡¿ÁìÈ¡Ê§°Ü,Ô­Òò£º¸øÄúÖúÁ¦µÄÈËÎ´´ï5¸ö\n`;
     }
     if ($.masterHelpResult.masterHelpPeoples && $.masterHelpResult.masterHelpPeoples.length > 0) {
       let str = '';
       $.masterHelpResult.masterHelpPeoples.map((item, index) => {
         if (index === ($.masterHelpResult.masterHelpPeoples.length - 1)) {
-          str += item.nickName || "åŒ¿åç”¨æˆ·";
+          str += item.nickName || "ÄäÃûÓÃ»§";
         } else {
-          str += (item.nickName || "åŒ¿åç”¨æˆ·") + ',';
+          str += (item.nickName || "ÄäÃûÓÃ»§") + ',';
         }
         let date = new Date(item.time);
         let time = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getMinutes();
-        console.log(`\näº¬ä¸œæ˜µç§°ã€${item.nickName || "åŒ¿åç”¨æˆ·"}ã€‘ åœ¨ ${time} ç»™æ‚¨åŠ©è¿‡åŠ›\n`);
+        console.log(`\n¾©¶«êÇ³Æ¡¾${item.nickName || "ÄäÃûÓÃ»§"}¡¿ ÔÚ ${time} ¸øÄúÖú¹ıÁ¦\n`);
       })
-      message += `ã€åŠ©åŠ›æ‚¨çš„å¥½å‹ã€‘${str}\n`;
+      message += `¡¾ÖúÁ¦ÄúµÄºÃÓÑ¡¿${str}\n`;
     }
-    console.log('é¢†å–é¢å¤–å¥–åŠ±æ°´æ»´ç»“æŸ\n');
+    console.log('ÁìÈ¡¶îÍâ½±ÀøË®µÎ½áÊø\n');
   }
 }
-//åŠ©åŠ›å¥½å‹
+//ÖúÁ¦ºÃÓÑ
 async function masterHelpShare() {
-  console.log('å¼€å§‹åŠ©åŠ›å¥½å‹')
+  console.log('¿ªÊ¼ÖúÁ¦ºÃÓÑ')
   let salveHelpAddWater = 0;
-  let remainTimes = 3;//ä»Šæ—¥å‰©ä½™åŠ©åŠ›æ¬¡æ•°,é»˜è®¤3æ¬¡ï¼ˆäº¬ä¸œå†œåœºæ¯äººæ¯å¤©3æ¬¡åŠ©åŠ›æœºä¼šï¼‰ã€‚
-  let helpSuccessPeoples = '';//æˆåŠŸåŠ©åŠ›å¥½å‹
-  console.log(`æ ¼å¼åŒ–åçš„åŠ©åŠ›ç ::${JSON.stringify(newShareCodes)}\n`);
+  let remainTimes = 3;//½ñÈÕÊ£ÓàÖúÁ¦´ÎÊı,Ä¬ÈÏ3´Î£¨¾©¶«Å©³¡Ã¿ÈËÃ¿Ìì3´ÎÖúÁ¦»ú»á£©¡£
+  let helpSuccessPeoples = '';//³É¹¦ÖúÁ¦ºÃÓÑ
+  console.log(`¸ñÊ½»¯ºóµÄÖúÁ¦Âë::${JSON.stringify(newShareCodes)}\n`);
 
   for (let code of newShareCodes) {
-    console.log(`å¼€å§‹åŠ©åŠ›äº¬ä¸œè´¦å·${$.index} - ${$.nickName}çš„å¥½å‹: ${code}`);
+    console.log(`¿ªÊ¼ÖúÁ¦¾©¶«ÕËºÅ${$.index} - ${$.nickName}µÄºÃÓÑ: ${code}`);
     if (!code) continue;
     if (code === $.farmInfo.farmUserPro.shareCode) {
-      console.log('ä¸èƒ½ä¸ºè‡ªå·±åŠ©åŠ›å“¦ï¼Œè·³è¿‡è‡ªå·±çš„shareCode\n')
+      console.log('²»ÄÜÎª×Ô¼ºÖúÁ¦Å¶£¬Ìø¹ı×Ô¼ºµÄshareCode\n')
       continue
     }
     await masterHelp(code);
     if ($.helpResult.code === '0') {
       if ($.helpResult.helpResult.code === '0') {
-        //åŠ©åŠ›æˆåŠŸ
+        //ÖúÁ¦³É¹¦
         salveHelpAddWater += $.helpResult.helpResult.salveHelpAddWater;
-        console.log(`ã€åŠ©åŠ›å¥½å‹ç»“æœã€‘: å·²æˆåŠŸç»™ã€${$.helpResult.helpResult.masterUserInfo.nickName}ã€‘åŠ©åŠ›`);
-        console.log(`ç»™å¥½å‹ã€${$.helpResult.helpResult.masterUserInfo.nickName}ã€‘åŠ©åŠ›è·å¾—${$.helpResult.helpResult.salveHelpAddWater}gæ°´æ»´`)
-        helpSuccessPeoples += ($.helpResult.helpResult.masterUserInfo.nickName || 'åŒ¿åç”¨æˆ·') + ',';
+        console.log(`¡¾ÖúÁ¦ºÃÓÑ½á¹û¡¿: ÒÑ³É¹¦¸ø¡¾${$.helpResult.helpResult.masterUserInfo.nickName}¡¿ÖúÁ¦`);
+        console.log(`¸øºÃÓÑ¡¾${$.helpResult.helpResult.masterUserInfo.nickName}¡¿ÖúÁ¦»ñµÃ${$.helpResult.helpResult.salveHelpAddWater}gË®µÎ`)
+        helpSuccessPeoples += ($.helpResult.helpResult.masterUserInfo.nickName || 'ÄäÃûÓÃ»§') + ',';
       } else if ($.helpResult.helpResult.code === '8') {
-        console.log(`ã€åŠ©åŠ›å¥½å‹ç»“æœã€‘: åŠ©åŠ›ã€${$.helpResult.helpResult.masterUserInfo.nickName}ã€‘å¤±è´¥ï¼Œæ‚¨ä»Šå¤©åŠ©åŠ›æ¬¡æ•°å·²è€—å°½`);
+        console.log(`¡¾ÖúÁ¦ºÃÓÑ½á¹û¡¿: ÖúÁ¦¡¾${$.helpResult.helpResult.masterUserInfo.nickName}¡¿Ê§°Ü£¬Äú½ñÌìÖúÁ¦´ÎÊıÒÑºÄ¾¡`);
       } else if ($.helpResult.helpResult.code === '9') {
-        console.log(`ã€åŠ©åŠ›å¥½å‹ç»“æœã€‘: ä¹‹å‰ç»™ã€${$.helpResult.helpResult.masterUserInfo.nickName}ã€‘åŠ©åŠ›è¿‡äº†`);
+        console.log(`¡¾ÖúÁ¦ºÃÓÑ½á¹û¡¿: Ö®Ç°¸ø¡¾${$.helpResult.helpResult.masterUserInfo.nickName}¡¿ÖúÁ¦¹ıÁË`);
       } else if ($.helpResult.helpResult.code === '10') {
-        console.log(`ã€åŠ©åŠ›å¥½å‹ç»“æœã€‘: å¥½å‹ã€${$.helpResult.helpResult.masterUserInfo.nickName}ã€‘å·²æ»¡äº”äººåŠ©åŠ›`);
+        console.log(`¡¾ÖúÁ¦ºÃÓÑ½á¹û¡¿: ºÃÓÑ¡¾${$.helpResult.helpResult.masterUserInfo.nickName}¡¿ÒÑÂúÎåÈËÖúÁ¦`);
       } else {
-        console.log(`åŠ©åŠ›å…¶ä»–æƒ…å†µï¼š${JSON.stringify($.helpResult.helpResult)}`);
+        console.log(`ÖúÁ¦ÆäËûÇé¿ö£º${JSON.stringify($.helpResult.helpResult)}`);
       }
-      console.log(`ã€ä»Šæ—¥åŠ©åŠ›æ¬¡æ•°è¿˜å‰©ã€‘${$.helpResult.helpResult.remainTimes}æ¬¡\n`);
+      console.log(`¡¾½ñÈÕÖúÁ¦´ÎÊı»¹Ê£¡¿${$.helpResult.helpResult.remainTimes}´Î\n`);
       remainTimes = $.helpResult.helpResult.remainTimes;
       if ($.helpResult.helpResult.remainTimes === 0) {
-        console.log(`æ‚¨å½“å‰åŠ©åŠ›æ¬¡æ•°å·²è€—å°½ï¼Œè·³å‡ºåŠ©åŠ›`);
+        console.log(`Äúµ±Ç°ÖúÁ¦´ÎÊıÒÑºÄ¾¡£¬Ìø³öÖúÁ¦`);
         break
       }
     } else {
-      console.log(`åŠ©åŠ›å¤±è´¥::${JSON.stringify($.helpResult)}`);
+      console.log(`ÖúÁ¦Ê§°Ü::${JSON.stringify($.helpResult)}`);
     }
   }
   if ($.isLoon() || $.isQuanX() || $.isSurge()) {
     let helpSuccessPeoplesKey = timeFormat() + $.farmInfo.farmUserPro.shareCode;
     if (!$.getdata(helpSuccessPeoplesKey)) {
-      //æŠŠå‰ä¸€å¤©çš„æ¸…é™¤
+      //°ÑÇ°Ò»ÌìµÄÇå³ı
       $.setdata('', timeFormat(Date.now() - 24 * 60 * 60 * 1000) + $.farmInfo.farmUserPro.shareCode);
       $.setdata('', helpSuccessPeoplesKey);
     }
@@ -670,148 +670,148 @@ async function masterHelpShare() {
     helpSuccessPeoples = $.getdata(helpSuccessPeoplesKey);
   }
   if (helpSuccessPeoples && helpSuccessPeoples.length > 0) {
-    message += `ã€æ‚¨åŠ©åŠ›çš„å¥½å‹ğŸ‘¬ã€‘${helpSuccessPeoples.substr(0, helpSuccessPeoples.length - 1)}\n`;
+    message += `¡¾ÄúÖúÁ¦µÄºÃÓÑ?¡¿${helpSuccessPeoples.substr(0, helpSuccessPeoples.length - 1)}\n`;
   }
   if (salveHelpAddWater > 0) {
-    // message += `ã€åŠ©åŠ›å¥½å‹ğŸ‘¬ã€‘è·å¾—${salveHelpAddWater}gğŸ’§\n`;
-    console.log(`ã€åŠ©åŠ›å¥½å‹ğŸ‘¬ã€‘è·å¾—${salveHelpAddWater}gğŸ’§\n`);
+    // message += `¡¾ÖúÁ¦ºÃÓÑ?¡¿»ñµÃ${salveHelpAddWater}g?\n`;
+    console.log(`¡¾ÖúÁ¦ºÃÓÑ?¡¿»ñµÃ${salveHelpAddWater}g?\n`);
   }
-  message += `ã€ä»Šæ—¥å‰©ä½™åŠ©åŠ›ğŸ‘¬ã€‘${remainTimes}æ¬¡\n`;
-  console.log('åŠ©åŠ›å¥½å‹ç»“æŸï¼Œå³å°†å¼€å§‹é¢†å–é¢å¤–æ°´æ»´å¥–åŠ±\n');
+  message += `¡¾½ñÈÕÊ£ÓàÖúÁ¦?¡¿${remainTimes}´Î\n`;
+  console.log('ÖúÁ¦ºÃÓÑ½áÊø£¬¼´½«¿ªÊ¼ÁìÈ¡¶îÍâË®µÎ½±Àø\n');
 }
-//æ°´æ»´é›¨
+//Ë®µÎÓê
 async function executeWaterRains() {
   let executeWaterRain = !$.farmTask.waterRainInit.f;
   if (executeWaterRain) {
-    console.log(`æ°´æ»´é›¨ä»»åŠ¡ï¼Œæ¯å¤©ä¸¤æ¬¡ï¼Œæœ€å¤šå¯å¾—10gæ°´æ»´`);
-    console.log(`ä¸¤æ¬¡æ°´æ»´é›¨ä»»åŠ¡æ˜¯å¦å…¨éƒ¨å®Œæˆï¼š${$.farmTask.waterRainInit.f ? 'æ˜¯' : 'å¦'}`);
+    console.log(`Ë®µÎÓêÈÎÎñ£¬Ã¿ÌìÁ½´Î£¬×î¶à¿ÉµÃ10gË®µÎ`);
+    console.log(`Á½´ÎË®µÎÓêÈÎÎñÊÇ·ñÈ«²¿Íê³É£º${$.farmTask.waterRainInit.f ? 'ÊÇ' : '·ñ'}`);
     if ($.farmTask.waterRainInit.lastTime) {
       if (Date.now() < ($.farmTask.waterRainInit.lastTime + 3 * 60 * 60 * 1000)) {
         executeWaterRain = false;
-        // message += `ã€ç¬¬${$.farmTask.waterRainInit.winTimes + 1}æ¬¡æ°´æ»´é›¨ã€‘æœªåˆ°æ—¶é—´ï¼Œè¯·${new Date($.farmTask.waterRainInit.lastTime + 3 * 60 * 60 * 1000).toLocaleTimeString()}å†è¯•\n`;
-        console.log(`\`ã€ç¬¬${$.farmTask.waterRainInit.winTimes + 1}æ¬¡æ°´æ»´é›¨ã€‘æœªåˆ°æ—¶é—´ï¼Œè¯·${new Date($.farmTask.waterRainInit.lastTime + 3 * 60 * 60 * 1000).toLocaleTimeString()}å†è¯•\n`);
+        // message += `¡¾µÚ${$.farmTask.waterRainInit.winTimes + 1}´ÎË®µÎÓê¡¿Î´µ½Ê±¼ä£¬Çë${new Date($.farmTask.waterRainInit.lastTime + 3 * 60 * 60 * 1000).toLocaleTimeString()}ÔÙÊÔ\n`;
+        console.log(`\`¡¾µÚ${$.farmTask.waterRainInit.winTimes + 1}´ÎË®µÎÓê¡¿Î´µ½Ê±¼ä£¬Çë${new Date($.farmTask.waterRainInit.lastTime + 3 * 60 * 60 * 1000).toLocaleTimeString()}ÔÙÊÔ\n`);
       }
     }
     if (executeWaterRain) {
-      console.log(`å¼€å§‹æ°´æ»´é›¨ä»»åŠ¡,è¿™æ˜¯ç¬¬${$.farmTask.waterRainInit.winTimes + 1}æ¬¡ï¼Œå‰©ä½™${2 - ($.farmTask.waterRainInit.winTimes + 1)}æ¬¡`);
+      console.log(`¿ªÊ¼Ë®µÎÓêÈÎÎñ,ÕâÊÇµÚ${$.farmTask.waterRainInit.winTimes + 1}´Î£¬Ê£Óà${2 - ($.farmTask.waterRainInit.winTimes + 1)}´Î`);
       await waterRainForFarm();
-      console.log('æ°´æ»´é›¨waterRain');
+      console.log('Ë®µÎÓêwaterRain');
       if ($.waterRain.code === '0') {
-        console.log('æ°´æ»´é›¨ä»»åŠ¡æ‰§è¡ŒæˆåŠŸï¼Œè·å¾—æ°´æ»´ï¼š' + $.waterRain.addEnergy + 'g');
-        console.log(`ã€ç¬¬${$.farmTask.waterRainInit.winTimes + 1}æ¬¡æ°´æ»´é›¨ã€‘è·å¾—${$.waterRain.addEnergy}gæ°´æ»´\n`);
-        // message += `ã€ç¬¬${$.farmTask.waterRainInit.winTimes + 1}æ¬¡æ°´æ»´é›¨ã€‘è·å¾—${$.waterRain.addEnergy}gæ°´æ»´\n`;
+        console.log('Ë®µÎÓêÈÎÎñÖ´ĞĞ³É¹¦£¬»ñµÃË®µÎ£º' + $.waterRain.addEnergy + 'g');
+        console.log(`¡¾µÚ${$.farmTask.waterRainInit.winTimes + 1}´ÎË®µÎÓê¡¿»ñµÃ${$.waterRain.addEnergy}gË®µÎ\n`);
+        // message += `¡¾µÚ${$.farmTask.waterRainInit.winTimes + 1}´ÎË®µÎÓê¡¿»ñµÃ${$.waterRain.addEnergy}gË®µÎ\n`;
       }
     }
   } else {
-    // message += `ã€æ°´æ»´é›¨ã€‘å·²å…¨éƒ¨å®Œæˆï¼Œè·å¾—20gğŸ’§\n`;
+    // message += `¡¾Ë®µÎÓê¡¿ÒÑÈ«²¿Íê³É£¬»ñµÃ20g?\n`;
   }
 }
-//æ‰“å¡é¢†æ°´æ´»åŠ¨
+//´ò¿¨ÁìË®»î¶¯
 async function clockInIn() {
-  console.log('å¼€å§‹æ‰“å¡é¢†æ°´æ´»åŠ¨ï¼ˆç­¾åˆ°ï¼Œå…³æ³¨ï¼Œé¢†åˆ¸ï¼‰');
+  console.log('¿ªÊ¼´ò¿¨ÁìË®»î¶¯£¨Ç©µ½£¬¹Ø×¢£¬ÁìÈ¯£©');
   await clockInInitForFarm();
   if ($.clockInInit.code === '0') {
-    // ç­¾åˆ°å¾—æ°´æ»´
+    // Ç©µ½µÃË®µÎ
     if (!$.clockInInit.todaySigned) {
-      console.log('å¼€å§‹ä»Šæ—¥ç­¾åˆ°');
+      console.log('¿ªÊ¼½ñÈÕÇ©µ½');
       await clockInForFarm();
-      console.log(`æ‰“å¡ç»“æœ${JSON.stringify($.clockInForFarmRes)}`);
+      console.log(`´ò¿¨½á¹û${JSON.stringify($.clockInForFarmRes)}`);
       if ($.clockInForFarmRes.code === '0') {
-        // message += `ã€ç¬¬${$.clockInForFarmRes.signDay}å¤©ç­¾åˆ°ã€‘è·å¾—${$.clockInForFarmRes.amount}gğŸ’§\n`;
-        console.log(`ã€ç¬¬${$.clockInForFarmRes.signDay}å¤©ç­¾åˆ°ã€‘è·å¾—${$.clockInForFarmRes.amount}gğŸ’§\n`)
+        // message += `¡¾µÚ${$.clockInForFarmRes.signDay}ÌìÇ©µ½¡¿»ñµÃ${$.clockInForFarmRes.amount}g?\n`;
+        console.log(`¡¾µÚ${$.clockInForFarmRes.signDay}ÌìÇ©µ½¡¿»ñµÃ${$.clockInForFarmRes.amount}g?\n`)
         if ($.clockInForFarmRes.signDay === 7) {
-          //å¯ä»¥é¢†å–æƒŠå–œç¤¼åŒ…
-          console.log('å¼€å§‹é¢†å–--æƒŠå–œç¤¼åŒ…38gæ°´æ»´');
+          //¿ÉÒÔÁìÈ¡¾ªÏ²Àñ°ü
+          console.log('¿ªÊ¼ÁìÈ¡--¾ªÏ²Àñ°ü38gË®µÎ');
           await gotClockInGift();
           if ($.gotClockInGiftRes.code === '0') {
-            // message += `ã€æƒŠå–œç¤¼åŒ…ã€‘è·å¾—${$.gotClockInGiftRes.amount}gğŸ’§\n`;
-            console.log(`ã€æƒŠå–œç¤¼åŒ…ã€‘è·å¾—${$.gotClockInGiftRes.amount}gğŸ’§\n`);
+            // message += `¡¾¾ªÏ²Àñ°ü¡¿»ñµÃ${$.gotClockInGiftRes.amount}g?\n`;
+            console.log(`¡¾¾ªÏ²Àñ°ü¡¿»ñµÃ${$.gotClockInGiftRes.amount}g?\n`);
           }
         }
       }
     }
     if ($.clockInInit.todaySigned && $.clockInInit.totalSigned === 7) {
-      console.log('å¼€å§‹é¢†å–--æƒŠå–œç¤¼åŒ…38gæ°´æ»´');
+      console.log('¿ªÊ¼ÁìÈ¡--¾ªÏ²Àñ°ü38gË®µÎ');
       await gotClockInGift();
       if ($.gotClockInGiftRes.code === '0') {
-        // message += `ã€æƒŠå–œç¤¼åŒ…ã€‘è·å¾—${$.gotClockInGiftRes.amount}gğŸ’§\n`;
-        console.log(`ã€æƒŠå–œç¤¼åŒ…ã€‘è·å¾—${$.gotClockInGiftRes.amount}gğŸ’§\n`);
+        // message += `¡¾¾ªÏ²Àñ°ü¡¿»ñµÃ${$.gotClockInGiftRes.amount}g?\n`;
+        console.log(`¡¾¾ªÏ²Àñ°ü¡¿»ñµÃ${$.gotClockInGiftRes.amount}g?\n`);
       }
     }
-    // é™æ—¶å…³æ³¨å¾—æ°´æ»´
+    // ÏŞÊ±¹Ø×¢µÃË®µÎ
     if ($.clockInInit.themes && $.clockInInit.themes.length > 0) {
       for (let item of $.clockInInit.themes) {
         if (!item.hadGot) {
-          console.log(`å…³æ³¨ID${item.id}`);
+          console.log(`¹Ø×¢ID${item.id}`);
           await clockInFollowForFarm(item.id, "theme", "1");
-          console.log(`themeStep1--ç»“æœ${JSON.stringify($.themeStep1)}`);
+          console.log(`themeStep1--½á¹û${JSON.stringify($.themeStep1)}`);
           if ($.themeStep1.code === '0') {
             await clockInFollowForFarm(item.id, "theme", "2");
-            console.log(`themeStep2--ç»“æœ${JSON.stringify($.themeStep2)}`);
+            console.log(`themeStep2--½á¹û${JSON.stringify($.themeStep2)}`);
             if ($.themeStep2.code === '0') {
-              console.log(`å…³æ³¨${item.name}ï¼Œè·å¾—æ°´æ»´${$.themeStep2.amount}g`);
+              console.log(`¹Ø×¢${item.name}£¬»ñµÃË®µÎ${$.themeStep2.amount}g`);
             }
           }
         }
       }
     }
-    // é™æ—¶é¢†åˆ¸å¾—æ°´æ»´
+    // ÏŞÊ±ÁìÈ¯µÃË®µÎ
     if ($.clockInInit.venderCoupons && $.clockInInit.venderCoupons.length > 0) {
       for (let item of $.clockInInit.venderCoupons) {
         if (!item.hadGot) {
-          console.log(`é¢†åˆ¸çš„ID${item.id}`);
+          console.log(`ÁìÈ¯µÄID${item.id}`);
           await clockInFollowForFarm(item.id, "venderCoupon", "1");
-          console.log(`venderCouponStep1--ç»“æœ${JSON.stringify($.venderCouponStep1)}`);
+          console.log(`venderCouponStep1--½á¹û${JSON.stringify($.venderCouponStep1)}`);
           if ($.venderCouponStep1.code === '0') {
             await clockInFollowForFarm(item.id, "venderCoupon", "2");
             if ($.venderCouponStep2.code === '0') {
-              console.log(`venderCouponStep2--ç»“æœ${JSON.stringify($.venderCouponStep2)}`);
-              console.log(`ä»${item.name}é¢†åˆ¸ï¼Œè·å¾—æ°´æ»´${$.venderCouponStep2.amount}g`);
+              console.log(`venderCouponStep2--½á¹û${JSON.stringify($.venderCouponStep2)}`);
+              console.log(`´Ó${item.name}ÁìÈ¯£¬»ñµÃË®µÎ${$.venderCouponStep2.amount}g`);
             }
           }
         }
       }
     }
   }
-  console.log('å¼€å§‹æ‰“å¡é¢†æ°´æ´»åŠ¨ï¼ˆç­¾åˆ°ï¼Œå…³æ³¨ï¼Œé¢†åˆ¸ï¼‰ç»“æŸ\n');
+  console.log('¿ªÊ¼´ò¿¨ÁìË®»î¶¯£¨Ç©µ½£¬¹Ø×¢£¬ÁìÈ¯£©½áÊø\n');
 }
 //
 async function getAwardInviteFriend() {
-  await friendListInitForFarm();//æŸ¥è¯¢å¥½å‹åˆ—è¡¨
-  console.log(`æŸ¥è¯¢å¥½å‹åˆ—è¡¨æ•°æ®ï¼š${JSON.stringify($.friendList)}\n`)
+  await friendListInitForFarm();//²éÑ¯ºÃÓÑÁĞ±í
+  console.log(`²éÑ¯ºÃÓÑÁĞ±íÊı¾İ£º${JSON.stringify($.friendList)}\n`)
   if ($.friendList) {
-    console.log(`\nä»Šæ—¥å·²é‚€è¯·å¥½å‹${$.friendList.inviteFriendCount}ä¸ª / æ¯æ—¥é‚€è¯·ä¸Šé™${$.friendList.inviteFriendMax}ä¸ª`);
-    console.log(`å¼€å§‹åˆ é™¤${$.friendList.friends && $.friendList.friends.length}ä¸ªå¥½å‹,å¯æ‹¿æ¯å¤©çš„é‚€è¯·å¥–åŠ±`);
+    console.log(`\n½ñÈÕÒÑÑûÇëºÃÓÑ${$.friendList.inviteFriendCount}¸ö / Ã¿ÈÕÑûÇëÉÏÏŞ${$.friendList.inviteFriendMax}¸ö`);
+    console.log(`¿ªÊ¼É¾³ı${$.friendList.friends && $.friendList.friends.length}¸öºÃÓÑ,¿ÉÄÃÃ¿ÌìµÄÑûÇë½±Àø`);
     if ($.friendList.friends && $.friendList.friends.length > 0) {
       for (let friend of $.friendList.friends) {
-        console.log(`\nå¼€å§‹åˆ é™¤å¥½å‹ [${friend.shareCode}]`);
+        console.log(`\n¿ªÊ¼É¾³ıºÃÓÑ [${friend.shareCode}]`);
         const deleteFriendForFarm = await request('deleteFriendForFarm', { "shareCode": `${friend.shareCode}`,"version":8,"channel":1 });
         if (deleteFriendForFarm && deleteFriendForFarm.code === '0') {
-          console.log(`åˆ é™¤å¥½å‹ [${friend.shareCode}] æˆåŠŸ\n`);
+          console.log(`É¾³ıºÃÓÑ [${friend.shareCode}] ³É¹¦\n`);
         }
       }
     }
-    await receiveFriendInvite();//ä¸ºä»–äººåŠ©åŠ›,æ¥å—é‚€è¯·æˆä¸ºåˆ«äººçš„å¥½å‹
+    await receiveFriendInvite();//ÎªËûÈËÖúÁ¦,½ÓÊÜÑûÇë³ÉÎª±ğÈËµÄºÃÓÑ
     if ($.friendList.inviteFriendCount > 0) {
       if ($.friendList.inviteFriendCount > $.friendList.inviteFriendGotAwardCount) {
-        console.log('å¼€å§‹é¢†å–é‚€è¯·å¥½å‹çš„å¥–åŠ±');
+        console.log('¿ªÊ¼ÁìÈ¡ÑûÇëºÃÓÑµÄ½±Àø');
         await awardInviteFriendForFarm();
-        console.log(`é¢†å–é‚€è¯·å¥½å‹çš„å¥–åŠ±ç»“æœï¼šï¼š${JSON.stringify($.awardInviteFriendRes)}`);
+        console.log(`ÁìÈ¡ÑûÇëºÃÓÑµÄ½±Àø½á¹û£º£º${JSON.stringify($.awardInviteFriendRes)}`);
       }
     } else {
-      console.log('ä»Šæ—¥æœªé‚€è¯·è¿‡å¥½å‹')
+      console.log('½ñÈÕÎ´ÑûÇë¹ıºÃÓÑ')
     }
   } else {
-    console.log(`æŸ¥è¯¢å¥½å‹åˆ—è¡¨å¤±è´¥\n`);
+    console.log(`²éÑ¯ºÃÓÑÁĞ±íÊ§°Ü\n`);
   }
 }
-//ç»™å¥½å‹æµ‡æ°´
+//¸øºÃÓÑ½½Ë®
 async function doFriendsWater() {
   await friendListInitForFarm();
-  console.log('å¼€å§‹ç»™å¥½å‹æµ‡æ°´...');
+  console.log('¿ªÊ¼¸øºÃÓÑ½½Ë®...');
   await taskInitForFarm();
   const { waterFriendCountKey, waterFriendMax } = $.farmTask.waterFriendTaskInit;
-  console.log(`ä»Šæ—¥å·²ç»™${waterFriendCountKey}ä¸ªå¥½å‹æµ‡æ°´`);
+  console.log(`½ñÈÕÒÑ¸ø${waterFriendCountKey}¸öºÃÓÑ½½Ë®`);
   if (waterFriendCountKey < waterFriendMax) {
     let needWaterFriends = [];
     if ($.friendList.friends && $.friendList.friends.length > 0) {
@@ -822,104 +822,104 @@ async function doFriendsWater() {
           }
         }
       });
-      //TODO ,å‘ç°bug,github actionè¿è¡Œå‘ç°æœ‰äº›è´¦å·ç¬¬ä¸€æ¬¡æ²¡æœ‰ç»™3ä¸ªå¥½å‹æµ‡æ°´
-      console.log(`éœ€è¦æµ‡æ°´çš„å¥½å‹åˆ—è¡¨shareCodes:${JSON.stringify(needWaterFriends)}`);
+      //TODO ,·¢ÏÖbug,github actionÔËĞĞ·¢ÏÖÓĞĞ©ÕËºÅµÚÒ»´ÎÃ»ÓĞ¸ø3¸öºÃÓÑ½½Ë®
+      console.log(`ĞèÒª½½Ë®µÄºÃÓÑÁĞ±íshareCodes:${JSON.stringify(needWaterFriends)}`);
       let waterFriendsCount = 0, cardInfoStr = '';
       for (let index = 0; index < needWaterFriends.length; index ++) {
         await waterFriendForFarm(needWaterFriends[index]);
-        console.log(`ä¸ºç¬¬${index+1}ä¸ªå¥½å‹æµ‡æ°´ç»“æœ:${JSON.stringify($.waterFriendForFarmRes)}\n`)
+        console.log(`ÎªµÚ${index+1}¸öºÃÓÑ½½Ë®½á¹û:${JSON.stringify($.waterFriendForFarmRes)}\n`)
         if ($.waterFriendForFarmRes.code === '0') {
           waterFriendsCount ++;
           if ($.waterFriendForFarmRes.cardInfo) {
-            console.log('ä¸ºå¥½å‹æµ‡æ°´è·å¾—é“å…·äº†');
+            console.log('ÎªºÃÓÑ½½Ë®»ñµÃµÀ¾ßÁË');
             if ($.waterFriendForFarmRes.cardInfo.type === 'beanCard') {
-              console.log(`è·å–é“å…·å¡:${$.waterFriendForFarmRes.cardInfo.rule}`);
-              cardInfoStr += `æ°´æ»´æ¢è±†å¡,`;
+              console.log(`»ñÈ¡µÀ¾ß¿¨:${$.waterFriendForFarmRes.cardInfo.rule}`);
+              cardInfoStr += `Ë®µÎ»»¶¹¿¨,`;
             } else if ($.waterFriendForFarmRes.cardInfo.type === 'fastCard') {
-              console.log(`è·å–é“å…·å¡:${$.waterFriendForFarmRes.cardInfo.rule}`);
-              cardInfoStr += `å¿«é€Ÿæµ‡æ°´å¡,`;
+              console.log(`»ñÈ¡µÀ¾ß¿¨:${$.waterFriendForFarmRes.cardInfo.rule}`);
+              cardInfoStr += `¿ìËÙ½½Ë®¿¨,`;
             } else if ($.waterFriendForFarmRes.cardInfo.type === 'doubleCard') {
-              console.log(`è·å–é“å…·å¡:${$.waterFriendForFarmRes.cardInfo.rule}`);
-              cardInfoStr += `æ°´æ»´ç¿»å€å¡,`;
+              console.log(`»ñÈ¡µÀ¾ß¿¨:${$.waterFriendForFarmRes.cardInfo.rule}`);
+              cardInfoStr += `Ë®µÎ·­±¶¿¨,`;
             } else if ($.waterFriendForFarmRes.cardInfo.type === 'signCard') {
-              console.log(`è·å–é“å…·å¡:${$.waterFriendForFarmRes.cardInfo.rule}`);
-              cardInfoStr += `åŠ ç­¾å¡,`;
+              console.log(`»ñÈ¡µÀ¾ß¿¨:${$.waterFriendForFarmRes.cardInfo.rule}`);
+              cardInfoStr += `¼ÓÇ©¿¨,`;
             }
           }
         } else if ($.waterFriendForFarmRes.code === '11') {
-          console.log('æ°´æ»´ä¸å¤Ÿ,è·³å‡ºæµ‡æ°´')
+          console.log('Ë®µÎ²»¹»,Ìø³ö½½Ë®')
         }
       }
-      // message += `ã€å¥½å‹æµ‡æ°´ã€‘å·²ç»™${waterFriendsCount}ä¸ªå¥½å‹æµ‡æ°´,æ¶ˆè€—${waterFriendsCount * 10}gæ°´\n`;
-      console.log(`ã€å¥½å‹æµ‡æ°´ã€‘å·²ç»™${waterFriendsCount}ä¸ªå¥½å‹æµ‡æ°´,æ¶ˆè€—${waterFriendsCount * 10}gæ°´\n`);
+      // message += `¡¾ºÃÓÑ½½Ë®¡¿ÒÑ¸ø${waterFriendsCount}¸öºÃÓÑ½½Ë®,ÏûºÄ${waterFriendsCount * 10}gË®\n`;
+      console.log(`¡¾ºÃÓÑ½½Ë®¡¿ÒÑ¸ø${waterFriendsCount}¸öºÃÓÑ½½Ë®,ÏûºÄ${waterFriendsCount * 10}gË®\n`);
       if (cardInfoStr && cardInfoStr.length > 0) {
-        // message += `ã€å¥½å‹æµ‡æ°´å¥–åŠ±ã€‘${cardInfoStr.substr(0, cardInfoStr.length - 1)}\n`;
-        console.log(`ã€å¥½å‹æµ‡æ°´å¥–åŠ±ã€‘${cardInfoStr.substr(0, cardInfoStr.length - 1)}\n`);
+        // message += `¡¾ºÃÓÑ½½Ë®½±Àø¡¿${cardInfoStr.substr(0, cardInfoStr.length - 1)}\n`;
+        console.log(`¡¾ºÃÓÑ½½Ë®½±Àø¡¿${cardInfoStr.substr(0, cardInfoStr.length - 1)}\n`);
       }
     } else {
-      console.log('æ‚¨çš„å¥½å‹åˆ—è¡¨æš‚æ— å¥½å‹,å¿«å»é‚€è¯·æ‚¨çš„å¥½å‹å§!')
+      console.log('ÄúµÄºÃÓÑÁĞ±íÔİÎŞºÃÓÑ,¿ìÈ¥ÑûÇëÄúµÄºÃÓÑ°É!')
     }
   } else {
-    console.log(`ä»Šæ—¥å·²ä¸ºå¥½å‹æµ‡æ°´é‡å·²è¾¾${waterFriendMax}ä¸ª`)
+    console.log(`½ñÈÕÒÑÎªºÃÓÑ½½Ë®Á¿ÒÑ´ï${waterFriendMax}¸ö`)
   }
 }
-//é¢†å–ç»™3ä¸ªå¥½å‹æµ‡æ°´åçš„å¥–åŠ±æ°´æ»´
+//ÁìÈ¡¸ø3¸öºÃÓÑ½½Ë®ºóµÄ½±ÀøË®µÎ
 async function getWaterFriendGotAward() {
   await taskInitForFarm();
   const { waterFriendCountKey, waterFriendMax, waterFriendSendWater, waterFriendGotAward } = $.farmTask.waterFriendTaskInit
   if (waterFriendCountKey >= waterFriendMax) {
     if (!waterFriendGotAward) {
       await waterFriendGotAwardForFarm();
-      console.log(`é¢†å–ç»™${waterFriendMax}ä¸ªå¥½å‹æµ‡æ°´åçš„å¥–åŠ±æ°´æ»´::${JSON.stringify($.waterFriendGotAwardRes)}`)
+      console.log(`ÁìÈ¡¸ø${waterFriendMax}¸öºÃÓÑ½½Ë®ºóµÄ½±ÀøË®µÎ::${JSON.stringify($.waterFriendGotAwardRes)}`)
       if ($.waterFriendGotAwardRes.code === '0') {
-        // message += `ã€ç»™${waterFriendMax}å¥½å‹æµ‡æ°´ã€‘å¥–åŠ±${$.waterFriendGotAwardRes.addWater}gæ°´æ»´\n`;
-        console.log(`ã€ç»™${waterFriendMax}å¥½å‹æµ‡æ°´ã€‘å¥–åŠ±${$.waterFriendGotAwardRes.addWater}gæ°´æ»´\n`);
+        // message += `¡¾¸ø${waterFriendMax}ºÃÓÑ½½Ë®¡¿½±Àø${$.waterFriendGotAwardRes.addWater}gË®µÎ\n`;
+        console.log(`¡¾¸ø${waterFriendMax}ºÃÓÑ½½Ë®¡¿½±Àø${$.waterFriendGotAwardRes.addWater}gË®µÎ\n`);
       }
     } else {
-      console.log(`ç»™å¥½å‹æµ‡æ°´çš„${waterFriendSendWater}gæ°´æ»´å¥–åŠ±å·²é¢†å–\n`);
-      // message += `ã€ç»™${waterFriendMax}å¥½å‹æµ‡æ°´ã€‘å¥–åŠ±${waterFriendSendWater}gæ°´æ»´å·²é¢†å–\n`;
+      console.log(`¸øºÃÓÑ½½Ë®µÄ${waterFriendSendWater}gË®µÎ½±ÀøÒÑÁìÈ¡\n`);
+      // message += `¡¾¸ø${waterFriendMax}ºÃÓÑ½½Ë®¡¿½±Àø${waterFriendSendWater}gË®µÎÒÑÁìÈ¡\n`;
     }
   } else {
-    console.log(`æš‚æœªç»™${waterFriendMax}ä¸ªå¥½å‹æµ‡æ°´\n`);
+    console.log(`ÔİÎ´¸ø${waterFriendMax}¸öºÃÓÑ½½Ë®\n`);
   }
 }
-//æ¥æ”¶æˆä¸ºå¯¹æ–¹å¥½å‹çš„é‚€è¯·
+//½ÓÊÕ³ÉÎª¶Ô·½ºÃÓÑµÄÑûÇë
 async function receiveFriendInvite() {
   for (let code of newShareCodes) {
     if (code === $.farmInfo.farmUserPro.shareCode) {
-      console.log('è‡ªå·±ä¸èƒ½é‚€è¯·è‡ªå·±æˆä¸ºå¥½å‹å™¢\n')
+      console.log('×Ô¼º²»ÄÜÑûÇë×Ô¼º³ÉÎªºÃÓÑàŞ\n')
       continue
     }
     await inviteFriend(code);
-    // console.log(`æ¥æ”¶é‚€è¯·æˆä¸ºå¥½å‹ç»“æœ:${JSON.stringify($.inviteFriendRes.helpResult)}`)
+    // console.log(`½ÓÊÕÑûÇë³ÉÎªºÃÓÑ½á¹û:${JSON.stringify($.inviteFriendRes.helpResult)}`)
     if ($.inviteFriendRes.helpResult.code === '0') {
-      console.log(`æ¥æ”¶é‚€è¯·æˆä¸ºå¥½å‹ç»“æœæˆåŠŸ,æ‚¨å·²æˆä¸º${$.inviteFriendRes.helpResult.masterUserInfo.nickName}çš„å¥½å‹`)
+      console.log(`½ÓÊÕÑûÇë³ÉÎªºÃÓÑ½á¹û³É¹¦,ÄúÒÑ³ÉÎª${$.inviteFriendRes.helpResult.masterUserInfo.nickName}µÄºÃÓÑ`)
     } else if ($.inviteFriendRes.helpResult.code === '17') {
-      console.log(`æ¥æ”¶é‚€è¯·æˆä¸ºå¥½å‹ç»“æœå¤±è´¥,å¯¹æ–¹å·²æ˜¯æ‚¨çš„å¥½å‹`)
+      console.log(`½ÓÊÕÑûÇë³ÉÎªºÃÓÑ½á¹ûÊ§°Ü,¶Ô·½ÒÑÊÇÄúµÄºÃÓÑ`)
     }
   }
-  // console.log(`å¼€å§‹æ¥å—6fbd26cc27ac44d6a7fed34092453f77çš„é‚€è¯·\n`)
+  // console.log(`¿ªÊ¼½ÓÊÜ6fbd26cc27ac44d6a7fed34092453f77µÄÑûÇë\n`)
   // await inviteFriend('6fbd26cc27ac44d6a7fed34092453f77');
-  // console.log(`æ¥æ”¶é‚€è¯·æˆä¸ºå¥½å‹ç»“æœ:${JSON.stringify($.inviteFriendRes.helpResult)}`)
+  // console.log(`½ÓÊÕÑûÇë³ÉÎªºÃÓÑ½á¹û:${JSON.stringify($.inviteFriendRes.helpResult)}`)
   // if ($.inviteFriendRes.helpResult.code === '0') {
-  //   console.log(`æ‚¨å·²æˆä¸º${$.inviteFriendRes.helpResult.masterUserInfo.nickName}çš„å¥½å‹`)
+  //   console.log(`ÄúÒÑ³ÉÎª${$.inviteFriendRes.helpResult.masterUserInfo.nickName}µÄºÃÓÑ`)
   // } else if ($.inviteFriendRes.helpResult.code === '17') {
-  //   console.log(`å¯¹æ–¹å·²æ˜¯æ‚¨çš„å¥½å‹`)
+  //   console.log(`¶Ô·½ÒÑÊÇÄúµÄºÃÓÑ`)
   // }
 }
 async function duck() {
   for (let i = 0; i < 10; i++) {
-    //è¿™é‡Œå¾ªç¯åæ¬¡
+    //ÕâÀïÑ­»·Ê®´Î
     await getFullCollectionReward();
     if ($.duckRes.code === '0') {
       if (!$.duckRes.hasLimit) {
-        console.log(`å°é¸­å­æ¸¸æˆ:${$.duckRes.title}`);
+        console.log(`Ğ¡Ñ¼×ÓÓÎÏ·:${$.duckRes.title}`);
         // if ($.duckRes.type !== 3) {
         //   console.log(`${$.duckRes.title}`);
         //   if ($.duckRes.type === 1) {
-        //     message += `ã€å°é¸­å­ã€‘ä¸ºä½ å¸¦å›äº†æ°´æ»´\n`;
+        //     message += `¡¾Ğ¡Ñ¼×Ó¡¿ÎªÄã´ø»ØÁËË®µÎ\n`;
         //   } else if ($.duckRes.type === 2) {
-        //     message += `ã€å°é¸­å­ã€‘ä¸ºä½ å¸¦å›å¿«é€Ÿæµ‡æ°´å¡\n`
+        //     message += `¡¾Ğ¡Ñ¼×Ó¡¿ÎªÄã´ø»Ø¿ìËÙ½½Ë®¿¨\n`
         //   }
         // }
       } else {
@@ -927,20 +927,20 @@ async function duck() {
         break;
       }
     } else if ($.duckRes.code === '10') {
-      console.log(`å°é¸­å­æ¸¸æˆè¾¾åˆ°ä¸Šé™`)
+      console.log(`Ğ¡Ñ¼×ÓÓÎÏ·´ïµ½ÉÏÏŞ`)
       break;
     }
   }
 }
-// ========================APIè°ƒç”¨æ¥å£========================
-//é¸­å­ï¼Œç‚¹æˆ‘æœ‰æƒŠå–œ
+// ========================APIµ÷ÓÃ½Ó¿Ú========================
+//Ñ¼×Ó£¬µãÎÒÓĞ¾ªÏ²
 async function getFullCollectionReward() {
   return new Promise(resolve => {
     const body = {"type": 2, "version": 6, "channel": 2};
     $.post(taskUrl("getFullCollectionReward", body), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œå†œåœº: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸');
+          console.log('\n¶«¶«Å©³¡: API²éÑ¯ÇëÇóÊ§°Ü ????');
           console.log(JSON.stringify(err));
           $.logErr(err);
         } else {
@@ -958,55 +958,55 @@ async function getFullCollectionReward() {
 }
 
 /**
- * é¢†å–10æ¬¡æµ‡æ°´å¥–åŠ±API
+ * ÁìÈ¡10´Î½½Ë®½±ÀøAPI
  */
 async function totalWaterTaskForFarm() {
   const functionId = arguments.callee.name.toString();
   $.totalWaterReward = await request(functionId);
 }
-//é¢†å–é¦–æ¬¡æµ‡æ°´å¥–åŠ±API
+//ÁìÈ¡Ê×´Î½½Ë®½±ÀøAPI
 async function firstWaterTaskForFarm() {
   const functionId = arguments.callee.name.toString();
   $.firstWaterReward = await request(functionId);
 }
-//é¢†å–ç»™3ä¸ªå¥½å‹æµ‡æ°´åçš„å¥–åŠ±æ°´æ»´API
+//ÁìÈ¡¸ø3¸öºÃÓÑ½½Ë®ºóµÄ½±ÀøË®µÎAPI
 async function waterFriendGotAwardForFarm() {
   const functionId = arguments.callee.name.toString();
   $.waterFriendGotAwardRes = await request(functionId, {"version": 4, "channel": 1});
 }
-// æŸ¥è¯¢èƒŒåŒ…é“å…·å¡API
+// ²éÑ¯±³°üµÀ¾ß¿¨API
 async function myCardInfoForFarm() {
   const functionId = arguments.callee.name.toString();
   $.myCardInfoRes = await request(functionId, {"version": 5, "channel": 1});
 }
-//ä½¿ç”¨é“å…·å¡API
+//Ê¹ÓÃµÀ¾ß¿¨API
 async function userMyCardForFarm(cardType) {
   const functionId = arguments.callee.name.toString();
   $.userMyCardRes = await request(functionId, {"cardType": cardType});
 }
 /**
- * é¢†å–æµ‡æ°´è¿‡ç¨‹ä¸­çš„é˜¶æ®µæ€§å¥–åŠ±
+ * ÁìÈ¡½½Ë®¹ı³ÌÖĞµÄ½×¶ÎĞÔ½±Àø
  * @param type
  * @returns {Promise<void>}
  */
 async function gotStageAwardForFarm(type) {
   $.gotStageAwardForFarmRes = await request(arguments.callee.name.toString(), {'type': type});
 }
-//æµ‡æ°´API
+//½½Ë®API
 async function waterGoodForFarm() {
   await $.wait(1000);
-  console.log('ç­‰å¾…äº†1ç§’');
+  console.log('µÈ´ıÁË1Ãë');
 
   const functionId = arguments.callee.name.toString();
   $.waterResult = await request(functionId);
 }
-// åˆå§‹åŒ–é›†å¡æŠ½å¥–æ´»åŠ¨æ•°æ®API
+// ³õÊ¼»¯¼¯¿¨³é½±»î¶¯Êı¾İAPI
 async function initForTurntableFarm() {
   $.initForTurntableFarmRes = await request(arguments.callee.name.toString(), {version: 4, channel: 1});
 }
 async function lotteryForTurntableFarm() {
   await $.wait(2000);
-  console.log('ç­‰å¾…äº†2ç§’');
+  console.log('µÈ´ıÁË2Ãë');
   $.lotteryRes = await request(arguments.callee.name.toString(), {type: 1, version: 4, channel: 1});
 }
 
@@ -1016,22 +1016,22 @@ async function timingAwardForTurntableFarm() {
 
 async function browserForTurntableFarm(type, adId) {
   if (type === 1) {
-    console.log('æµè§ˆçˆ†å“ä¼šåœº');
+    console.log('ä¯ÀÀ±¬Æ·»á³¡');
   }
   if (type === 2) {
-    console.log('å¤©å¤©æŠ½å¥–æµè§ˆä»»åŠ¡é¢†å–æ°´æ»´');
+    console.log('ÌìÌì³é½±ä¯ÀÀÈÎÎñÁìÈ¡Ë®µÎ');
   }
   const body = {"type": type,"adId": adId,"version":4,"channel":1};
   $.browserForTurntableFarmRes = await request(arguments.callee.name.toString(), body);
-  // æµè§ˆçˆ†å“ä¼šåœº8ç§’
+  // ä¯ÀÀ±¬Æ·»á³¡8Ãë
 }
-//å¤©å¤©æŠ½å¥–æµè§ˆä»»åŠ¡é¢†å–æ°´æ»´API
+//ÌìÌì³é½±ä¯ÀÀÈÎÎñÁìÈ¡Ë®µÎAPI
 async function browserForTurntableFarm2(type) {
   const body = {"type":2,"adId": type,"version":4,"channel":1};
   $.browserForTurntableFarm2Res = await request('browserForTurntableFarm', body);
 }
 /**
- * å¤©å¤©æŠ½å¥–æ‹¿å¥½ç¤¼-åŠ©åŠ›API(æ¯äººæ¯å¤©ä¸‰æ¬¡åŠ©åŠ›æœºä¼š)
+ * ÌìÌì³é½±ÄÃºÃÀñ-ÖúÁ¦API(Ã¿ÈËÃ¿ÌìÈı´ÎÖúÁ¦»ú»á)
  */
 async function lotteryMasterHelp() {
   $.lotteryMasterHelpRes = await request(`initForFarm`, {
@@ -1044,17 +1044,17 @@ async function lotteryMasterHelp() {
   });
 }
 
-//é¢†å–5äººåŠ©åŠ›åçš„é¢å¤–å¥–åŠ±API
+//ÁìÈ¡5ÈËÖúÁ¦ºóµÄ¶îÍâ½±ÀøAPI
 async function masterGotFinishedTaskForFarm() {
   const functionId = arguments.callee.name.toString();
   $.masterGotFinished = await request(functionId);
 }
-//åŠ©åŠ›å¥½å‹ä¿¡æ¯API
+//ÖúÁ¦ºÃÓÑĞÅÏ¢API
 async function masterHelpTaskInitForFarm() {
   const functionId = arguments.callee.name.toString();
   $.masterHelpResult = await request(functionId);
 }
-//æ¥å—å¯¹æ–¹é‚€è¯·,æˆä¸ºå¯¹æ–¹å¥½å‹çš„API
+//½ÓÊÜ¶Ô·½ÑûÇë,³ÉÎª¶Ô·½ºÃÓÑµÄAPI
 async function inviteFriend() {
   $.inviteFriendRes = await request(`initForFarm`, {
     imageUrl: "",
@@ -1064,7 +1064,7 @@ async function inviteFriend() {
     channel: 2
   });
 }
-// åŠ©åŠ›å¥½å‹API
+// ÖúÁ¦ºÃÓÑAPI
 async function masterHelp() {
   $.helpResult = await request(`initForFarm`, {
     imageUrl: "",
@@ -1076,7 +1076,7 @@ async function masterHelp() {
   });
 }
 /**
- * æ°´æ»´é›¨API
+ * Ë®µÎÓêAPI
  */
 async function waterRainForFarm() {
   const functionId = arguments.callee.name.toString();
@@ -1084,20 +1084,20 @@ async function waterRainForFarm() {
   $.waterRain = await request(functionId, body);
 }
 /**
- * æ‰“å¡é¢†æ°´API
+ * ´ò¿¨ÁìË®API
  */
 async function clockInInitForFarm() {
   const functionId = arguments.callee.name.toString();
   $.clockInInit = await request(functionId);
 }
 
-// è¿ç»­ç­¾åˆ°API
+// Á¬ĞøÇ©µ½API
 async function clockInForFarm() {
   const functionId = arguments.callee.name.toString();
   $.clockInForFarmRes = await request(functionId, {"type": 1});
 }
 
-//å…³æ³¨ï¼Œé¢†åˆ¸ç­‰API
+//¹Ø×¢£¬ÁìÈ¯µÈAPI
 async function clockInFollowForFarm(id, type, step) {
   const functionId = arguments.callee.name.toString();
   let body = {
@@ -1120,20 +1120,20 @@ async function clockInFollowForFarm(id, type, step) {
   }
 }
 
-// é¢†å–è¿ç»­ç­¾åˆ°7å¤©çš„æƒŠå–œç¤¼åŒ…API
+// ÁìÈ¡Á¬ĞøÇ©µ½7ÌìµÄ¾ªÏ²Àñ°üAPI
 async function gotClockInGift() {
   $.gotClockInGiftRes = await request('clockInForFarm', {"type": 2})
 }
 
-//å®šæ—¶é¢†æ°´API
+//¶¨Ê±ÁìË®API
 async function gotThreeMealForFarm() {
   const functionId = arguments.callee.name.toString();
   $.threeMeal = await request(functionId);
 }
 /**
- * æµè§ˆå¹¿å‘Šä»»åŠ¡API
- * typeä¸º0æ—¶, å®Œæˆæµè§ˆä»»åŠ¡
- * typeä¸º1æ—¶, é¢†å–æµè§ˆä»»åŠ¡å¥–åŠ±
+ * ä¯ÀÀ¹ã¸æÈÎÎñAPI
+ * typeÎª0Ê±, Íê³Éä¯ÀÀÈÎÎñ
+ * typeÎª1Ê±, ÁìÈ¡ä¯ÀÀÈÎÎñ½±Àø
  */
 async function browseAdTaskForFarm(advertId, type) {
   const functionId = arguments.callee.name.toString();
@@ -1143,17 +1143,17 @@ async function browseAdTaskForFarm(advertId, type) {
     $.browseRwardResult = await request(functionId, {advertId, type});
   }
 }
-// è¢«æ°´æ»´ç ¸ä¸­API
+// ±»Ë®µÎÔÒÖĞAPI
 async function gotWaterGoalTaskForFarm() {
   $.goalResult = await request(arguments.callee.name.toString(), {type: 3});
 }
-//ç­¾åˆ°API
+//Ç©µ½API
 async function signForFarm() {
   const functionId = arguments.callee.name.toString();
   $.signResult = await request(functionId);
 }
 /**
- * åˆå§‹åŒ–å†œåœº, å¯è·å–æœæ ‘åŠç”¨æˆ·ä¿¡æ¯API
+ * ³õÊ¼»¯Å©³¡, ¿É»ñÈ¡¹ûÊ÷¼°ÓÃ»§ĞÅÏ¢API
  */
 async function initForFarm() {
   return new Promise(resolve => {
@@ -1180,7 +1180,7 @@ async function initForFarm() {
     $.post(option, (err, resp, data) => {
       try {
         if (err) {
-          console.log('\nä¸œä¸œå†œåœº: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸');
+          console.log('\n¶«¶«Å©³¡: API²éÑ¯ÇëÇóÊ§°Ü ????');
           console.log(JSON.stringify(err));
           $.logErr(err);
         } else {
@@ -1197,22 +1197,22 @@ async function initForFarm() {
   })
 }
 
-// åˆå§‹åŒ–ä»»åŠ¡åˆ—è¡¨API
+// ³õÊ¼»¯ÈÎÎñÁĞ±íAPI
 async function taskInitForFarm() {
-  console.log('\nåˆå§‹åŒ–ä»»åŠ¡åˆ—è¡¨')
+  console.log('\n³õÊ¼»¯ÈÎÎñÁĞ±í')
   const functionId = arguments.callee.name.toString();
   $.farmTask = await request(functionId);
 }
-//è·å–å¥½å‹åˆ—è¡¨API
+//»ñÈ¡ºÃÓÑÁĞ±íAPI
 async function friendListInitForFarm() {
   $.friendList = await request('friendListInitForFarm', {"version": 4, "channel": 1});
   // console.log('aa', aa);
 }
-// é¢†å–é‚€è¯·å¥½å‹çš„å¥–åŠ±API
+// ÁìÈ¡ÑûÇëºÃÓÑµÄ½±ÀøAPI
 async function awardInviteFriendForFarm() {
   $.awardInviteFriendRes = await request('awardInviteFriendForFarm');
 }
-//ä¸ºå¥½å‹æµ‡æ°´API
+//ÎªºÃÓÑ½½Ë®API
 async function waterFriendForFarm(shareCode) {
   const body = {"shareCode": shareCode, "version": 6, "channel": 1}
   $.waterFriendForFarmRes = await request('waterFriendForFarm', body);
@@ -1229,7 +1229,7 @@ async function showMsg() {
   if (ctrTemp) {
     $.msg($.name, subTitle, message, option);
     if ($.isNode()) {
-      await notify.sendNotify(`${$.name} - è´¦å·${$.index} - ${$.nickName}`, `${subTitle}\n${message}`);
+      await notify.sendNotify(`${$.name} - ÕËºÅ${$.index} - ${$.nickName}`, `${subTitle}\n${message}`);
     }
   } else {
     $.log(`\n${message}\n`);
@@ -1251,10 +1251,10 @@ function readShareCode() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           if (data) {
-            console.log(`éšæœºå–ä¸ª${randomCount}ç æ”¾åˆ°æ‚¨å›ºå®šçš„äº’åŠ©ç åé¢(ä¸å½±å“å·²æœ‰å›ºå®šäº’åŠ©)`)
+            console.log(`Ëæ»úÈ¡¸ö${randomCount}Âë·Åµ½Äú¹Ì¶¨µÄ»¥ÖúÂëºóÃæ(²»Ó°ÏìÒÑÓĞ¹Ì¶¨»¥Öú)`)
             data = JSON.parse(data);
           }
         }
@@ -1270,12 +1270,12 @@ function readShareCode() {
 }
 function shareCodesFormat() {
   return new Promise(async resolve => {
-    // console.log(`ç¬¬${$.index}ä¸ªäº¬ä¸œè´¦å·çš„åŠ©åŠ›ç :::${jdFruitShareArr[$.index - 1]}`)
+    // console.log(`µÚ${$.index}¸ö¾©¶«ÕËºÅµÄÖúÁ¦Âë:::${jdFruitShareArr[$.index - 1]}`)
     newShareCodes = [];
     if (jdFruitShareArr[$.index - 1]) {
       newShareCodes = jdFruitShareArr[$.index - 1].split('@');
     } else {
-      console.log(`ç”±äºæ‚¨ç¬¬${$.index}ä¸ªäº¬ä¸œè´¦å·æœªæä¾›shareCode,å°†é‡‡çº³æœ¬è„šæœ¬è‡ªå¸¦çš„åŠ©åŠ›ç \n`)
+      console.log(`ÓÉÓÚÄúµÚ${$.index}¸ö¾©¶«ÕËºÅÎ´Ìá¹©shareCode,½«²ÉÄÉ±¾½Å±¾×Ô´øµÄÖúÁ¦Âë\n`)
       const tempIndex = $.index > shareCodes.length ? (shareCodes.length - 1) : ($.index - 1);
       newShareCodes = shareCodes[tempIndex].split('@');
     }
@@ -1284,18 +1284,18 @@ function shareCodesFormat() {
       // newShareCodes = newShareCodes.concat(readShareCodeRes.data || []);
       newShareCodes = [...new Set([...newShareCodes, ...(readShareCodeRes.data || [])])];
     }
-    console.log(`ç¬¬${$.index}ä¸ªäº¬ä¸œè´¦å·å°†è¦åŠ©åŠ›çš„å¥½å‹${JSON.stringify(newShareCodes)}`)
+    console.log(`µÚ${$.index}¸ö¾©¶«ÕËºÅ½«ÒªÖúÁ¦µÄºÃÓÑ${JSON.stringify(newShareCodes)}`)
     resolve();
   })
 }
 function requireConfig() {
   return new Promise(resolve => {
-    console.log('å¼€å§‹è·å–é…ç½®æ–‡ä»¶\n')
+    console.log('¿ªÊ¼»ñÈ¡ÅäÖÃÎÄ¼ş\n')
     notify = $.isNode() ? require('./sendNotify') : '';
-    //Node.jsç”¨æˆ·è¯·åœ¨jdCookie.jså¤„å¡«å†™äº¬ä¸œck;
+    //Node.jsÓÃ»§ÇëÔÚjdCookie.js´¦ÌîĞ´¾©¶«ck;
     const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
     const jdFruitShareCodes = $.isNode() ? require('./jdFruitShareCodes.js') : '';
-    //IOSç­‰ç”¨æˆ·ç›´æ¥ç”¨NobyDaçš„jd cookie
+    //IOSµÈÓÃ»§Ö±½ÓÓÃNobyDaµÄjd cookie
     if ($.isNode()) {
       Object.keys(jdCookieNode).forEach((item) => {
         if (jdCookieNode[item]) {
@@ -1306,7 +1306,7 @@ function requireConfig() {
     } else {
       cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
     }
-    console.log(`å…±${cookiesArr.length}ä¸ªäº¬ä¸œè´¦å·\n`)
+    console.log(`¹²${cookiesArr.length}¸ö¾©¶«ÕËºÅ\n`)
     if ($.isNode()) {
       Object.keys(jdFruitShareCodes).forEach((item) => {
         if (jdFruitShareCodes[item]) {
@@ -1345,8 +1345,8 @@ function requireConfig() {
       }
     }
     // console.log(`jdFruitShareArr::${JSON.stringify(jdFruitShareArr)}`)
-    // console.log(`jdFruitShareArrè´¦å·é•¿åº¦::${jdFruitShareArr.length}`)
-    console.log(`æ‚¨æä¾›äº†${jdFruitShareArr.length}ä¸ªè´¦å·çš„å†œåœºåŠ©åŠ›ç \n`);
+    // console.log(`jdFruitShareArrÕËºÅ³¤¶È::${jdFruitShareArr.length}`)
+    console.log(`ÄúÌá¹©ÁË${jdFruitShareArr.length}¸öÕËºÅµÄÅ©³¡ÖúÁ¦Âë\n`);
     resolve()
   })
 }
@@ -1370,17 +1370,17 @@ function TotalBean() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           if (data) {
             data = JSON.parse(data);
             if (data['retcode'] === 13) {
-              $.isLogin = false; //cookieè¿‡æœŸ
+              $.isLogin = false; //cookie¹ıÆÚ
               return
             }
             $.nickName = data['base'].nickname;
           } else {
-            console.log(`äº¬ä¸œæœåŠ¡å™¨è¿”å›ç©ºæ•°æ®`)
+            console.log(`¾©¶«·şÎñÆ÷·µ»Ø¿ÕÊı¾İ`)
           }
         }
       } catch (e) {
@@ -1397,7 +1397,7 @@ function request(function_id, body = {}, timeout = 1000){
       $.get(taskUrl(function_id, body), (err, resp, data) => {
         try {
           if (err) {
-            console.log('\nä¸œä¸œå†œåœº: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
+            console.log('\n¶«¶«Å©³¡: API²éÑ¯ÇëÇóÊ§°Ü ????')
             console.log(JSON.stringify(err));
             console.log(`function_id:${function_id}`)
             $.logErr(err);
@@ -1422,7 +1422,7 @@ function safeGet(data) {
     }
   } catch (e) {
     console.log(e);
-    console.log(`äº¬ä¸œæœåŠ¡å™¨è®¿é—®æ•°æ®ä¸ºç©ºï¼Œè¯·æ£€æŸ¥è‡ªèº«è®¾å¤‡ç½‘ç»œæƒ…å†µ`);
+    console.log(`¾©¶«·şÎñÆ÷·ÃÎÊÊı¾İÎª¿Õ£¬Çë¼ì²é×ÔÉíÉè±¸ÍøÂçÇé¿ö`);
     return false;
   }
 }
@@ -1442,10 +1442,10 @@ function jsonParse(str) {
       return JSON.parse(str);
     } catch (e) {
       console.log(e);
-      $.msg($.name, '', 'è¯·å‹¿éšæ„åœ¨BoxJsè¾“å…¥æ¡†ä¿®æ”¹å†…å®¹\nå»ºè®®é€šè¿‡è„šæœ¬å»è·å–cookie')
+      $.msg($.name, '', 'ÇëÎğËæÒâÔÚBoxJsÊäÈë¿òĞŞ¸ÄÄÚÈİ\n½¨ÒéÍ¨¹ı½Å±¾È¥»ñÈ¡cookie')
       return [];
     }
   }
 }
 // prettier-ignore
-function Env(t,e){"undefined"!=typeof process&&JSON.stringify(process.env).indexOf("GIT_HUB")>-1&&process.exit(0);class s{constructor(t){this.env=t}send(t,e="GET"){t="string"==typeof t?{url:t}:t;let s=this.get;return"POST"===e&&(s=this.post),new Promise((e,i)=>{s.call(this,t,(t,s,r)=>{t?i(t):e(s)})})}get(t){return this.send.call(this.env,t)}post(t){return this.send.call(this.env,t,"POST")}}return new class{constructor(t,e){this.name=t,this.http=new s(this),this.data=null,this.dataFile="box.dat",this.logs=[],this.isMute=!1,this.isNeedRewrite=!1,this.logSeparator="\n",this.startTime=(new Date).getTime(),Object.assign(this,e),this.log("",`ğŸ””${this.name}, å¼€å§‹!`)}isNode(){return"undefined"!=typeof module&&!!module.exports}isQuanX(){return"undefined"!=typeof $task}isSurge(){return"undefined"!=typeof $httpClient&&"undefined"==typeof $loon}isLoon(){return"undefined"!=typeof $loon}toObj(t,e=null){try{return JSON.parse(t)}catch{return e}}toStr(t,e=null){try{return JSON.stringify(t)}catch{return e}}getjson(t,e){let s=e;const i=this.getdata(t);if(i)try{s=JSON.parse(this.getdata(t))}catch{}return s}setjson(t,e){try{return this.setdata(JSON.stringify(t),e)}catch{return!1}}getScript(t){return new Promise(e=>{this.get({url:t},(t,s,i)=>e(i))})}runScript(t,e){return new Promise(s=>{let i=this.getdata("@chavy_boxjs_userCfgs.httpapi");i=i?i.replace(/\n/g,"").trim():i;let r=this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");r=r?1*r:20,r=e&&e.timeout?e.timeout:r;const[o,h]=i.split("@"),n={url:`http://${h}/v1/scripting/evaluate`,body:{script_text:t,mock_type:"cron",timeout:r},headers:{"X-Key":o,Accept:"*/*"}};this.post(n,(t,e,i)=>s(i))}).catch(t=>this.logErr(t))}loaddata(){if(!this.isNode())return{};{this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e);if(!s&&!i)return{};{const i=s?t:e;try{return JSON.parse(this.fs.readFileSync(i))}catch(t){return{}}}}}writedata(){if(this.isNode()){this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e),r=JSON.stringify(this.data);s?this.fs.writeFileSync(t,r):i?this.fs.writeFileSync(e,r):this.fs.writeFileSync(t,r)}}lodash_get(t,e,s){const i=e.replace(/\[(\d+)\]/g,".$1").split(".");let r=t;for(const t of i)if(r=Object(r)[t],void 0===r)return s;return r}lodash_set(t,e,s){return Object(t)!==t?t:(Array.isArray(e)||(e=e.toString().match(/[^.[\]]+/g)||[]),e.slice(0,-1).reduce((t,s,i)=>Object(t[s])===t[s]?t[s]:t[s]=Math.abs(e[i+1])>>0==+e[i+1]?[]:{},t)[e[e.length-1]]=s,t)}getdata(t){let e=this.getval(t);if(/^@/.test(t)){const[,s,i]=/^@(.*?)\.(.*?)$/.exec(t),r=s?this.getval(s):"";if(r)try{const t=JSON.parse(r);e=t?this.lodash_get(t,i,""):e}catch(t){e=""}}return e}setdata(t,e){let s=!1;if(/^@/.test(e)){const[,i,r]=/^@(.*?)\.(.*?)$/.exec(e),o=this.getval(i),h=i?"null"===o?null:o||"{}":"{}";try{const e=JSON.parse(h);this.lodash_set(e,r,t),s=this.setval(JSON.stringify(e),i)}catch(e){const o={};this.lodash_set(o,r,t),s=this.setval(JSON.stringify(o),i)}}else s=this.setval(t,e);return s}getval(t){return this.isSurge()||this.isLoon()?$persistentStore.read(t):this.isQuanX()?$prefs.valueForKey(t):this.isNode()?(this.data=this.loaddata(),this.data[t]):this.data&&this.data[t]||null}setval(t,e){return this.isSurge()||this.isLoon()?$persistentStore.write(t,e):this.isQuanX()?$prefs.setValueForKey(t,e):this.isNode()?(this.data=this.loaddata(),this.data[e]=t,this.writedata(),!0):this.data&&this.data[e]||null}initGotEnv(t){this.got=this.got?this.got:require("got"),this.cktough=this.cktough?this.cktough:require("tough-cookie"),this.ckjar=this.ckjar?this.ckjar:new this.cktough.CookieJar,t&&(t.headers=t.headers?t.headers:{},void 0===t.headers.Cookie&&void 0===t.cookieJar&&(t.cookieJar=this.ckjar))}get(t,e=(()=>{})){t.headers&&(delete t.headers["Content-Type"],delete t.headers["Content-Length"]),this.isSurge()||this.isLoon()?(this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.get(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)})):this.isQuanX()?(this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t))):this.isNode()&&(this.initGotEnv(t),this.got(t).on("redirect",(t,e)=>{try{if(t.headers["set-cookie"]){const s=t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();s&&this.ckjar.setCookieSync(s,null),e.cookieJar=this.ckjar}}catch(t){this.logErr(t)}}).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)}))}post(t,e=(()=>{})){if(t.body&&t.headers&&!t.headers["Content-Type"]&&(t.headers["Content-Type"]="application/x-www-form-urlencoded"),t.headers&&delete t.headers["Content-Length"],this.isSurge()||this.isLoon())this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.post(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)});else if(this.isQuanX())t.method="POST",this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t));else if(this.isNode()){this.initGotEnv(t);const{url:s,...i}=t;this.got.post(s,i).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)})}}time(t,e=null){const s=e?new Date(e):new Date;let i={"M+":s.getMonth()+1,"d+":s.getDate(),"H+":s.getHours(),"m+":s.getMinutes(),"s+":s.getSeconds(),"q+":Math.floor((s.getMonth()+3)/3),S:s.getMilliseconds()};/(y+)/.test(t)&&(t=t.replace(RegExp.$1,(s.getFullYear()+"").substr(4-RegExp.$1.length)));for(let e in i)new RegExp("("+e+")").test(t)&&(t=t.replace(RegExp.$1,1==RegExp.$1.length?i[e]:("00"+i[e]).substr((""+i[e]).length)));return t}msg(e=t,s="",i="",r){const o=t=>{if(!t)return t;if("string"==typeof t)return this.isLoon()?t:this.isQuanX()?{"open-url":t}:this.isSurge()?{url:t}:void 0;if("object"==typeof t){if(this.isLoon()){let e=t.openUrl||t.url||t["open-url"],s=t.mediaUrl||t["media-url"];return{openUrl:e,mediaUrl:s}}if(this.isQuanX()){let e=t["open-url"]||t.url||t.openUrl,s=t["media-url"]||t.mediaUrl;return{"open-url":e,"media-url":s}}if(this.isSurge()){let e=t.url||t.openUrl||t["open-url"];return{url:e}}}};if(this.isMute||(this.isSurge()||this.isLoon()?$notification.post(e,s,i,o(r)):this.isQuanX()&&$notify(e,s,i,o(r))),!this.isMuteLog){let t=["","==============ğŸ“£ç³»ç»Ÿé€šçŸ¥ğŸ“£=============="];t.push(e),s&&t.push(s),i&&t.push(i),console.log(t.join("\n")),this.logs=this.logs.concat(t)}}log(...t){t.length>0&&(this.logs=[...this.logs,...t]),console.log(t.join(this.logSeparator))}logErr(t,e){const s=!this.isSurge()&&!this.isQuanX()&&!this.isLoon();s?this.log("",`â—ï¸${this.name}, é”™è¯¯!`,t.stack):this.log("",`â—ï¸${this.name}, é”™è¯¯!`,t)}wait(t){return new Promise(e=>setTimeout(e,t))}done(t={}){const e=(new Date).getTime(),s=(e-this.startTime)/1e3;this.log("",`ğŸ””${this.name}, ç»“æŸ! ğŸ•› ${s} ç§’`),this.log(),(this.isSurge()||this.isQuanX()||this.isLoon())&&$done(t)}}(t,e)}
+function Env(t,e){"undefined"!=typeof process&&JSON.stringify(process.env).indexOf("GIT_HUB")>-1&&process.exit(0);class s{constructor(t){this.env=t}send(t,e="GET"){t="string"==typeof t?{url:t}:t;let s=this.get;return"POST"===e&&(s=this.post),new Promise((e,i)=>{s.call(this,t,(t,s,r)=>{t?i(t):e(s)})})}get(t){return this.send.call(this.env,t)}post(t){return this.send.call(this.env,t,"POST")}}return new class{constructor(t,e){this.name=t,this.http=new s(this),this.data=null,this.dataFile="box.dat",this.logs=[],this.isMute=!1,this.isNeedRewrite=!1,this.logSeparator="\n",this.startTime=(new Date).getTime(),Object.assign(this,e),this.log("",`?${this.name}, ¿ªÊ¼!`)}isNode(){return"undefined"!=typeof module&&!!module.exports}isQuanX(){return"undefined"!=typeof $task}isSurge(){return"undefined"!=typeof $httpClient&&"undefined"==typeof $loon}isLoon(){return"undefined"!=typeof $loon}toObj(t,e=null){try{return JSON.parse(t)}catch{return e}}toStr(t,e=null){try{return JSON.stringify(t)}catch{return e}}getjson(t,e){let s=e;const i=this.getdata(t);if(i)try{s=JSON.parse(this.getdata(t))}catch{}return s}setjson(t,e){try{return this.setdata(JSON.stringify(t),e)}catch{return!1}}getScript(t){return new Promise(e=>{this.get({url:t},(t,s,i)=>e(i))})}runScript(t,e){return new Promise(s=>{let i=this.getdata("@chavy_boxjs_userCfgs.httpapi");i=i?i.replace(/\n/g,"").trim():i;let r=this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");r=r?1*r:20,r=e&&e.timeout?e.timeout:r;const[o,h]=i.split("@"),n={url:`http://${h}/v1/scripting/evaluate`,body:{script_text:t,mock_type:"cron",timeout:r},headers:{"X-Key":o,Accept:"*/*"}};this.post(n,(t,e,i)=>s(i))}).catch(t=>this.logErr(t))}loaddata(){if(!this.isNode())return{};{this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e);if(!s&&!i)return{};{const i=s?t:e;try{return JSON.parse(this.fs.readFileSync(i))}catch(t){return{}}}}}writedata(){if(this.isNode()){this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e),r=JSON.stringify(this.data);s?this.fs.writeFileSync(t,r):i?this.fs.writeFileSync(e,r):this.fs.writeFileSync(t,r)}}lodash_get(t,e,s){const i=e.replace(/\[(\d+)\]/g,".$1").split(".");let r=t;for(const t of i)if(r=Object(r)[t],void 0===r)return s;return r}lodash_set(t,e,s){return Object(t)!==t?t:(Array.isArray(e)||(e=e.toString().match(/[^.[\]]+/g)||[]),e.slice(0,-1).reduce((t,s,i)=>Object(t[s])===t[s]?t[s]:t[s]=Math.abs(e[i+1])>>0==+e[i+1]?[]:{},t)[e[e.length-1]]=s,t)}getdata(t){let e=this.getval(t);if(/^@/.test(t)){const[,s,i]=/^@(.*?)\.(.*?)$/.exec(t),r=s?this.getval(s):"";if(r)try{const t=JSON.parse(r);e=t?this.lodash_get(t,i,""):e}catch(t){e=""}}return e}setdata(t,e){let s=!1;if(/^@/.test(e)){const[,i,r]=/^@(.*?)\.(.*?)$/.exec(e),o=this.getval(i),h=i?"null"===o?null:o||"{}":"{}";try{const e=JSON.parse(h);this.lodash_set(e,r,t),s=this.setval(JSON.stringify(e),i)}catch(e){const o={};this.lodash_set(o,r,t),s=this.setval(JSON.stringify(o),i)}}else s=this.setval(t,e);return s}getval(t){return this.isSurge()||this.isLoon()?$persistentStore.read(t):this.isQuanX()?$prefs.valueForKey(t):this.isNode()?(this.data=this.loaddata(),this.data[t]):this.data&&this.data[t]||null}setval(t,e){return this.isSurge()||this.isLoon()?$persistentStore.write(t,e):this.isQuanX()?$prefs.setValueForKey(t,e):this.isNode()?(this.data=this.loaddata(),this.data[e]=t,this.writedata(),!0):this.data&&this.data[e]||null}initGotEnv(t){this.got=this.got?this.got:require("got"),this.cktough=this.cktough?this.cktough:require("tough-cookie"),this.ckjar=this.ckjar?this.ckjar:new this.cktough.CookieJar,t&&(t.headers=t.headers?t.headers:{},void 0===t.headers.Cookie&&void 0===t.cookieJar&&(t.cookieJar=this.ckjar))}get(t,e=(()=>{})){t.headers&&(delete t.headers["Content-Type"],delete t.headers["Content-Length"]),this.isSurge()||this.isLoon()?(this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.get(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)})):this.isQuanX()?(this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t))):this.isNode()&&(this.initGotEnv(t),this.got(t).on("redirect",(t,e)=>{try{if(t.headers["set-cookie"]){const s=t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();s&&this.ckjar.setCookieSync(s,null),e.cookieJar=this.ckjar}}catch(t){this.logErr(t)}}).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)}))}post(t,e=(()=>{})){if(t.body&&t.headers&&!t.headers["Content-Type"]&&(t.headers["Content-Type"]="application/x-www-form-urlencoded"),t.headers&&delete t.headers["Content-Length"],this.isSurge()||this.isLoon())this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.post(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)});else if(this.isQuanX())t.method="POST",this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t));else if(this.isNode()){this.initGotEnv(t);const{url:s,...i}=t;this.got.post(s,i).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)})}}time(t,e=null){const s=e?new Date(e):new Date;let i={"M+":s.getMonth()+1,"d+":s.getDate(),"H+":s.getHours(),"m+":s.getMinutes(),"s+":s.getSeconds(),"q+":Math.floor((s.getMonth()+3)/3),S:s.getMilliseconds()};/(y+)/.test(t)&&(t=t.replace(RegExp.$1,(s.getFullYear()+"").substr(4-RegExp.$1.length)));for(let e in i)new RegExp("("+e+")").test(t)&&(t=t.replace(RegExp.$1,1==RegExp.$1.length?i[e]:("00"+i[e]).substr((""+i[e]).length)));return t}msg(e=t,s="",i="",r){const o=t=>{if(!t)return t;if("string"==typeof t)return this.isLoon()?t:this.isQuanX()?{"open-url":t}:this.isSurge()?{url:t}:void 0;if("object"==typeof t){if(this.isLoon()){let e=t.openUrl||t.url||t["open-url"],s=t.mediaUrl||t["media-url"];return{openUrl:e,mediaUrl:s}}if(this.isQuanX()){let e=t["open-url"]||t.url||t.openUrl,s=t["media-url"]||t.mediaUrl;return{"open-url":e,"media-url":s}}if(this.isSurge()){let e=t.url||t.openUrl||t["open-url"];return{url:e}}}};if(this.isMute||(this.isSurge()||this.isLoon()?$notification.post(e,s,i,o(r)):this.isQuanX()&&$notify(e,s,i,o(r))),!this.isMuteLog){let t=["","==============?ÏµÍ³Í¨Öª?=============="];t.push(e),s&&t.push(s),i&&t.push(i),console.log(t.join("\n")),this.logs=this.logs.concat(t)}}log(...t){t.length>0&&(this.logs=[...this.logs,...t]),console.log(t.join(this.logSeparator))}logErr(t,e){const s=!this.isSurge()&&!this.isQuanX()&&!this.isLoon();s?this.log("",`??${this.name}, ´íÎó!`,t.stack):this.log("",`??${this.name}, ´íÎó!`,t)}wait(t){return new Promise(e=>setTimeout(e,t))}done(t={}){const e=(new Date).getTime(),s=(e-this.startTime)/1e3;this.log("",`?${this.name}, ½áÊø! ? ${s} Ãë`),this.log(),(this.isSurge()||this.isQuanX()||this.isLoon())&&$done(t)}}(t,e)}

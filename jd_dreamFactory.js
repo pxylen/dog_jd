@@ -1,25 +1,25 @@
 /*
-äº¬ä¸œäº¬å–œå·¥å‚
-æ›´æ–°æ—¶é—´ï¼š2021-1-27
-æ´»åŠ¨å…¥å£ï¼šäº¬ä¸œAPP-æ¸¸æˆä¸äº’åŠ¨-æŸ¥çœ‹æ›´å¤š-äº¬å–œå·¥å‚
-æˆ–è€…: äº¬ä¸œAPPé¦–é¡µæœç´¢ "ç©ä¸€ç©" ,é€ ç‰©å·¥å‚å³å¯
+¾©¶«¾©Ï²¹¤³§
+¸üĞÂÊ±¼ä£º2021-1-27
+»î¶¯Èë¿Ú£º¾©¶«APP-ÓÎÏ·Óë»¥¶¯-²é¿´¸ü¶à-¾©Ï²¹¤³§
+»òÕß: ¾©¶«APPÊ×Ò³ËÑË÷ "ÍæÒ»Íæ" ,ÔìÎï¹¤³§¼´¿É
 
-å·²æ”¯æŒIOSåŒäº¬ä¸œè´¦å·,Node.jsæ”¯æŒNä¸ªäº¬ä¸œè´¦å·
-è„šæœ¬å…¼å®¹: QuantumultX, Surge, Loon, JSBox, Node.js
+ÒÑÖ§³ÖIOSË«¾©¶«ÕËºÅ,Node.jsÖ§³ÖN¸ö¾©¶«ÕËºÅ
+½Å±¾¼æÈİ: QuantumultX, Surge, Loon, JSBox, Node.js
 ============Quantumultx===============
 [task_local]
-#äº¬å–œå·¥å‚
-10 * * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_dreamFactory.js, tag=äº¬å–œå·¥å‚, img-url=https://github.com/58xinian/icon/raw/master/jdgc.png, enabled=true
+#¾©Ï²¹¤³§
+10 * * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_dreamFactory.js, tag=¾©Ï²¹¤³§, img-url=https://github.com/58xinian/icon/raw/master/jdgc.png, enabled=true
 
 ================Loon==============
 [Script]
-cron "10 * * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_dreamFactory.js,tag=äº¬å–œå·¥å‚
+cron "10 * * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_dreamFactory.js,tag=¾©Ï²¹¤³§
 
 ===============Surge=================
-äº¬å–œå·¥å‚ = type=cron,cronexp="10 * * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_dreamFactory.js
+¾©Ï²¹¤³§ = type=cron,cronexp="10 * * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_dreamFactory.js
 
-============å°ç«ç®­=========
-äº¬å–œå·¥å‚ = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_dreamFactory.js, cronexpr="10 * * * *", timeout=3600, enable=true
+============Ğ¡»ğ¼ı=========
+¾©Ï²¹¤³§ = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_dreamFactory.js, cronexpr="10 * * * *", timeout=3600, enable=true
 
  */
 // prettier-ignore
@@ -31,11 +31,11 @@ cron "10 * * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresou
   }(), function () { function r() { for (var t = this._S, r = this._i, e = this._j, i = 0, n = 0; n < 4; n++) { r = (r + 1) % 256, e = (e + t[r]) % 256; var o = t[r]; t[r] = t[e], t[e] = o, i |= t[(t[r] + t[e]) % 256] << 24 - 8 * n } return this._i = r, this._j = e, i } var e = t, i = e.lib, n = i.StreamCipher, o = e.algo, s = o.RC4 = n.extend({ _doReset: function () { for (var t = this._key, r = t.words, e = t.sigBytes, i = this._S = [], n = 0; n < 256; n++)i[n] = n; for (var n = 0, o = 0; n < 256; n++) { var s = n % e, a = r[s >>> 2] >>> 24 - s % 4 * 8 & 255; o = (o + i[n] + a) % 256; var c = i[n]; i[n] = i[o], i[o] = c } this._i = this._j = 0 }, _doProcessBlock: function (t, e) { t[e] ^= r.call(this) }, keySize: 8, ivSize: 0 }); e.RC4 = n._createHelper(s); var a = o.RC4Drop = s.extend({ cfg: s.cfg.extend({ drop: 192 }), _doReset: function () { s._doReset.call(this); for (var t = this.cfg.drop; t > 0; t--)r.call(this) } }); e.RC4Drop = n._createHelper(a) }(), t.mode.CTRGladman = function () { function r(t) { if (255 === (t >> 24 & 255)) { var r = t >> 16 & 255, e = t >> 8 & 255, i = 255 & t; 255 === r ? (r = 0, 255 === e ? (e = 0, 255 === i ? i = 0 : ++i) : ++e) : ++r, t = 0, t += r << 16, t += e << 8, t += i } else t += 1 << 24; return t } function e(t) { return 0 === (t[0] = r(t[0])) && (t[1] = r(t[1])), t } var i = t.lib.BlockCipherMode.extend(), n = i.Encryptor = i.extend({ processBlock: function (t, r) { var i = this._cipher, n = i.blockSize, o = this._iv, s = this._counter; o && (s = this._counter = o.slice(0), this._iv = void 0), e(s); var a = s.slice(0); i.encryptBlock(a, 0); for (var c = 0; c < n; c++)t[r + c] ^= a[c] } }); return i.Decryptor = n, i }(), function () { function r() { for (var t = this._X, r = this._C, e = 0; e < 8; e++)a[e] = r[e]; r[0] = r[0] + 1295307597 + this._b | 0, r[1] = r[1] + 3545052371 + (r[0] >>> 0 < a[0] >>> 0 ? 1 : 0) | 0, r[2] = r[2] + 886263092 + (r[1] >>> 0 < a[1] >>> 0 ? 1 : 0) | 0, r[3] = r[3] + 1295307597 + (r[2] >>> 0 < a[2] >>> 0 ? 1 : 0) | 0, r[4] = r[4] + 3545052371 + (r[3] >>> 0 < a[3] >>> 0 ? 1 : 0) | 0, r[5] = r[5] + 886263092 + (r[4] >>> 0 < a[4] >>> 0 ? 1 : 0) | 0, r[6] = r[6] + 1295307597 + (r[5] >>> 0 < a[5] >>> 0 ? 1 : 0) | 0, r[7] = r[7] + 3545052371 + (r[6] >>> 0 < a[6] >>> 0 ? 1 : 0) | 0, this._b = r[7] >>> 0 < a[7] >>> 0 ? 1 : 0; for (var e = 0; e < 8; e++) { var i = t[e] + r[e], n = 65535 & i, o = i >>> 16, s = ((n * n >>> 17) + n * o >>> 15) + o * o, h = ((4294901760 & i) * i | 0) + ((65535 & i) * i | 0); c[e] = s ^ h } t[0] = c[0] + (c[7] << 16 | c[7] >>> 16) + (c[6] << 16 | c[6] >>> 16) | 0, t[1] = c[1] + (c[0] << 8 | c[0] >>> 24) + c[7] | 0, t[2] = c[2] + (c[1] << 16 | c[1] >>> 16) + (c[0] << 16 | c[0] >>> 16) | 0, t[3] = c[3] + (c[2] << 8 | c[2] >>> 24) + c[1] | 0, t[4] = c[4] + (c[3] << 16 | c[3] >>> 16) + (c[2] << 16 | c[2] >>> 16) | 0, t[5] = c[5] + (c[4] << 8 | c[4] >>> 24) + c[3] | 0, t[6] = c[6] + (c[5] << 16 | c[5] >>> 16) + (c[4] << 16 | c[4] >>> 16) | 0, t[7] = c[7] + (c[6] << 8 | c[6] >>> 24) + c[5] | 0 } var e = t, i = e.lib, n = i.StreamCipher, o = e.algo, s = [], a = [], c = [], h = o.Rabbit = n.extend({ _doReset: function () { for (var t = this._key.words, e = this.cfg.iv, i = 0; i < 4; i++)t[i] = 16711935 & (t[i] << 8 | t[i] >>> 24) | 4278255360 & (t[i] << 24 | t[i] >>> 8); var n = this._X = [t[0], t[3] << 16 | t[2] >>> 16, t[1], t[0] << 16 | t[3] >>> 16, t[2], t[1] << 16 | t[0] >>> 16, t[3], t[2] << 16 | t[1] >>> 16], o = this._C = [t[2] << 16 | t[2] >>> 16, 4294901760 & t[0] | 65535 & t[1], t[3] << 16 | t[3] >>> 16, 4294901760 & t[1] | 65535 & t[2], t[0] << 16 | t[0] >>> 16, 4294901760 & t[2] | 65535 & t[3], t[1] << 16 | t[1] >>> 16, 4294901760 & t[3] | 65535 & t[0]]; this._b = 0; for (var i = 0; i < 4; i++)r.call(this); for (var i = 0; i < 8; i++)o[i] ^= n[i + 4 & 7]; if (e) { var s = e.words, a = s[0], c = s[1], h = 16711935 & (a << 8 | a >>> 24) | 4278255360 & (a << 24 | a >>> 8), l = 16711935 & (c << 8 | c >>> 24) | 4278255360 & (c << 24 | c >>> 8), f = h >>> 16 | 4294901760 & l, u = l << 16 | 65535 & h; o[0] ^= h, o[1] ^= f, o[2] ^= l, o[3] ^= u, o[4] ^= h, o[5] ^= f, o[6] ^= l, o[7] ^= u; for (var i = 0; i < 4; i++)r.call(this) } }, _doProcessBlock: function (t, e) { var i = this._X; r.call(this), s[0] = i[0] ^ i[5] >>> 16 ^ i[3] << 16, s[1] = i[2] ^ i[7] >>> 16 ^ i[5] << 16, s[2] = i[4] ^ i[1] >>> 16 ^ i[7] << 16, s[3] = i[6] ^ i[3] >>> 16 ^ i[1] << 16; for (var n = 0; n < 4; n++)s[n] = 16711935 & (s[n] << 8 | s[n] >>> 24) | 4278255360 & (s[n] << 24 | s[n] >>> 8), t[e + n] ^= s[n] }, blockSize: 4, ivSize: 2 }); e.Rabbit = n._createHelper(h) }(), t.mode.CTR = function () { var r = t.lib.BlockCipherMode.extend(), e = r.Encryptor = r.extend({ processBlock: function (t, r) { var e = this._cipher, i = e.blockSize, n = this._iv, o = this._counter; n && (o = this._counter = n.slice(0), this._iv = void 0); var s = o.slice(0); e.encryptBlock(s, 0), o[i - 1] = o[i - 1] + 1 | 0; for (var a = 0; a < i; a++)t[r + a] ^= s[a] } }); return r.Decryptor = e, r }(), function () { function r() { for (var t = this._X, r = this._C, e = 0; e < 8; e++)a[e] = r[e]; r[0] = r[0] + 1295307597 + this._b | 0, r[1] = r[1] + 3545052371 + (r[0] >>> 0 < a[0] >>> 0 ? 1 : 0) | 0, r[2] = r[2] + 886263092 + (r[1] >>> 0 < a[1] >>> 0 ? 1 : 0) | 0, r[3] = r[3] + 1295307597 + (r[2] >>> 0 < a[2] >>> 0 ? 1 : 0) | 0, r[4] = r[4] + 3545052371 + (r[3] >>> 0 < a[3] >>> 0 ? 1 : 0) | 0, r[5] = r[5] + 886263092 + (r[4] >>> 0 < a[4] >>> 0 ? 1 : 0) | 0, r[6] = r[6] + 1295307597 + (r[5] >>> 0 < a[5] >>> 0 ? 1 : 0) | 0, r[7] = r[7] + 3545052371 + (r[6] >>> 0 < a[6] >>> 0 ? 1 : 0) | 0, this._b = r[7] >>> 0 < a[7] >>> 0 ? 1 : 0; for (var e = 0; e < 8; e++) { var i = t[e] + r[e], n = 65535 & i, o = i >>> 16, s = ((n * n >>> 17) + n * o >>> 15) + o * o, h = ((4294901760 & i) * i | 0) + ((65535 & i) * i | 0); c[e] = s ^ h } t[0] = c[0] + (c[7] << 16 | c[7] >>> 16) + (c[6] << 16 | c[6] >>> 16) | 0, t[1] = c[1] + (c[0] << 8 | c[0] >>> 24) + c[7] | 0, t[2] = c[2] + (c[1] << 16 | c[1] >>> 16) + (c[0] << 16 | c[0] >>> 16) | 0, t[3] = c[3] + (c[2] << 8 | c[2] >>> 24) + c[1] | 0, t[4] = c[4] + (c[3] << 16 | c[3] >>> 16) + (c[2] << 16 | c[2] >>> 16) | 0, t[5] = c[5] + (c[4] << 8 | c[4] >>> 24) + c[3] | 0, t[6] = c[6] + (c[5] << 16 | c[5] >>> 16) + (c[4] << 16 | c[4] >>> 16) | 0, t[7] = c[7] + (c[6] << 8 | c[6] >>> 24) + c[5] | 0 } var e = t, i = e.lib, n = i.StreamCipher, o = e.algo, s = [], a = [], c = [], h = o.RabbitLegacy = n.extend({ _doReset: function () { var t = this._key.words, e = this.cfg.iv, i = this._X = [t[0], t[3] << 16 | t[2] >>> 16, t[1], t[0] << 16 | t[3] >>> 16, t[2], t[1] << 16 | t[0] >>> 16, t[3], t[2] << 16 | t[1] >>> 16], n = this._C = [t[2] << 16 | t[2] >>> 16, 4294901760 & t[0] | 65535 & t[1], t[3] << 16 | t[3] >>> 16, 4294901760 & t[1] | 65535 & t[2], t[0] << 16 | t[0] >>> 16, 4294901760 & t[2] | 65535 & t[3], t[1] << 16 | t[1] >>> 16, 4294901760 & t[3] | 65535 & t[0]]; this._b = 0; for (var o = 0; o < 4; o++)r.call(this); for (var o = 0; o < 8; o++)n[o] ^= i[o + 4 & 7]; if (e) { var s = e.words, a = s[0], c = s[1], h = 16711935 & (a << 8 | a >>> 24) | 4278255360 & (a << 24 | a >>> 8), l = 16711935 & (c << 8 | c >>> 24) | 4278255360 & (c << 24 | c >>> 8), f = h >>> 16 | 4294901760 & l, u = l << 16 | 65535 & h; n[0] ^= h, n[1] ^= f, n[2] ^= l, n[3] ^= u, n[4] ^= h, n[5] ^= f, n[6] ^= l, n[7] ^= u; for (var o = 0; o < 4; o++)r.call(this) } }, _doProcessBlock: function (t, e) { var i = this._X; r.call(this), s[0] = i[0] ^ i[5] >>> 16 ^ i[3] << 16, s[1] = i[2] ^ i[7] >>> 16 ^ i[5] << 16, s[2] = i[4] ^ i[1] >>> 16 ^ i[7] << 16, s[3] = i[6] ^ i[3] >>> 16 ^ i[1] << 16; for (var n = 0; n < 4; n++)s[n] = 16711935 & (s[n] << 8 | s[n] >>> 24) | 4278255360 & (s[n] << 24 | s[n] >>> 8), t[e + n] ^= s[n] }, blockSize: 4, ivSize: 2 }); e.RabbitLegacy = n._createHelper(h) }(), t.pad.ZeroPadding = { pad: function (t, r) { var e = 4 * r; t.clamp(), t.sigBytes += e - (t.sigBytes % e || e) }, unpad: function (t) { for (var r = t.words, e = t.sigBytes - 1; !(r[e >>> 2] >>> 24 - e % 4 * 8 & 255);)e--; t.sigBytes = e + 1 } }, t
 });
 
-const $ = new Env('äº¬å–œå·¥å‚');
+const $ = new Env('¾©Ï²¹¤³§');
 const JD_API_HOST = 'https://m.jingxi.com';
 
 const notify = $.isNode() ? require('./sendNotify') : '';
-let jdNotify = true;//æ˜¯å¦å…³é—­é€šçŸ¥ï¼Œfalseæ‰“å¼€é€šçŸ¥æ¨é€ï¼Œtrueå…³é—­é€šçŸ¥æ¨é€
+let jdNotify = true;//ÊÇ·ñ¹Ø±ÕÍ¨Öª£¬false´ò¿ªÍ¨ÖªÍÆËÍ£¬true¹Ø±ÕÍ¨ÖªÍÆËÍ
 const randomCount = $.isNode() ? 20 : 5;
 let tuanActiveId = `6S9y4sJUfA2vPQP6TLdVIQ==`;
 const jxOpenUrl = `openjd://virtual?params=%7B%20%22category%22:%20%22jump%22,%20%22des%22:%20%22m%22,%20%22url%22:%20%22https://wqsd.jd.com/pingou/dream_factory/index.html%22%20%7D`;
@@ -61,7 +61,7 @@ if ($.isNode()) {
   $.CryptoJS = $.isNode() ? require('crypto-js') : CryptoJS;
   await requireConfig();
   if (!cookiesArr[0]) {
-    $.msg($.name, 'ã€æç¤ºã€‘è¯·å…ˆè·å–äº¬ä¸œè´¦å·ä¸€cookie\nç›´æ¥ä½¿ç”¨NobyDaçš„äº¬ä¸œç­¾åˆ°è·å–', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+    $.msg($.name, '¡¾ÌáÊ¾¡¿ÇëÏÈ»ñÈ¡¾©¶«ÕËºÅÒ»cookie\nÖ±½ÓÊ¹ÓÃNobyDaµÄ¾©¶«Ç©µ½»ñÈ¡', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
     return;
   }
   for (let i = 0; i < cookiesArr.length; i++) {
@@ -76,14 +76,14 @@ if ($.isNode()) {
       $.pickEle = 0;
       $.pickFriendEle = 0;
       $.friendList = [];
-      $.canHelpFlag = true;//èƒ½å¦åŠ©åŠ›æœ‹å‹
+      $.canHelpFlag = true;//ÄÜ·ñÖúÁ¦ÅóÓÑ
       await TotalBean();
-      console.log(`\n******å¼€å§‹ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName || $.UserName}*********\n`);
+      console.log(`\n******¿ªÊ¼¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName || $.UserName}*********\n`);
       if (!$.isLogin) {
-        $.msg($.name, `ã€æç¤ºã€‘cookieå·²å¤±æ•ˆ`, `äº¬ä¸œè´¦å·${$.index} ${$.nickName || $.UserName}\nè¯·é‡æ–°ç™»å½•è·å–\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+        $.msg($.name, `¡¾ÌáÊ¾¡¿cookieÒÑÊ§Ğ§`, `¾©¶«ÕËºÅ${$.index} ${$.nickName || $.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
 
         if ($.isNode()) {
-          await notify.sendNotify(`${$.name}cookieå·²å¤±æ•ˆ - ${$.UserName}`, `äº¬ä¸œè´¦å·${$.index} ${$.UserName}\nè¯·é‡æ–°ç™»å½•è·å–cookie`);
+          await notify.sendNotify(`${$.name}cookieÒÑÊ§Ğ§ - ${$.UserName}`, `¾©¶«ÕËºÅ${$.index} ${$.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡cookie`);
         }
         continue
       }
@@ -93,17 +93,17 @@ if ($.isNode()) {
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=(.+?);/) && cookie.match(/pt_pin=(.+?);/)[1])
-      console.log(`${$.UserName}å»å‚åŠ ç¬¬ä¸€ä¸ªcookieè´¦å·å¼€çš„å›¢`)
+      console.log(`${$.UserName}È¥²Î¼ÓµÚÒ»¸öcookieÕËºÅ¿ªµÄÍÅ`)
       cookie = cookiesArr[i];
       if ($.tuanIds.length > 0) {
         await JoinTuan($.tuanIds[0]);
       }
-      await joinLeaderTuan();//å‚å›¢
+      await joinLeaderTuan();//²ÎÍÅ
     }
   }
 })()
     .catch((e) => {
-      $.log('', `âŒ ${$.name}, å¤±è´¥! åŸå› : ${e}!`, '')
+      $.log('', `? ${$.name}, Ê§°Ü! Ô­Òò: ${e}!`, '')
     })
     .finally(() => {
       $.done();
@@ -111,15 +111,15 @@ if ($.isNode()) {
 
 async function jdDreamFactory() {
   await userInfo();
-  await QueryFriendList();//æŸ¥è¯¢ä»Šæ—¥æ‹›å·¥æƒ…å†µä»¥åŠå‰©ä½™åŠ©åŠ›æ¬¡æ•°
-  await joinLeaderTuan();//å‚å›¢
+  await QueryFriendList();//²éÑ¯½ñÈÕÕĞ¹¤Çé¿öÒÔ¼°Ê£ÓàÖúÁ¦´ÎÊı
+  await joinLeaderTuan();//²ÎÍÅ
   await helpFriends();
   if (!$.unActive) return
   await getUserElectricity();
   await taskList();
   await investElectric();
-  await QueryHireReward();//æ”¶å–æ‹›å·¥ç”µåŠ›
-  await PickUp();//æ”¶å–è‡ªå®¶çš„åœ°ä¸‹é›¶ä»¶
+  await QueryHireReward();//ÊÕÈ¡ÕĞ¹¤µçÁ¦
+  await PickUp();//ÊÕÈ¡×Ô¼ÒµÄµØÏÂÁã¼ş
   await stealFriend();
   await tuanActivity();
   await QueryAllTuan();
@@ -128,7 +128,7 @@ async function jdDreamFactory() {
 }
 
 
-// æ”¶å–å‘ç”µæœºçš„ç”µåŠ›
+// ÊÕÈ¡·¢µç»úµÄµçÁ¦
 function collectElectricity(facId = $.factoryId, help = false, master) {
   return new Promise(async resolve => {
     // let url = `/dreamfactory/generator/CollectCurrentElectricity?zone=dream_factory&apptoken=&pgtimestamp=&phoneID=&factoryid=${facId}&doubleflag=1&sceneval=2&g_login_type=1`;
@@ -143,25 +143,25 @@ function collectElectricity(facId = $.factoryId, help = false, master) {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data['ret'] === 0) {
               if (help) {
                 $.ele += Number(data.data['loginPinCollectElectricity'])
-                console.log(`å¸®åŠ©å¥½å‹æ”¶å– ${data.data['CollectElectricity']} ç”µåŠ›ï¼Œè·å¾— ${data.data['loginPinCollectElectricity']} ç”µåŠ›`);
-                message += `ã€å¸®åŠ©å¥½å‹ã€‘å¸®åŠ©æˆåŠŸï¼Œè·å¾— ${data.data['loginPinCollectElectricity']} ç”µåŠ›\n`
+                console.log(`°ïÖúºÃÓÑÊÕÈ¡ ${data.data['CollectElectricity']} µçÁ¦£¬»ñµÃ ${data.data['loginPinCollectElectricity']} µçÁ¦`);
+                message += `¡¾°ïÖúºÃÓÑ¡¿°ïÖú³É¹¦£¬»ñµÃ ${data.data['loginPinCollectElectricity']} µçÁ¦\n`
               } else {
                 $.ele += Number(data.data['CollectElectricity'])
-                console.log(`æ”¶å– ${data.data['CollectElectricity']} ç”µåŠ›`);
-                message += `ã€æ”¶å–å‘ç”µç«™ã€‘æ”¶å–æˆåŠŸï¼Œè·å¾— ${data.data['CollectElectricity']} ç”µåŠ›\n`
+                console.log(`ÊÕÈ¡ ${data.data['CollectElectricity']} µçÁ¦`);
+                message += `¡¾ÊÕÈ¡·¢µçÕ¾¡¿ÊÕÈ¡³É¹¦£¬»ñµÃ ${data.data['CollectElectricity']} µçÁ¦\n`
               }
             } else {
               if (help) {
-                console.log(`æ”¶å–å¥½å‹ç”µåŠ›å¤±è´¥:${data.msg}\n`);
+                console.log(`ÊÕÈ¡ºÃÓÑµçÁ¦Ê§°Ü:${data.msg}\n`);
               } else {
-                console.log(`æ”¶å–ç”µåŠ›å¤±è´¥:${data.msg}\n`);
+                console.log(`ÊÕÈ¡µçÁ¦Ê§°Ü:${data.msg}\n`);
               }
             }
           }
@@ -175,7 +175,7 @@ function collectElectricity(facId = $.factoryId, help = false, master) {
   })
 }
 
-// æŠ•å…¥ç”µåŠ›
+// Í¶ÈëµçÁ¦
 function investElectric() {
   return new Promise(async resolve => {
     // const url = `/dreamfactory/userinfo/InvestElectric?zone=dream_factory&productionId=${$.productionId}&sceneval=2&g_login_type=1`;
@@ -183,16 +183,16 @@ function investElectric() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data.ret === 0) {
-              console.log(`æˆåŠŸæŠ•å…¥ç”µåŠ›${data.data.investElectric}ç”µåŠ›`);
-              message += `ã€æŠ•å…¥ç”µåŠ›ã€‘æŠ•å…¥æˆåŠŸï¼Œå…±è®¡ ${data.data.investElectric} ç”µåŠ›\n`;
+              console.log(`³É¹¦Í¶ÈëµçÁ¦${data.data.investElectric}µçÁ¦`);
+              message += `¡¾Í¶ÈëµçÁ¦¡¿Í¶Èë³É¹¦£¬¹²¼Æ ${data.data.investElectric} µçÁ¦\n`;
             } else {
-              console.log(`æŠ•å…¥å¤±è´¥ï¼Œ${data.msg}`);
-              message += `ã€æŠ•å…¥ç”µåŠ›ã€‘æŠ•å…¥å¤±è´¥ï¼Œ${data.msg}\n`;
+              console.log(`Í¶ÈëÊ§°Ü£¬${data.msg}`);
+              message += `¡¾Í¶ÈëµçÁ¦¡¿Í¶ÈëÊ§°Ü£¬${data.msg}\n`;
             }
           }
         }
@@ -205,7 +205,7 @@ function investElectric() {
   })
 }
 
-// åˆå§‹åŒ–ä»»åŠ¡
+// ³õÊ¼»¯ÈÎÎñ
 function taskList() {
   return new Promise(async resolve => {
     // const url = `/newtasksys/newtasksys_front/GetUserTaskStatusList?source=dreamfactory&bizCode=dream_factory&sceneval=2&g_login_type=1`;
@@ -213,7 +213,7 @@ function taskList() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
@@ -222,35 +222,35 @@ function taskList() {
               const vo = userTaskStatusList[i];
               if (vo['awardStatus'] !== 1) {
                 if (vo.completedTimes >= vo.targetTimes) {
-                  console.log(`ä»»åŠ¡ï¼š${vo.description}å¯å®Œæˆ`)
+                  console.log(`ÈÎÎñ£º${vo.description}¿ÉÍê³É`)
                   await completeTask(vo.taskId, vo.taskName)
-                  await $.wait(1000);//å»¶è¿Ÿç­‰å¾…ä¸€ç§’
+                  await $.wait(1000);//ÑÓ³ÙµÈ´ıÒ»Ãë
                 } else {
                   switch (vo.taskType) {
-                    case 2: // é€›ä¸€é€›ä»»åŠ¡
-                    case 6: // æµè§ˆå•†å“ä»»åŠ¡
-                    case 9: // å¼€å®ç®±
+                    case 2: // ¹äÒ»¹äÈÎÎñ
+                    case 6: // ä¯ÀÀÉÌÆ·ÈÎÎñ
+                    case 9: // ¿ª±¦Ïä
                       for (let i = vo.completedTimes; i <= vo.configTargetTimes; ++i) {
-                        console.log(`å»åšä»»åŠ¡ï¼š${vo.taskName}`)
+                        console.log(`È¥×öÈÎÎñ£º${vo.taskName}`)
                         await doTask(vo.taskId)
                         await completeTask(vo.taskId, vo.taskName)
-                        await $.wait(1000);//å»¶è¿Ÿç­‰å¾…ä¸€ç§’
+                        await $.wait(1000);//ÑÓ³ÙµÈ´ıÒ»Ãë
                       }
                       break
-                    case 4: // æ‹›å·¥
+                    case 4: // ÕĞ¹¤
                       break
                     case 5:
-                      // æ”¶é›†ç±»
+                      // ÊÕ¼¯Àà
                       break
-                    case 1: // ç™»é™†é¢†å¥–
+                    case 1: // µÇÂ½Áì½±
                     default:
                       break
                   }
                 }
               }
             }
-            console.log(`å®Œæˆä»»åŠ¡ï¼šå…±é¢†å–${$.ele}ç”µåŠ›`)
-            message += `ã€æ¯æ—¥ä»»åŠ¡ã€‘é¢†å¥–æˆåŠŸï¼Œå…±è®¡ ${$.ele} ç”µåŠ›\n`;
+            console.log(`Íê³ÉÈÎÎñ£º¹²ÁìÈ¡${$.ele}µçÁ¦`)
+            message += `¡¾Ã¿ÈÕÈÎÎñ¡¿Áì½±³É¹¦£¬¹²¼Æ ${$.ele} µçÁ¦\n`;
           }
         }
       } catch (e) {
@@ -262,7 +262,7 @@ function taskList() {
   })
 }
 
-// è·å¾—ç”¨æˆ·ç”µåŠ›æƒ…å†µ
+// »ñµÃÓÃ»§µçÁ¦Çé¿ö
 function getUserElectricity() {
   return new Promise(async resolve => {
     // const url = `/dreamfactory/generator/QueryCurrentElectricityQuantity?zone=dream_factory&factoryid=${$.factoryId}&sceneval=2&g_login_type=1`
@@ -270,25 +270,25 @@ function getUserElectricity() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data['ret'] === 0) {
               console.log(`\nnextCollectDoubleFlag::${data.data.nextCollectDoubleFlag}`);
               console.log(`nextCollectDoubleType::${data.data.nextCollectDoubleType}\n`);
-              $.log(`ä¸‹æ¬¡é›†æ»¡æ”¶å–${data.data.nextCollectDoubleFlag === 1 ? 'å¯' : 'ä¸å¯'}åŒå€ç”µåŠ›`)
-              console.log(`å‘ç”µæœºï¼šå½“å‰ ${data.data.currentElectricityQuantity} ç”µåŠ›ï¼Œæœ€å¤§å€¼ ${data.data.maxElectricityQuantity} ç”µåŠ›`)
+              $.log(`ÏÂ´Î¼¯ÂúÊÕÈ¡${data.data.nextCollectDoubleFlag === 1 ? '¿É' : '²»¿É'}Ë«±¶µçÁ¦`)
+              console.log(`·¢µç»ú£ºµ±Ç° ${data.data.currentElectricityQuantity} µçÁ¦£¬×î´óÖµ ${data.data.maxElectricityQuantity} µçÁ¦`)
               if (data.data.nextCollectDoubleFlag === 1) {
                 if (data.data.currentElectricityQuantity === data.data.maxElectricityQuantity && data.data.doubleElectricityFlag) {
-                  console.log(`å‘ç”µæœºï¼šç”µåŠ›å¯ç¿»å€å¹¶æ”¶è·`)
+                  console.log(`·¢µç»ú£ºµçÁ¦¿É·­±¶²¢ÊÕ»ñ`)
                   // await shareReport();
                   await collectElectricity()
                 } else {
-                  message += `ã€å‘ç”µæœºç”µåŠ›ã€‘å½“å‰ ${data.data.currentElectricityQuantity} ç”µåŠ›ï¼Œæœªè¾¾åˆ°æ”¶è·æ ‡å‡†\n`
+                  message += `¡¾·¢µç»úµçÁ¦¡¿µ±Ç° ${data.data.currentElectricityQuantity} µçÁ¦£¬Î´´ïµ½ÊÕ»ñ±ê×¼\n`
                 }
               } else {
-                //å†æ”¶å–åŒå€ç”µåŠ›è¾¾åˆ°ä¸Šé™æ—¶ï¼Œç›´æ¥æ”¶å–ï¼Œä¸å†ç­‰åˆ°æ»¡çº§
+                //ÔÙÊÕÈ¡Ë«±¶µçÁ¦´ïµ½ÉÏÏŞÊ±£¬Ö±½ÓÊÕÈ¡£¬²»ÔÙµÈµ½Âú¼¶
                 await collectElectricity()
               }
             }
@@ -303,7 +303,7 @@ function getUserElectricity() {
   })
 }
 
-//æŸ¥è¯¢æœ‰å¤šå°‘çš„æ‹›å·¥ç”µåŠ›å¯æ”¶å–
+//²éÑ¯ÓĞ¶àÉÙµÄÕĞ¹¤µçÁ¦¿ÉÊÕÈ¡
 function QueryHireReward() {
   return new Promise(async resolve => {
     // const url = `/dreamfactory/friend/HireAward?zone=dream_factory&date=${new Date().Format("yyyyMMdd")}&type=0&sceneval=2&g_login_type=1`
@@ -311,7 +311,7 @@ function QueryHireReward() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
@@ -322,7 +322,7 @@ function QueryHireReward() {
                 }
               }
             } else {
-              console.log(`å¼‚å¸¸ï¼š${JSON.stringify(data)}`)
+              console.log(`Òì³££º${JSON.stringify(data)}`)
             }
           }
         }
@@ -334,7 +334,7 @@ function QueryHireReward() {
     })
   })
 }
-// æ”¶å–æ‹›å·¥/åŠ³æ¨¡ç”µåŠ›
+// ÊÕÈ¡ÕĞ¹¤/ÀÍÄ£µçÁ¦
 function hireAward(date, type = 0) {
   return new Promise(async resolve => {
     // const url = `/dreamfactory/friend/HireAward?zone=dream_factory&date=${new Date().Format("yyyyMMdd")}&type=0&sceneval=2&g_login_type=1`
@@ -342,16 +342,16 @@ function hireAward(date, type = 0) {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data['ret'] === 0) {
-              console.log(`æ‰“å·¥ç”µåŠ›ï¼šæ”¶å–æˆåŠŸ`)
-              message += `ã€æ‰“å·¥ç”µåŠ›ã€‘ï¼šæ”¶å–æˆåŠŸ\n`
+              console.log(`´ò¹¤µçÁ¦£ºÊÕÈ¡³É¹¦`)
+              message += `¡¾´ò¹¤µçÁ¦¡¿£ºÊÕÈ¡³É¹¦\n`
             } else {
-              console.log(`æ‰“å·¥ç”µåŠ›ï¼šæ”¶å–å¤±è´¥ï¼Œ${data.msg}`)
-              message += `ã€æ‰“å·¥ç”µåŠ›ã€‘æ”¶å–å¤±è´¥ï¼Œ${data.msg}\n`
+              console.log(`´ò¹¤µçÁ¦£ºÊÕÈ¡Ê§°Ü£¬${data.msg}`)
+              message += `¡¾´ò¹¤µçÁ¦¡¿ÊÕÈ¡Ê§°Ü£¬${data.msg}\n`
             }
           }
         }
@@ -370,26 +370,26 @@ async function helpFriends() {
     for (let code of $.newShareCodes) {
       if (code) {
         if ($.encryptPin === code) {
-          console.log(`ä¸èƒ½ä¸ºè‡ªå·±åŠ©åŠ›,è·³è¿‡`);
+          console.log(`²»ÄÜÎª×Ô¼ºÖúÁ¦,Ìø¹ı`);
           continue;
         }
         const assistFriendRes = await assistFriend(code);
         if (assistFriendRes && assistFriendRes['ret'] === 0) {
-          console.log(`åŠ©åŠ›æœ‹å‹ï¼š${code}æˆåŠŸï¼Œå› ä¸€æ¬¡åªèƒ½åŠ©åŠ›ä¸€ä¸ªï¼Œæ•…è·³å‡ºåŠ©åŠ›`)
+          console.log(`ÖúÁ¦ÅóÓÑ£º${code}³É¹¦£¬ÒòÒ»´ÎÖ»ÄÜÖúÁ¦Ò»¸ö£¬¹ÊÌø³öÖúÁ¦`)
           break
         } else if (assistFriendRes && assistFriendRes['ret'] === 11009) {
-          console.log(`åŠ©åŠ›æœ‹å‹[${code}]å¤±è´¥ï¼š${assistFriendRes.msg}ï¼Œè·³å‡ºåŠ©åŠ›`);
+          console.log(`ÖúÁ¦ÅóÓÑ[${code}]Ê§°Ü£º${assistFriendRes.msg}£¬Ìø³öÖúÁ¦`);
           break
         } else {
-          console.log(`åŠ©åŠ›æœ‹å‹[${code}]å¤±è´¥ï¼š${assistFriendRes.msg}`)
+          console.log(`ÖúÁ¦ÅóÓÑ[${code}]Ê§°Ü£º${assistFriendRes.msg}`)
         }
       }
     }
   } else {
-    $.log(`ä»Šæ—¥åŠ©åŠ›å¥½å‹æœºä¼šå·²è€—å°½\n`);
+    $.log(`½ñÈÕÖúÁ¦ºÃÓÑ»ú»áÒÑºÄ¾¡\n`);
   }
 }
-// å¸®åŠ©ç”¨æˆ·
+// °ïÖúÓÃ»§
 function assistFriend(sharepin) {
   return new Promise(async resolve => {
     // const url = `/dreamfactory/friend/AssistFriend?zone=dream_factory&sharepin=${escape(sharepin)}&sceneval=2&g_login_type=1`
@@ -410,14 +410,14 @@ function assistFriend(sharepin) {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             // if (data['ret'] === 0) {
-            //   console.log(`åŠ©åŠ›æœ‹å‹ï¼š${sharepin}æˆåŠŸ`)
+            //   console.log(`ÖúÁ¦ÅóÓÑ£º${sharepin}³É¹¦`)
             // } else {
-            //   console.log(`åŠ©åŠ›æœ‹å‹[${sharepin}]å¤±è´¥ï¼š${data.msg}`)
+            //   console.log(`ÖúÁ¦ÅóÓÑ[${sharepin}]Ê§°Ü£º${data.msg}`)
             // }
           }
         }
@@ -429,14 +429,14 @@ function assistFriend(sharepin) {
     })
   })
 }
-//æŸ¥è¯¢åŠ©åŠ›æ‹›å·¥æƒ…å†µ
+//²éÑ¯ÖúÁ¦ÕĞ¹¤Çé¿ö
 function QueryFriendList() {
   return new Promise(async resolve => {
     $.get(taskurl('friend/QueryFriendList'), (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
@@ -446,10 +446,10 @@ function QueryFriendList() {
               if (assistListToday.length === assistNumMax) {
                 $.canHelpFlag = false;
               }
-              $.log(`ã€ä»Šæ—¥æ‹›å·¥è¿›åº¦ã€‘${hireListToday.length}/${hireNumMax}`);
-              message += `ã€æ‹›å·¥è¿›åº¦ã€‘${hireListToday.length}/${hireNumMax}\n`;
+              $.log(`¡¾½ñÈÕÕĞ¹¤½ø¶È¡¿${hireListToday.length}/${hireNumMax}`);
+              message += `¡¾ÕĞ¹¤½ø¶È¡¿${hireListToday.length}/${hireNumMax}\n`;
             } else {
-              console.log(`QueryFriendListå¼‚å¸¸ï¼š${JSON.stringify(data)}`)
+              console.log(`QueryFriendListÒì³££º${JSON.stringify(data)}`)
             }
           }
         }
@@ -461,7 +461,7 @@ function QueryFriendList() {
     })
   })
 }
-// ä»»åŠ¡é¢†å¥–
+// ÈÎÎñÁì½±
 function completeTask(taskId, taskName) {
   return new Promise(async resolve => {
     // const url = `/newtasksys/newtasksys_front/Award?source=dreamfactory&bizCode=dream_factory&taskId=${taskId}&sceneval=2&g_login_type=1`;
@@ -469,27 +469,27 @@ function completeTask(taskId, taskName) {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             switch (data['data']['awardStatus']) {
               case 1:
                 $.ele += Number(data['data']['prizeInfo'].replace('\\n', ''))
-                console.log(`é¢†å–${taskName}ä»»åŠ¡å¥–åŠ±æˆåŠŸï¼Œæ”¶è·ï¼š${Number(data['data']['prizeInfo'].replace('\\n', ''))}ç”µåŠ›`);
+                console.log(`ÁìÈ¡${taskName}ÈÎÎñ½±Àø³É¹¦£¬ÊÕ»ñ£º${Number(data['data']['prizeInfo'].replace('\\n', ''))}µçÁ¦`);
                 break
               case 1013:
               case 0:
-                console.log(`é¢†å–${taskName}ä»»åŠ¡å¥–åŠ±å¤±è´¥ï¼Œä»»åŠ¡å·²é¢†å¥–`);
+                console.log(`ÁìÈ¡${taskName}ÈÎÎñ½±ÀøÊ§°Ü£¬ÈÎÎñÒÑÁì½±`);
                 break
               default:
-                console.log(`é¢†å–${taskName}ä»»åŠ¡å¥–åŠ±å¤±è´¥ï¼Œ${data['msg']}`)
+                console.log(`ÁìÈ¡${taskName}ÈÎÎñ½±ÀøÊ§°Ü£¬${data['msg']}`)
                 break
             }
             // if (data['ret'] === 0) {
-            //   console.log("åšä»»åŠ¡å®Œæˆï¼")
+            //   console.log("×öÈÎÎñÍê³É£¡")
             // } else {
-            //   console.log(`å¼‚å¸¸ï¼š${JSON.stringify(data)}`)
+            //   console.log(`Òì³££º${JSON.stringify(data)}`)
             // }
           }
         }
@@ -502,7 +502,7 @@ function completeTask(taskId, taskName) {
   })
 }
 
-// å®Œæˆä»»åŠ¡
+// Íê³ÉÈÎÎñ
 function doTask(taskId) {
   return new Promise(async resolve => {
     // const url = `/newtasksys/newtasksys_front/DoTask?source=dreamfactory&bizCode=dream_factory&taskId=${taskId}&sceneval=2&g_login_type=1`;
@@ -510,14 +510,14 @@ function doTask(taskId) {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data['ret'] === 0) {
-              console.log("åšä»»åŠ¡å®Œæˆï¼")
+              console.log("×öÈÎÎñÍê³É£¡")
             } else {
-              console.log(`DoTaskå¼‚å¸¸ï¼š${JSON.stringify(data)}`)
+              console.log(`DoTaskÒì³££º${JSON.stringify(data)}`)
             }
           }
         }
@@ -530,69 +530,69 @@ function doTask(taskId) {
   })
 }
 
-// åˆå§‹åŒ–ä¸ªäººä¿¡æ¯
+// ³õÊ¼»¯¸öÈËĞÅÏ¢
 function userInfo() {
   return new Promise(async resolve => {
     $.get(taskurl('userinfo/GetUserInfo', `pin=&sharePin=&shareType=&materialTuanPin=&materialTuanId=`, '_time,materialTuanId,materialTuanPin,pin,sharePin,shareType,source,zone'), async (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data['ret'] === 0) {
               data = data['data'];
-              $.unActive = true;//æ ‡è®°æ˜¯å¦å¼€å¯äº†äº¬å–œæ´»åŠ¨æˆ–è€…é€‰è´­äº†å•†å“è¿›è¡Œç”Ÿäº§
+              $.unActive = true;//±ê¼ÇÊÇ·ñ¿ªÆôÁË¾©Ï²»î¶¯»òÕßÑ¡¹ºÁËÉÌÆ·½øĞĞÉú²ú
               $.encryptPin = '';
               $.shelvesList = [];
               if (data.factoryList && data.productionList) {
                 const production = data.productionList[0];
                 const factory = data.factoryList[0];
                 const productionStage = data.productionStage;
-                $.factoryId = factory.factoryId;//å·¥å‚ID
-                $.productionId = production.productionId;//å•†å“ID
+                $.factoryId = factory.factoryId;//¹¤³§ID
+                $.productionId = production.productionId;//ÉÌÆ·ID
                 $.commodityDimId = production.commodityDimId;
                 $.encryptPin = data.user.encryptPin;
                 // subTitle = data.user.pin;
-                await GetCommodityDetails();//è·å–å·²é€‰è´­çš„å•†å“ä¿¡æ¯
+                await GetCommodityDetails();//»ñÈ¡ÒÑÑ¡¹ºµÄÉÌÆ·ĞÅÏ¢
                 if (productionStage['productionStageAwardStatus'] === 1) {
-                  $.log(`å¯ä»¥å¼€çº¢åŒ…äº†\n`);
-                  await DrawProductionStagePrize();//é¢†å–çº¢åŒ…
+                  $.log(`¿ÉÒÔ¿ªºì°üÁË\n`);
+                  await DrawProductionStagePrize();//ÁìÈ¡ºì°ü
                 } else {
-                  $.log(`å†åŠ ${productionStage['productionStageProgress']}ç”µåŠ›å¯å¼€çº¢åŒ…\n`)
+                  $.log(`ÔÙ¼Ó${productionStage['productionStageProgress']}µçÁ¦¿É¿ªºì°ü\n`)
                 }
-                console.log(`å½“å‰ç”µåŠ›ï¼š${data.user.electric}`)
-                console.log(`å½“å‰ç­‰çº§ï¼š${data.user.currentLevel}`)
-                console.log(`\nã€äº¬ä¸œè´¦å·${$.index}ï¼ˆ${$.nickName || $.UserName}ï¼‰çš„${$.name}å¥½å‹äº’åŠ©ç ã€‘${data.user.encryptPin}`);
-                console.log(`å·²æŠ•å…¥ç”µåŠ›ï¼š${production.investedElectric}`);
-                console.log(`æ‰€éœ€ç”µåŠ›ï¼š${production.needElectric}`);
-                console.log(`ç”Ÿäº§è¿›åº¦ï¼š${((production.investedElectric / production.needElectric) * 100).toFixed(2)}%`);
-                message += `ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName}\n`
-                message += `ã€ç”Ÿäº§å•†å“ã€‘${$.productName}\n`;
-                message += `ã€å½“å‰ç­‰çº§ã€‘${data.user.userIdentity} ${data.user.currentLevel}\n`;
-                message += `ã€ç”Ÿäº§è¿›åº¦ã€‘${((production.investedElectric / production.needElectric) * 100).toFixed(2)}%\n`;
+                console.log(`µ±Ç°µçÁ¦£º${data.user.electric}`)
+                console.log(`µ±Ç°µÈ¼¶£º${data.user.currentLevel}`)
+                console.log(`\n¡¾¾©¶«ÕËºÅ${$.index}£¨${$.nickName || $.UserName}£©µÄ${$.name}ºÃÓÑ»¥ÖúÂë¡¿${data.user.encryptPin}`);
+                console.log(`ÒÑÍ¶ÈëµçÁ¦£º${production.investedElectric}`);
+                console.log(`ËùĞèµçÁ¦£º${production.needElectric}`);
+                console.log(`Éú²ú½ø¶È£º${((production.investedElectric / production.needElectric) * 100).toFixed(2)}%`);
+                message += `¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName}\n`
+                message += `¡¾Éú²úÉÌÆ·¡¿${$.productName}\n`;
+                message += `¡¾µ±Ç°µÈ¼¶¡¿${data.user.userIdentity} ${data.user.currentLevel}\n`;
+                message += `¡¾Éú²ú½ø¶È¡¿${((production.investedElectric / production.needElectric) * 100).toFixed(2)}%\n`;
                 if (production.investedElectric >= production.needElectric) {
-                  $.log(`å¯ä»¥å¯¹æ–¹å•†å“äº†`)
+                  $.log(`¿ÉÒÔ¶Ô·½ÉÌÆ·ÁË`)
                   // await exchangeProNotify()
                 }
               } else {
-                $.unActive = false;//æ ‡è®°æ˜¯å¦å¼€å¯äº†äº¬å–œæ´»åŠ¨æˆ–è€…é€‰è´­äº†å•†å“è¿›è¡Œç”Ÿäº§
+                $.unActive = false;//±ê¼ÇÊÇ·ñ¿ªÆôÁË¾©Ï²»î¶¯»òÕßÑ¡¹ºÁËÉÌÆ·½øĞĞÉú²ú
                 if (!data.factoryList) {
-                  console.log(`ã€æç¤ºã€‘äº¬ä¸œè´¦å·${$.index}[${$.nickName}]äº¬å–œå·¥å‚æ´»åŠ¨æœªå¼€å§‹\nè¯·æ‰‹åŠ¨å»äº¬ä¸œAPP->æ¸¸æˆä¸äº’åŠ¨->æŸ¥çœ‹æ›´å¤š->äº¬å–œå·¥å‚ å¼€å¯æ´»åŠ¨\n`);
-                  // $.msg($.name, 'ã€æç¤ºã€‘', `äº¬ä¸œè´¦å·${$.index}[${$.nickName}]äº¬å–œå·¥å‚æ´»åŠ¨æœªå¼€å§‹\nè¯·æ‰‹åŠ¨å»äº¬ä¸œAPP->æ¸¸æˆä¸äº’åŠ¨->æŸ¥çœ‹æ›´å¤š->äº¬å–œå·¥å‚ å¼€å¯æ´»åŠ¨`);
+                  console.log(`¡¾ÌáÊ¾¡¿¾©¶«ÕËºÅ${$.index}[${$.nickName}]¾©Ï²¹¤³§»î¶¯Î´¿ªÊ¼\nÇëÊÖ¶¯È¥¾©¶«APP->ÓÎÏ·Óë»¥¶¯->²é¿´¸ü¶à->¾©Ï²¹¤³§ ¿ªÆô»î¶¯\n`);
+                  // $.msg($.name, '¡¾ÌáÊ¾¡¿', `¾©¶«ÕËºÅ${$.index}[${$.nickName}]¾©Ï²¹¤³§»î¶¯Î´¿ªÊ¼\nÇëÊÖ¶¯È¥¾©¶«APP->ÓÎÏ·Óë»¥¶¯->²é¿´¸ü¶à->¾©Ï²¹¤³§ ¿ªÆô»î¶¯`);
                 } else if (data.factoryList && !data.productionList) {
-                  console.log(`ã€æç¤ºã€‘äº¬ä¸œè´¦å·${$.index}[${$.nickName}]äº¬å–œå·¥å‚æœªé€‰è´­å•†å“\nè¯·æ‰‹åŠ¨å»äº¬ä¸œAPP->æ¸¸æˆä¸äº’åŠ¨->æŸ¥çœ‹æ›´å¤š->äº¬å–œå·¥å‚ é€‰è´­\n`)
+                  console.log(`¡¾ÌáÊ¾¡¿¾©¶«ÕËºÅ${$.index}[${$.nickName}]¾©Ï²¹¤³§Î´Ñ¡¹ºÉÌÆ·\nÇëÊÖ¶¯È¥¾©¶«APP->ÓÎÏ·Óë»¥¶¯->²é¿´¸ü¶à->¾©Ï²¹¤³§ Ñ¡¹º\n`)
                   let nowTimes = new Date(new Date().getTime() + new Date().getTimezoneOffset()*60*1000 + 8*60*60*1000);
                   if (nowTimes.getHours()  === 12) {
-                    //å¦‚æŒ‰æ¯å°æ—¶è¿è¡Œä¸€æ¬¡ï¼Œåˆ™æ­¤å¤„å°†ä¸€å¤©æ¨é€2æ¬¡æé†’
-                    $.msg($.name, 'æé†’â°', `äº¬ä¸œè´¦å·${$.index}[${$.nickName}]äº¬å–œå·¥å‚æœªé€‰æ‹©å•†å“\nè¯·æ‰‹åŠ¨å»äº¬ä¸œAPP->æ¸¸æˆä¸äº’åŠ¨->æŸ¥çœ‹æ›´å¤š->äº¬å–œå·¥å‚ é€‰æ‹©å•†å“`);
-                    if ($.isNode()) await notify.sendNotify(`${$.name} - äº¬ä¸œè´¦å·${$.index} - ${$.nickName}`, `äº¬ä¸œè´¦å·${$.index}[${$.nickName}]äº¬å–œå·¥å‚æœªé€‰æ‹©å•†å“\nè¯·æ‰‹åŠ¨å»äº¬ä¸œAPP->æ¸¸æˆä¸äº’åŠ¨->æŸ¥çœ‹æ›´å¤š->äº¬å–œå·¥å‚ é€‰æ‹©å•†å“`)
+                    //Èç°´Ã¿Ğ¡Ê±ÔËĞĞÒ»´Î£¬Ôò´Ë´¦½«Ò»ÌìÍÆËÍ2´ÎÌáĞÑ
+                    $.msg($.name, 'ÌáĞÑ?', `¾©¶«ÕËºÅ${$.index}[${$.nickName}]¾©Ï²¹¤³§Î´Ñ¡ÔñÉÌÆ·\nÇëÊÖ¶¯È¥¾©¶«APP->ÓÎÏ·Óë»¥¶¯->²é¿´¸ü¶à->¾©Ï²¹¤³§ Ñ¡ÔñÉÌÆ·`);
+                    if ($.isNode()) await notify.sendNotify(`${$.name} - ¾©¶«ÕËºÅ${$.index} - ${$.nickName}`, `¾©¶«ÕËºÅ${$.index}[${$.nickName}]¾©Ï²¹¤³§Î´Ñ¡ÔñÉÌÆ·\nÇëÊÖ¶¯È¥¾©¶«APP->ÓÎÏ·Óë»¥¶¯->²é¿´¸ü¶à->¾©Ï²¹¤³§ Ñ¡ÔñÉÌÆ·`)
                   }
                 }
               }
             } else {
-              console.log(`GetUserInfoå¼‚å¸¸ï¼š${JSON.stringify(data)}`)
+              console.log(`GetUserInfoÒì³££º${JSON.stringify(data)}`)
             }
           }
         }
@@ -604,7 +604,7 @@ function userInfo() {
     })
   })
 }
-//æŸ¥è¯¢å½“å‰ç”Ÿäº§çš„å•†å“åç§°
+//²éÑ¯µ±Ç°Éú²úµÄÉÌÆ·Ãû³Æ
 function GetCommodityDetails() {
   return new Promise(async resolve => {
     // const url = `/dreamfactory/diminfo/GetCommodityDetails?zone=dream_factory&sceneval=2&g_login_type=1&commodityId=${$.commodityDimId}`;
@@ -612,7 +612,7 @@ function GetCommodityDetails() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
@@ -620,7 +620,7 @@ function GetCommodityDetails() {
               data = data['data'];
               $.productName = data['commodityList'][0].name;
             } else {
-              console.log(`GetCommodityDetailså¼‚å¸¸ï¼š${JSON.stringify(data)}`)
+              console.log(`GetCommodityDetailsÒì³££º${JSON.stringify(data)}`)
             }
           }
         }
@@ -632,14 +632,14 @@ function GetCommodityDetails() {
     })
   })
 }
-// æŸ¥è¯¢å·²å®Œæˆå•†å“
+// ²éÑ¯ÒÑÍê³ÉÉÌÆ·
 function GetShelvesList(pageNo = 1) {
   return new Promise(async resolve => {
     $.get(taskurl('userinfo/GetShelvesList', `pageNo=${pageNo}&pageSize=12`), (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
@@ -652,7 +652,7 @@ function GetShelvesList(pageNo = 1) {
                 GetShelvesList(pageNo);
               }
             } else {
-              console.log(`GetShelvesListå¼‚å¸¸ï¼š${JSON.stringify(data)}`)
+              console.log(`GetShelvesListÒì³££º${JSON.stringify(data)}`)
             }
           }
         }
@@ -664,7 +664,7 @@ function GetShelvesList(pageNo = 1) {
     })
   })
 }
-//é¢†å–çº¢åŒ…
+//ÁìÈ¡ºì°ü
 function DrawProductionStagePrize() {
   return new Promise(async resolve => {
     // const url = `/dreamfactory/userinfo/DrawProductionStagePrize?zone=dream_factory&sceneval=2&g_login_type=1&productionId=${$.productionId}`;
@@ -672,15 +672,15 @@ function DrawProductionStagePrize() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
-          console.log(`é¢†å–çº¢åŒ…åŠŸèƒ½(æµ‹è¯•ä¸­)ï¼š${data}`);
+          console.log(`ÁìÈ¡ºì°ü¹¦ÄÜ(²âÊÔÖĞ)£º${data}`);
           // if (safeGet(data)) {
           //   data = JSON.parse(data);
           //   if (data['ret'] === 0) {
           //
           //   } else {
-          //     console.log(`å¼‚å¸¸ï¼š${JSON.stringify(data)}`)
+          //     console.log(`Òì³££º${JSON.stringify(data)}`)
           //   }
           // }
         }
@@ -699,9 +699,9 @@ async function PickUp(encryptPin = $.encryptPin, help = false) {
     const { componentList } = GetUserComponentRes['data'];
     if (componentList && componentList.length <= 0) {
       if (help) {
-        $.log(`å¥½å‹ã€${encryptPin}ã€‘åœ°ä¸‹æš‚æ— é›¶ä»¶å¯æ”¶`)
+        $.log(`ºÃÓÑ¡¾${encryptPin}¡¿µØÏÂÔİÎŞÁã¼ş¿ÉÊÕ`)
       } else {
-        $.log(`è‡ªå®¶åœ°ä¸‹æš‚æ— é›¶ä»¶å¯æ”¶`)
+        $.log(`×Ô¼ÒµØÏÂÔİÎŞÁã¼ş¿ÉÊÕ`)
       }
       $.pickUpMyselfComponent = false;
     }
@@ -712,17 +712,17 @@ async function PickUp(encryptPin = $.encryptPin, help = false) {
         if (PickUpComponentRes['ret'] === 0) {
           const data = PickUpComponentRes['data'];
           if (help) {
-            console.log(`æ”¶å–å¥½å‹[${encryptPin}]é›¶ä»¶æˆåŠŸ:è·å¾—${data['increaseElectric']}ç”µåŠ›\n`);
+            console.log(`ÊÕÈ¡ºÃÓÑ[${encryptPin}]Áã¼ş³É¹¦:»ñµÃ${data['increaseElectric']}µçÁ¦\n`);
             $.pickFriendEle += data['increaseElectric'];
           } else {
-            console.log(`æ”¶å–è‡ªå®¶é›¶ä»¶æˆåŠŸ:è·å¾—${data['increaseElectric']}ç”µåŠ›\n`);
+            console.log(`ÊÕÈ¡×Ô¼ÒÁã¼ş³É¹¦:»ñµÃ${data['increaseElectric']}µçÁ¦\n`);
             $.pickEle += data['increaseElectric'];
           }
         } else {
           if (help) {
-            console.log(`æ”¶å¥½å‹[${encryptPin}]é›¶ä»¶å¤±è´¥ï¼š${PickUpComponentRes.msg},ç›´æ¥è·³å‡º`)
+            console.log(`ÊÕºÃÓÑ[${encryptPin}]Áã¼şÊ§°Ü£º${PickUpComponentRes.msg},Ö±½ÓÌø³ö`)
           } else {
-            console.log(`æ”¶è‡ªå·±åœ°ä¸‹é›¶ä»¶å¤±è´¥ï¼š${PickUpComponentRes.msg},ç›´æ¥è·³å‡º`);
+            console.log(`ÊÕ×Ô¼ºµØÏÂÁã¼şÊ§°Ü£º${PickUpComponentRes.msg},Ö±½ÓÌø³ö`);
             $.pickUpMyselfComponent = false;
           }
           break
@@ -738,14 +738,14 @@ function GetUserComponent(pin = $.encryptPin, timeout = 0) {
         try {
           if (err) {
             console.log(`${JSON.stringify(err)}`)
-            console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+            console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
           } else {
             if (safeGet(data)) {
               data = JSON.parse(data);
               if (data['ret'] === 0) {
 
               } else {
-                console.log(`GetUserComponentå¤±è´¥ï¼š${JSON.stringify(data)}`)
+                console.log(`GetUserComponentÊ§°Ü£º${JSON.stringify(data)}`)
               }
             }
           }
@@ -758,7 +758,7 @@ function GetUserComponent(pin = $.encryptPin, timeout = 0) {
     }, timeout)
   })
 }
-//æ”¶å–åœ°ä¸‹éšæœºé›¶ä»¶ç”µåŠ›API
+//ÊÕÈ¡µØÏÂËæ»úÁã¼şµçÁ¦API
 
 function PickUpComponent(index, encryptPin) {
   return new Promise(resolve => {
@@ -766,24 +766,24 @@ function PickUpComponent(index, encryptPin) {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             // if (data['ret'] === 0) {
             //   data = data['data'];
             //   if (help) {
-            //     console.log(`æ”¶å–å¥½å‹[${encryptPin}]é›¶ä»¶æˆåŠŸ:è·å¾—${data['increaseElectric']}ç”µåŠ›\n`);
+            //     console.log(`ÊÕÈ¡ºÃÓÑ[${encryptPin}]Áã¼ş³É¹¦:»ñµÃ${data['increaseElectric']}µçÁ¦\n`);
             //     $.pickFriendEle += data['increaseElectric'];
             //   } else {
-            //     console.log(`æ”¶å–è‡ªå®¶é›¶ä»¶æˆåŠŸ:è·å¾—${data['increaseElectric']}ç”µåŠ›\n`);
+            //     console.log(`ÊÕÈ¡×Ô¼ÒÁã¼ş³É¹¦:»ñµÃ${data['increaseElectric']}µçÁ¦\n`);
             //     $.pickEle += data['increaseElectric'];
             //   }
             // } else {
             //   if (help) {
-            //     console.log(`æ”¶å¥½å‹[${encryptPin}]é›¶ä»¶å¤±è´¥ï¼š${JSON.stringify(data)}`)
+            //     console.log(`ÊÕºÃÓÑ[${encryptPin}]Áã¼şÊ§°Ü£º${JSON.stringify(data)}`)
             //   } else {
-            //     console.log(`æ”¶é›¶ä»¶å¤±è´¥ï¼š${JSON.stringify(data)}`)
+            //     console.log(`ÊÕÁã¼şÊ§°Ü£º${JSON.stringify(data)}`)
             //   }
             // }
           }
@@ -796,21 +796,21 @@ function PickUpComponent(index, encryptPin) {
     })
   })
 }
-//å·å¥½å‹çš„ç”µåŠ›
+//ÍµºÃÓÑµÄµçÁ¦
 async function stealFriend() {
   if (!$.pickUpMyselfComponent) {
-    $.log(`ä»Šæ—¥æ”¶å–é›¶ä»¶å·²è¾¾ä¸Šé™ï¼Œå·å¥½å‹é›¶ä»¶ä¹Ÿè¾¾åˆ°ä¸Šé™ï¼Œæ•…è·³å‡º`)
+    $.log(`½ñÈÕÊÕÈ¡Áã¼şÒÑ´ïÉÏÏŞ£¬ÍµºÃÓÑÁã¼şÒ²´ïµ½ÉÏÏŞ£¬¹ÊÌø³ö`)
     return
   }
   await getFriendList();
   $.friendList = [...new Set($.friendList)];
   for (let i = 0; i < $.friendList.length; i++) {
-    let pin = $.friendList[i];//å¥½å‹çš„encryptPin
+    let pin = $.friendList[i];//ºÃÓÑµÄencryptPin
     if (pin === 'V5LkjP4WRyjeCKR9VRwcRX0bBuTz7MEK0-E99EJ7u0k=' || pin === 'Bo-jnVs_m9uBvbRzraXcSA==') {
       continue
     }
     await PickUp(pin, true);
-    // await getFactoryIdByPin(pin);//è·å–å¥½å‹å·¥å‚ID
+    // await getFactoryIdByPin(pin);//»ñÈ¡ºÃÓÑ¹¤³§ID
     // if ($.stealFactoryId) await collectElectricity($.stealFactoryId,true, pin);
   }
 }
@@ -820,14 +820,14 @@ function getFriendList(sort = 0) {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data['ret'] === 0) {
               data = data['data'];
               if (data.list && data.list.length <= 0) {
-                console.log(`æŸ¥è¯¢å¥½å‹åˆ—è¡¨å®Œæˆï¼Œå…±${$.friendList.length}å¥½å‹ï¼Œä¸‹é¢å¼€å§‹æ‹¾å–å¥½å‹åœ°ä¸‹çš„é›¶ä»¶\n`);
+                console.log(`²éÑ¯ºÃÓÑÁĞ±íÍê³É£¬¹²${$.friendList.length}ºÃÓÑ£¬ÏÂÃæ¿ªÊ¼Ê°È¡ºÃÓÑµØÏÂµÄÁã¼ş\n`);
                 return
               }
               let friendsEncryptPins = [];
@@ -838,7 +838,7 @@ function getFriendList(sort = 0) {
               if (!$.isNode()) return
               await getFriendList(data.sort);
             } else {
-              console.log(`QueryFactoryManagerListå¼‚å¸¸ï¼š${JSON.stringify(data)}`)
+              console.log(`QueryFactoryManagerListÒì³££º${JSON.stringify(data)}`)
             }
           }
         }
@@ -857,18 +857,18 @@ function getFactoryIdByPin(pin) {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data['ret'] === 0) {
               if (data.data.factoryList) {
-                //åšæ­¤åˆ¤æ–­,æœ‰æ—¶å€™è¿”å›factoryListä¸ºnull
+                //×ö´ËÅĞ¶Ï,ÓĞÊ±ºò·µ»ØfactoryListÎªnull
                 // resolve(data['data']['factoryList'][0]['factoryId'])
                 $.stealFactoryId = data['data']['factoryList'][0]['factoryId'];
               }
             } else {
-              console.log(`å¼‚å¸¸ï¼š${JSON.stringify(data)}`)
+              console.log(`Òì³££º${JSON.stringify(data)}`)
             }
           }
         }
@@ -884,47 +884,47 @@ async function tuanActivity() {
   const tuanConfig = await QueryActiveConfig();
   if (tuanConfig && tuanConfig.ret === 0) {
     const { activeId, surplusOpenTuanNum, tuanId } = tuanConfig['data']['userTuanInfo'];
-    console.log(`ä»Šæ—¥å‰©ä½™å¼€å›¢æ¬¡æ•°ï¼š${surplusOpenTuanNum}æ¬¡`);
+    console.log(`½ñÈÕÊ£Óà¿ªÍÅ´ÎÊı£º${surplusOpenTuanNum}´Î`);
     $.surplusOpenTuanNum = surplusOpenTuanNum;
     if (!tuanId && surplusOpenTuanNum > 0) {
-      //å¼€å›¢
-      $.log(`å‡†å¤‡å¼€å›¢`)
+      //¿ªÍÅ
+      $.log(`×¼±¸¿ªÍÅ`)
       await CreateTuan();
     } else if (tuanId) {
-      //æŸ¥è¯¢è¯å›¢ä¿¡æ¯
+      //²éÑ¯´ÊÍÅĞÅÏ¢
       const QueryTuanRes = await QueryTuan(activeId, tuanId);
       if (QueryTuanRes && QueryTuanRes.ret === 0) {
         const { tuanInfo } = QueryTuanRes.data;
         if ((tuanInfo && tuanInfo[0]['endTime']) <= QueryTuanRes['nowTime'] && surplusOpenTuanNum > 0) {
-          $.log(`ä¹‹å‰çš„å›¢å·²è¿‡æœŸï¼Œå‡†å¤‡é‡æ–°å¼€å›¢\n`)
+          $.log(`Ö®Ç°µÄÍÅÒÑ¹ıÆÚ£¬×¼±¸ÖØĞÂ¿ªÍÅ\n`)
           await CreateTuan();
         }
         for (let item of tuanInfo) {
           const { realTuanNum, tuanNum, userInfo } = item;
-          $.log(`\nå¼€å›¢æƒ…å†µ:${realTuanNum}/${tuanNum}\n`);
+          $.log(`\n¿ªÍÅÇé¿ö:${realTuanNum}/${tuanNum}\n`);
           if (realTuanNum === tuanNum) {
             for (let user of userInfo) {
               if (user.encryptPin === $.encryptPin) {
                 if (user.receiveElectric && user.receiveElectric > 0) {
-                  console.log(`æ‚¨åœ¨${new Date(user.joinTime * 1000).toLocaleString()}å¼€å›¢å¥–åŠ±å·²ç»é¢†å–æˆåŠŸ\n`)
+                  console.log(`ÄúÔÚ${new Date(user.joinTime * 1000).toLocaleString()}¿ªÍÅ½±ÀøÒÑ¾­ÁìÈ¡³É¹¦\n`)
                   if ($.surplusOpenTuanNum > 0) await CreateTuan();
                 } else {
-                  $.log(`å¼€å§‹é¢†å–å¼€å›¢å¥–åŠ±`);
+                  $.log(`¿ªÊ¼ÁìÈ¡¿ªÍÅ½±Àø`);
                   await tuanAward(item.tuanActiveId, item.tuanId);//isTuanLeader
                 }
               }
             }
           } else {
             $.tuanIds.push(tuanId);
-            $.log(`\næ­¤å›¢æœªè¾¾é¢†å–å›¢å¥–åŠ±äººæ•°ï¼š${tuanNum}äºº\n`)
+            $.log(`\n´ËÍÅÎ´´ïÁìÈ¡ÍÅ½±ÀøÈËÊı£º${tuanNum}ÈË\n`)
           }
         }
       }
     }
   }
 }
-//å¯è·å–å¼€å›¢åçš„å›¢IDï¼Œå¦‚æœå›¢IDä¸ºç©ºå¹¶ä¸”surplusOpenTuanNum>0ï¼Œåˆ™å¯ç»§ç»­å¼€å›¢
-//å¦‚æœå›¢IDä¸ä¸ºç©ºï¼Œåˆ™æŸ¥è¯¢QueryTuan()
+//¿É»ñÈ¡¿ªÍÅºóµÄÍÅID£¬Èç¹ûÍÅIDÎª¿Õ²¢ÇÒsurplusOpenTuanNum>0£¬Ôò¿É¼ÌĞø¿ªÍÅ
+//Èç¹ûÍÅID²»Îª¿Õ£¬Ôò²éÑ¯QueryTuan()
 function QueryActiveConfig() {
   return new Promise((resolve) => {
     const options = {
@@ -944,16 +944,16 @@ function QueryActiveConfig() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`);
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`);
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data['ret'] === 0) {
               const { userTuanInfo } = data['data'];
-              console.log(`\nå›¢æ´»åŠ¨ID  ${userTuanInfo.activeId}`);
-              console.log(`å›¢ID  ${userTuanInfo.tuanId}\n`);
+              console.log(`\nÍÅ»î¶¯ID  ${userTuanInfo.activeId}`);
+              console.log(`ÍÅID  ${userTuanInfo.tuanId}\n`);
             } else {
-              console.log(`QueryActiveConfigå¼‚å¸¸ï¼š${JSON.stringify(data)}`);
+              console.log(`QueryActiveConfigÒì³££º${JSON.stringify(data)}`);
             }
           }
         }
@@ -984,14 +984,14 @@ function QueryTuan(activeId, tuanId) {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`);
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`);
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data['ret'] === 0) {
-              // $.log(`\nå¼€å›¢æƒ…å†µ:${data.data.tuanInfo.realTuanNum}/${data.data.tuanInfo.tuanNum}\n`)
+              // $.log(`\n¿ªÍÅÇé¿ö:${data.data.tuanInfo.realTuanNum}/${data.data.tuanInfo.tuanNum}\n`)
             } else {
-              console.log(`å¼‚å¸¸ï¼š${JSON.stringify(data)}`);
+              console.log(`Òì³££º${JSON.stringify(data)}`);
             }
           }
         }
@@ -1003,7 +1003,7 @@ function QueryTuan(activeId, tuanId) {
     })
   })
 }
-//å¼€å›¢API
+//¿ªÍÅAPI
 function CreateTuan() {
   return new Promise((resolve) => {
     const options = {
@@ -1023,15 +1023,15 @@ function CreateTuan() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`);
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`);
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data['ret'] === 0) {
-              console.log(`å¼€å›¢æˆåŠŸtuanIdä¸º\n${data.data['tuanId']}`);
+              console.log(`¿ªÍÅ³É¹¦tuanIdÎª\n${data.data['tuanId']}`);
               $.tuanIds.push(data.data['tuanId']);
             } else {
-              console.log(`å¼‚å¸¸ï¼š${JSON.stringify(data)}`);
+              console.log(`Òì³££º${JSON.stringify(data)}`);
             }
           }
         }
@@ -1078,14 +1078,14 @@ function JoinTuan(tuanId) {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`);
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`);
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data['ret'] === 0) {
-              console.log(`å‚å›¢æˆåŠŸ\n${JSON.stringify(data)}\n`);
+              console.log(`²ÎÍÅ³É¹¦\n${JSON.stringify(data)}\n`);
             } else {
-              console.log(`å‚å›¢å¤±è´¥ï¼š${JSON.stringify(data)}`);
+              console.log(`²ÎÍÅÊ§°Ü£º${JSON.stringify(data)}`);
             }
           }
         }
@@ -1097,7 +1097,7 @@ function JoinTuan(tuanId) {
     })
   })
 }
-//æŸ¥è¯¢æ‰€æœ‰çš„å›¢æƒ…å†µ(è‡ªå·±å¼€å›¢ä»¥åŠå‚åŠ åˆ«äººçš„å›¢)
+//²éÑ¯ËùÓĞµÄÍÅÇé¿ö(×Ô¼º¿ªÍÅÒÔ¼°²Î¼Ó±ğÈËµÄÍÅ)
 function QueryAllTuan() {
   return new Promise((resolve) => {
     const options = {
@@ -1117,7 +1117,7 @@ function QueryAllTuan() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`);
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`);
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
@@ -1125,24 +1125,24 @@ function QueryAllTuan() {
               const { tuanInfo } = data;
               for (let item of tuanInfo) {
                 if (item.tuanNum === item.realTuanNum) {
-                  // console.log(`å‚åŠ å›¢ä¸»ã€${item.tuanLeader}ã€‘å·²æˆåŠŸ`)
+                  // console.log(`²Î¼ÓÍÅÖ÷¡¾${item.tuanLeader}¡¿ÒÑ³É¹¦`)
                   const { userInfo } = item;
                   for (let item2 of userInfo) {
                     if (item2.encryptPin === $.encryptPin) {
                       if (item2.receiveElectric && item2.receiveElectric > 0) {
-                        console.log(`${new Date(item2.joinTime * 1000).toLocaleString()}å‚åŠ å›¢ä¸»ã€${item2.nickName}ã€‘çš„å¥–åŠ±å·²ç»é¢†å–æˆåŠŸ`)
+                        console.log(`${new Date(item2.joinTime * 1000).toLocaleString()}²Î¼ÓÍÅÖ÷¡¾${item2.nickName}¡¿µÄ½±ÀøÒÑ¾­ÁìÈ¡³É¹¦`)
                       } else {
-                        console.log(`å¼€å§‹é¢†å–${new Date(item2.joinTime * 1000).toLocaleString()}å‚åŠ å›¢ä¸»ã€${item2.nickName}ã€‘çš„å¥–åŠ±`)
+                        console.log(`¿ªÊ¼ÁìÈ¡${new Date(item2.joinTime * 1000).toLocaleString()}²Î¼ÓÍÅÖ÷¡¾${item2.nickName}¡¿µÄ½±Àø`)
                         await tuanAward(item.tuanActiveId, item.tuanId, item.tuanLeader === $.encryptPin);//isTuanLeader
                       }
                     }
                   }
                 } else {
-                  console.log(`${new Date(item.beginTime * 1000).toLocaleString()}å‚åŠ å›¢ä¸»ã€${item.tuanLeader}ã€‘å¤±è´¥`)
+                  console.log(`${new Date(item.beginTime * 1000).toLocaleString()}²Î¼ÓÍÅÖ÷¡¾${item.tuanLeader}¡¿Ê§°Ü`)
                 }
               }
             } else {
-              console.log(`QueryAllTuanå¼‚å¸¸ï¼š${JSON.stringify(data)}`);
+              console.log(`QueryAllTuanÒì³££º${JSON.stringify(data)}`);
             }
           }
         }
@@ -1154,7 +1154,7 @@ function QueryAllTuan() {
     })
   })
 }
-//å¼€å›¢äººçš„é¢†å–å¥–åŠ±API
+//¿ªÍÅÈËµÄÁìÈ¡½±ÀøAPI
 function tuanAward(activeId, tuanId, isTuanLeader = true) {
   return new Promise((resolve) => {
     const options = {
@@ -1174,31 +1174,31 @@ function tuanAward(activeId, tuanId, isTuanLeader = true) {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`);
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`);
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data['ret'] === 0) {
               if (isTuanLeader) {
-                console.log(`å¼€å›¢å¥–åŠ±(å›¢é•¿)${data.data['electric']}é¢†å–æˆåŠŸ`);
-                message += `ã€å¼€å›¢(å›¢é•¿)å¥–åŠ±ã€‘${data.data['electric']}é¢†å–æˆåŠŸ\n`;
+                console.log(`¿ªÍÅ½±Àø(ÍÅ³¤)${data.data['electric']}ÁìÈ¡³É¹¦`);
+                message += `¡¾¿ªÍÅ(ÍÅ³¤)½±Àø¡¿${data.data['electric']}ÁìÈ¡³É¹¦\n`;
                 if ($.surplusOpenTuanNum > 0) {
-                  $.log(`å¼€å›¢å¥–åŠ±(å›¢é•¿)å·²é¢†å–ï¼Œå‡†å¤‡å¼€å›¢`);
+                  $.log(`¿ªÍÅ½±Àø(ÍÅ³¤)ÒÑÁìÈ¡£¬×¼±¸¿ªÍÅ`);
                   await CreateTuan();
                 }
               } else {
-                console.log(`å‚å›¢å¥–åŠ±${data.data['electric']}é¢†å–æˆåŠŸ`);
-                message += `ã€å‚å›¢å¥–åŠ±ã€‘${data.data['electric']}é¢†å–æˆåŠŸ\n`;
+                console.log(`²ÎÍÅ½±Àø${data.data['electric']}ÁìÈ¡³É¹¦`);
+                message += `¡¾²ÎÍÅ½±Àø¡¿${data.data['electric']}ÁìÈ¡³É¹¦\n`;
               }
             } else if (data['ret'] === 10212) {
               console.log(`${JSON.stringify(data)}`);
 
               if (isTuanLeader && $.surplusOpenTuanNum > 0) {
-                $.log(`å›¢å¥–åŠ±å·²é¢†å–ï¼Œå‡†å¤‡å¼€å›¢`);
+                $.log(`ÍÅ½±ÀøÒÑÁìÈ¡£¬×¼±¸¿ªÍÅ`);
                 await CreateTuan();
               }
             } else {
-              console.log(`å¼‚å¸¸ï¼š${JSON.stringify(data)}`);
+              console.log(`Òì³££º${JSON.stringify(data)}`);
             }
           }
         }
@@ -1254,51 +1254,51 @@ function updateTuanIdsCDN(url) {
 function checkExchange() {
 
 }
-//å•†å“å¯å…‘æ¢æ—¶çš„é€šçŸ¥
+//ÉÌÆ·¿É¶Ò»»Ê±µÄÍ¨Öª
 async function exchangeProNotify() {
   await GetShelvesList();
   let exchangeEndTime, exchangeEndHours, nowHours;
-  //è„šæœ¬è¿è¡Œçš„UTC+8æ—¶åŒºçš„æ—¶é—´æˆ³
+  //½Å±¾ÔËĞĞµÄUTC+8Ê±ÇøµÄÊ±¼ä´Á
   let nowTimes = new Date(new Date().getTime() + new Date().getTimezoneOffset()*60*1000 + 8*60*60*1000);
-  if ($.shelvesList && $.shelvesList.length > 0) console.log(`\n  å•†å“å     å…‘æ¢çŠ¶æ€`)
+  if ($.shelvesList && $.shelvesList.length > 0) console.log(`\n  ÉÌÆ·Ãû     ¶Ò»»×´Ì¬`)
   for (let shel of $.shelvesList) {
-    console.log(`${shel['name']}    ${shel['exchangeStatus'] === 1 ? 'æœªå…‘æ¢' : shel['exchangeStatus'] === 2 ? 'å·²å…‘æ¢' : 'å…‘æ¢è¶…æ—¶'}`)
+    console.log(`${shel['name']}    ${shel['exchangeStatus'] === 1 ? 'Î´¶Ò»»' : shel['exchangeStatus'] === 2 ? 'ÒÑ¶Ò»»' : '¶Ò»»³¬Ê±'}`)
     if (shel['exchangeStatus'] === 1) {
       exchangeEndTime = shel['exchangeEndTime'] * 1000;
       $.picture = shel['picture'];
-      // å…‘æ¢æˆªæ­¢æ—¶é—´ç‚¹
+      // ¶Ò»»½ØÖ¹Ê±¼äµã
       exchangeEndHours = new Date(exchangeEndTime + new Date().getTimezoneOffset()*60*1000 + 8*60*60*1000).getHours();
-      //å…‘æ¢æˆªæ­¢æ—¶é—´(å¹´æœˆæ—¥ æ—¶åˆ†ç§’)
+      //¶Ò»»½ØÖ¹Ê±¼ä(ÄêÔÂÈÕ Ê±·ÖÃë)
       $.exchangeEndTime = new Date(exchangeEndTime + new Date().getTimezoneOffset()*60*1000 + 8*60*60*1000).toLocaleString('zh', {hour12: false});
-      //è„šæœ¬è¿è¡Œæ­¤æ—¶çš„æ—¶é—´ç‚¹
+      //½Å±¾ÔËĞĞ´ËÊ±µÄÊ±¼äµã
       nowHours = nowTimes.getHours();
     }
   }
   if (exchangeEndTime) {
-    //æ¯”å¦‚å…‘æ¢(è¶…æ—¶)æˆªæ­¢æ—¶é—´æ˜¯2020/12/8 09:20:04,ç°åœ¨æ—¶é—´æ˜¯2020/12/6
+    //±ÈÈç¶Ò»»(³¬Ê±)½ØÖ¹Ê±¼äÊÇ2020/12/8 09:20:04,ÏÖÔÚÊ±¼äÊÇ2020/12/6
     if (nowTimes < exchangeEndTime) {
-      //è¿˜å¯ä»¥å…‘æ¢
-      // ä¸€:åœ¨å…‘æ¢è¶…æ—¶è¿™ä¸€å¤©(2020/12/8 09:20:04)çš„å‰2å°æ—¶å†…é€šçŸ¥
+      //»¹¿ÉÒÔ¶Ò»»
+      // Ò»:ÔÚ¶Ò»»³¬Ê±ÕâÒ»Ìì(2020/12/8 09:20:04)µÄÇ°2Ğ¡Ê±ÄÚÍ¨Öª
       if ((exchangeEndTime - nowTimes) <= 3600000 * 2) {
-        $.msg($.name, ``, `ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName}\nã€ç”Ÿäº§å•†å“ã€‘${$.productName}${(exchangeEndTime - nowTimes) / 60*60*1000}åˆ†é’Ÿåå…‘æ¢è¶…æ—¶\nã€å…‘æ¢æˆªæ­¢æ—¶é—´ã€‘${$.exchangeEndTime}\nè¯·é€Ÿå»äº¬å–œAPP->é¦–é¡µ->å¥½ç‰©0å…ƒé€ è¿›è¡Œå…‘æ¢`, {'open-url': jxOpenUrl, 'media-url': $.picture})
-        if ($.isNode()) await notify.sendNotify(`${$.name} - äº¬ä¸œè´¦å·${$.index} - ${$.nickName}`, `ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName}\nã€ç”Ÿäº§å•†å“ã€‘${$.productName}${(exchangeEndTime - nowTimes) / 60*60*1000}åˆ†é’Ÿåå…‘æ¢è¶…æ—¶\nã€å…‘æ¢æˆªæ­¢æ—¶é—´ã€‘${$.exchangeEndTime}\nè¯·é€Ÿå»äº¬å–œAPP->é¦–é¡µ->å¥½ç‰©0å…ƒé€ è¿›è¡Œå…‘æ¢`, { url: jxOpenUrl })
+        $.msg($.name, ``, `¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName}\n¡¾Éú²úÉÌÆ·¡¿${$.productName}${(exchangeEndTime - nowTimes) / 60*60*1000}·ÖÖÓºó¶Ò»»³¬Ê±\n¡¾¶Ò»»½ØÖ¹Ê±¼ä¡¿${$.exchangeEndTime}\nÇëËÙÈ¥¾©Ï²APP->Ê×Ò³->ºÃÎï0ÔªÔì½øĞĞ¶Ò»»`, {'open-url': jxOpenUrl, 'media-url': $.picture})
+        if ($.isNode()) await notify.sendNotify(`${$.name} - ¾©¶«ÕËºÅ${$.index} - ${$.nickName}`, `¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName}\n¡¾Éú²úÉÌÆ·¡¿${$.productName}${(exchangeEndTime - nowTimes) / 60*60*1000}·ÖÖÓºó¶Ò»»³¬Ê±\n¡¾¶Ò»»½ØÖ¹Ê±¼ä¡¿${$.exchangeEndTime}\nÇëËÙÈ¥¾©Ï²APP->Ê×Ò³->ºÃÎï0ÔªÔì½øĞĞ¶Ò»»`, { url: jxOpenUrl })
       }
-      //äºŒ:åœ¨å…‘æ¢è¶…æ—¶æ—¥æœŸå‰çš„æ—¶é—´ä¸€å¤©é€šçŸ¥ä¸‰æ¬¡(2020/12/6 9,10,11ç‚¹,ä»¥åŠåœ¨2020/12/7 9,10,11ç‚¹å„é€šçŸ¥ä¸€æ¬¡)
+      //¶ş:ÔÚ¶Ò»»³¬Ê±ÈÕÆÚÇ°µÄÊ±¼äÒ»ÌìÍ¨ÖªÈı´Î(2020/12/6 9,10,11µã,ÒÔ¼°ÔÚ2020/12/7 9,10,11µã¸÷Í¨ÖªÒ»´Î)
       if (nowHours === exchangeEndHours || nowHours === (exchangeEndHours + 1) || nowHours === (exchangeEndHours + 2)) {
-        $.msg($.name, ``, `ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName}\nã€ç”Ÿäº§å•†å“ã€‘${$.productName}å·²å¯å…‘æ¢\nã€å…‘æ¢æˆªæ­¢æ—¶é—´ã€‘${$.exchangeEndTime}\nè¯·é€Ÿå»äº¬å–œAPP->é¦–é¡µ->å¥½ç‰©0å…ƒé€ è¿›è¡Œå…‘æ¢`, {'open-url': jxOpenUrl, 'media-url': $.picture})
-        if ($.isNode()) await notify.sendNotify(`${$.name} - äº¬ä¸œè´¦å·${$.index} - ${$.nickName}`, `ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName}\nã€ç”Ÿäº§å•†å“ã€‘${$.productName}å·²å¯å…‘æ¢\nã€å…‘æ¢æˆªæ­¢æ—¶é—´ã€‘${$.exchangeEndTime}\nè¯·é€Ÿå»äº¬å–œAPP->é¦–é¡µ->å¥½ç‰©0å…ƒé€ è¿›è¡Œå…‘æ¢`, { url: jxOpenUrl })
+        $.msg($.name, ``, `¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName}\n¡¾Éú²úÉÌÆ·¡¿${$.productName}ÒÑ¿É¶Ò»»\n¡¾¶Ò»»½ØÖ¹Ê±¼ä¡¿${$.exchangeEndTime}\nÇëËÙÈ¥¾©Ï²APP->Ê×Ò³->ºÃÎï0ÔªÔì½øĞĞ¶Ò»»`, {'open-url': jxOpenUrl, 'media-url': $.picture})
+        if ($.isNode()) await notify.sendNotify(`${$.name} - ¾©¶«ÕËºÅ${$.index} - ${$.nickName}`, `¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName}\n¡¾Éú²úÉÌÆ·¡¿${$.productName}ÒÑ¿É¶Ò»»\n¡¾¶Ò»»½ØÖ¹Ê±¼ä¡¿${$.exchangeEndTime}\nÇëËÙÈ¥¾©Ï²APP->Ê×Ò³->ºÃÎï0ÔªÔì½øĞĞ¶Ò»»`, { url: jxOpenUrl })
       }
     } else {
-      //å…‘æ¢å·²è¶…æ—¶
-      $.msg($.name, ``, `ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName}\nã€ç”Ÿäº§å•†å“ã€‘${$.productName}å…‘æ¢å·²è¶…æ—¶ï¼Œè¯·é‡æ–°é€‰æ‹©å•†å“ç”Ÿäº§\nã€å…‘æ¢æˆªæ­¢æ—¶é—´ã€‘${$.exchangeEndTime}`, {'open-url': jxOpenUrl})
-      if ($.isNode()) await notify.sendNotify(`${$.name} - äº¬ä¸œè´¦å·${$.index} - ${$.nickName}`, `ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName}\nã€ç”Ÿäº§å•†å“ã€‘${$.productName}å…‘æ¢å·²è¶…æ—¶ï¼Œè¯·é‡æ–°é€‰æ‹©å•†å“ç”Ÿäº§\nã€å…‘æ¢æˆªæ­¢æ—¶é—´ã€‘${$.exchangeEndTime}`, { url: jxOpenUrl })
+      //¶Ò»»ÒÑ³¬Ê±
+      $.msg($.name, ``, `¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName}\n¡¾Éú²úÉÌÆ·¡¿${$.productName}¶Ò»»ÒÑ³¬Ê±£¬ÇëÖØĞÂÑ¡ÔñÉÌÆ·Éú²ú\n¡¾¶Ò»»½ØÖ¹Ê±¼ä¡¿${$.exchangeEndTime}`, {'open-url': jxOpenUrl})
+      if ($.isNode()) await notify.sendNotify(`${$.name} - ¾©¶«ÕËºÅ${$.index} - ${$.nickName}`, `¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName}\n¡¾Éú²úÉÌÆ·¡¿${$.productName}¶Ò»»ÒÑ³¬Ê±£¬ÇëÖØĞÂÑ¡ÔñÉÌÆ·Éú²ú\n¡¾¶Ò»»½ØÖ¹Ê±¼ä¡¿${$.exchangeEndTime}`, { url: jxOpenUrl })
     }
   }
 }
 async function showMsg() {
   return new Promise(async resolve => {
-    message += `ã€æ”¶å–è‡ªå·±é›¶ä»¶ã€‘${$.pickUpMyselfComponent ? `è·å¾—${$.pickEle}ç”µåŠ›` : `ä»Šæ—¥å·²è¾¾ä¸Šé™`}\n`;
-    message += `ã€æ”¶å–å¥½å‹é›¶ä»¶ã€‘${$.pickUpMyselfComponent ? `è·å¾—${$.pickFriendEle}ç”µåŠ›` : `ä»Šæ—¥å·²è¾¾ä¸Šé™`}\n`;
+    message += `¡¾ÊÕÈ¡×Ô¼ºÁã¼ş¡¿${$.pickUpMyselfComponent ? `»ñµÃ${$.pickEle}µçÁ¦` : `½ñÈÕÒÑ´ïÉÏÏŞ`}\n`;
+    message += `¡¾ÊÕÈ¡ºÃÓÑÁã¼ş¡¿${$.pickUpMyselfComponent ? `»ñµÃ${$.pickFriendEle}µçÁ¦` : `½ñÈÕÒÑ´ïÉÏÏŞ`}\n`;
     let ctrTemp;
     if ($.isNode() && process.env.DREAMFACTORY_NOTIFY_CONTROL) {
       ctrTemp = `${process.env.DREAMFACTORY_NOTIFY_CONTROL}` === 'false';
@@ -1310,7 +1310,7 @@ async function showMsg() {
     if (ctrTemp) {
       $.msg($.name, '', message);
       if ($.isNode()) {
-        await notify.sendNotify(`${$.name} - è´¦å·${$.index} - ${$.nickName}`, `${message}`);
+        await notify.sendNotify(`${$.name} - ÕËºÅ${$.index} - ${$.nickName}`, `${message}`);
       }
     } else if (new Date().getHours() === 22) {
       $.msg($.name, '', `${message}`)
@@ -1322,16 +1322,16 @@ async function showMsg() {
   })
 }
 function readShareCode() {
-  console.log(`å¼€å§‹`)
+  console.log(`¿ªÊ¼`)
   return new Promise(async resolve => {
     $.get({url: `http://jd.turinglabs.net/api/v2/jd/jxfactory/read/${randomCount}/`, 'timeout': 10000}, (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           if (data) {
-            console.log(`éšæœºå–${randomCount}ä¸ªç æ”¾åˆ°æ‚¨å›ºå®šçš„äº’åŠ©ç åé¢(ä¸å½±å“å·²æœ‰å›ºå®šäº’åŠ©)`)
+            console.log(`Ëæ»úÈ¡${randomCount}¸öÂë·Åµ½Äú¹Ì¶¨µÄ»¥ÖúÂëºóÃæ(²»Ó°ÏìÒÑÓĞ¹Ì¶¨»¥Öú)`)
             data = JSON.parse(data);
           }
         }
@@ -1345,15 +1345,15 @@ function readShareCode() {
     resolve()
   })
 }
-//æ ¼å¼åŒ–åŠ©åŠ›ç 
+//¸ñÊ½»¯ÖúÁ¦Âë
 function shareCodesFormat() {
   return new Promise(async resolve => {
-    // console.log(`ç¬¬${$.index}ä¸ªäº¬ä¸œè´¦å·çš„åŠ©åŠ›ç :::${$.shareCodesArr[$.index - 1]}`)
+    // console.log(`µÚ${$.index}¸ö¾©¶«ÕËºÅµÄÖúÁ¦Âë:::${$.shareCodesArr[$.index - 1]}`)
     $.newShareCodes = [];
     if ($.shareCodesArr[$.index - 1]) {
       $.newShareCodes = $.shareCodesArr[$.index - 1].split('@');
     } else {
-      console.log(`ç”±äºæ‚¨ç¬¬${$.index}ä¸ªäº¬ä¸œè´¦å·æœªæä¾›shareCode,å°†é‡‡çº³æœ¬è„šæœ¬è‡ªå¸¦çš„åŠ©åŠ›ç \n`)
+      console.log(`ÓÉÓÚÄúµÚ${$.index}¸ö¾©¶«ÕËºÅÎ´Ìá¹©shareCode,½«²ÉÄÉ±¾½Å±¾×Ô´øµÄÖúÁ¦Âë\n`)
       const tempIndex = $.index > inviteCodes.length ? (inviteCodes.length - 1) : ($.index - 1);
       $.newShareCodes = inviteCodes[tempIndex].split('@');
     }
@@ -1361,7 +1361,7 @@ function shareCodesFormat() {
     if (readShareCodeRes && readShareCodeRes.code === 200) {
       $.newShareCodes = [...new Set([...$.newShareCodes, ...(readShareCodeRes.data || [])])];
     }
-    console.log(`ç¬¬${$.index}ä¸ªäº¬ä¸œè´¦å·å°†è¦åŠ©åŠ›çš„å¥½å‹${JSON.stringify($.newShareCodes)}`)
+    console.log(`µÚ${$.index}¸ö¾©¶«ÕËºÅ½«ÒªÖúÁ¦µÄºÃÓÑ${JSON.stringify($.newShareCodes)}`)
     resolve();
   })
 }
@@ -1371,11 +1371,11 @@ function requireConfig() {
     if ($.tuanIdS && $.tuanIdS.tuanActiveId) {
       tuanActiveId = $.tuanIdS.tuanActiveId;
     }
-    console.log(`å¼€å§‹è·å–${$.name}é…ç½®æ–‡ä»¶\n`);
+    console.log(`¿ªÊ¼»ñÈ¡${$.name}ÅäÖÃÎÄ¼ş\n`);
     console.log(`tuanActiveId: ${tuanActiveId}`)
-    //Node.jsç”¨æˆ·è¯·åœ¨jdCookie.jså¤„å¡«å†™äº¬ä¸œck;
+    //Node.jsÓÃ»§ÇëÔÚjdCookie.js´¦ÌîĞ´¾©¶«ck;
     const shareCodes = $.isNode() ? require('./jdDreamFactoryShareCodes.js') : '';
-    console.log(`å…±${cookiesArr.length}ä¸ªäº¬ä¸œè´¦å·\n`);
+    console.log(`¹²${cookiesArr.length}¸ö¾©¶«ÕËºÅ\n`);
     $.shareCodesArr = [];
     if ($.isNode()) {
       Object.keys(shareCodes).forEach((item) => {
@@ -1385,10 +1385,10 @@ function requireConfig() {
       })
     } else {
       if ($.getdata('jd_jxFactory')) $.shareCodesArr = $.getdata('jd_jxFactory').split('\n').filter(item => item !== "" && item !== null && item !== undefined);
-      console.log(`\nBoxJsè®¾ç½®çš„äº¬å–œå·¥å‚é‚€è¯·ç :${$.getdata('jd_jxFactory')}\n`);
+      console.log(`\nBoxJsÉèÖÃµÄ¾©Ï²¹¤³§ÑûÇëÂë:${$.getdata('jd_jxFactory')}\n`);
     }
-    // console.log(`\nç§è±†å¾—è±†åŠ©åŠ›ç ::${JSON.stringify($.shareCodesArr)}`);
-    console.log(`æ‚¨æä¾›äº†${$.shareCodesArr.length}ä¸ªè´¦å·çš„${$.name}åŠ©åŠ›ç \n`);
+    // console.log(`\nÖÖ¶¹µÃ¶¹ÖúÁ¦Âë::${JSON.stringify($.shareCodesArr)}`);
+    console.log(`ÄúÌá¹©ÁË${$.shareCodesArr.length}¸öÕËºÅµÄ${$.name}ÖúÁ¦Âë\n`);
     resolve()
   })
 }
@@ -1411,17 +1411,17 @@ function TotalBean() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           if (data) {
             data = JSON.parse(data);
             if (data['retcode'] === 13) {
-              $.isLogin = false; //cookieè¿‡æœŸ
+              $.isLogin = false; //cookie¹ıÆÚ
               return
             }
             $.nickName = data['base'].nickname;
           } else {
-            console.log(`äº¬ä¸œæœåŠ¡å™¨è¿”å›ç©ºæ•°æ®`)
+            console.log(`¾©¶«·şÎñÆ÷·µ»Ø¿ÕÊı¾İ`)
           }
         }
       } catch (e) {
@@ -1439,7 +1439,7 @@ function safeGet(data) {
     }
   } catch (e) {
     console.log(e);
-    console.log(`äº¬ä¸œæœåŠ¡å™¨è®¿é—®æ•°æ®ä¸ºç©ºï¼Œè¯·æ£€æŸ¥è‡ªèº«è®¾å¤‡ç½‘ç»œæƒ…å†µ`);
+    console.log(`¾©¶«·şÎñÆ÷·ÃÎÊÊı¾İÎª¿Õ£¬Çë¼ì²é×ÔÉíÉè±¸ÍøÂçÇé¿ö`);
     return false;
   }
 }
@@ -1487,13 +1487,13 @@ function newtasksysUrl(functionId, taskId, stk) {
 }
 Date.prototype.Format = function (fmt) { //author: meizz
   var o = {
-    "M+": this.getMonth() + 1,                 //æœˆä»½
-    "d+": this.getDate(),                    //æ—¥
-    "h+": this.getHours(),                   //å°æ—¶
-    "m+": this.getMinutes(),                 //åˆ†
-    "s+": this.getSeconds(),                 //ç§’
-    "q+": Math.floor((this.getMonth() + 3) / 3), //å­£åº¦
-    "S": this.getMilliseconds()             //æ¯«ç§’
+    "M+": this.getMonth() + 1,                 //ÔÂ·İ
+    "d+": this.getDate(),                    //ÈÕ
+    "h+": this.getHours(),                   //Ğ¡Ê±
+    "m+": this.getMinutes(),                 //·Ö
+    "s+": this.getSeconds(),                 //Ãë
+    "q+": Math.floor((this.getMonth() + 3) / 3), //¼¾¶È
+    "S": this.getMilliseconds()             //ºÁÃë
   };
   if (/(y+)/.test(fmt))
     fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
@@ -1508,7 +1508,7 @@ function jsonParse(str) {
       return JSON.parse(str);
     } catch (e) {
       console.log(e);
-      $.msg($.name, '', 'è¯·å‹¿éšæ„åœ¨BoxJsè¾“å…¥æ¡†ä¿®æ”¹å†…å®¹\nå»ºè®®é€šè¿‡è„šæœ¬å»è·å–cookie')
+      $.msg($.name, '', 'ÇëÎğËæÒâÔÚBoxJsÊäÈë¿òĞŞ¸ÄÄÚÈİ\n½¨ÒéÍ¨¹ı½Å±¾È¥»ñÈ¡cookie')
       return [];
     }
   }
@@ -1537,4 +1537,4 @@ function decrypt(time, stk, type) {
 }
 
 // prettier-ignore
-function Env(t,e){"undefined"!=typeof process&&JSON.stringify(process.env).indexOf("GIT_HUB")>-1&&process.exit(0);class s{constructor(t){this.env=t}send(t,e="GET"){t="string"==typeof t?{url:t}:t;let s=this.get;return"POST"===e&&(s=this.post),new Promise((e,i)=>{s.call(this,t,(t,s,r)=>{t?i(t):e(s)})})}get(t){return this.send.call(this.env,t)}post(t){return this.send.call(this.env,t,"POST")}}return new class{constructor(t,e){this.name=t,this.http=new s(this),this.data=null,this.dataFile="box.dat",this.logs=[],this.isMute=!1,this.isNeedRewrite=!1,this.logSeparator="\n",this.startTime=(new Date).getTime(),Object.assign(this,e),this.log("",`ğŸ””${this.name}, å¼€å§‹!`)}isNode(){return"undefined"!=typeof module&&!!module.exports}isQuanX(){return"undefined"!=typeof $task}isSurge(){return"undefined"!=typeof $httpClient&&"undefined"==typeof $loon}isLoon(){return"undefined"!=typeof $loon}toObj(t,e=null){try{return JSON.parse(t)}catch{return e}}toStr(t,e=null){try{return JSON.stringify(t)}catch{return e}}getjson(t,e){let s=e;const i=this.getdata(t);if(i)try{s=JSON.parse(this.getdata(t))}catch{}return s}setjson(t,e){try{return this.setdata(JSON.stringify(t),e)}catch{return!1}}getScript(t){return new Promise(e=>{this.get({url:t},(t,s,i)=>e(i))})}runScript(t,e){return new Promise(s=>{let i=this.getdata("@chavy_boxjs_userCfgs.httpapi");i=i?i.replace(/\n/g,"").trim():i;let r=this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");r=r?1*r:20,r=e&&e.timeout?e.timeout:r;const[o,h]=i.split("@"),n={url:`http://${h}/v1/scripting/evaluate`,body:{script_text:t,mock_type:"cron",timeout:r},headers:{"X-Key":o,Accept:"*/*"}};this.post(n,(t,e,i)=>s(i))}).catch(t=>this.logErr(t))}loaddata(){if(!this.isNode())return{};{this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e);if(!s&&!i)return{};{const i=s?t:e;try{return JSON.parse(this.fs.readFileSync(i))}catch(t){return{}}}}}writedata(){if(this.isNode()){this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e),r=JSON.stringify(this.data);s?this.fs.writeFileSync(t,r):i?this.fs.writeFileSync(e,r):this.fs.writeFileSync(t,r)}}lodash_get(t,e,s){const i=e.replace(/\[(\d+)\]/g,".$1").split(".");let r=t;for(const t of i)if(r=Object(r)[t],void 0===r)return s;return r}lodash_set(t,e,s){return Object(t)!==t?t:(Array.isArray(e)||(e=e.toString().match(/[^.[\]]+/g)||[]),e.slice(0,-1).reduce((t,s,i)=>Object(t[s])===t[s]?t[s]:t[s]=Math.abs(e[i+1])>>0==+e[i+1]?[]:{},t)[e[e.length-1]]=s,t)}getdata(t){let e=this.getval(t);if(/^@/.test(t)){const[,s,i]=/^@(.*?)\.(.*?)$/.exec(t),r=s?this.getval(s):"";if(r)try{const t=JSON.parse(r);e=t?this.lodash_get(t,i,""):e}catch(t){e=""}}return e}setdata(t,e){let s=!1;if(/^@/.test(e)){const[,i,r]=/^@(.*?)\.(.*?)$/.exec(e),o=this.getval(i),h=i?"null"===o?null:o||"{}":"{}";try{const e=JSON.parse(h);this.lodash_set(e,r,t),s=this.setval(JSON.stringify(e),i)}catch(e){const o={};this.lodash_set(o,r,t),s=this.setval(JSON.stringify(o),i)}}else s=this.setval(t,e);return s}getval(t){return this.isSurge()||this.isLoon()?$persistentStore.read(t):this.isQuanX()?$prefs.valueForKey(t):this.isNode()?(this.data=this.loaddata(),this.data[t]):this.data&&this.data[t]||null}setval(t,e){return this.isSurge()||this.isLoon()?$persistentStore.write(t,e):this.isQuanX()?$prefs.setValueForKey(t,e):this.isNode()?(this.data=this.loaddata(),this.data[e]=t,this.writedata(),!0):this.data&&this.data[e]||null}initGotEnv(t){this.got=this.got?this.got:require("got"),this.cktough=this.cktough?this.cktough:require("tough-cookie"),this.ckjar=this.ckjar?this.ckjar:new this.cktough.CookieJar,t&&(t.headers=t.headers?t.headers:{},void 0===t.headers.Cookie&&void 0===t.cookieJar&&(t.cookieJar=this.ckjar))}get(t,e=(()=>{})){t.headers&&(delete t.headers["Content-Type"],delete t.headers["Content-Length"]),this.isSurge()||this.isLoon()?(this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.get(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)})):this.isQuanX()?(this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t))):this.isNode()&&(this.initGotEnv(t),this.got(t).on("redirect",(t,e)=>{try{if(t.headers["set-cookie"]){const s=t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();s&&this.ckjar.setCookieSync(s,null),e.cookieJar=this.ckjar}}catch(t){this.logErr(t)}}).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)}))}post(t,e=(()=>{})){if(t.body&&t.headers&&!t.headers["Content-Type"]&&(t.headers["Content-Type"]="application/x-www-form-urlencoded"),t.headers&&delete t.headers["Content-Length"],this.isSurge()||this.isLoon())this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.post(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)});else if(this.isQuanX())t.method="POST",this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t));else if(this.isNode()){this.initGotEnv(t);const{url:s,...i}=t;this.got.post(s,i).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)})}}time(t,e=null){const s=e?new Date(e):new Date;let i={"M+":s.getMonth()+1,"d+":s.getDate(),"H+":s.getHours(),"m+":s.getMinutes(),"s+":s.getSeconds(),"q+":Math.floor((s.getMonth()+3)/3),S:s.getMilliseconds()};/(y+)/.test(t)&&(t=t.replace(RegExp.$1,(s.getFullYear()+"").substr(4-RegExp.$1.length)));for(let e in i)new RegExp("("+e+")").test(t)&&(t=t.replace(RegExp.$1,1==RegExp.$1.length?i[e]:("00"+i[e]).substr((""+i[e]).length)));return t}msg(e=t,s="",i="",r){const o=t=>{if(!t)return t;if("string"==typeof t)return this.isLoon()?t:this.isQuanX()?{"open-url":t}:this.isSurge()?{url:t}:void 0;if("object"==typeof t){if(this.isLoon()){let e=t.openUrl||t.url||t["open-url"],s=t.mediaUrl||t["media-url"];return{openUrl:e,mediaUrl:s}}if(this.isQuanX()){let e=t["open-url"]||t.url||t.openUrl,s=t["media-url"]||t.mediaUrl;return{"open-url":e,"media-url":s}}if(this.isSurge()){let e=t.url||t.openUrl||t["open-url"];return{url:e}}}};if(this.isMute||(this.isSurge()||this.isLoon()?$notification.post(e,s,i,o(r)):this.isQuanX()&&$notify(e,s,i,o(r))),!this.isMuteLog){let t=["","==============ğŸ“£ç³»ç»Ÿé€šçŸ¥ğŸ“£=============="];t.push(e),s&&t.push(s),i&&t.push(i),console.log(t.join("\n")),this.logs=this.logs.concat(t)}}log(...t){t.length>0&&(this.logs=[...this.logs,...t]),console.log(t.join(this.logSeparator))}logErr(t,e){const s=!this.isSurge()&&!this.isQuanX()&&!this.isLoon();s?this.log("",`â—ï¸${this.name}, é”™è¯¯!`,t.stack):this.log("",`â—ï¸${this.name}, é”™è¯¯!`,t)}wait(t){return new Promise(e=>setTimeout(e,t))}done(t={}){const e=(new Date).getTime(),s=(e-this.startTime)/1e3;this.log("",`ğŸ””${this.name}, ç»“æŸ! ğŸ•› ${s} ç§’`),this.log(),(this.isSurge()||this.isQuanX()||this.isLoon())&&$done(t)}}(t,e)}
+function Env(t,e){"undefined"!=typeof process&&JSON.stringify(process.env).indexOf("GIT_HUB")>-1&&process.exit(0);class s{constructor(t){this.env=t}send(t,e="GET"){t="string"==typeof t?{url:t}:t;let s=this.get;return"POST"===e&&(s=this.post),new Promise((e,i)=>{s.call(this,t,(t,s,r)=>{t?i(t):e(s)})})}get(t){return this.send.call(this.env,t)}post(t){return this.send.call(this.env,t,"POST")}}return new class{constructor(t,e){this.name=t,this.http=new s(this),this.data=null,this.dataFile="box.dat",this.logs=[],this.isMute=!1,this.isNeedRewrite=!1,this.logSeparator="\n",this.startTime=(new Date).getTime(),Object.assign(this,e),this.log("",`?${this.name}, ¿ªÊ¼!`)}isNode(){return"undefined"!=typeof module&&!!module.exports}isQuanX(){return"undefined"!=typeof $task}isSurge(){return"undefined"!=typeof $httpClient&&"undefined"==typeof $loon}isLoon(){return"undefined"!=typeof $loon}toObj(t,e=null){try{return JSON.parse(t)}catch{return e}}toStr(t,e=null){try{return JSON.stringify(t)}catch{return e}}getjson(t,e){let s=e;const i=this.getdata(t);if(i)try{s=JSON.parse(this.getdata(t))}catch{}return s}setjson(t,e){try{return this.setdata(JSON.stringify(t),e)}catch{return!1}}getScript(t){return new Promise(e=>{this.get({url:t},(t,s,i)=>e(i))})}runScript(t,e){return new Promise(s=>{let i=this.getdata("@chavy_boxjs_userCfgs.httpapi");i=i?i.replace(/\n/g,"").trim():i;let r=this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");r=r?1*r:20,r=e&&e.timeout?e.timeout:r;const[o,h]=i.split("@"),n={url:`http://${h}/v1/scripting/evaluate`,body:{script_text:t,mock_type:"cron",timeout:r},headers:{"X-Key":o,Accept:"*/*"}};this.post(n,(t,e,i)=>s(i))}).catch(t=>this.logErr(t))}loaddata(){if(!this.isNode())return{};{this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e);if(!s&&!i)return{};{const i=s?t:e;try{return JSON.parse(this.fs.readFileSync(i))}catch(t){return{}}}}}writedata(){if(this.isNode()){this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e),r=JSON.stringify(this.data);s?this.fs.writeFileSync(t,r):i?this.fs.writeFileSync(e,r):this.fs.writeFileSync(t,r)}}lodash_get(t,e,s){const i=e.replace(/\[(\d+)\]/g,".$1").split(".");let r=t;for(const t of i)if(r=Object(r)[t],void 0===r)return s;return r}lodash_set(t,e,s){return Object(t)!==t?t:(Array.isArray(e)||(e=e.toString().match(/[^.[\]]+/g)||[]),e.slice(0,-1).reduce((t,s,i)=>Object(t[s])===t[s]?t[s]:t[s]=Math.abs(e[i+1])>>0==+e[i+1]?[]:{},t)[e[e.length-1]]=s,t)}getdata(t){let e=this.getval(t);if(/^@/.test(t)){const[,s,i]=/^@(.*?)\.(.*?)$/.exec(t),r=s?this.getval(s):"";if(r)try{const t=JSON.parse(r);e=t?this.lodash_get(t,i,""):e}catch(t){e=""}}return e}setdata(t,e){let s=!1;if(/^@/.test(e)){const[,i,r]=/^@(.*?)\.(.*?)$/.exec(e),o=this.getval(i),h=i?"null"===o?null:o||"{}":"{}";try{const e=JSON.parse(h);this.lodash_set(e,r,t),s=this.setval(JSON.stringify(e),i)}catch(e){const o={};this.lodash_set(o,r,t),s=this.setval(JSON.stringify(o),i)}}else s=this.setval(t,e);return s}getval(t){return this.isSurge()||this.isLoon()?$persistentStore.read(t):this.isQuanX()?$prefs.valueForKey(t):this.isNode()?(this.data=this.loaddata(),this.data[t]):this.data&&this.data[t]||null}setval(t,e){return this.isSurge()||this.isLoon()?$persistentStore.write(t,e):this.isQuanX()?$prefs.setValueForKey(t,e):this.isNode()?(this.data=this.loaddata(),this.data[e]=t,this.writedata(),!0):this.data&&this.data[e]||null}initGotEnv(t){this.got=this.got?this.got:require("got"),this.cktough=this.cktough?this.cktough:require("tough-cookie"),this.ckjar=this.ckjar?this.ckjar:new this.cktough.CookieJar,t&&(t.headers=t.headers?t.headers:{},void 0===t.headers.Cookie&&void 0===t.cookieJar&&(t.cookieJar=this.ckjar))}get(t,e=(()=>{})){t.headers&&(delete t.headers["Content-Type"],delete t.headers["Content-Length"]),this.isSurge()||this.isLoon()?(this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.get(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)})):this.isQuanX()?(this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t))):this.isNode()&&(this.initGotEnv(t),this.got(t).on("redirect",(t,e)=>{try{if(t.headers["set-cookie"]){const s=t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();s&&this.ckjar.setCookieSync(s,null),e.cookieJar=this.ckjar}}catch(t){this.logErr(t)}}).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)}))}post(t,e=(()=>{})){if(t.body&&t.headers&&!t.headers["Content-Type"]&&(t.headers["Content-Type"]="application/x-www-form-urlencoded"),t.headers&&delete t.headers["Content-Length"],this.isSurge()||this.isLoon())this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.post(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)});else if(this.isQuanX())t.method="POST",this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t));else if(this.isNode()){this.initGotEnv(t);const{url:s,...i}=t;this.got.post(s,i).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)})}}time(t,e=null){const s=e?new Date(e):new Date;let i={"M+":s.getMonth()+1,"d+":s.getDate(),"H+":s.getHours(),"m+":s.getMinutes(),"s+":s.getSeconds(),"q+":Math.floor((s.getMonth()+3)/3),S:s.getMilliseconds()};/(y+)/.test(t)&&(t=t.replace(RegExp.$1,(s.getFullYear()+"").substr(4-RegExp.$1.length)));for(let e in i)new RegExp("("+e+")").test(t)&&(t=t.replace(RegExp.$1,1==RegExp.$1.length?i[e]:("00"+i[e]).substr((""+i[e]).length)));return t}msg(e=t,s="",i="",r){const o=t=>{if(!t)return t;if("string"==typeof t)return this.isLoon()?t:this.isQuanX()?{"open-url":t}:this.isSurge()?{url:t}:void 0;if("object"==typeof t){if(this.isLoon()){let e=t.openUrl||t.url||t["open-url"],s=t.mediaUrl||t["media-url"];return{openUrl:e,mediaUrl:s}}if(this.isQuanX()){let e=t["open-url"]||t.url||t.openUrl,s=t["media-url"]||t.mediaUrl;return{"open-url":e,"media-url":s}}if(this.isSurge()){let e=t.url||t.openUrl||t["open-url"];return{url:e}}}};if(this.isMute||(this.isSurge()||this.isLoon()?$notification.post(e,s,i,o(r)):this.isQuanX()&&$notify(e,s,i,o(r))),!this.isMuteLog){let t=["","==============?ÏµÍ³Í¨Öª?=============="];t.push(e),s&&t.push(s),i&&t.push(i),console.log(t.join("\n")),this.logs=this.logs.concat(t)}}log(...t){t.length>0&&(this.logs=[...this.logs,...t]),console.log(t.join(this.logSeparator))}logErr(t,e){const s=!this.isSurge()&&!this.isQuanX()&&!this.isLoon();s?this.log("",`??${this.name}, ´íÎó!`,t.stack):this.log("",`??${this.name}, ´íÎó!`,t)}wait(t){return new Promise(e=>setTimeout(e,t))}done(t={}){const e=(new Date).getTime(),s=(e-this.startTime)/1e3;this.log("",`?${this.name}, ½áÊø! ? ${s} Ãë`),this.log(),(this.isSurge()||this.isQuanX()||this.isLoon())&&$done(t)}}(t,e)}

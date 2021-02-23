@@ -1,30 +1,30 @@
 /*
-é—ªè´­ç›²ç›’
-é•¿æœŸæ´»åŠ¨ï¼Œä¸€äººæ¯å¤©5æ¬¡åŠ©åŠ›æœºä¼šï¼Œ10æ¬¡è¢«åŠ©æœºä¼šï¼Œè¢«åŠ©åŠ›ä¸€æ¬¡è·å¾—ä¸€æ¬¡æŠ½å¥–æœºä¼šï¼Œå‰å‡ æ¬¡å¿…ä¸­äº¬è±†
-ä¿®æ”¹è‡ª @yangtingxiao æŠ½å¥–æœºè„šæœ¬
-æ´»åŠ¨å…¥å£ï¼šäº¬ä¸œAPPé¦–é¡µ-é—ªè´­-é—ªè´­ç›²ç›’
-ç½‘é¡µåœ°å€ï¼šhttps://h5.m.jd.com/babelDiy/Zeus/3vzA7uGuWL2QeJ5UeecbbAVKXftQ/index.html
-æ›´æ–°åœ°å€ï¼šhttps://jdsharedresourcescdn.azureedge.net/jdresource/jd_sgmh.js
-å·²æ”¯æŒIOSåŒäº¬ä¸œè´¦å·, Node.jsæ”¯æŒNä¸ªäº¬ä¸œè´¦å·
-è„šæœ¬å…¼å®¹: QuantumultX, Surge, Loon, å°ç«ç®­ï¼ŒJSBox, Node.js
+ÉÁ¹ºÃ¤ºĞ
+³¤ÆÚ»î¶¯£¬Ò»ÈËÃ¿Ìì5´ÎÖúÁ¦»ú»á£¬10´Î±»Öú»ú»á£¬±»ÖúÁ¦Ò»´Î»ñµÃÒ»´Î³é½±»ú»á£¬Ç°¼¸´Î±ØÖĞ¾©¶¹
+ĞŞ¸Ä×Ô @yangtingxiao ³é½±»ú½Å±¾
+»î¶¯Èë¿Ú£º¾©¶«APPÊ×Ò³-ÉÁ¹º-ÉÁ¹ºÃ¤ºĞ
+ÍøÒ³µØÖ·£ºhttps://h5.m.jd.com/babelDiy/Zeus/3vzA7uGuWL2QeJ5UeecbbAVKXftQ/index.html
+¸üĞÂµØÖ·£ºhttps://jdsharedresourcescdn.azureedge.net/jdresource/jd_sgmh.js
+ÒÑÖ§³ÖIOSË«¾©¶«ÕËºÅ, Node.jsÖ§³ÖN¸ö¾©¶«ÕËºÅ
+½Å±¾¼æÈİ: QuantumultX, Surge, Loon, Ğ¡»ğ¼ı£¬JSBox, Node.js
 ============Quantumultx===============
 [task_local]
-#é—ªè´­ç›²ç›’
-20 8 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_sgmh.js, tag=é—ªè´­ç›²ç›’, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+#ÉÁ¹ºÃ¤ºĞ
+20 8 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_sgmh.js, tag=ÉÁ¹ºÃ¤ºĞ, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 
 ================Loon==============
 [Script]
-cron "20 8 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_sgmh.js, tag=é—ªè´­ç›²ç›’
+cron "20 8 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_sgmh.js, tag=ÉÁ¹ºÃ¤ºĞ
 
 ===============Surge=================
-é—ªè´­ç›²ç›’ = type=cron,cronexp="20 8 * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_sgmh.js
+ÉÁ¹ºÃ¤ºĞ = type=cron,cronexp="20 8 * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_sgmh.js
 
-============å°ç«ç®­=========
-é—ªè´­ç›²ç›’ = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_sgmh.js, cronexpr="20 8 * * *", timeout=3600, enable=true
+============Ğ¡»ğ¼ı=========
+ÉÁ¹ºÃ¤ºĞ = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_sgmh.js, cronexpr="20 8 * * *", timeout=3600, enable=true
 
  */
-const $ = new Env('é—ªè´­ç›²ç›’');
-//Node.jsç”¨æˆ·è¯·åœ¨jdCookie.jså¤„å¡«å†™äº¬ä¸œck;
+const $ = new Env('ÉÁ¹ºÃ¤ºĞ');
+//Node.jsÓÃ»§ÇëÔÚjdCookie.js´¦ÌîĞ´¾©¶«ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 let appId = '1EFRRxA' , homeDataFunPrefix = 'interact_template', collectScoreFunPrefix = 'harmony', message = ''
 let lotteryResultFunPrefix = homeDataFunPrefix, browseTime = 6
@@ -35,7 +35,7 @@ const inviteCodes = [
 const randomCount = $.isNode() ? 20 : 5;
 const notify = $.isNode() ? require('./sendNotify') : '';
 let merge = {}
-//IOSç­‰ç”¨æˆ·ç›´æ¥ç”¨NobyDaçš„jd cookie
+//IOSµÈÓÃ»§Ö±½ÓÓÃNobyDaµÄjd cookie
 let cookiesArr = [], cookie = '';
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
@@ -49,7 +49,7 @@ if ($.isNode()) {
 const JD_API_HOST = `https://api.m.jd.com/client.action`;
 !(async () => {
   if (!cookiesArr[0]) {
-    $.msg($.name, 'ã€æç¤ºã€‘è¯·å…ˆè·å–cookie\nç›´æ¥ä½¿ç”¨NobyDaçš„äº¬ä¸œç­¾åˆ°è·å–', 'https://bean.m.jd.com/', {"open-url": "https://bean.m.jd.com/"});
+    $.msg($.name, '¡¾ÌáÊ¾¡¿ÇëÏÈ»ñÈ¡cookie\nÖ±½ÓÊ¹ÓÃNobyDaµÄ¾©¶«Ç©µ½»ñÈ¡', 'https://bean.m.jd.com/', {"open-url": "https://bean.m.jd.com/"});
     return;
   }
   await requireConfig();
@@ -64,12 +64,12 @@ const JD_API_HOST = `https://api.m.jd.com/client.action`;
       message = ''
       await TotalBean();
       await shareCodesFormat();
-      console.log(`\n******å¼€å§‹ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName || $.UserName}*********\n`);
+      console.log(`\n******¿ªÊ¼¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName || $.UserName}*********\n`);
       if (!$.isLogin) {
-        $.msg($.name, `ã€æç¤ºã€‘cookieå·²å¤±æ•ˆ`, `äº¬ä¸œè´¦å·${$.index} ${$.nickName || $.UserName}\nè¯·é‡æ–°ç™»å½•è·å–\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+        $.msg($.name, `¡¾ÌáÊ¾¡¿cookieÒÑÊ§Ğ§`, `¾©¶«ÕËºÅ${$.index} ${$.nickName || $.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
 
         if ($.isNode()) {
-          await notify.sendNotify(`${$.name}cookieå·²å¤±æ•ˆ - ${$.UserName}`, `äº¬ä¸œè´¦å·${$.index} ${$.UserName}\nè¯·é‡æ–°ç™»å½•è·å–cookie`);
+          await notify.sendNotify(`${$.name}cookieÒÑÊ§Ğ§ - ${$.UserName}`, `¾©¶«ÕËºÅ${$.index} ${$.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡cookie`);
         }
         continue
       }
@@ -80,7 +80,7 @@ const JD_API_HOST = `https://api.m.jd.com/client.action`;
 })()
   .catch((e) => $.logErr(e))
   .finally(() => $.done())
-//è·å–æ´»åŠ¨ä¿¡æ¯
+//»ñÈ¡»î¶¯ĞÅÏ¢
 function interact_template_getHomeData(timeout = 0) {
   return new Promise((resolve) => {
     setTimeout( ()=>{
@@ -112,10 +112,10 @@ function interact_template_getHomeData(timeout = 0) {
           if (data.data.result.raiseInfo&&data.data.result.raiseInfo.levelList) scorePerLottery = data.data.result.raiseInfo.levelList[data.data.result.raiseInfo.scoreLevel];
           //console.log(scorePerLottery)
           for (let i = 0;i < data.data.result.taskVos.length;i ++) {
-            console.log("\n" + data.data.result.taskVos[i].taskType + '-' + data.data.result.taskVos[i].taskName  + '-' + (data.data.result.taskVos[i].status === 1 ? `å·²å®Œæˆ${data.data.result.taskVos[i].times}-æœªå®Œæˆ${data.data.result.taskVos[i].maxTimes}` : "å…¨éƒ¨å·²å®Œæˆ"))
-            //ç­¾åˆ°
-            if (data.data.result.taskVos[i].taskName === 'é‚€äººåŠ©åŠ›ä»»åŠ¡') {
-              console.log(`æ‚¨çš„å¥½å‹åŠ©åŠ›ç ä¸º:${data.data.result.taskVos[i].assistTaskDetailVo.taskToken}`)
+            console.log("\n" + data.data.result.taskVos[i].taskType + '-' + data.data.result.taskVos[i].taskName  + '-' + (data.data.result.taskVos[i].status === 1 ? `ÒÑÍê³É${data.data.result.taskVos[i].times}-Î´Íê³É${data.data.result.taskVos[i].maxTimes}` : "È«²¿ÒÑÍê³É"))
+            //Ç©µ½
+            if (data.data.result.taskVos[i].taskName === 'ÑûÈËÖúÁ¦ÈÎÎñ') {
+              console.log(`ÄúµÄºÃÓÑÖúÁ¦ÂëÎª:${data.data.result.taskVos[i].assistTaskDetailVo.taskToken}`)
               for (let code of $.newShareCodes) {
                 if (!code) continue
                 await harmony_collectScore(code, data.data.result.taskVos[i].taskId);
@@ -123,7 +123,7 @@ function interact_template_getHomeData(timeout = 0) {
               }
             }
             else if (data.data.result.taskVos[i].status === 3) {
-              console.log('å¼€å§‹æŠ½å¥–')
+              console.log('¿ªÊ¼³é½±')
               await interact_template_getLotteryResult(data.data.result.taskVos[i].taskId);
             }
             else if ([0,13].includes(data.data.result.taskVos[i].taskType)) {
@@ -170,7 +170,7 @@ function interact_template_getHomeData(timeout = 0) {
     },timeout)
   })
 }
-//åšä»»åŠ¡
+//×öÈÎÎñ
 function harmony_collectScore(taskToken,taskId,itemId = "",actionType = 0,timeout = 0) {
   return new Promise((resolve) => {
     setTimeout( ()=>{
@@ -193,7 +193,7 @@ function harmony_collectScore(taskToken,taskId,itemId = "",actionType = 0,timeou
       $.post(url, async (err, resp, data) => {
         try {
           data = JSON.parse(data);
-          if (data.data.bizMsg === "ä»»åŠ¡é¢†å–æˆåŠŸ") {
+          if (data.data.bizMsg === "ÈÎÎñÁìÈ¡³É¹¦") {
             await harmony_collectScore(taskToken,taskId,itemId,0,parseInt(browseTime) * 1000);
           } else{
             console.log(data.data.bizMsg)
@@ -207,7 +207,7 @@ function harmony_collectScore(taskToken,taskId,itemId = "",actionType = 0,timeou
     },timeout)
   })
 }
-//æŠ½å¥–
+//³é½±
 function interact_template_getLotteryResult(taskId,timeout = 0) {
   return new Promise((resolve) => {
     setTimeout( ()=>{
@@ -229,11 +229,11 @@ function interact_template_getLotteryResult(taskId,timeout = 0) {
       //if (appId === "1EFRTxQ") url.body = `functionId=ts_getLottery&body={"appId":"${appId}"${taskId ? ',"taskId":"'+taskId+'"' : ''}}&client=wh5&clientVersion=1.0.0&appid=golden-egg`
       $.post(url, async (err, resp, data) => {
         try {
-          if (!timeout) console.log('\nå¼€å§‹æŠ½å¥–')
+          if (!timeout) console.log('\n¿ªÊ¼³é½±')
           data = JSON.parse(data);
           if (data.data.bizCode === 0) {
             if (data.data.result.userAwardsCacheDto.jBeanAwardVo) {
-              console.log('äº¬è±†:' + data.data.result.userAwardsCacheDto.jBeanAwardVo.quantity)
+              console.log('¾©¶¹:' + data.data.result.userAwardsCacheDto.jBeanAwardVo.quantity)
               $.beans += parseInt(data.data.result.userAwardsCacheDto.jBeanAwardVo.quantity)
             }
             if (data.data.result.raiseInfo) scorePerLottery = parseInt(data.data.result.raiseInfo.nextLevelScore);
@@ -252,22 +252,22 @@ function interact_template_getLotteryResult(taskId,timeout = 0) {
 }
 
 
-//é€šçŸ¥
+//Í¨Öª
 function showMsg() {
-  message += `ä»»åŠ¡å·²å®Œæˆï¼Œæœ¬æ¬¡è¿è¡Œè·å¾—äº¬è±†${$.beans}`
+  message += `ÈÎÎñÒÑÍê³É£¬±¾´ÎÔËĞĞ»ñµÃ¾©¶¹${$.beans}`
   return new Promise(resolve => {
-    if ($.beans) $.msg($.name, '', `ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName}\n${message}`);
-    $.log(`ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName}\n${message}`);
+    if ($.beans) $.msg($.name, '', `¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName}\n${message}`);
+    $.log(`¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName}\n${message}`);
     resolve()
   })
 }
 
 function requireConfig() {
   return new Promise(async resolve => {
-    console.log(`å¼€å§‹è·å–${$.name}é…ç½®æ–‡ä»¶\n`);
-    //Node.jsç”¨æˆ·è¯·åœ¨jdCookie.jså¤„å¡«å†™äº¬ä¸œck;
+    console.log(`¿ªÊ¼»ñÈ¡${$.name}ÅäÖÃÎÄ¼ş\n`);
+    //Node.jsÓÃ»§ÇëÔÚjdCookie.js´¦ÌîĞ´¾©¶«ck;
     let shareCodes = []
-    console.log(`å…±${cookiesArr.length}ä¸ªäº¬ä¸œè´¦å·\n`);
+    console.log(`¹²${cookiesArr.length}¸ö¾©¶«ÕËºÅ\n`);
     if ($.isNode() && process.env.JDSGMH_SHARECODES) {
       if (process.env.JDSGMH_SHARECODES.indexOf('\n') > -1) {
         shareCodes = process.env.JDSGMH_SHARECODES.split('\n');
@@ -283,20 +283,20 @@ function requireConfig() {
         }
       })
     }
-    console.log(`æ‚¨æä¾›äº†${$.shareCodesArr.length}ä¸ªè´¦å·çš„${$.name}åŠ©åŠ›ç \n`);
+    console.log(`ÄúÌá¹©ÁË${$.shareCodesArr.length}¸öÕËºÅµÄ${$.name}ÖúÁ¦Âë\n`);
     resolve()
   })
 }
 
-//æ ¼å¼åŒ–åŠ©åŠ›ç 
+//¸ñÊ½»¯ÖúÁ¦Âë
 function shareCodesFormat() {
   return new Promise(async resolve => {
-    // console.log(`ç¬¬${$.index}ä¸ªäº¬ä¸œè´¦å·çš„åŠ©åŠ›ç :::${$.shareCodesArr[$.index - 1]}`)
+    // console.log(`µÚ${$.index}¸ö¾©¶«ÕËºÅµÄÖúÁ¦Âë:::${$.shareCodesArr[$.index - 1]}`)
     $.newShareCodes = [];
     if ($.shareCodesArr[$.index - 1]) {
       $.newShareCodes = $.shareCodesArr[$.index - 1].split('@');
     } else {
-      console.log(`ç”±äºæ‚¨ç¬¬${$.index}ä¸ªäº¬ä¸œè´¦å·æœªæä¾›shareCode,å°†é‡‡çº³æœ¬è„šæœ¬è‡ªå¸¦çš„åŠ©åŠ›ç \n`)
+      console.log(`ÓÉÓÚÄúµÚ${$.index}¸ö¾©¶«ÕËºÅÎ´Ìá¹©shareCode,½«²ÉÄÉ±¾½Å±¾×Ô´øµÄÖúÁ¦Âë\n`)
       const tempIndex = $.index > inviteCodes.length ? (inviteCodes.length - 1) : ($.index - 1);
       $.newShareCodes = inviteCodes[tempIndex].split('@');
     }
@@ -305,13 +305,13 @@ function shareCodesFormat() {
     if (readShareCodeRes && readShareCodeRes.code === 200) {
       $.newShareCodes = [...new Set([...$.newShareCodes, ...(readShareCodeRes.data || [])])];
     }
-    console.log(`ç¬¬${$.index}ä¸ªäº¬ä¸œè´¦å·å°†è¦åŠ©åŠ›çš„å¥½å‹${JSON.stringify($.newShareCodes)}`)
+    console.log(`µÚ${$.index}¸ö¾©¶«ÕËºÅ½«ÒªÖúÁ¦µÄºÃÓÑ${JSON.stringify($.newShareCodes)}`)
     resolve();
   })
 }
 
 function readShareCode() {
-  console.log(`å¼€å§‹`)
+  console.log(`¿ªÊ¼`)
   return new Promise(async resolve => {
     $.get({
       url: `http://jd.turinglabs.net/api/v2/jd/sgmh/read/${randomCount}/`,
@@ -320,10 +320,10 @@ function readShareCode() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           if (data) {
-            console.log(`éšæœºå–${randomCount}ä¸ªç æ”¾åˆ°æ‚¨å›ºå®šçš„äº’åŠ©ç åé¢(ä¸å½±å“å·²æœ‰å›ºå®šäº’åŠ©)`)
+            console.log(`Ëæ»úÈ¡${randomCount}¸öÂë·Åµ½Äú¹Ì¶¨µÄ»¥ÖúÂëºóÃæ(²»Ó°ÏìÒÑÓĞ¹Ì¶¨»¥Öú)`)
             data = JSON.parse(data);
           }
         }
@@ -356,17 +356,17 @@ function TotalBean() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           if (data) {
             data = JSON.parse(data);
             if (data['retcode'] === 13) {
-              $.isLogin = false; //cookieè¿‡æœŸ
+              $.isLogin = false; //cookie¹ıÆÚ
               return
             }
             $.nickName = data['base'].nickname;
           } else {
-            console.log(`äº¬ä¸œæœåŠ¡å™¨è¿”å›ç©ºæ•°æ®`)
+            console.log(`¾©¶«·şÎñÆ÷·µ»Ø¿ÕÊı¾İ`)
           }
         }
       } catch (e) {
@@ -383,7 +383,7 @@ function jsonParse(str) {
       return JSON.parse(str);
     } catch (e) {
       console.log(e);
-      $.msg($.name, '', 'è¯·å‹¿éšæ„åœ¨BoxJsè¾“å…¥æ¡†ä¿®æ”¹å†…å®¹\nå»ºè®®é€šè¿‡è„šæœ¬å»è·å–cookie')
+      $.msg($.name, '', 'ÇëÎğËæÒâÔÚBoxJsÊäÈë¿òĞŞ¸ÄÄÚÈİ\n½¨ÒéÍ¨¹ı½Å±¾È¥»ñÈ¡cookie')
       return [];
     }
   }

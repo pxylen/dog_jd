@@ -5,34 +5,34 @@
  * @Last Modified time: 2020-12-20 12:27:18
 */
 /*
-äº¬ä¸œå…¨æ°‘å¼€çº¢åŒ…
-æ´»åŠ¨å…¥å£ï¼šäº¬ä¸œAPPé¦–é¡µ-é¢†åˆ¸-é”¦é²¤çº¢åŒ…
-å·²å®ŒæˆåŠŸèƒ½ï¼š
-â‘ æµè§ˆæ´»åŠ¨
-â‘¡å…³æ³¨é¢‘é“
-â‘¢é¢†å–çº¢åŒ…
-æœªå®ç°åŠŸèƒ½ï¼š
-é¢†3å¼ åˆ¸åŠŸèƒ½,é‚€è¯·å¥½å‹æœªå®ç°
+¾©¶«È«Ãñ¿ªºì°ü
+»î¶¯Èë¿Ú£º¾©¶«APPÊ×Ò³-ÁìÈ¯-½õÀğºì°ü
+ÒÑÍê³É¹¦ÄÜ£º
+¢Ùä¯ÀÀ»î¶¯
+¢Ú¹Ø×¢ÆµµÀ
+¢ÛÁìÈ¡ºì°ü
+Î´ÊµÏÖ¹¦ÄÜ£º
+Áì3ÕÅÈ¯¹¦ÄÜ,ÑûÇëºÃÓÑÎ´ÊµÏÖ
 
-æ”¯æŒäº¬ä¸œåŒè´¦å·
-è„šæœ¬å…¼å®¹: QuantumultX, Surge, Loon, JSBox, Node.js
+Ö§³Ö¾©¶«Ë«ÕËºÅ
+½Å±¾¼æÈİ: QuantumultX, Surge, Loon, JSBox, Node.js
 ================QuantumultX==================
 [task_local]
-#äº¬ä¸œå…¨æ°‘å¼€çº¢åŒ…
-1 1 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_redPacket.js, tag=äº¬ä¸œå…¨æ°‘å¼€çº¢åŒ…, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jd_redPacket.png, enabled=true
+#¾©¶«È«Ãñ¿ªºì°ü
+1 1 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_redPacket.js, tag=¾©¶«È«Ãñ¿ªºì°ü, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jd_redPacket.png, enabled=true
 ===================Loon==============
 [Script]
-cron "1 1 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_redPacket.js, tag=äº¬ä¸œå…¨æ°‘å¼€çº¢åŒ…
+cron "1 1 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_redPacket.js, tag=¾©¶«È«Ãñ¿ªºì°ü
 ===============Surge===============
 [Script]
-äº¬ä¸œå…¨æ°‘å¼€çº¢åŒ… = type=cron,cronexp=1 1 * * *,wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_redPacket.js
+¾©¶«È«Ãñ¿ªºì°ü = type=cron,cronexp=1 1 * * *,wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_redPacket.js
  */
-const $ = new Env('äº¬ä¸œå…¨æ°‘å¼€çº¢åŒ…');
+const $ = new Env('¾©¶«È«Ãñ¿ªºì°ü');
 const notify = $.isNode() ? require('./sendNotify') : '';
-//Node.jsç”¨æˆ·è¯·åœ¨jdCookie.jså¤„å¡«å†™äº¬ä¸œck;
+//Node.jsÓÃ»§ÇëÔÚjdCookie.js´¦ÌîĞ´¾©¶«ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 
-//IOSç­‰ç”¨æˆ·ç›´æ¥ç”¨NobyDaçš„jd cookie
+//IOSµÈÓÃ»§Ö±½ÓÓÃNobyDaµÄjd cookie
 let cookiesArr = [], cookie = '';
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
@@ -48,7 +48,7 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
 
 !(async () => {
   if (!cookiesArr[0]) {
-    $.msg($.name, 'ã€æç¤ºã€‘è¯·å…ˆè·å–äº¬ä¸œè´¦å·ä¸€cookie\nç›´æ¥ä½¿ç”¨NobyDaçš„äº¬ä¸œç­¾åˆ°è·å–', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+    $.msg($.name, '¡¾ÌáÊ¾¡¿ÇëÏÈ»ñÈ¡¾©¶«ÕËºÅÒ»cookie\nÖ±½ÓÊ¹ÓÃNobyDaµÄ¾©¶«Ç©µ½»ñÈ¡', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
     return;
   }
   for (let i = 0; i < cookiesArr.length; i++) {
@@ -59,12 +59,12 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
       $.isLogin = true;
       $.nickName = '';
       await TotalBean();
-      console.log(`\nå¼€å§‹ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName || $.UserName}\n`);
+      console.log(`\n¿ªÊ¼¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName || $.UserName}\n`);
       if (!$.isLogin) {
-        $.msg($.name, `ã€æç¤ºã€‘cookieå·²å¤±æ•ˆ`, `äº¬ä¸œè´¦å·${$.index} ${$.nickName || $.UserName}\nè¯·é‡æ–°ç™»å½•è·å–\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+        $.msg($.name, `¡¾ÌáÊ¾¡¿cookieÒÑÊ§Ğ§`, `¾©¶«ÕËºÅ${$.index} ${$.nickName || $.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
 
         if ($.isNode()) {
-          await notify.sendNotify(`${$.name}cookieå·²å¤±æ•ˆ - ${$.UserName}`, `äº¬ä¸œè´¦å·${$.index} ${$.UserName}\nè¯·é‡æ–°ç™»å½•è·å–cookie`);
+          await notify.sendNotify(`${$.name}cookieÒÑÊ§Ğ§ - ${$.UserName}`, `¾©¶«ÕËºÅ${$.index} ${$.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡cookie`);
         }
         continue
       }
@@ -75,7 +75,7 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
   }
 })()
     .catch((e) => {
-      $.log('', `âŒ ${$.name}, å¤±è´¥! åŸå› : ${e}!`, '')
+      $.log('', `? ${$.name}, Ê§°Ü! Ô­Òò: ${e}!`, '')
     })
     .finally(() => {
       $.done();
@@ -86,25 +86,25 @@ async function redPacket() {
   if (response.code === 0) {
     $.taskInfo = response.data.result.taskInfos;
     if ($.taskInfo && $.taskInfo.length > 0) {
-      console.log(`    ä»»åŠ¡     çŠ¶æ€  çº¢åŒ…æ˜¯å¦é¢†å–`);
+      console.log(`    ÈÎÎñ     ×´Ì¬  ºì°üÊÇ·ñÁìÈ¡`);
       for (let item of $.taskInfo) {
-        console.log(`${item.title.slice(-6)}   ${item.alreadyReceivedCount ? item.alreadyReceivedCount: 0}/${item.requireCount}      ${item.innerStatus === 4 ? 'æ˜¯':'å¦'}`)
+        console.log(`${item.title.slice(-6)}   ${item.alreadyReceivedCount ? item.alreadyReceivedCount: 0}/${item.requireCount}      ${item.innerStatus === 4 ? 'ÊÇ':'·ñ'}`)
       }
       for (let item of $.taskInfo) {
-        //innerStatus=4å·²é¢†å–çº¢åŒ…ï¼Œ3ï¼šä»»åŠ¡å·²å®Œæˆï¼Œçº¢åŒ…æœªé¢†å–ï¼Œ2ï¼šä»»åŠ¡æœªå®Œæˆï¼Œ7,æœªé¢†å–ä»»åŠ¡
+        //innerStatus=4ÒÑÁìÈ¡ºì°ü£¬3£ºÈÎÎñÒÑÍê³É£¬ºì°üÎ´ÁìÈ¡£¬2£ºÈÎÎñÎ´Íê³É£¬7,Î´ÁìÈ¡ÈÎÎñ
         if (item.innerStatus === 4) {
-          console.log(`[${item.title}] å·²ç»é¢†å–å¥–åŠ±`)
+          console.log(`[${item.title}] ÒÑ¾­ÁìÈ¡½±Àø`)
         } else if (item.innerStatus === 3) {
           await receiveTaskRedpacket(item.taskType);
         } else if (item.innerStatus !== 4) {
           await startTask(item.taskType);
           if (item.taskType !== 0 &&  item.taskType !== 1) {
-            console.log(`å¼€å§‹åšæµè§ˆä»»åŠ¡\n`);
+            console.log(`¿ªÊ¼×öä¯ÀÀÈÎÎñ\n`);
             await active(item.taskType);
             await receiveTaskRedpacket(item.taskType);
           } else {
-            //TODO é¢†3å¼ ä¼˜æƒ åˆ¸
-            console.log(`[${item.title}] ä»»åŠ¡æœªå¼€å‘`)
+            //TODO Áì3ÕÅÓÅ»İÈ¯
+            console.log(`[${item.title}] ÈÎÎñÎ´¿ª·¢`)
           }
         }
       }
@@ -112,13 +112,13 @@ async function redPacket() {
   }
 }
 
-//è·å–ä»»åŠ¡åˆ—è¡¨
+//»ñÈ¡ÈÎÎñÁĞ±í
 function taskHomePage() {
   return new Promise((resolve) => {
     $.post(taskUrl(arguments.callee.name.toString(), {"clientInfo":{}}), (err, resp, data) => {
       try {
         if (err) {
-          console.log(`\n${$.name}: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸`);
+          console.log(`\n${$.name}: API²éÑ¯ÇëÇóÊ§°Ü ????`);
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -131,15 +131,15 @@ function taskHomePage() {
     })
   })
 }
-//é¢†å–ä»»åŠ¡
+//ÁìÈ¡ÈÎÎñ
 function startTask(taskType) {
-  // ä»taskHomePageè¿”å›çš„æ•°æ®é‡Œé¢æ‹¿taskType
+  // ´ÓtaskHomePage·µ»ØµÄÊı¾İÀïÃæÄÃtaskType
   const data = {"clientInfo":{}, taskType};
   return new Promise((resolve) => {
     $.post(taskUrl(arguments.callee.name.toString(), data), (err, resp, data) => {
       try {
         if (err) {
-          console.log(`\n${$.name}: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸`);
+          console.log(`\n${$.name}: API²éÑ¯ÇëÇóÊ§°Ü ????`);
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -162,27 +162,27 @@ async function active(taskType) {
         await $.wait(1000);
         if (item.id && item.status == 0) {
           let taskReportForColorRes = await taskReportForColor(taskType, item.id);
-          // console.log(`å®Œæˆä»»åŠ¡çš„åŠ¨ä½œ---${JSON.stringify(taskReportForColorRes)}`)
+          // console.log(`Íê³ÉÈÎÎñµÄ¶¯×÷---${JSON.stringify(taskReportForColorRes)}`)
         }
       }
     } else {
-      console.log(`ä»»åŠ¡åˆ—è¡¨ä¸ºç©º,æ‰‹åŠ¨è¿›å…¥appå†…æ£€æŸ¥ æ˜¯å¦å­˜åœ¨[ä»äº¬è±†é¦–é¡µè¿›é¢†åˆ¸ä¸­å¿ƒé€›30ç§’]çš„ä»»åŠ¡,å¦‚å­˜åœ¨,è¯·æ‰‹åŠ¨å®Œæˆå†è¿è¡Œè„šæœ¬`)
-      $.msg(`${$.name}`, '', 'æ‰‹åŠ¨è¿›å…¥appå†…æ£€æŸ¥\næ˜¯å¦å­˜åœ¨[ä»äº¬è±†é¦–é¡µè¿›é¢†åˆ¸ä¸­å¿ƒé€›30ç§’]çš„ä»»åŠ¡\nå¦‚å­˜åœ¨,è¯·æ‰‹åŠ¨å®Œæˆå†è¿è¡Œè„šæœ¬');
-      if ($.isNode()) await notify.sendNotify(`${$.name} - è´¦å·${$.index} - ${$.nickName}`, `æ‰§è¡Œè„šæœ¬å‡ºç°å¼‚å¸¸\nè¯·æ‰‹åŠ¨è¿›å…¥appå†…æ£€æŸ¥\næ˜¯å¦å­˜åœ¨[ä»äº¬è±†é¦–é¡µè¿›é¢†åˆ¸ä¸­å¿ƒé€›30ç§’]çš„ä»»åŠ¡\nå¦‚å­˜åœ¨,è¯·æ‰‹åŠ¨å®Œæˆå†è¿è¡Œè„šæœ¬`)
+      console.log(`ÈÎÎñÁĞ±íÎª¿Õ,ÊÖ¶¯½øÈëappÄÚ¼ì²é ÊÇ·ñ´æÔÚ[´Ó¾©¶¹Ê×Ò³½øÁìÈ¯ÖĞĞÄ¹ä30Ãë]µÄÈÎÎñ,Èç´æÔÚ,ÇëÊÖ¶¯Íê³ÉÔÙÔËĞĞ½Å±¾`)
+      $.msg(`${$.name}`, '', 'ÊÖ¶¯½øÈëappÄÚ¼ì²é\nÊÇ·ñ´æÔÚ[´Ó¾©¶¹Ê×Ò³½øÁìÈ¯ÖĞĞÄ¹ä30Ãë]µÄÈÎÎñ\nÈç´æÔÚ,ÇëÊÖ¶¯Íê³ÉÔÙÔËĞĞ½Å±¾');
+      if ($.isNode()) await notify.sendNotify(`${$.name} - ÕËºÅ${$.index} - ${$.nickName}`, `Ö´ĞĞ½Å±¾³öÏÖÒì³£\nÇëÊÖ¶¯½øÈëappÄÚ¼ì²é\nÊÇ·ñ´æÔÚ[´Ó¾©¶¹Ê×Ò³½øÁìÈ¯ÖĞĞÄ¹ä30Ãë]µÄÈÎÎñ\nÈç´æÔÚ,ÇëÊÖ¶¯Íê³ÉÔÙÔËĞĞ½Å±¾`)
     }
   } else {
-    console.log(`---å…·ä½“ä»»åŠ¡è¯¦æƒ…---${JSON.stringify(getTaskDetailForColorRes)}`);
+    console.log(`---¾ßÌåÈÎÎñÏêÇé---${JSON.stringify(getTaskDetailForColorRes)}`);
   }
 }
 
-//è·å–å…·ä½“ä»»åŠ¡è¯¦æƒ…
+//»ñÈ¡¾ßÌåÈÎÎñÏêÇé
 function getTaskDetailForColor(taskType) {
   const data = {"clientInfo":{}, taskType};
   return new Promise((resolve) => {
     $.post(taskUrl(arguments.callee.name.toString(), data), (err, resp, data) => {
       try {
         if (err) {
-          console.log(`\n${$.name}: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸`);
+          console.log(`\n${$.name}: API²éÑ¯ÇëÇóÊ§°Ü ????`);
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -195,15 +195,15 @@ function getTaskDetailForColor(taskType) {
     })
   })
 }
-//å®Œæˆä»»åŠ¡çš„åŠ¨ä½œ
+//Íê³ÉÈÎÎñµÄ¶¯×÷
 function taskReportForColor(taskType, detailId) {
   const data = {"clientInfo":{}, taskType, detailId};
-  //console.log(`æ´»åŠ¨idï¼šï¼šï¼š${detailId}\n`)
+  //console.log(`»î¶¯id£º£º£º${detailId}\n`)
   return new Promise((resolve) => {
     $.post(taskUrl(arguments.callee.name.toString(), data), (err, resp, data) => {
       try {
         if (err) {
-          console.log(`\n${$.name}: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸`);
+          console.log(`\n${$.name}: API²éÑ¯ÇëÇóÊ§°Ü ????`);
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -216,14 +216,14 @@ function taskReportForColor(taskType, detailId) {
     })
   })
 }
-//é¢†å– é¢†3å¼ åˆ¸ä»»åŠ¡åçš„çº¢åŒ…
+//ÁìÈ¡ Áì3ÕÅÈ¯ÈÎÎñºóµÄºì°ü
 function receiveTaskRedpacket(taskType) {
   const body = {"clientInfo":{}, taskType};
   return new Promise((resolve) => {
     $.post(taskUrl(arguments.callee.name.toString(), body), (err, resp, data) => {
       try {
         if (err) {
-          console.log(`\n${$.name}: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸`);
+          console.log(`\n${$.name}: API²éÑ¯ÇëÇóÊ§°Ü ????`);
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
@@ -240,18 +240,18 @@ function receiveTaskRedpacket(taskType) {
   })
 }
 function showMsg() {
-  console.log(`${$.name}è·å¾—çº¢åŒ…ï¼š${$.discount}å…ƒ`);
+  console.log(`${$.name}»ñµÃºì°ü£º${$.discount}Ôª`);
 }
 // function newReceiveRvcCouponWithTask() {
 //   const data = {"taskType":"0","extend":"","source":"couponCenter_app","pageClickKey":"CouponCenter","rcType":"1","taskId":"415","childActivityUrl":"","eid":"","shshshfpb":"","lat":"","lng":""};
 //   request(arguments.callee.name.toString(), data).then((response) => {
 //     try {
 //       // taskInfo = res.data.result.taskInfos;
-//       console.log(`é¢†åˆ¸ç»“æœ:${JSON.stringify(response)}`);
+//       console.log(`ÁìÈ¯½á¹û:${JSON.stringify(response)}`);
 //       step.next();
 //     } catch (e) {
 //       console.log(e);
-//       console.log('åˆå§‹åŒ–ä»»åŠ¡å¼‚å¸¸');
+//       console.log('³õÊ¼»¯ÈÎÎñÒì³£');
 //     }
 //   })
 // }
@@ -274,17 +274,17 @@ function TotalBean() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
+          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
         } else {
           if (data) {
             data = JSON.parse(data);
             if (data['retcode'] === 13) {
-              $.isLogin = false; //cookieè¿‡æœŸ
+              $.isLogin = false; //cookie¹ıÆÚ
               return
             }
             $.nickName = data['base'].nickname;
           } else {
-            console.log(`äº¬ä¸œæœåŠ¡å™¨è¿”å›ç©ºæ•°æ®`)
+            console.log(`¾©¶«·şÎñÆ÷·µ»Ø¿ÕÊı¾İ`)
           }
         }
       } catch (e) {
@@ -321,10 +321,10 @@ function jsonParse(str) {
       return JSON.parse(str);
     } catch (e) {
       console.log(e);
-      $.msg($.name, '', 'è¯·å‹¿éšæ„åœ¨BoxJsè¾“å…¥æ¡†ä¿®æ”¹å†…å®¹\nå»ºè®®é€šè¿‡è„šæœ¬å»è·å–cookie')
+      $.msg($.name, '', 'ÇëÎğËæÒâÔÚBoxJsÊäÈë¿òĞŞ¸ÄÄÚÈİ\n½¨ÒéÍ¨¹ı½Å±¾È¥»ñÈ¡cookie')
       return [];
     }
   }
 }
 // prettier-ignore
-function Env(t,e){"undefined"!=typeof process&&JSON.stringify(process.env).indexOf("GIT_HUB")>-1&&process.exit(0);class s{constructor(t){this.env=t}send(t,e="GET"){t="string"==typeof t?{url:t}:t;let s=this.get;return"POST"===e&&(s=this.post),new Promise((e,i)=>{s.call(this,t,(t,s,r)=>{t?i(t):e(s)})})}get(t){return this.send.call(this.env,t)}post(t){return this.send.call(this.env,t,"POST")}}return new class{constructor(t,e){this.name=t,this.http=new s(this),this.data=null,this.dataFile="box.dat",this.logs=[],this.isMute=!1,this.isNeedRewrite=!1,this.logSeparator="\n",this.startTime=(new Date).getTime(),Object.assign(this,e),this.log("",`ğŸ””${this.name}, å¼€å§‹!`)}isNode(){return"undefined"!=typeof module&&!!module.exports}isQuanX(){return"undefined"!=typeof $task}isSurge(){return"undefined"!=typeof $httpClient&&"undefined"==typeof $loon}isLoon(){return"undefined"!=typeof $loon}toObj(t,e=null){try{return JSON.parse(t)}catch{return e}}toStr(t,e=null){try{return JSON.stringify(t)}catch{return e}}getjson(t,e){let s=e;const i=this.getdata(t);if(i)try{s=JSON.parse(this.getdata(t))}catch{}return s}setjson(t,e){try{return this.setdata(JSON.stringify(t),e)}catch{return!1}}getScript(t){return new Promise(e=>{this.get({url:t},(t,s,i)=>e(i))})}runScript(t,e){return new Promise(s=>{let i=this.getdata("@chavy_boxjs_userCfgs.httpapi");i=i?i.replace(/\n/g,"").trim():i;let r=this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");r=r?1*r:20,r=e&&e.timeout?e.timeout:r;const[o,h]=i.split("@"),n={url:`http://${h}/v1/scripting/evaluate`,body:{script_text:t,mock_type:"cron",timeout:r},headers:{"X-Key":o,Accept:"*/*"}};this.post(n,(t,e,i)=>s(i))}).catch(t=>this.logErr(t))}loaddata(){if(!this.isNode())return{};{this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e);if(!s&&!i)return{};{const i=s?t:e;try{return JSON.parse(this.fs.readFileSync(i))}catch(t){return{}}}}}writedata(){if(this.isNode()){this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e),r=JSON.stringify(this.data);s?this.fs.writeFileSync(t,r):i?this.fs.writeFileSync(e,r):this.fs.writeFileSync(t,r)}}lodash_get(t,e,s){const i=e.replace(/\[(\d+)\]/g,".$1").split(".");let r=t;for(const t of i)if(r=Object(r)[t],void 0===r)return s;return r}lodash_set(t,e,s){return Object(t)!==t?t:(Array.isArray(e)||(e=e.toString().match(/[^.[\]]+/g)||[]),e.slice(0,-1).reduce((t,s,i)=>Object(t[s])===t[s]?t[s]:t[s]=Math.abs(e[i+1])>>0==+e[i+1]?[]:{},t)[e[e.length-1]]=s,t)}getdata(t){let e=this.getval(t);if(/^@/.test(t)){const[,s,i]=/^@(.*?)\.(.*?)$/.exec(t),r=s?this.getval(s):"";if(r)try{const t=JSON.parse(r);e=t?this.lodash_get(t,i,""):e}catch(t){e=""}}return e}setdata(t,e){let s=!1;if(/^@/.test(e)){const[,i,r]=/^@(.*?)\.(.*?)$/.exec(e),o=this.getval(i),h=i?"null"===o?null:o||"{}":"{}";try{const e=JSON.parse(h);this.lodash_set(e,r,t),s=this.setval(JSON.stringify(e),i)}catch(e){const o={};this.lodash_set(o,r,t),s=this.setval(JSON.stringify(o),i)}}else s=this.setval(t,e);return s}getval(t){return this.isSurge()||this.isLoon()?$persistentStore.read(t):this.isQuanX()?$prefs.valueForKey(t):this.isNode()?(this.data=this.loaddata(),this.data[t]):this.data&&this.data[t]||null}setval(t,e){return this.isSurge()||this.isLoon()?$persistentStore.write(t,e):this.isQuanX()?$prefs.setValueForKey(t,e):this.isNode()?(this.data=this.loaddata(),this.data[e]=t,this.writedata(),!0):this.data&&this.data[e]||null}initGotEnv(t){this.got=this.got?this.got:require("got"),this.cktough=this.cktough?this.cktough:require("tough-cookie"),this.ckjar=this.ckjar?this.ckjar:new this.cktough.CookieJar,t&&(t.headers=t.headers?t.headers:{},void 0===t.headers.Cookie&&void 0===t.cookieJar&&(t.cookieJar=this.ckjar))}get(t,e=(()=>{})){t.headers&&(delete t.headers["Content-Type"],delete t.headers["Content-Length"]),this.isSurge()||this.isLoon()?(this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.get(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)})):this.isQuanX()?(this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t))):this.isNode()&&(this.initGotEnv(t),this.got(t).on("redirect",(t,e)=>{try{if(t.headers["set-cookie"]){const s=t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();s&&this.ckjar.setCookieSync(s,null),e.cookieJar=this.ckjar}}catch(t){this.logErr(t)}}).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)}))}post(t,e=(()=>{})){if(t.body&&t.headers&&!t.headers["Content-Type"]&&(t.headers["Content-Type"]="application/x-www-form-urlencoded"),t.headers&&delete t.headers["Content-Length"],this.isSurge()||this.isLoon())this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.post(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)});else if(this.isQuanX())t.method="POST",this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t));else if(this.isNode()){this.initGotEnv(t);const{url:s,...i}=t;this.got.post(s,i).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)})}}time(t,e=null){const s=e?new Date(e):new Date;let i={"M+":s.getMonth()+1,"d+":s.getDate(),"H+":s.getHours(),"m+":s.getMinutes(),"s+":s.getSeconds(),"q+":Math.floor((s.getMonth()+3)/3),S:s.getMilliseconds()};/(y+)/.test(t)&&(t=t.replace(RegExp.$1,(s.getFullYear()+"").substr(4-RegExp.$1.length)));for(let e in i)new RegExp("("+e+")").test(t)&&(t=t.replace(RegExp.$1,1==RegExp.$1.length?i[e]:("00"+i[e]).substr((""+i[e]).length)));return t}msg(e=t,s="",i="",r){const o=t=>{if(!t)return t;if("string"==typeof t)return this.isLoon()?t:this.isQuanX()?{"open-url":t}:this.isSurge()?{url:t}:void 0;if("object"==typeof t){if(this.isLoon()){let e=t.openUrl||t.url||t["open-url"],s=t.mediaUrl||t["media-url"];return{openUrl:e,mediaUrl:s}}if(this.isQuanX()){let e=t["open-url"]||t.url||t.openUrl,s=t["media-url"]||t.mediaUrl;return{"open-url":e,"media-url":s}}if(this.isSurge()){let e=t.url||t.openUrl||t["open-url"];return{url:e}}}};if(this.isMute||(this.isSurge()||this.isLoon()?$notification.post(e,s,i,o(r)):this.isQuanX()&&$notify(e,s,i,o(r))),!this.isMuteLog){let t=["","==============ğŸ“£ç³»ç»Ÿé€šçŸ¥ğŸ“£=============="];t.push(e),s&&t.push(s),i&&t.push(i),console.log(t.join("\n")),this.logs=this.logs.concat(t)}}log(...t){t.length>0&&(this.logs=[...this.logs,...t]),console.log(t.join(this.logSeparator))}logErr(t,e){const s=!this.isSurge()&&!this.isQuanX()&&!this.isLoon();s?this.log("",`â—ï¸${this.name}, é”™è¯¯!`,t.stack):this.log("",`â—ï¸${this.name}, é”™è¯¯!`,t)}wait(t){return new Promise(e=>setTimeout(e,t))}done(t={}){const e=(new Date).getTime(),s=(e-this.startTime)/1e3;this.log("",`ğŸ””${this.name}, ç»“æŸ! ğŸ•› ${s} ç§’`),this.log(),(this.isSurge()||this.isQuanX()||this.isLoon())&&$done(t)}}(t,e)}
+function Env(t,e){"undefined"!=typeof process&&JSON.stringify(process.env).indexOf("GIT_HUB")>-1&&process.exit(0);class s{constructor(t){this.env=t}send(t,e="GET"){t="string"==typeof t?{url:t}:t;let s=this.get;return"POST"===e&&(s=this.post),new Promise((e,i)=>{s.call(this,t,(t,s,r)=>{t?i(t):e(s)})})}get(t){return this.send.call(this.env,t)}post(t){return this.send.call(this.env,t,"POST")}}return new class{constructor(t,e){this.name=t,this.http=new s(this),this.data=null,this.dataFile="box.dat",this.logs=[],this.isMute=!1,this.isNeedRewrite=!1,this.logSeparator="\n",this.startTime=(new Date).getTime(),Object.assign(this,e),this.log("",`?${this.name}, ¿ªÊ¼!`)}isNode(){return"undefined"!=typeof module&&!!module.exports}isQuanX(){return"undefined"!=typeof $task}isSurge(){return"undefined"!=typeof $httpClient&&"undefined"==typeof $loon}isLoon(){return"undefined"!=typeof $loon}toObj(t,e=null){try{return JSON.parse(t)}catch{return e}}toStr(t,e=null){try{return JSON.stringify(t)}catch{return e}}getjson(t,e){let s=e;const i=this.getdata(t);if(i)try{s=JSON.parse(this.getdata(t))}catch{}return s}setjson(t,e){try{return this.setdata(JSON.stringify(t),e)}catch{return!1}}getScript(t){return new Promise(e=>{this.get({url:t},(t,s,i)=>e(i))})}runScript(t,e){return new Promise(s=>{let i=this.getdata("@chavy_boxjs_userCfgs.httpapi");i=i?i.replace(/\n/g,"").trim():i;let r=this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");r=r?1*r:20,r=e&&e.timeout?e.timeout:r;const[o,h]=i.split("@"),n={url:`http://${h}/v1/scripting/evaluate`,body:{script_text:t,mock_type:"cron",timeout:r},headers:{"X-Key":o,Accept:"*/*"}};this.post(n,(t,e,i)=>s(i))}).catch(t=>this.logErr(t))}loaddata(){if(!this.isNode())return{};{this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e);if(!s&&!i)return{};{const i=s?t:e;try{return JSON.parse(this.fs.readFileSync(i))}catch(t){return{}}}}}writedata(){if(this.isNode()){this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e),r=JSON.stringify(this.data);s?this.fs.writeFileSync(t,r):i?this.fs.writeFileSync(e,r):this.fs.writeFileSync(t,r)}}lodash_get(t,e,s){const i=e.replace(/\[(\d+)\]/g,".$1").split(".");let r=t;for(const t of i)if(r=Object(r)[t],void 0===r)return s;return r}lodash_set(t,e,s){return Object(t)!==t?t:(Array.isArray(e)||(e=e.toString().match(/[^.[\]]+/g)||[]),e.slice(0,-1).reduce((t,s,i)=>Object(t[s])===t[s]?t[s]:t[s]=Math.abs(e[i+1])>>0==+e[i+1]?[]:{},t)[e[e.length-1]]=s,t)}getdata(t){let e=this.getval(t);if(/^@/.test(t)){const[,s,i]=/^@(.*?)\.(.*?)$/.exec(t),r=s?this.getval(s):"";if(r)try{const t=JSON.parse(r);e=t?this.lodash_get(t,i,""):e}catch(t){e=""}}return e}setdata(t,e){let s=!1;if(/^@/.test(e)){const[,i,r]=/^@(.*?)\.(.*?)$/.exec(e),o=this.getval(i),h=i?"null"===o?null:o||"{}":"{}";try{const e=JSON.parse(h);this.lodash_set(e,r,t),s=this.setval(JSON.stringify(e),i)}catch(e){const o={};this.lodash_set(o,r,t),s=this.setval(JSON.stringify(o),i)}}else s=this.setval(t,e);return s}getval(t){return this.isSurge()||this.isLoon()?$persistentStore.read(t):this.isQuanX()?$prefs.valueForKey(t):this.isNode()?(this.data=this.loaddata(),this.data[t]):this.data&&this.data[t]||null}setval(t,e){return this.isSurge()||this.isLoon()?$persistentStore.write(t,e):this.isQuanX()?$prefs.setValueForKey(t,e):this.isNode()?(this.data=this.loaddata(),this.data[e]=t,this.writedata(),!0):this.data&&this.data[e]||null}initGotEnv(t){this.got=this.got?this.got:require("got"),this.cktough=this.cktough?this.cktough:require("tough-cookie"),this.ckjar=this.ckjar?this.ckjar:new this.cktough.CookieJar,t&&(t.headers=t.headers?t.headers:{},void 0===t.headers.Cookie&&void 0===t.cookieJar&&(t.cookieJar=this.ckjar))}get(t,e=(()=>{})){t.headers&&(delete t.headers["Content-Type"],delete t.headers["Content-Length"]),this.isSurge()||this.isLoon()?(this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.get(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)})):this.isQuanX()?(this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t))):this.isNode()&&(this.initGotEnv(t),this.got(t).on("redirect",(t,e)=>{try{if(t.headers["set-cookie"]){const s=t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();s&&this.ckjar.setCookieSync(s,null),e.cookieJar=this.ckjar}}catch(t){this.logErr(t)}}).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)}))}post(t,e=(()=>{})){if(t.body&&t.headers&&!t.headers["Content-Type"]&&(t.headers["Content-Type"]="application/x-www-form-urlencoded"),t.headers&&delete t.headers["Content-Length"],this.isSurge()||this.isLoon())this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.post(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)});else if(this.isQuanX())t.method="POST",this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t));else if(this.isNode()){this.initGotEnv(t);const{url:s,...i}=t;this.got.post(s,i).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)})}}time(t,e=null){const s=e?new Date(e):new Date;let i={"M+":s.getMonth()+1,"d+":s.getDate(),"H+":s.getHours(),"m+":s.getMinutes(),"s+":s.getSeconds(),"q+":Math.floor((s.getMonth()+3)/3),S:s.getMilliseconds()};/(y+)/.test(t)&&(t=t.replace(RegExp.$1,(s.getFullYear()+"").substr(4-RegExp.$1.length)));for(let e in i)new RegExp("("+e+")").test(t)&&(t=t.replace(RegExp.$1,1==RegExp.$1.length?i[e]:("00"+i[e]).substr((""+i[e]).length)));return t}msg(e=t,s="",i="",r){const o=t=>{if(!t)return t;if("string"==typeof t)return this.isLoon()?t:this.isQuanX()?{"open-url":t}:this.isSurge()?{url:t}:void 0;if("object"==typeof t){if(this.isLoon()){let e=t.openUrl||t.url||t["open-url"],s=t.mediaUrl||t["media-url"];return{openUrl:e,mediaUrl:s}}if(this.isQuanX()){let e=t["open-url"]||t.url||t.openUrl,s=t["media-url"]||t.mediaUrl;return{"open-url":e,"media-url":s}}if(this.isSurge()){let e=t.url||t.openUrl||t["open-url"];return{url:e}}}};if(this.isMute||(this.isSurge()||this.isLoon()?$notification.post(e,s,i,o(r)):this.isQuanX()&&$notify(e,s,i,o(r))),!this.isMuteLog){let t=["","==============?ÏµÍ³Í¨Öª?=============="];t.push(e),s&&t.push(s),i&&t.push(i),console.log(t.join("\n")),this.logs=this.logs.concat(t)}}log(...t){t.length>0&&(this.logs=[...this.logs,...t]),console.log(t.join(this.logSeparator))}logErr(t,e){const s=!this.isSurge()&&!this.isQuanX()&&!this.isLoon();s?this.log("",`??${this.name}, ´íÎó!`,t.stack):this.log("",`??${this.name}, ´íÎó!`,t)}wait(t){return new Promise(e=>setTimeout(e,t))}done(t={}){const e=(new Date).getTime(),s=(e-this.startTime)/1e3;this.log("",`?${this.name}, ½áÊø! ? ${s} Ãë`),this.log(),(this.isSurge()||this.isQuanX()||this.isLoon())&&$done(t)}}(t,e)}
