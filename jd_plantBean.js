@@ -1,5 +1,5 @@
 /*
-种豆得豆 脚本更新地址：https://gitee.com/lxk0301/jd_scripts/raw/master/jd_plantBean.js
+种豆得豆 脚本更新地址：https://jdsharedresourcescdn.azureedge.net/jdresource/jd_plantBean.js
 更新时间：2021-1-16
 活动入口：京东APP我的-更多工具-种豆得豆
 已支持IOS京东双账号,云端N个京东账号
@@ -9,17 +9,17 @@
 每个京东账号每天只能帮助3个人。多出的助力码将会助力失败。
 =====================================Quantumult X=================================
 [task_local]
-1 7-21/2 * * * https://gitee.com/lxk0301/jd_scripts/raw/master/jd_plantBean.js, tag=种豆得豆, img-url=https://raw.GIT_HUBusercontent.com/58xinian/icon/master/jdzd.png, enabled=true
+1 7-21/2 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_plantBean.js, tag=种豆得豆, img-url=https://raw.GIT_HUBusercontent.com/58xinian/icon/master/jdzd.png, enabled=true
 
 =====================================Loon================================
 [Script]
-cron "1 7-21/2 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_plantBean.js,tag=京东种豆得豆
+cron "1 7-21/2 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_plantBean.js,tag=京东种豆得豆
 
 ======================================Surge==========================
-京东种豆得豆 = type=cron,cronexp="1 7-21/2 * * *",wake-system=1,timeout=3600,script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_plantBean.js
+京东种豆得豆 = type=cron,cronexp="1 7-21/2 * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_plantBean.js
 
 ====================================小火箭=============================
-京东种豆得豆 = type=cron,script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_plantBean.js, cronexpr="1 7-21/2 * * *", timeout=3600, enable=true
+京东种豆得豆 = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_plantBean.js, cronexpr="1 7-21/2 * * *", timeout=3600, enable=true
 
 搬的https://GIT_HUB.com/uniqueque/QuantumultX/blob/4c1572d93d4d4f883f483f907120a75d925a693e/Script/jd_plantBean.js
 */
@@ -576,13 +576,7 @@ function requireConfig() {
       })
       if (process.env.JD_DEBUG && process.env.JD_DEBUG === 'false') console.log = () => {};
     } else {
-      let cookiesData = $.getdata('CookiesJD') || "[]";
-      cookiesData = jsonParse(cookiesData);
-      cookiesArr = cookiesData.map(item => item.cookie);
-      cookiesArr.reverse();
-      cookiesArr.push(...[$.getdata('CookieJD2'), $.getdata('CookieJD')]);
-      cookiesArr.reverse();
-      cookiesArr = cookiesArr.filter(item => item !== "" && item !== null && item !== undefined);
+      cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
     }
     console.log(`共${cookiesArr.length}个京东账号\n`)
     if ($.isNode()) {

@@ -13,17 +13,17 @@ TODO
 ============Quantumultx===============
 [task_local]
 #天天提鹅
-10 * * * * https://gitee.com/lxk0301/jd_scripts/raw/master/jd_daily_egg.js, tag=天天提鹅, img-url=https://raw.GIT_HUBusercontent.com/58xinian/icon/master/jdte.png, enabled=true
+10 * * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_daily_egg.js, tag=天天提鹅, img-url=https://raw.GIT_HUBusercontent.com/58xinian/icon/master/jdte.png, enabled=true
 
 ================Loon==============
 [Script]
-cron "10 * * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_daily_egg.js,tag=天天提鹅
+cron "10 * * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_daily_egg.js,tag=天天提鹅
 
 ===============Surge=================
-天天提鹅 = type=cron,cronexp="10 * * * *",wake-system=1,timeout=3600,script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_daily_egg.js
+天天提鹅 = type=cron,cronexp="10 * * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_daily_egg.js
 
 ============小火箭=========
-天天提鹅 = type=cron,script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_daily_egg.js, cronexpr="10 * * * *", timeout=3600, enable=true
+天天提鹅 = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_daily_egg.js, cronexpr="10 * * * *", timeout=3600, enable=true
  */
 const $ = new Env('天天提鹅');
 let cookiesArr = [], cookie = '';
@@ -37,13 +37,7 @@ if ($.isNode()) {
   })
   if (process.env.JD_DEBUG && process.env.JD_DEBUG === 'false') console.log = () => {};
 } else {
-  let cookiesData = $.getdata('CookiesJD') || "[]";
-  cookiesData = jsonParse(cookiesData);
-  cookiesArr = cookiesData.map(item => item.cookie);
-  cookiesArr.reverse();
-  cookiesArr.push(...[$.getdata('CookieJD2'), $.getdata('CookieJD')]);
-  cookiesArr.reverse();
-  cookiesArr = cookiesArr.filter(item => item !== "" && item !== null && item !== undefined);
+  cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 }
 !(async () => {
   if (!cookiesArr[0]) {

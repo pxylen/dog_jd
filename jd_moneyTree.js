@@ -1,5 +1,5 @@
 /*
-京东摇钱树 ：https://gitee.com/lxk0301/jd_scripts/raw/master/jd_moneyTree.js
+京东摇钱树 ：https://jdsharedresourcescdn.azureedge.net/jdresource/jd_moneyTree.js
 更新时间：2020-11-16
 活动入口：京东APP我的-更多工具-摇钱树
 京东摇钱树支持京东双账号
@@ -7,17 +7,17 @@
 ===============Quantumultx===============
 [task_local]
 #京东摇钱树
-3 0-23/2 * * * https://gitee.com/lxk0301/jd_scripts/raw/master/jd_moneyTree.js, tag=京东摇钱树, img-url=https://raw.GIT_HUBusercontent.com/58xinian/icon/master/jdyqs.png, enabled=true
+3 0-23/2 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_moneyTree.js, tag=京东摇钱树, img-url=https://raw.GIT_HUBusercontent.com/58xinian/icon/master/jdyqs.png, enabled=true
 
 ==============Loon===========
 [Script]
-cron "3 0-23/2 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_moneyTree.js,tag=京东摇钱树
+cron "3 0-23/2 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_moneyTree.js,tag=京东摇钱树
 
 ===============Surge===========
-京东摇钱树 = type=cron,cronexp="3 0-23/2 * * *",wake-system=1,timeout=3600,script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_moneyTree.js
+京东摇钱树 = type=cron,cronexp="3 0-23/2 * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_moneyTree.js
 
 ============小火箭=========
-京东摇钱树 = type=cron,script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_moneyTree.js, cronexpr="3 0-23/2 * * *", timeout=3600, enable=true
+京东摇钱树 = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_moneyTree.js, cronexpr="3 0-23/2 * * *", timeout=3600, enable=true
 */
 
 const $ = new Env('京东摇钱树');
@@ -33,13 +33,7 @@ if ($.isNode()) {
   })
   if (process.env.JD_DEBUG && process.env.JD_DEBUG === 'false') console.log = () => {};
 } else {
-  let cookiesData = $.getdata('CookiesJD') || "[]";
-  cookiesData = jsonParse(cookiesData);
-  cookiesArr = cookiesData.map(item => item.cookie);
-  cookiesArr.reverse();
-  cookiesArr.push(...[$.getdata('CookieJD2'), $.getdata('CookieJD')]);
-  cookiesArr.reverse();
-  cookiesArr = cookiesArr.filter(item => item !== "" && item !== null && item !== undefined);
+  cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 }
 
 let jdNotify = true;//是否开启静默运行，默认true开启

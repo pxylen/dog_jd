@@ -9,19 +9,19 @@
 活动入口：京东APP首页-京东超市-底部东东超市
 Some Functions Modified From https://GIT_HUB.com/Zero-S1/JD_tools/blob/master/JD_superMarket.py
 支持京东双账号
-东东超市兑换奖品请使用此脚本 https://gitee.com/lxk0301/jd_scripts/raw/master/jd_blueCoin.js
+东东超市兑换奖品请使用此脚本 https://jdsharedresourcescdn.azureedge.net/jdresource/jd_blueCoin.js
 脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
 =================QuantumultX==============
 [task_local]
 #东东超市
-11 * * * * https://gitee.com/lxk0301/jd_scripts/raw/master/jd_superMarket.js, tag=东东超市, img-url=https://raw.GIT_HUBusercontent.com/58xinian/icon/master/jxc.png, enabled=true
+11 * * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_superMarket.js, tag=东东超市, img-url=https://raw.GIT_HUBusercontent.com/58xinian/icon/master/jxc.png, enabled=true
 ===========Loon===============
 [Script]
-cron "11 * * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_superMarket.js,tag=东东超市
+cron "11 * * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_superMarket.js,tag=东东超市
 =======Surge===========
-东东超市 = type=cron,cronexp="11 * * * *",wake-system=1,timeout=3600,script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_superMarket.js
+东东超市 = type=cron,cronexp="11 * * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_superMarket.js
 ==============小火箭=============
-东东超市 = type=cron,script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_superMarket.js, cronexpr="11 * * * *", timeout=3600, enable=true
+东东超市 = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_superMarket.js, cronexpr="11 * * * *", timeout=3600, enable=true
  */
 const $ = new Env('东东超市');
 //Node.js用户请在jdCookie.js处填写京东ck;
@@ -1509,13 +1509,7 @@ function requireConfig() {
       })
       if (process.env.JD_DEBUG && process.env.JD_DEBUG === 'false') console.log = () => {};
     } else {
-      let cookiesData = $.getdata('CookiesJD') || "[]";
-      cookiesData = jsonParse(cookiesData);
-      cookiesArr = cookiesData.map(item => item.cookie);
-      cookiesArr.reverse();
-      cookiesArr.push(...[$.getdata('CookieJD2'), $.getdata('CookieJD')]);
-      cookiesArr.reverse();
-      cookiesArr = cookiesArr.filter(item => item !== "" && item !== null && item !== undefined);
+      cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
     }
     console.log(`共${cookiesArr.length}个京东账号\n`);
     // console.log(`东东超市已改版,目前暂不用助力, 故无助力码`)

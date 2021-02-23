@@ -10,17 +10,17 @@
 ============Quantumultx===============
 [task_local]
 #京东极速版红包
-0 0 * * * https://gitee.com/lxk0301/jd_scripts/raw/master/jd_speed_redpocke.js, tag=京东极速版红包, img-url=https://raw.GIT_HUBusercontent.com/Orz-3/task/master/jd.png, enabled=true
+0 0 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed_redpocke.js, tag=京东极速版红包, img-url=https://raw.GIT_HUBusercontent.com/Orz-3/task/master/jd.png, enabled=true
 
 ================Loon==============
 [Script]
-cron "0 0 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_speed_redpocke.js,tag=京东极速版红包
+cron "0 0 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed_redpocke.js,tag=京东极速版红包
 
 ===============Surge=================
-京东极速版红包 = type=cron,cronexp="0 0 * * *",wake-system=1,timeout=3600,script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_speed_redpocke.js
+京东极速版红包 = type=cron,cronexp="0 0 * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed_redpocke.js
 
 ============小火箭=========
-京东极速版红包 = type=cron,script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_speed_redpocke.js, cronexpr="0 0 * * *", timeout=3600, enable=true
+京东极速版红包 = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed_redpocke.js, cronexpr="0 0 * * *", timeout=3600, enable=true
 */
 
 const $ = new Env('京东极速版红包');
@@ -83,117 +83,11 @@ async function jsRedPacket() {
       await $.wait(500)
     }
     await showMsg()
-    let flag = 1, page = 1;
-    do {
-      let list = await wxRewardList(page++);
-      $.log(`待提现记录数：${list.length}`)
-      if (list.length > 0) {
-        for (let body of list) {
-          await getWxReward(body);
-        }
-      } else {
-        flag = 0;
-      }
-    } while (flag);
   } catch (e) {
     $.logErr(e)
   }
 }
 
-// 获取微信奖励列表
-function wxRewardList(page){
-  return new Promise(async resolve => {
-    const options = {
-      "url": `https://api.m.jd.com/?functionId=spring_reward_list&body=%7B%22pageNum%22%3A${page}%2C%22pageSize%22%3A10%2C%22linkId%22%3A%22FqktpB8R3nkJB8wVh8wC_g%22%2C%22inviter%22%3A%22%22%7D&_t=${+new Date()}&appid=activities_platform`,
-      "headers": {
-        'Host': 'api.m.jd.com',
-        'accept': 'application/json, text/plain, */*',
-        'origin': 'https://prodev.m.jd.com',
-        'user-agent': 'jdltapp;iPad;3.1.0;14.4;Mozilla/5.0 (iPad; CPU OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1',
-        'accept-language': 'zh-cn',
-        'referer': 'https://prodev.m.jd.com/jdlite/active/31U4T6S4PbcK83HyLPioeCWrD63j/index.html',
-        'Cookie': cookie
-      }
-    }
-    $.get(options, (err, resp, data) => {
-      let list = [];
-      try {
-        if (err) {
-          console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} API请求失败，请检查网路重试`)
-        } else {
-          if (data) {
-            data = JSON.parse(data);
-            // console.log(data)
-            ((data && data.data && data.data.items) || []).forEach(o=>{
-              if(o.prizeType == 4 && o.state == 0){
-                // 筛选未提现数据
-                let body = {
-                  "businessSource": "SPRING_FESTIVAL_RED_ENVELOPE",
-                  "base": {
-                    "id": o.id,
-                    "business": "",
-                    "poolBaseId": o.poolBaseId,
-                    "prizeGroupId": o.prizeGroupId,
-                    "prizeBaseId": o.prizeBaseId,
-                    "prizeType": 4
-                  },
-                  "linkId": "FqktpB8R3nkJB8wVh8wC_g",
-                  "inviter": ""
-                };
-                list.push(JSON.stringify(body));
-              }
-            })
-          } else {
-            console.log(`京东服务器返回空数据`)
-          }
-        }
-      } catch (e) {
-        $.logErr(e, resp)
-      } finally {
-        resolve(list);
-      }
-    })
-  })
-}
-
-// 获取微信奖励列表
-function getWxReward(body){
-  return new Promise(async resolve => {
-    const options = {
-      "url": `https://api.m.jd.com/`,
-      "headers": {
-        'Host': 'api.m.jd.com',
-        'accept': 'application/json, text/plain, */*',
-        'origin': 'https://prodev.m.jd.com',
-        'user-agent': 'jdltapp;iPad;3.1.0;14.4;Mozilla/5.0 (iPad; CPU OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1',
-        'accept-language': 'zh-cn',
-        'referer': 'https://prodev.m.jd.com/jdlite/active/31U4T6S4PbcK83HyLPioeCWrD63j/index.html',
-        "Content-Type": "application/x-www-form-urlencoded",
-        'Cookie': cookie
-      },
-      "body": `functionId=apCashWithDraw&body=${body}&_t=${+new Date()}&appid=activities_platform`
-    }
-    $.post(options, (err, resp, data) => {
-      try {
-        if (err) {
-          console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} API请求失败，请检查网路重试`)
-        } else {
-          if (data) {
-            $.log(data)
-          } else {
-            console.log(`京东服务器返回空数据`)
-          }
-        }
-      } catch (e) {
-        $.logErr(e, resp)
-      } finally {
-        resolve();
-      }
-    })
-  })
-}
 
 function showMsg() {
   return new Promise(resolve => {
@@ -214,7 +108,7 @@ async function redPacket() {
   };
 
   var options = {
-    url: `https://api.m.jd.com/?functionId=spring_reward_receive&body=%7B%22inviter%22%3A%22hJyuwiDvDEc5-jIeec4Iyg%22%2C%22linkId%22%3A%22FqktpB8R3nkJB8wVh8wC_g%22%7D&_t=${+new Date()}&appid=activities_platform`,
+    url: `https://api.m.jd.com/?functionId=spring_reward_receive&body={%22inviter%22:%22hJyuwiDvDEc5-jIeec4Iyg%22,%22linkId%22:%22FqktpB8R3nkJB8wVh8wC_g%22}&_t=${+new Date()}&appid=activities_platform`,
     headers: headers
   }
   return new Promise(resolve => {
@@ -260,7 +154,7 @@ function invite() {
     'Cookie': cookie
   };
 
-  var dataString = `functionId=InviteFriendApiService&body={"method":"attendInviteActivity","data":{"inviterPin":"Wy3rGd8o4Vckq1VucBFJjA%3D%3D","channel":1,"token":"","frontendInitStatus":""}}&referer=-1&eid=eidIf3dd8121b7sdmiBLGdxRR46OlWyh62kFAZogTJFnYqqRkwgr63%2BdGmMlcv7EQJ5v0HBic81xHXzXLwKM6fh3i963zIa7Ym2v5ehnwo2B7uDN92Q0&aid=&client=ios&clientVersion=14.4&networkType=wifi&fp=-1&appid=market-task-h5&_t=${t}`;
+  var dataString = `functionId=InviteFriendApiService&body={"method":"attendInviteActivity","data":{"inviterPin":"2OldVZc5pETBD81XU85thQ%3D%3D","channel":1,"token":"","frontendInitStatus":""}}&referer=-1&eid=eidIf3dd8121b7sdmiBLGdxRR46OlWyh62kFAZogTJFnYqqRkwgr63%2BdGmMlcv7EQJ5v0HBic81xHXzXLwKM6fh3i963zIa7Ym2v5ehnwo2B7uDN92Q0&aid=&client=ios&clientVersion=14.4&networkType=wifi&fp=-1&appid=market-task-h5&_t=${t}`;
 
   var options = {
     url: `https://api.m.jd.com/?t=${t}`,

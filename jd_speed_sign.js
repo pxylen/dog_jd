@@ -10,17 +10,17 @@
 ============Quantumultx===============
 [task_local]
 #京东极速版
-0 7 * * * https://gitee.com/lxk0301/jd_scripts/raw/master/jd_speed_sign.js, tag=京东极速版, img-url=https://raw.GIT_HUBusercontent.com/Orz-3/task/master/jd.png, enabled=true
+0 7 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed_sign.js, tag=京东极速版, img-url=https://raw.GIT_HUBusercontent.com/Orz-3/task/master/jd.png, enabled=true
 
 ================Loon==============
 [Script]
-cron "0 7 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_speed_sign.js,tag=京东极速版
+cron "0 7 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed_sign.js,tag=京东极速版
 
 ===============Surge=================
-京东极速版 = type=cron,cronexp="0 7 * * *",wake-system=1,timeout=3600,script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_speed_sign.js
+京东极速版 = type=cron,cronexp="0 7 * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed_sign.js
 
 ============小火箭=========
-京东极速版 = type=cron,script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_speed_sign.js, cronexpr="0 7 * * *", timeout=3600, enable=true
+京东极速版 = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed_sign.js, cronexpr="0 7 * * *", timeout=3600, enable=true
 */
 
 const $ = new Env('京东极速版');
@@ -487,7 +487,7 @@ function invite2() {
     'Cookie': cookie
   };
 
-  var dataString = `functionId=TaskInviteService&body={"method":"participateInviteTask","data":{"channel":"1","encryptionInviterPin":"Wy3rGd8o4Vckq1VucBFJjA%3D%3D","type":1}}&appid=market-task-h5&uuid=&_t=${t}`;
+  var dataString = `functionId=TaskInviteService&body={"method":"participateInviteTask","data":{"channel":"1","encryptionInviterPin":"2OldVZc5pETBD81XU85thQ%3D%3D","type":1}}&appid=market-task-h5&uuid=&_t=${t}`;
 
   var options = {
     url: 'https://api.m.jd.com/',
@@ -512,7 +512,7 @@ function invite() {
     'Cookie': cookie
   };
 
-  var dataString = `functionId=InviteFriendApiService&body={"method":"attendInviteActivity","data":{"inviterPin":"Wy3rGd8o4Vckq1VucBFJjA%3D%3D","channel":1,"token":"","frontendInitStatus":""}}&referer=-1&eid=eidIf3dd8121b7sdmiBLGdxRR46OlWyh62kFAZogTJFnYqqRkwgr63%2BdGmMlcv7EQJ5v0HBic81xHXzXLwKM6fh3i963zIa7Ym2v5ehnwo2B7uDN92Q0&aid=&client=ios&clientVersion=14.4&networkType=wifi&fp=-1&appid=market-task-h5&_t=${t}`;
+  var dataString = `functionId=InviteFriendApiService&body={"method":"attendInviteActivity","data":{"inviterPin":"2OldVZc5pETBD81XU85thQ%3D%3D","channel":1,"token":"","frontendInitStatus":""}}&referer=-1&eid=eidIf3dd8121b7sdmiBLGdxRR46OlWyh62kFAZogTJFnYqqRkwgr63%2BdGmMlcv7EQJ5v0HBic81xHXzXLwKM6fh3i963zIa7Ym2v5ehnwo2B7uDN92Q0&aid=&client=ios&clientVersion=14.4&networkType=wifi&fp=-1&appid=market-task-h5&_t=${t}`;
 
   var options = {
     url: 'https://api.m.jd.com/?t=1613645706861',

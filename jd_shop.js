@@ -7,13 +7,13 @@
 ===============Quantumultx===============
 [task_local]
 #进店领豆
-10 0 * * * https://gitee.com/lxk0301/jd_scripts/raw/master/jd_shop.js, tag=进店领豆, img-url=https://raw.GIT_HUBusercontent.com/58xinian/icon/master/jd_shop.png, enabled=true
+10 0 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_shop.js, tag=进店领豆, img-url=https://raw.GIT_HUBusercontent.com/58xinian/icon/master/jd_shop.png, enabled=true
 ================Loon============
 [Script]
-cron "10 0 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_shop.js,tag=进店领豆
+cron "10 0 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_shop.js,tag=进店领豆
 ==============Surge===============
 [Script]
-进店领豆 = type=cron,cronexp="10 0 * * *",wake-system=1,timeout=3600,script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_shop.js
+进店领豆 = type=cron,cronexp="10 0 * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_shop.js
 */
 const $ = new Env('进店领豆');
 const notify = $.isNode() ? require('./sendNotify') : '';
@@ -28,13 +28,7 @@ if ($.isNode()) {
   })
   if (process.env.JD_DEBUG && process.env.JD_DEBUG === 'false') console.log = () => {};
 } else {
-  let cookiesData = $.getdata('CookiesJD') || "[]";
-  cookiesData = jsonParse(cookiesData);
-  cookiesArr = cookiesData.map(item => item.cookie);
-  cookiesArr.reverse();
-  cookiesArr.push(...[$.getdata('CookieJD2'), $.getdata('CookieJD')]);
-  cookiesArr.reverse();
-  cookiesArr = cookiesArr.filter(item => item !== "" && item !== null && item !== undefined);
+  cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 }
 let message = '', subTitle = '';
 
