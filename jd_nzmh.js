@@ -1,31 +1,31 @@
 /*
-Å®×°Ã¤ºĞ
-»î¶¯Ê±¼ä£º2021-2-19ÖÁ2021-2-25
-»î¶¯µØÖ·£ºhttps://anmp.jd.com/babelDiy/Zeus/2rjWmdgpwypWAQmLuW3CvJQtBjWL/index.html
-»î¶¯Èë¿Ú£º¾©¶«app-Å®×°¹İ-Ó®¾©¶¹
-ÒÑÖ§³ÖIOSË«¾©¶«ÕËºÅ,Node.jsÖ§³ÖN¸ö¾©¶«ÕËºÅ
-½Å±¾¼æÈİ: QuantumultX, Surge, Loon, JSBox, Node.js
+å¥³è£…ç›²ç›’
+æ´»åŠ¨æ—¶é—´ï¼š2021-2-19è‡³2021-2-25
+æ´»åŠ¨åœ°å€ï¼šhttps://anmp.jd.com/babelDiy/Zeus/2rjWmdgpwypWAQmLuW3CvJQtBjWL/index.html
+æ´»åŠ¨å…¥å£ï¼šäº¬ä¸œapp-å¥³è£…é¦†-èµ¢äº¬è±†
+å·²æ”¯æŒIOSåŒäº¬ä¸œè´¦å·,Node.jsæ”¯æŒNä¸ªäº¬ä¸œè´¦å·
+è„šæœ¬å…¼å®¹: QuantumultX, Surge, Loon, JSBox, Node.js
 ============Quantumultx===============
 [task_local]
-#Å®×°Ã¤ºĞ
-0 7 19-25 2 * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_nzmh.js, tag=Å®×°Ã¤ºĞ, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+#å¥³è£…ç›²ç›’
+0 7 19-25 2 * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_nzmh.js, tag=å¥³è£…ç›²ç›’, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 
 ================Loon==============
 [Script]
-cron "0 7 19-25 2 *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_nzmh.js,tag=Å®×°Ã¤ºĞ
+cron "0 7 19-25 2 *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_nzmh.js,tag=å¥³è£…ç›²ç›’
 
 ===============Surge=================
-Å®×°Ã¤ºĞ = type=cron,cronexp="0 7 19-25 2 *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_nzmh.js
+å¥³è£…ç›²ç›’ = type=cron,cronexp="0 7 19-25 2 *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_nzmh.js
 
-============Ğ¡»ğ¼ı=========
-Å®×°Ã¤ºĞ = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_nzmh.js, cronexpr="0 7 19-25 2 *", timeout=3600, enable=true
+============å°ç«ç®­=========
+å¥³è£…ç›²ç›’ = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_nzmh.js, cronexpr="0 7 19-25 2 *", timeout=3600, enable=true
  */
 
-const $ = new Env('Å®×°Ã¤ºĞ³é¾©¶¹');
+const $ = new Env('å¥³è£…ç›²ç›’æŠ½äº¬è±†');
 const notify = $.isNode() ? require('./sendNotify') : '';
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
-//Node.jsÓÃ»§ÇëÔÚjdCookie.js´¦ÌîĞ´¾©¶«ck;
-//IOSµÈÓÃ»§Ö±½ÓÓÃNobyDaµÄjd cookie
+//Node.jsç”¨æˆ·è¯·åœ¨jdCookie.jså¤„å¡«å†™äº¬ä¸œck;
+//IOSç­‰ç”¨æˆ·ç›´æ¥ç”¨NobyDaçš„jd cookie
 let cookiesArr = [], cookie = '', message;
 
 if ($.isNode()) {
@@ -40,7 +40,7 @@ if ($.isNode()) {
 
 !(async () => {
   if (!cookiesArr[0]) {
-    $.msg($.name, '¡¾ÌáÊ¾¡¿ÇëÏÈ»ñÈ¡¾©¶«ÕËºÅÒ»cookie\nÖ±½ÓÊ¹ÓÃNobyDaµÄ¾©¶«Ç©µ½»ñÈ¡', 'https://bean.m.jd.com/', {"open-url": "https://bean.m.jd.com/"});
+    $.msg($.name, 'ã€æç¤ºã€‘è¯·å…ˆè·å–äº¬ä¸œè´¦å·ä¸€cookie\nç›´æ¥ä½¿ç”¨NobyDaçš„äº¬ä¸œç­¾åˆ°è·å–', 'https://bean.m.jd.com/', {"open-url": "https://bean.m.jd.com/"});
     return;
   }
   for (let i = 0; i < cookiesArr.length; i++) {
@@ -53,13 +53,13 @@ if ($.isNode()) {
       $.beans = 0
       message = '';
       await TotalBean();
-      console.log(`\n******¿ªÊ¼¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName || $.UserName}*********\n`);
+      console.log(`\n******å¼€å§‹ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName || $.UserName}*********\n`);
       if (!$.isLogin) {
-        $.msg($.name, `¡¾ÌáÊ¾¡¿cookieÒÑÊ§Ğ§`, `¾©¶«ÕËºÅ${$.index} ${$.nickName || $.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡\nhttps://bean.m.jd.com/`, {"open-url": "https://bean.m.jd.com/"});
+        $.msg($.name, `ã€æç¤ºã€‘cookieå·²å¤±æ•ˆ`, `äº¬ä¸œè´¦å·${$.index} ${$.nickName || $.UserName}\nè¯·é‡æ–°ç™»å½•è·å–\nhttps://bean.m.jd.com/`, {"open-url": "https://bean.m.jd.com/"});
         if ($.isNode()) {
-          await notify.sendNotify(`${$.name}cookieÒÑÊ§Ğ§ - ${$.UserName}`, `¾©¶«ÕËºÅ${$.index} ${$.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡cookie`);
+          await notify.sendNotify(`${$.name}cookieå·²å¤±æ•ˆ - ${$.UserName}`, `äº¬ä¸œè´¦å·${$.index} ${$.UserName}\nè¯·é‡æ–°ç™»å½•è·å–cookie`);
         } else {
-          $.setdata('', `CookieJD${i ? i + 1 : ""}`);//cookieÊ§Ğ§£¬¹ÊÇå¿Õcookie¡£$.setdata('', `CookieJD${i ? i + 1 : "" }`);//cookieÊ§Ğ§£¬¹ÊÇå¿Õcookie¡£
+          $.setdata('', `CookieJD${i ? i + 1 : ""}`);//cookieå¤±æ•ˆï¼Œæ•…æ¸…ç©ºcookieã€‚$.setdata('', `CookieJD${i ? i + 1 : "" }`);//cookieå¤±æ•ˆï¼Œæ•…æ¸…ç©ºcookieã€‚
         }
         continue
       }
@@ -68,7 +68,7 @@ if ($.isNode()) {
   }
 })()
   .catch((e) => {
-    $.log('', `? ${$.name}, Ê§°Ü! Ô­Òò: ${e}!`, '')
+    $.log('', `âŒ ${$.name}, å¤±è´¥! åŸå› : ${e}!`, '')
   })
   .finally(() => {
     $.done();
@@ -88,8 +88,8 @@ async function jdMh() {
 
 function showMsg() {
   return new Promise(resolve => {
-    message += `±¾´ÎÔËĞĞ»ñµÃ${$.beans}¾©¶¹`
-    $.msg($.name, '', `¾©¶«ÕËºÅ${$.index}${$.nickName}\n${message}`);
+    message += `æœ¬æ¬¡è¿è¡Œè·å¾—${$.beans}äº¬è±†`
+    $.msg($.name, '', `äº¬ä¸œè´¦å·${$.index}${$.nickName}\n${message}`);
     resolve()
   })
 }
@@ -119,14 +119,14 @@ function getUserInfo() {
       try {
         if (err) {
           console.log(`${err},${jsonParse(resp.body)['message']}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           $.userInfo = JSON.parse(data.match(/query\((.*)\n/)[1]).data
-          // console.log(`ÄúµÄºÃÓÑÖúÁ¦ÂëÎª${$.userInfo.shareid}`)
-          console.log(`µ±Ç°ĞÒÔËÖµ£º${$.userInfo.bless}`)
+          // console.log(`æ‚¨çš„å¥½å‹åŠ©åŠ›ç ä¸º${$.userInfo.shareid}`)
+          console.log(`å½“å‰å¹¸è¿å€¼ï¼š${$.userInfo.bless}`)
           for (let task of $.info.config.tasks) {
             if (!$.userInfo.complete_task_list.includes(task['_id'])) {
-              console.log(`È¥×öÈÎÎñ${task['_id']}`)
+              console.log(`å»åšä»»åŠ¡${task['_id']}`)
               await doTask(task['_id'])
               await $.wait(500)
             }
@@ -148,11 +148,11 @@ function doTask(taskId) {
       try {
         if (err) {
           console.log(`${err},${jsonParse(resp.body)['message']}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           data = JSON.parse(data.match(/query\((.*)\n/)[1])
           if (data.data.complete_task_list.includes(taskId)) {
-            console.log(`ÈÎÎñÍê³É³É¹¦£¬µ±Ç°ĞÒÔËÖµ${data.data.curbless}`)
+            console.log(`ä»»åŠ¡å®ŒæˆæˆåŠŸï¼Œå½“å‰å¹¸è¿å€¼${data.data.curbless}`)
             $.userInfo.bless = data.data.curbless
           }
         }
@@ -171,12 +171,12 @@ function draw() {
       try {
         if (err) {
           console.log(`${err},${jsonParse(resp.body)['message']}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           data = JSON.parse(data.match(/query\((.*)\n/)[1])
           if (data.data && data.data.drawflag) {
             if ($.prize.filter(vo => vo.prizeLevel === data.data.level).length > 0) {
-              console.log(`»ñµÃ${$.prize.filter(vo => vo.prizeLevel === data.data.level)[0].prizename}`)
+              console.log(`è·å¾—${$.prize.filter(vo => vo.prizeLevel === data.data.level)[0].prizename}`)
               $.beans += $.prize.filter(vo => vo.prizeLevel === data.data.level)[0].beansPerNum
             }
           }
@@ -226,17 +226,17 @@ function TotalBean() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (data) {
             data = JSON.parse(data);
             if (data['retcode'] === 13) {
-              $.isLogin = false; //cookie¹ıÆÚ
+              $.isLogin = false; //cookieè¿‡æœŸ
               return
             }
             $.nickName = data['base'].nickname;
           } else {
-            console.log(`¾©¶«·şÎñÆ÷·µ»Ø¿ÕÊı¾İ`)
+            console.log(`äº¬ä¸œæœåŠ¡å™¨è¿”å›ç©ºæ•°æ®`)
           }
         }
       } catch (e) {
@@ -255,7 +255,7 @@ function safeGet(data) {
     }
   } catch (e) {
     console.log(e);
-    console.log(`¾©¶«·şÎñÆ÷·ÃÎÊÊı¾İÎª¿Õ£¬Çë¼ì²é×ÔÉíÉè±¸ÍøÂçÇé¿ö`);
+    console.log(`äº¬ä¸œæœåŠ¡å™¨è®¿é—®æ•°æ®ä¸ºç©ºï¼Œè¯·æ£€æŸ¥è‡ªèº«è®¾å¤‡ç½‘ç»œæƒ…å†µ`);
     return false;
   }
 }
@@ -266,7 +266,7 @@ function jsonParse(str) {
       return JSON.parse(str);
     } catch (e) {
       console.log(e);
-      $.msg($.name, '', '²»ÒªÔÚBoxJSÊÖ¶¯¸´ÖÆÕ³ÌùĞŞ¸Äcookie')
+      $.msg($.name, '', 'ä¸è¦åœ¨BoxJSæ‰‹åŠ¨å¤åˆ¶ç²˜è´´ä¿®æ”¹cookie')
       return [];
     }
   }

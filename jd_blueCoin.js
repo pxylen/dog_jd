@@ -1,32 +1,32 @@
 /*
-¶«¶«³¬ÊĞ¶Ò»»½±Æ· ½Å±¾µØÖ·£ºhttps://jdsharedresourcescdn.azureedge.net/jdresource/jd_blueCoin.js
-¸ĞĞ»@yangtingxiaoÌá¹©PR
-¸üĞÂÊ±¼ä£º2020-12-24
-»î¶¯Èë¿Ú£º¾©¶«APPÎÒµÄ-¸ü¶à¹¤¾ß-¶«¶«³¬ÊĞ
-Ö§³Ö¾©¶«¶à¸öÕËºÅ
-½Å±¾¼æÈİ: QuantumultX, Surge, Loon, JSBox, Node.js
+ä¸œä¸œè¶…å¸‚å…‘æ¢å¥–å“ è„šæœ¬åœ°å€ï¼šhttps://jdsharedresourcescdn.azureedge.net/jdresource/jd_blueCoin.js
+æ„Ÿè°¢@yangtingxiaoæä¾›PR
+æ›´æ–°æ—¶é—´ï¼š2020-12-24
+æ´»åŠ¨å…¥å£ï¼šäº¬ä¸œAPPæˆ‘çš„-æ›´å¤šå·¥å…·-ä¸œä¸œè¶…å¸‚
+æ”¯æŒäº¬ä¸œå¤šä¸ªè´¦å·
+è„šæœ¬å…¼å®¹: QuantumultX, Surge, Loon, JSBox, Node.js
 ============QuantumultX==============
 [task_local]
-#¶«¶«³¬ÊĞ¶Ò»»½±Æ·
-0 0 0 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_blueCoin.js, tag=¶«¶«³¬ÊĞ¶Ò»»½±Æ·, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jxc.png, enabled=true
+#ä¸œä¸œè¶…å¸‚å…‘æ¢å¥–å“
+0 0 0 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_blueCoin.js, tag=ä¸œä¸œè¶…å¸‚å…‘æ¢å¥–å“, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jxc.png, enabled=true
 
 ====================Loon=================
 [Script]
-cron "0 0 0 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_blueCoin.js,tag=¶«¶«³¬ÊĞ¶Ò»»½±Æ·
+cron "0 0 0 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_blueCoin.js,tag=ä¸œä¸œè¶…å¸‚å…‘æ¢å¥–å“
 
 ===================Surge==================
-¶«¶«³¬ÊĞ¶Ò»»½±Æ· = type=cron,cronexp="0 0 0 * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_blueCoin.js
+ä¸œä¸œè¶…å¸‚å…‘æ¢å¥–å“ = type=cron,cronexp="0 0 0 * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_blueCoin.js
 
-============Ğ¡»ğ¼ı=========
-¶«¶«³¬ÊĞ¶Ò»»½±Æ· = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_blueCoin.js, cronexpr="0 0 0 * * *", timeout=3600, enable=true
+============å°ç«ç®­=========
+ä¸œä¸œè¶…å¸‚å…‘æ¢å¥–å“ = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_blueCoin.js, cronexpr="0 0 0 * * *", timeout=3600, enable=true
  */
-const $ = new Env('¶«¶«³¬ÊĞ¶Ò»»½±Æ·');
+const $ = new Env('ä¸œä¸œè¶…å¸‚å…‘æ¢å¥–å“');
 const notify = $.isNode() ? require('./sendNotify') : '';
-//Node.jsÓÃ»§ÇëÔÚjdCookie.js´¦ÌîĞ´¾©¶«ck;
+//Node.jsç”¨æˆ·è¯·åœ¨jdCookie.jså¤„å¡«å†™äº¬ä¸œck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
-let coinToBeans = $.getdata('coinToBeans') || 20; //¶Ò»»¶àÉÙÊıÁ¿µÄ¾©¶¹£¨20»òÕß1000£©£¬0±íÊ¾²»¶Ò»»£¬Ä¬ÈÏ¶Ò»»20¾©¶¹£¬ÈçĞè¶Ò»»°Ñ0¸Ä³É20»òÕß1000£¬»òÕß'ÉÌÆ·Ãû³Æ'(ÉÌÆ·Ãû³Æ·Åµ½µ¥ÒıºÅÄÚ)¼´¿É
-let jdNotify = false;//ÊÇ·ñ¿ªÆô¾²Ä¬ÔËĞĞ£¬Ä¬ÈÏfalse¹Ø±Õ(¼´:½±Æ·¶Ò»»³É¹¦ºó»á·¢³öÍ¨ÖªÌáÊ¾)
-//IOSµÈÓÃ»§Ö±½ÓÓÃNobyDaµÄjd cookie
+let coinToBeans = $.getdata('coinToBeans') || 20; //å…‘æ¢å¤šå°‘æ•°é‡çš„äº¬è±†ï¼ˆ20æˆ–è€…1000ï¼‰ï¼Œ0è¡¨ç¤ºä¸å…‘æ¢ï¼Œé»˜è®¤å…‘æ¢20äº¬è±†ï¼Œå¦‚éœ€å…‘æ¢æŠŠ0æ”¹æˆ20æˆ–è€…1000ï¼Œæˆ–è€…'å•†å“åç§°'(å•†å“åç§°æ”¾åˆ°å•å¼•å·å†…)å³å¯
+let jdNotify = false;//æ˜¯å¦å¼€å¯é™é»˜è¿è¡Œï¼Œé»˜è®¤falseå…³é—­(å³:å¥–å“å…‘æ¢æˆåŠŸåä¼šå‘å‡ºé€šçŸ¥æç¤º)
+//IOSç­‰ç”¨æˆ·ç›´æ¥ç”¨NobyDaçš„jd cookie
 let cookiesArr = [], cookie = '';
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
@@ -40,7 +40,7 @@ if ($.isNode()) {
 const JD_API_HOST = `https://api.m.jd.com/api?appid=jdsupermarket`;
 !(async () => {
   if (!cookiesArr[0]) {
-    $.msg($.name, '¡¾ÌáÊ¾¡¿ÇëÏÈ»ñÈ¡cookie\nÖ±½ÓÊ¹ÓÃNobyDaµÄ¾©¶«Ç©µ½»ñÈ¡', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+    $.msg($.name, 'ã€æç¤ºã€‘è¯·å…ˆè·å–cookie\nç›´æ¥ä½¿ç”¨NobyDaçš„äº¬ä¸œç­¾åˆ°è·å–', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
     return;
   }
   for (let i =0; i < cookiesArr.length; i++) {
@@ -59,17 +59,17 @@ const JD_API_HOST = `https://api.m.jd.com/api?appid=jdsupermarket`;
       $.isLogin = true;
       $.nickName = '';
       await TotalBean();
-      console.log(`\n¿ªÊ¼¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName || $.UserName}\n`);
-      console.log(`Ä¿Ç°ÔİÎŞ¶Ò»»¾ÆÀàµÄ½±Æ·¹¦ÄÜ£¬¼´Ê¹ÊäÈë¾ÆÀàÃû³Æ£¬½Å±¾Ò²»áÌáÊ¾ÏÂ¼Ü\n`)
+      console.log(`\nå¼€å§‹ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName || $.UserName}\n`);
+      console.log(`ç›®å‰æš‚æ— å…‘æ¢é…’ç±»çš„å¥–å“åŠŸèƒ½ï¼Œå³ä½¿è¾“å…¥é…’ç±»åç§°ï¼Œè„šæœ¬ä¹Ÿä¼šæç¤ºä¸‹æ¶\n`)
       if (!$.isLogin) {
-        $.msg($.name, `¡¾ÌáÊ¾¡¿cookieÒÑÊ§Ğ§`, `¾©¶«ÕËºÅ${$.index} ${$.nickName || $.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+        $.msg($.name, `ã€æç¤ºã€‘cookieå·²å¤±æ•ˆ`, `äº¬ä¸œè´¦å·${$.index} ${$.nickName || $.UserName}\nè¯·é‡æ–°ç™»å½•è·å–\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
 
         if ($.isNode()) {
-          await notify.sendNotify(`${$.name}cookieÒÑÊ§Ğ§ - ${$.UserName}`, `¾©¶«ÕËºÅ${$.index} ${$.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡cookie`);
+          await notify.sendNotify(`${$.name}cookieå·²å¤±æ•ˆ - ${$.UserName}`, `äº¬ä¸œè´¦å·${$.index} ${$.UserName}\nè¯·é‡æ–°ç™»å½•è·å–cookie`);
         }
         continue
       }
-      //ÏÈ¶Ò»»¾©¶¹
+      //å…ˆå…‘æ¢äº¬è±†
       if ($.isNode()) {
         if (process.env.MARKET_COIN_TO_BEANS) {
           coinToBeans = process.env.MARKET_COIN_TO_BEANS;
@@ -77,10 +77,10 @@ const JD_API_HOST = `https://api.m.jd.com/api?appid=jdsupermarket`;
       }
       try {
         if (`${coinToBeans}` !== '0') {
-          await smtgHome();//²éÑ¯À¶±ÒÊıÁ¿£¬ÊÇ·ñÂú×ã¶Ò»»µÄÌõ¼ş
+          await smtgHome();//æŸ¥è¯¢è“å¸æ•°é‡ï¼Œæ˜¯å¦æ»¡è¶³å…‘æ¢çš„æ¡ä»¶
           await PrizeIndex();
         } else {
-          console.log('²éÑ¯µ½ÄúÉèÖÃµÄÊÇ²»¶Ò»»¾©¶¹Ñ¡Ïî£¬ÏÖÔÚÎªÄúÌø¹ı¶Ò»»¾©¶¹¡£ÈçĞè¶Ò»»£¬ÇëÈ¥BoxJsÉèÖÃ»òÕßĞŞ¸Ä½Å±¾coinToBeans\n')
+          console.log('æŸ¥è¯¢åˆ°æ‚¨è®¾ç½®çš„æ˜¯ä¸å…‘æ¢äº¬è±†é€‰é¡¹ï¼Œç°åœ¨ä¸ºæ‚¨è·³è¿‡å…‘æ¢äº¬è±†ã€‚å¦‚éœ€å…‘æ¢ï¼Œè¯·å»BoxJsè®¾ç½®æˆ–è€…ä¿®æ”¹è„šæœ¬coinToBeans\n')
         }
         await msgShow();
       } catch (e) {
@@ -93,62 +93,62 @@ const JD_API_HOST = `https://api.m.jd.com/api?appid=jdsupermarket`;
   .finally(() => $.done())
 async function PrizeIndex() {
   await smtg_queryPrize();
-  // await smtg_materialPrizeIndex();//¶Ò»»¾ÆÀà½±Æ·£¬´Ë¶Ò»»APIÓëÖ®Ç°µÄ¶Ò»»¾©¶¹ÀàµÄ²»Ò»ÖÂ£¬¹ÊÄ¿Ç°ÎŞ·¨½øĞĞ
+  // await smtg_materialPrizeIndex();//å…‘æ¢é…’ç±»å¥–å“ï¼Œæ­¤å…‘æ¢APIä¸ä¹‹å‰çš„å…‘æ¢äº¬è±†ç±»çš„ä¸ä¸€è‡´ï¼Œæ•…ç›®å‰æ— æ³•è¿›è¡Œ
   // const prizeList = [...$.queryPrizeData, ...$.materialPrizeIndex];
   const prizeList = [...$.queryPrizeData];
   if (`${coinToBeans}` === '1000') {
     if (prizeList[1] && prizeList[1].beanType === 'BeanPackage') {
-      console.log(`²éÑ¯»»${prizeList[1].title}ID³É¹¦£¬ID:${prizeList[1].prizeId}`)
+      console.log(`æŸ¥è¯¢æ¢${prizeList[1].title}IDæˆåŠŸï¼ŒID:${prizeList[1].prizeId}`)
       $.title = prizeList[1].title;
       $.blueCost = prizeList[1].blueCost;
     } else {
-      console.log(`²éÑ¯»»1000¾©¶¹IDÊ§°Ü`)
-      $.beanerr = `¶«¸ç½ñÌì²»¸ø»»`;
+      console.log(`æŸ¥è¯¢æ¢1000äº¬è±†IDå¤±è´¥`)
+      $.beanerr = `ä¸œå“¥ä»Šå¤©ä¸ç»™æ¢`;
       return ;
     }
     if (prizeList[1] && prizeList[1].inStock === 506) {
-      $.beanerr = `Ê§°Ü£¬1000¾©¶¹Áì¹âÁË£¬ÇëÃ÷ÌìÔÙÀ´`;
+      $.beanerr = `å¤±è´¥ï¼Œ1000äº¬è±†é¢†å…‰äº†ï¼Œè¯·æ˜å¤©å†æ¥`;
       return ;
     }
     if (prizeList[1] && prizeList[1].targetNum === prizeList[1] && prizeList[1].finishNum) {
       $.beanerr = `${prizeList[1].subTitle}`;
       return ;
     }
-    //¶Ò»»1000¾©¶¹
+    //å…‘æ¢1000äº¬è±†
     if ($.totalBlue > $.blueCost) {
       await smtg_obtainPrize(prizeList[1].prizeId);
     } else {
-      console.log(`¶Ò»»Ê§°Ü,ÄúÄ¿Ç°À¶±Ò${$.totalBlue}¸ö,²»×ãÒÔ¶Ò»»${$.title}ËùĞèµÄ${$.blueCost}¸ö`);
-      $.beanerr = `¶Ò»»Ê§°Ü,ÄúÄ¿Ç°À¶±Ò${$.totalBlue}¸ö,²»×ãÒÔ¶Ò»»${$.title}ËùĞèµÄ${$.blueCost}¸ö`;
+      console.log(`å…‘æ¢å¤±è´¥,æ‚¨ç›®å‰è“å¸${$.totalBlue}ä¸ª,ä¸è¶³ä»¥å…‘æ¢${$.title}æ‰€éœ€çš„${$.blueCost}ä¸ª`);
+      $.beanerr = `å…‘æ¢å¤±è´¥,æ‚¨ç›®å‰è“å¸${$.totalBlue}ä¸ª,ä¸è¶³ä»¥å…‘æ¢${$.title}æ‰€éœ€çš„${$.blueCost}ä¸ª`;
     }
   } else if (`${coinToBeans}` === '20') {
     if (prizeList[0] && prizeList[0].beanType === 'Bean') {
-      console.log(`²éÑ¯»»${prizeList[0].title}ID³É¹¦£¬ID:${prizeList[0].prizeId}`)
+      console.log(`æŸ¥è¯¢æ¢${prizeList[0].title}IDæˆåŠŸï¼ŒID:${prizeList[0].prizeId}`)
       $.title = prizeList[0].title;
       $.blueCost = prizeList[0].blueCost;
     } else {
-      console.log(`²éÑ¯»»ÍòÄÜµÄ¾©¶¹IDÊ§°Ü`)
-      $.beanerr = `¶«¸ç½ñÌì²»¸ø»»`;
+      console.log(`æŸ¥è¯¢æ¢ä¸‡èƒ½çš„äº¬è±†IDå¤±è´¥`)
+      $.beanerr = `ä¸œå“¥ä»Šå¤©ä¸ç»™æ¢`;
       return ;
     }
     if (prizeList[0] && prizeList[0].inStock === 506) {
-      console.log(`Ê§°Ü£¬ÍòÄÜµÄ¾©¶¹Áì¹âÁË£¬ÇëÃ÷ÌìÔÙÀ´`);
-      $.beanerr = `Ê§°Ü£¬ÍòÄÜµÄ¾©¶¹Áì¹âÁË£¬ÇëÃ÷ÌìÔÙÀ´`;
+      console.log(`å¤±è´¥ï¼Œä¸‡èƒ½çš„äº¬è±†é¢†å…‰äº†ï¼Œè¯·æ˜å¤©å†æ¥`);
+      $.beanerr = `å¤±è´¥ï¼Œä¸‡èƒ½çš„äº¬è±†é¢†å…‰äº†ï¼Œè¯·æ˜å¤©å†æ¥`;
       return ;
     }
     if ((prizeList[0] && prizeList[0].targetNum) === (prizeList[0] && prizeList[0].finishNum)) {
       $.beanerr = `${prizeList[0].subTitle}`;
       return ;
     }
-    //¶Ò»»ÍòÄÜµÄ¾©¶¹(1-20¾©¶¹)
+    //å…‘æ¢ä¸‡èƒ½çš„äº¬è±†(1-20äº¬è±†)
     if ($.totalBlue > $.blueCost) {
       await smtg_obtainPrize(prizeList[0].prizeId,1000);
     } else {
-      console.log(`¶Ò»»Ê§°Ü,ÄúÄ¿Ç°À¶±Ò${$.totalBlue}¸ö,²»×ãÒÔ¶Ò»»${$.title}ËùĞèµÄ${$.blueCost}¸ö`);
-      $.beanerr = `¶Ò»»Ê§°Ü,ÄúÄ¿Ç°À¶±Ò${$.totalBlue}¸ö,²»×ãÒÔ¶Ò»»${$.title}ËùĞèµÄ${$.blueCost}¸ö`;
+      console.log(`å…‘æ¢å¤±è´¥,æ‚¨ç›®å‰è“å¸${$.totalBlue}ä¸ª,ä¸è¶³ä»¥å…‘æ¢${$.title}æ‰€éœ€çš„${$.blueCost}ä¸ª`);
+      $.beanerr = `å…‘æ¢å¤±è´¥,æ‚¨ç›®å‰è“å¸${$.totalBlue}ä¸ª,ä¸è¶³ä»¥å…‘æ¢${$.title}æ‰€éœ€çš„${$.blueCost}ä¸ª`;
     }
   } else {
-    //×Ô¶¨ÒåÊäÈë¶Ò»»
+    //è‡ªå®šä¹‰è¾“å…¥å…‘æ¢
     let prizeId = '', i;
     for (let index = 0; index < prizeList.length; index ++) {
       if (prizeList[index].title.indexOf(coinToBeans) > -1) {
@@ -160,8 +160,8 @@ async function PrizeIndex() {
     }
     if (prizeId) {
       if (prizeList[i].inStock === 506 || prizeList[i].inStock === -1) {
-        console.log(`Ê§°Ü£¬ÄúÊäÈëÉèÖÃµÄ${coinToBeans}Áì¹âÁË£¬ÇëÃ÷ÌìÔÙÀ´`);
-        $.beanerr = `Ê§°Ü£¬ÄúÊäÈëÉèÖÃµÄ${coinToBeans}Áì¹âÁË£¬ÇëÃ÷ÌìÔÙÀ´`;
+        console.log(`å¤±è´¥ï¼Œæ‚¨è¾“å…¥è®¾ç½®çš„${coinToBeans}é¢†å…‰äº†ï¼Œè¯·æ˜å¤©å†æ¥`);
+        $.beanerr = `å¤±è´¥ï¼Œæ‚¨è¾“å…¥è®¾ç½®çš„${coinToBeans}é¢†å…‰äº†ï¼Œè¯·æ˜å¤©å†æ¥`;
         return ;
       }
       if ((prizeList[i].targetNum) && prizeList[i].targetNum === prizeList[i].finishNum) {
@@ -171,16 +171,16 @@ async function PrizeIndex() {
       if ($.totalBlue > $.blueCost) {
         await smtg_obtainPrize(prizeId);
       } else {
-        console.log(`¶Ò»»Ê§°Ü,ÄúÄ¿Ç°À¶±Ò${$.totalBlue}¸ö,²»×ãÒÔ¶Ò»»${$.title}ËùĞèµÄ${$.blueCost}¸ö`);
-        $.beanerr = `¶Ò»»Ê§°Ü,ÄúÄ¿Ç°À¶±Ò${$.totalBlue}¸ö,²»×ãÒÔ¶Ò»»${$.title}ËùĞèµÄ${$.blueCost}¸ö`;
+        console.log(`å…‘æ¢å¤±è´¥,æ‚¨ç›®å‰è“å¸${$.totalBlue}ä¸ª,ä¸è¶³ä»¥å…‘æ¢${$.title}æ‰€éœ€çš„${$.blueCost}ä¸ª`);
+        $.beanerr = `å…‘æ¢å¤±è´¥,æ‚¨ç›®å‰è“å¸${$.totalBlue}ä¸ª,ä¸è¶³ä»¥å…‘æ¢${$.title}æ‰€éœ€çš„${$.blueCost}ä¸ª`;
       }
     } else {
-      console.log(`½±Æ·¶Ò»»ÁĞ±í[${coinToBeans}]ÒÑÏÂ¼Ü£¬Çë¼ì²éAPPÊÇ·ñ´æÔÚ´ËÉÌÆ·£¬Èç´æÔÚÇë¼ì²éÄúµÄÊäÈëÊÇ·ñÕıÈ·`);
-      $.beanerr = `½±Æ·¶Ò»»ÁĞ±í[${coinToBeans}]ÒÑÏÂ¼Ü`;
+      console.log(`å¥–å“å…‘æ¢åˆ—è¡¨[${coinToBeans}]å·²ä¸‹æ¶ï¼Œè¯·æ£€æŸ¥APPæ˜¯å¦å­˜åœ¨æ­¤å•†å“ï¼Œå¦‚å­˜åœ¨è¯·æ£€æŸ¥æ‚¨çš„è¾“å…¥æ˜¯å¦æ­£ç¡®`);
+      $.beanerr = `å¥–å“å…‘æ¢åˆ—è¡¨[${coinToBeans}]å·²ä¸‹æ¶`;
     }
   }
 }
-//²éÑ¯°×¾ÆÀà½±Æ·ÁĞ±íAPI
+//æŸ¥è¯¢ç™½é…’ç±»å¥–å“åˆ—è¡¨API
 function smtg_materialPrizeIndex(timeout = 0) {
   return new Promise((resolve) => {
     setTimeout( ()=>{
@@ -216,7 +216,7 @@ function smtg_materialPrizeIndex(timeout = 0) {
     },timeout)
   })
 }
-//²éÑ¯ÈÎÎñ
+//æŸ¥è¯¢ä»»åŠ¡
 function smtg_queryPrize(timeout = 0){
   return new Promise((resolve) => {
     setTimeout( ()=>{
@@ -256,9 +256,9 @@ function smtg_queryPrize(timeout = 0){
     },timeout)
   })
 }
-//»»¾©¶¹
+//æ¢äº¬è±†
 function smtg_obtainPrize(prizeId, timeout = 0) {
-  //1000¾©¶¹£¬prizeIdÎª4401379726
+  //1000äº¬è±†ï¼ŒprizeIdä¸º4401379726
   return new Promise((resolve) => {
     setTimeout( ()=>{
       let url = {
@@ -276,27 +276,27 @@ function smtg_obtainPrize(prizeId, timeout = 0) {
       }
       $.post(url, async (err, resp, data) => {
         try {
-          console.log(`¶Ò»»½á¹û:${data}`);
+          console.log(`å…‘æ¢ç»“æœ:${data}`);
           if (safeGet(data)) {
             data = JSON.parse(data);
             $.data = data;
             if ($.data.data.bizCode !== 0) {
               $.beanerr = `${$.data.data.bizMsg}`;
-              //console.log(`¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName} »»È¡¾©¶¹Ê§°Ü£º${$.data.data.bizMsg}`)
+              //console.log(`ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName} æ¢å–äº¬è±†å¤±è´¥ï¼š${$.data.data.bizMsg}`)
               return
             }
             if ($.data.data.bizCode === 0) {
               if (`${coinToBeans}` === '1000') {
                 $.beanscount ++;
-                console.log(`¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName} µÚ${$.data.data.result.exchangeNum}´Î»»${$.title}³É¹¦`)
+                console.log(`ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName} ç¬¬${$.data.data.result.exchangeNum}æ¬¡æ¢${$.title}æˆåŠŸ`)
                 if ($.beanscount === 1) return;
               } else if (`${coinToBeans}` === '20') {
                 $.beanscount ++;
-                console.log(`¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName} µÚ${$.data.data.result.exchangeNum}´Î»»${$.title}³É¹¦`)
+                console.log(`ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName} ç¬¬${$.data.data.result.exchangeNum}æ¬¡æ¢${$.title}æˆåŠŸ`)
                 if ($.data.data.result.exchangeNum === 20 || $.beanscount === coinToBeans || $.data.data.result.blue < 500) return;
               } else {
                 $.beanscount ++;
-                console.log(`¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName} µÚ${$.data.data.result.exchangeNum}´Î»»${$.title}³É¹¦`)
+                console.log(`ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName} ç¬¬${$.data.data.result.exchangeNum}æ¬¡æ¢${$.title}æˆåŠŸ`)
                 if ($.beanscount === 1) return;
               }
             }
@@ -316,7 +316,7 @@ function smtgHome() {
     $.get(taskUrl('smtg_home'), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\n¶«¶«³¬ÊĞ¶Ò»»½±Æ·: API²éÑ¯ÇëÇóÊ§°Ü ????')
+          console.log('\nä¸œä¸œè¶…å¸‚å…‘æ¢å¥–å“: APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸')
           console.log(JSON.stringify(err));
         } else {
           if (safeGet(data)) {
@@ -325,8 +325,8 @@ function smtgHome() {
               const { result } = data.data;
               $.totalGold = result.totalGold;
               $.totalBlue = result.totalBlue;
-              console.log(`¡¾×Ü½ğ±Ò¡¿${$.totalGold}¸ö\n`);
-              console.log(`¡¾×ÜÀ¶±Ò¡¿${$.totalBlue}¸ö\n`);
+              console.log(`ã€æ€»é‡‘å¸ã€‘${$.totalGold}ä¸ª\n`);
+              console.log(`ã€æ€»è“å¸ã€‘${$.totalBlue}ä¸ª\n`);
             }
           }
         }
@@ -339,11 +339,11 @@ function smtgHome() {
   })
 }
 
-//Í¨Öª
+//é€šçŸ¥
 function msgShow() {
-  // $.msg($.name, ``, `¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName}\n¡¾ÊÕÈ¡À¶±Ò¡¿${$.coincount ? `${$.coincount}¸ö` : $.coinerr }${coinToBeans ? `\n¡¾¶Ò»»¾©¶¹¡¿${ $.beanscount ? `${$.beanscount}¸ö` : $.beanerr}` : ""}`);
+  // $.msg($.name, ``, `ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName}\nã€æ”¶å–è“å¸ã€‘${$.coincount ? `${$.coincount}ä¸ª` : $.coinerr }${coinToBeans ? `\nã€å…‘æ¢äº¬è±†ã€‘${ $.beanscount ? `${$.beanscount}ä¸ª` : $.beanerr}` : ""}`);
   return new Promise(async resolve => {
-    $.log(`\n¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName}\n${coinToBeans ? `¡¾¶Ò»»${$.title}¡¿${$.beanscount ? `³É¹¦` : $.beanerr}` : "ÄúÉèÖÃµÄÊÇ²»¶Ò»»½±Æ·"}\n`);
+    $.log(`\nã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName}\n${coinToBeans ? `ã€å…‘æ¢${$.title}ã€‘${$.beanscount ? `æˆåŠŸ` : $.beanerr}` : "æ‚¨è®¾ç½®çš„æ˜¯ä¸å…‘æ¢å¥–å“"}\n`);
     let ctrTemp;
     if ($.isNode() && process.env.MARKET_REWARD_NOTIFY) {
       ctrTemp = `${process.env.MARKET_REWARD_NOTIFY}` === 'false';
@@ -352,11 +352,11 @@ function msgShow() {
     } else {
       ctrTemp = `${jdNotify}` === 'false';
     }
-    //Ä¬ÈÏÖ»ÔÚ¶Ò»»½±Æ·³É¹¦ºóµ¯´°ÌáĞÑ¡£Çé¿öÇé¿ö¼Ó£¬Ö»´òÓ¡ÈÕÖ¾£¬²»µ¯´°
+    //é»˜è®¤åªåœ¨å…‘æ¢å¥–å“æˆåŠŸåå¼¹çª—æé†’ã€‚æƒ…å†µæƒ…å†µåŠ ï¼Œåªæ‰“å°æ—¥å¿—ï¼Œä¸å¼¹çª—
     if ($.beanscount && ctrTemp) {
-      $.msg($.name, ``, `¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName}\n${coinToBeans ? `¡¾¶Ò»»${$.title}¡¿${ $.beanscount ? `³É¹¦£¬ÊıÁ¿£º${$.beanscount}¸ö` : $.beanerr}` : "ÄúÉèÖÃµÄÊÇ²»¶Ò»»½±Æ·"}`);
+      $.msg($.name, ``, `ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName}\n${coinToBeans ? `ã€å…‘æ¢${$.title}ã€‘${ $.beanscount ? `æˆåŠŸï¼Œæ•°é‡ï¼š${$.beanscount}ä¸ª` : $.beanerr}` : "æ‚¨è®¾ç½®çš„æ˜¯ä¸å…‘æ¢å¥–å“"}`);
       if ($.isNode()) {
-        await notify.sendNotify(`${$.name} - ÕËºÅ${$.index} - ${$.nickName}`, `¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName}\n${coinToBeans ? `¡¾¶Ò»»${$.title}¡¿${$.beanscount ? `³É¹¦£¬ÊıÁ¿£º${$.beanscount}¸ö` : $.beanerr}` : "ÄúÉèÖÃµÄÊÇ²»¶Ò»»½±Æ·"}`)
+        await notify.sendNotify(`${$.name} - è´¦å·${$.index} - ${$.nickName}`, `ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName}\n${coinToBeans ? `ã€å…‘æ¢${$.title}ã€‘${$.beanscount ? `æˆåŠŸï¼Œæ•°é‡ï¼š${$.beanscount}ä¸ª` : $.beanerr}` : "æ‚¨è®¾ç½®çš„æ˜¯ä¸å…‘æ¢å¥–å“"}`)
       }
     }
     resolve()
@@ -381,17 +381,17 @@ function TotalBean() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (data) {
             data = JSON.parse(data);
             if (data['retcode'] === 13) {
-              $.isLogin = false; //cookie¹ıÆÚ
+              $.isLogin = false; //cookieè¿‡æœŸ
               return
             }
             $.nickName = data['base'].nickname;
           } else {
-            console.log(`¾©¶«·şÎñÆ÷·µ»Ø¿ÕÊı¾İ`)
+            console.log(`äº¬ä¸œæœåŠ¡å™¨è¿”å›ç©ºæ•°æ®`)
           }
         }
       } catch (e) {
@@ -409,7 +409,7 @@ function safeGet(data) {
     }
   } catch (e) {
     console.log(e);
-    console.log(`¾©¶«·şÎñÆ÷·ÃÎÊÊı¾İÎª¿Õ£¬Çë¼ì²é×ÔÉíÉè±¸ÍøÂçÇé¿ö`);
+    console.log(`äº¬ä¸œæœåŠ¡å™¨è®¿é—®æ•°æ®ä¸ºç©ºï¼Œè¯·æ£€æŸ¥è‡ªèº«è®¾å¤‡ç½‘ç»œæƒ…å†µ`);
     return false;
   }
 }
@@ -431,9 +431,9 @@ function jsonParse(str) {
       return JSON.parse(str);
     } catch (e) {
       console.log(e);
-      $.msg($.name, '', 'ÇëÎğËæÒâÔÚBoxJsÊäÈë¿òĞŞ¸ÄÄÚÈİ\n½¨ÒéÍ¨¹ı½Å±¾È¥»ñÈ¡cookie')
+      $.msg($.name, '', 'è¯·å‹¿éšæ„åœ¨BoxJsè¾“å…¥æ¡†ä¿®æ”¹å†…å®¹\nå»ºè®®é€šè¿‡è„šæœ¬å»è·å–cookie')
       return [];
     }
   }
 }
-function Env(t,e){"undefined"!=typeof process&&JSON.stringify(process.env).indexOf("GIT_HUB")>-1&&process.exit(0);class s{constructor(t){this.env=t}send(t,e="GET"){t="string"==typeof t?{url:t}:t;let s=this.get;return"POST"===e&&(s=this.post),new Promise((e,i)=>{s.call(this,t,(t,s,r)=>{t?i(t):e(s)})})}get(t){return this.send.call(this.env,t)}post(t){return this.send.call(this.env,t,"POST")}}return new class{constructor(t,e){this.name=t,this.http=new s(this),this.data=null,this.dataFile="box.dat",this.logs=[],this.isMute=!1,this.isNeedRewrite=!1,this.logSeparator="\n",this.startTime=(new Date).getTime(),Object.assign(this,e),this.log("",`?${this.name}, ¿ªÊ¼!`)}isNode(){return"undefined"!=typeof module&&!!module.exports}isQuanX(){return"undefined"!=typeof $task}isSurge(){return"undefined"!=typeof $httpClient&&"undefined"==typeof $loon}isLoon(){return"undefined"!=typeof $loon}toObj(t,e=null){try{return JSON.parse(t)}catch{return e}}toStr(t,e=null){try{return JSON.stringify(t)}catch{return e}}getjson(t,e){let s=e;const i=this.getdata(t);if(i)try{s=JSON.parse(this.getdata(t))}catch{}return s}setjson(t,e){try{return this.setdata(JSON.stringify(t),e)}catch{return!1}}getScript(t){return new Promise(e=>{this.get({url:t},(t,s,i)=>e(i))})}runScript(t,e){return new Promise(s=>{let i=this.getdata("@chavy_boxjs_userCfgs.httpapi");i=i?i.replace(/\n/g,"").trim():i;let r=this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");r=r?1*r:20,r=e&&e.timeout?e.timeout:r;const[o,h]=i.split("@"),n={url:`http://${h}/v1/scripting/evaluate`,body:{script_text:t,mock_type:"cron",timeout:r},headers:{"X-Key":o,Accept:"*/*"}};this.post(n,(t,e,i)=>s(i))}).catch(t=>this.logErr(t))}loaddata(){if(!this.isNode())return{};{this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e);if(!s&&!i)return{};{const i=s?t:e;try{return JSON.parse(this.fs.readFileSync(i))}catch(t){return{}}}}}writedata(){if(this.isNode()){this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e),r=JSON.stringify(this.data);s?this.fs.writeFileSync(t,r):i?this.fs.writeFileSync(e,r):this.fs.writeFileSync(t,r)}}lodash_get(t,e,s){const i=e.replace(/\[(\d+)\]/g,".$1").split(".");let r=t;for(const t of i)if(r=Object(r)[t],void 0===r)return s;return r}lodash_set(t,e,s){return Object(t)!==t?t:(Array.isArray(e)||(e=e.toString().match(/[^.[\]]+/g)||[]),e.slice(0,-1).reduce((t,s,i)=>Object(t[s])===t[s]?t[s]:t[s]=Math.abs(e[i+1])>>0==+e[i+1]?[]:{},t)[e[e.length-1]]=s,t)}getdata(t){let e=this.getval(t);if(/^@/.test(t)){const[,s,i]=/^@(.*?)\.(.*?)$/.exec(t),r=s?this.getval(s):"";if(r)try{const t=JSON.parse(r);e=t?this.lodash_get(t,i,""):e}catch(t){e=""}}return e}setdata(t,e){let s=!1;if(/^@/.test(e)){const[,i,r]=/^@(.*?)\.(.*?)$/.exec(e),o=this.getval(i),h=i?"null"===o?null:o||"{}":"{}";try{const e=JSON.parse(h);this.lodash_set(e,r,t),s=this.setval(JSON.stringify(e),i)}catch(e){const o={};this.lodash_set(o,r,t),s=this.setval(JSON.stringify(o),i)}}else s=this.setval(t,e);return s}getval(t){return this.isSurge()||this.isLoon()?$persistentStore.read(t):this.isQuanX()?$prefs.valueForKey(t):this.isNode()?(this.data=this.loaddata(),this.data[t]):this.data&&this.data[t]||null}setval(t,e){return this.isSurge()||this.isLoon()?$persistentStore.write(t,e):this.isQuanX()?$prefs.setValueForKey(t,e):this.isNode()?(this.data=this.loaddata(),this.data[e]=t,this.writedata(),!0):this.data&&this.data[e]||null}initGotEnv(t){this.got=this.got?this.got:require("got"),this.cktough=this.cktough?this.cktough:require("tough-cookie"),this.ckjar=this.ckjar?this.ckjar:new this.cktough.CookieJar,t&&(t.headers=t.headers?t.headers:{},void 0===t.headers.Cookie&&void 0===t.cookieJar&&(t.cookieJar=this.ckjar))}get(t,e=(()=>{})){t.headers&&(delete t.headers["Content-Type"],delete t.headers["Content-Length"]),this.isSurge()||this.isLoon()?(this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.get(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)})):this.isQuanX()?(this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t))):this.isNode()&&(this.initGotEnv(t),this.got(t).on("redirect",(t,e)=>{try{if(t.headers["set-cookie"]){const s=t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();s&&this.ckjar.setCookieSync(s,null),e.cookieJar=this.ckjar}}catch(t){this.logErr(t)}}).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)}))}post(t,e=(()=>{})){if(t.body&&t.headers&&!t.headers["Content-Type"]&&(t.headers["Content-Type"]="application/x-www-form-urlencoded"),t.headers&&delete t.headers["Content-Length"],this.isSurge()||this.isLoon())this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.post(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)});else if(this.isQuanX())t.method="POST",this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t));else if(this.isNode()){this.initGotEnv(t);const{url:s,...i}=t;this.got.post(s,i).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)})}}time(t,e=null){const s=e?new Date(e):new Date;let i={"M+":s.getMonth()+1,"d+":s.getDate(),"H+":s.getHours(),"m+":s.getMinutes(),"s+":s.getSeconds(),"q+":Math.floor((s.getMonth()+3)/3),S:s.getMilliseconds()};/(y+)/.test(t)&&(t=t.replace(RegExp.$1,(s.getFullYear()+"").substr(4-RegExp.$1.length)));for(let e in i)new RegExp("("+e+")").test(t)&&(t=t.replace(RegExp.$1,1==RegExp.$1.length?i[e]:("00"+i[e]).substr((""+i[e]).length)));return t}msg(e=t,s="",i="",r){const o=t=>{if(!t)return t;if("string"==typeof t)return this.isLoon()?t:this.isQuanX()?{"open-url":t}:this.isSurge()?{url:t}:void 0;if("object"==typeof t){if(this.isLoon()){let e=t.openUrl||t.url||t["open-url"],s=t.mediaUrl||t["media-url"];return{openUrl:e,mediaUrl:s}}if(this.isQuanX()){let e=t["open-url"]||t.url||t.openUrl,s=t["media-url"]||t.mediaUrl;return{"open-url":e,"media-url":s}}if(this.isSurge()){let e=t.url||t.openUrl||t["open-url"];return{url:e}}}};if(this.isMute||(this.isSurge()||this.isLoon()?$notification.post(e,s,i,o(r)):this.isQuanX()&&$notify(e,s,i,o(r))),!this.isMuteLog){let t=["","==============?ÏµÍ³Í¨Öª?=============="];t.push(e),s&&t.push(s),i&&t.push(i),console.log(t.join("\n")),this.logs=this.logs.concat(t)}}log(...t){t.length>0&&(this.logs=[...this.logs,...t]),console.log(t.join(this.logSeparator))}logErr(t,e){const s=!this.isSurge()&&!this.isQuanX()&&!this.isLoon();s?this.log("",`??${this.name}, ´íÎó!`,t.stack):this.log("",`??${this.name}, ´íÎó!`,t)}wait(t){return new Promise(e=>setTimeout(e,t))}done(t={}){const e=(new Date).getTime(),s=(e-this.startTime)/1e3;this.log("",`?${this.name}, ½áÊø! ? ${s} Ãë`),this.log(),(this.isSurge()||this.isQuanX()||this.isLoon())&&$done(t)}}(t,e)}
+function Env(t,e){"undefined"!=typeof process&&JSON.stringify(process.env).indexOf("GIT_HUB")>-1&&process.exit(0);class s{constructor(t){this.env=t}send(t,e="GET"){t="string"==typeof t?{url:t}:t;let s=this.get;return"POST"===e&&(s=this.post),new Promise((e,i)=>{s.call(this,t,(t,s,r)=>{t?i(t):e(s)})})}get(t){return this.send.call(this.env,t)}post(t){return this.send.call(this.env,t,"POST")}}return new class{constructor(t,e){this.name=t,this.http=new s(this),this.data=null,this.dataFile="box.dat",this.logs=[],this.isMute=!1,this.isNeedRewrite=!1,this.logSeparator="\n",this.startTime=(new Date).getTime(),Object.assign(this,e),this.log("",`ğŸ””${this.name}, å¼€å§‹!`)}isNode(){return"undefined"!=typeof module&&!!module.exports}isQuanX(){return"undefined"!=typeof $task}isSurge(){return"undefined"!=typeof $httpClient&&"undefined"==typeof $loon}isLoon(){return"undefined"!=typeof $loon}toObj(t,e=null){try{return JSON.parse(t)}catch{return e}}toStr(t,e=null){try{return JSON.stringify(t)}catch{return e}}getjson(t,e){let s=e;const i=this.getdata(t);if(i)try{s=JSON.parse(this.getdata(t))}catch{}return s}setjson(t,e){try{return this.setdata(JSON.stringify(t),e)}catch{return!1}}getScript(t){return new Promise(e=>{this.get({url:t},(t,s,i)=>e(i))})}runScript(t,e){return new Promise(s=>{let i=this.getdata("@chavy_boxjs_userCfgs.httpapi");i=i?i.replace(/\n/g,"").trim():i;let r=this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");r=r?1*r:20,r=e&&e.timeout?e.timeout:r;const[o,h]=i.split("@"),n={url:`http://${h}/v1/scripting/evaluate`,body:{script_text:t,mock_type:"cron",timeout:r},headers:{"X-Key":o,Accept:"*/*"}};this.post(n,(t,e,i)=>s(i))}).catch(t=>this.logErr(t))}loaddata(){if(!this.isNode())return{};{this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e);if(!s&&!i)return{};{const i=s?t:e;try{return JSON.parse(this.fs.readFileSync(i))}catch(t){return{}}}}}writedata(){if(this.isNode()){this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e),r=JSON.stringify(this.data);s?this.fs.writeFileSync(t,r):i?this.fs.writeFileSync(e,r):this.fs.writeFileSync(t,r)}}lodash_get(t,e,s){const i=e.replace(/\[(\d+)\]/g,".$1").split(".");let r=t;for(const t of i)if(r=Object(r)[t],void 0===r)return s;return r}lodash_set(t,e,s){return Object(t)!==t?t:(Array.isArray(e)||(e=e.toString().match(/[^.[\]]+/g)||[]),e.slice(0,-1).reduce((t,s,i)=>Object(t[s])===t[s]?t[s]:t[s]=Math.abs(e[i+1])>>0==+e[i+1]?[]:{},t)[e[e.length-1]]=s,t)}getdata(t){let e=this.getval(t);if(/^@/.test(t)){const[,s,i]=/^@(.*?)\.(.*?)$/.exec(t),r=s?this.getval(s):"";if(r)try{const t=JSON.parse(r);e=t?this.lodash_get(t,i,""):e}catch(t){e=""}}return e}setdata(t,e){let s=!1;if(/^@/.test(e)){const[,i,r]=/^@(.*?)\.(.*?)$/.exec(e),o=this.getval(i),h=i?"null"===o?null:o||"{}":"{}";try{const e=JSON.parse(h);this.lodash_set(e,r,t),s=this.setval(JSON.stringify(e),i)}catch(e){const o={};this.lodash_set(o,r,t),s=this.setval(JSON.stringify(o),i)}}else s=this.setval(t,e);return s}getval(t){return this.isSurge()||this.isLoon()?$persistentStore.read(t):this.isQuanX()?$prefs.valueForKey(t):this.isNode()?(this.data=this.loaddata(),this.data[t]):this.data&&this.data[t]||null}setval(t,e){return this.isSurge()||this.isLoon()?$persistentStore.write(t,e):this.isQuanX()?$prefs.setValueForKey(t,e):this.isNode()?(this.data=this.loaddata(),this.data[e]=t,this.writedata(),!0):this.data&&this.data[e]||null}initGotEnv(t){this.got=this.got?this.got:require("got"),this.cktough=this.cktough?this.cktough:require("tough-cookie"),this.ckjar=this.ckjar?this.ckjar:new this.cktough.CookieJar,t&&(t.headers=t.headers?t.headers:{},void 0===t.headers.Cookie&&void 0===t.cookieJar&&(t.cookieJar=this.ckjar))}get(t,e=(()=>{})){t.headers&&(delete t.headers["Content-Type"],delete t.headers["Content-Length"]),this.isSurge()||this.isLoon()?(this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.get(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)})):this.isQuanX()?(this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t))):this.isNode()&&(this.initGotEnv(t),this.got(t).on("redirect",(t,e)=>{try{if(t.headers["set-cookie"]){const s=t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();s&&this.ckjar.setCookieSync(s,null),e.cookieJar=this.ckjar}}catch(t){this.logErr(t)}}).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)}))}post(t,e=(()=>{})){if(t.body&&t.headers&&!t.headers["Content-Type"]&&(t.headers["Content-Type"]="application/x-www-form-urlencoded"),t.headers&&delete t.headers["Content-Length"],this.isSurge()||this.isLoon())this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.post(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)});else if(this.isQuanX())t.method="POST",this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t));else if(this.isNode()){this.initGotEnv(t);const{url:s,...i}=t;this.got.post(s,i).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)})}}time(t,e=null){const s=e?new Date(e):new Date;let i={"M+":s.getMonth()+1,"d+":s.getDate(),"H+":s.getHours(),"m+":s.getMinutes(),"s+":s.getSeconds(),"q+":Math.floor((s.getMonth()+3)/3),S:s.getMilliseconds()};/(y+)/.test(t)&&(t=t.replace(RegExp.$1,(s.getFullYear()+"").substr(4-RegExp.$1.length)));for(let e in i)new RegExp("("+e+")").test(t)&&(t=t.replace(RegExp.$1,1==RegExp.$1.length?i[e]:("00"+i[e]).substr((""+i[e]).length)));return t}msg(e=t,s="",i="",r){const o=t=>{if(!t)return t;if("string"==typeof t)return this.isLoon()?t:this.isQuanX()?{"open-url":t}:this.isSurge()?{url:t}:void 0;if("object"==typeof t){if(this.isLoon()){let e=t.openUrl||t.url||t["open-url"],s=t.mediaUrl||t["media-url"];return{openUrl:e,mediaUrl:s}}if(this.isQuanX()){let e=t["open-url"]||t.url||t.openUrl,s=t["media-url"]||t.mediaUrl;return{"open-url":e,"media-url":s}}if(this.isSurge()){let e=t.url||t.openUrl||t["open-url"];return{url:e}}}};if(this.isMute||(this.isSurge()||this.isLoon()?$notification.post(e,s,i,o(r)):this.isQuanX()&&$notify(e,s,i,o(r))),!this.isMuteLog){let t=["","==============ğŸ“£ç³»ç»Ÿé€šçŸ¥ğŸ“£=============="];t.push(e),s&&t.push(s),i&&t.push(i),console.log(t.join("\n")),this.logs=this.logs.concat(t)}}log(...t){t.length>0&&(this.logs=[...this.logs,...t]),console.log(t.join(this.logSeparator))}logErr(t,e){const s=!this.isSurge()&&!this.isQuanX()&&!this.isLoon();s?this.log("",`â—ï¸${this.name}, é”™è¯¯!`,t.stack):this.log("",`â—ï¸${this.name}, é”™è¯¯!`,t)}wait(t){return new Promise(e=>setTimeout(e,t))}done(t={}){const e=(new Date).getTime(),s=(e-this.startTime)/1e3;this.log("",`ğŸ””${this.name}, ç»“æŸ! ğŸ•› ${s} ç§’`),this.log(),(this.isSurge()||this.isQuanX()||this.isLoon())&&$done(t)}}(t,e)}

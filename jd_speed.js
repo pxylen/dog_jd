@@ -1,34 +1,34 @@
 /*
-¾©¶«ÌìÌì¼ÓËÙÁ´½Ó£ºhttps://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed.js
-¸üĞÂÊ±¼ä£º2020-12-25
-»î¶¯Èë¿Ú£º¾©¶«APPÎÒµÄ-¸ü¶à¹¤¾ß-ÌìÌì¼ÓËÙ
-Ö§³Ö¾©¶«Ë«ÕËºÅ
-½Å±¾¼æÈİ: QuantumultX, Surge, Loon, JSBox, Node.js
-Ã¿Ìì4¾©¶¹£¬ÔÙĞ¡µÄ²ÔÓ¬Ò²ÊÇÈâ
-´Ó https://github.com/Zero-S1/JD_tools/blob/master/JD_speed.py ¸ÄĞ´À´µÄ
-½¨Òé3Ğ¡Ê±ÔËĞĞÒ»´Î£¬´ò¿¨Ê±¼ä¼ä¸ôÊÇ6Ğ¡Ê±
+äº¬ä¸œå¤©å¤©åŠ é€Ÿé“¾æ¥ï¼šhttps://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed.js
+æ›´æ–°æ—¶é—´ï¼š2020-12-25
+æ´»åŠ¨å…¥å£ï¼šäº¬ä¸œAPPæˆ‘çš„-æ›´å¤šå·¥å…·-å¤©å¤©åŠ é€Ÿ
+æ”¯æŒäº¬ä¸œåŒè´¦å·
+è„šæœ¬å…¼å®¹: QuantumultX, Surge, Loon, JSBox, Node.js
+æ¯å¤©4äº¬è±†ï¼Œå†å°çš„è‹è‡ä¹Ÿæ˜¯è‚‰
+ä» https://github.com/Zero-S1/JD_tools/blob/master/JD_speed.py æ”¹å†™æ¥çš„
+å»ºè®®3å°æ—¶è¿è¡Œä¸€æ¬¡ï¼Œæ‰“å¡æ—¶é—´é—´éš”æ˜¯6å°æ—¶
 =================QuantumultX==============
 [task_local]
-#ÌìÌì¼ÓËÙ
-8 0-23/3 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed.js, tag=¾©¶«ÌìÌì¼ÓËÙ, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jdjs.png, enabled=true
+#å¤©å¤©åŠ é€Ÿ
+8 0-23/3 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed.js, tag=äº¬ä¸œå¤©å¤©åŠ é€Ÿ, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jdjs.png, enabled=true
 
 ============Loon================
 [Script]
-cron "8 0-23/3 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed.js,tag=¾©¶«ÌìÌì¼ÓËÙ
+cron "8 0-23/3 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed.js,tag=äº¬ä¸œå¤©å¤©åŠ é€Ÿ
 
 ===========Surge============
-ÌìÌì¼ÓËÙ = type=cron,cronexp="8 0-23/3 * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed.js
+å¤©å¤©åŠ é€Ÿ = type=cron,cronexp="8 0-23/3 * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed.js
 
-==============Ğ¡»ğ¼ı=============
-ÌìÌì¼ÓËÙ = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed.js, cronexpr="11 0-23/3 * * *", timeout=3600, enable=true
+==============å°ç«ç®­=============
+å¤©å¤©åŠ é€Ÿ = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed.js, cronexpr="11 0-23/3 * * *", timeout=3600, enable=true
 */
 
-const $ = new Env('??ÌìÌì¼ÓËÙ');
+const $ = new Env('âœˆï¸å¤©å¤©åŠ é€Ÿ');
 const notify = $.isNode() ? require('./sendNotify') : '';
-//Node.jsÓÃ»§ÇëÔÚjdCookie.js´¦ÌîĞ´¾©¶«ck;
+//Node.jsç”¨æˆ·è¯·åœ¨jdCookie.jså¤„å¡«å†™äº¬ä¸œck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 
-//IOSµÈÓÃ»§Ö±½ÓÓÃNobyDaµÄjd cookie
+//IOSç­‰ç”¨æˆ·ç›´æ¥ç”¨NobyDaçš„jd cookie
 let cookiesArr = [], cookie = '';
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
@@ -38,13 +38,13 @@ if ($.isNode()) {
 } else {
   cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 }
-let jdNotify = true;//ÊÇ·ñ¿ªÆô¾²Ä¬ÔËĞĞ¡£Ä¬ÈÏtrue¿ªÆô
+let jdNotify = true;//æ˜¯å¦å¼€å¯é™é»˜è¿è¡Œã€‚é»˜è®¤trueå¼€å¯
 let message = '', subTitle = '';
 const JD_API_HOST = 'https://api.m.jd.com/'
 
 !(async () => {
   if (!cookiesArr[0]) {
-    $.msg($.name, '¡¾ÌáÊ¾¡¿ÇëÏÈ»ñÈ¡¾©¶«ÕËºÅÒ»cookie\nÖ±½ÓÊ¹ÓÃNobyDaµÄ¾©¶«Ç©µ½»ñÈ¡', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+    $.msg($.name, 'ã€æç¤ºã€‘è¯·å…ˆè·å–äº¬ä¸œè´¦å·ä¸€cookie\nç›´æ¥ä½¿ç”¨NobyDaçš„äº¬ä¸œç­¾åˆ°è·å–', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
     return;
   }
   for (let i = 0; i < cookiesArr.length; i++) {
@@ -55,12 +55,12 @@ const JD_API_HOST = 'https://api.m.jd.com/'
       $.isLogin = true;
       $.nickName = '';
       await TotalBean();
-      console.log(`\n¿ªÊ¼¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName || $.UserName}\n`);
+      console.log(`\nå¼€å§‹ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName || $.UserName}\n`);
       if (!$.isLogin) {
-        $.msg($.name, `¡¾ÌáÊ¾¡¿cookieÒÑÊ§Ğ§`, `¾©¶«ÕËºÅ${$.index} ${$.nickName || $.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+        $.msg($.name, `ã€æç¤ºã€‘cookieå·²å¤±æ•ˆ`, `äº¬ä¸œè´¦å·${$.index} ${$.nickName || $.UserName}\nè¯·é‡æ–°ç™»å½•è·å–\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
 
         if ($.isNode()) {
-          await notify.sendNotify(`${$.name}cookieÒÑÊ§Ğ§ - ${$.UserName}`, `¾©¶«ÕËºÅ${$.index} ${$.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡cookie`);
+          await notify.sendNotify(`${$.name}cookieå·²å¤±æ•ˆ - ${$.UserName}`, `äº¬ä¸œè´¦å·${$.index} ${$.UserName}\nè¯·é‡æ–°ç™»å½•è·å–cookie`);
         }
         continue
       }
@@ -73,7 +73,7 @@ const JD_API_HOST = 'https://api.m.jd.com/'
   }
 })()
     .catch((e) => {
-      $.log('', `? ${$.name}, Ê§°Ü! Ô­Òò: ${e}!`, '')
+      $.log('', `âŒ ${$.name}, å¤±è´¥! åŸå› : ${e}!`, '')
     })
     .finally(() => {
       $.done();
@@ -81,7 +81,7 @@ const JD_API_HOST = 'https://api.m.jd.com/'
 function showMsg() {
   jdNotify = $.getdata('jdSpeedNotify') ? $.getdata('jdSpeedNotify') : jdNotify;
   if (!jdNotify || jdNotify === 'false') {
-    $.msg($.name, subTitle, `¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName}\n` + message);
+    $.msg($.name, subTitle, `ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName}\n` + message);
   } else {
     $.log(`\n${message}\n`);
   }
@@ -109,58 +109,58 @@ function jDSpeedUp(sourceId) {
     $.get(url, async (err, resp, data) => {
       try {
         if (err) {
-          console.log('¾©¶«ÌìÌì-¼ÓËÙ: Ç©µ½½Ó¿ÚÇëÇóÊ§°Ü ????');
+          console.log('äº¬ä¸œå¤©å¤©-åŠ é€Ÿ: ç­¾åˆ°æ¥å£è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸');
           console.log(`${JSON.stringify(err)}`)
         } else {
           if (data) {
             let res = JSON.parse(data);
             if (!sourceId) {
-              console.log(`\nÌìÌì¼ÓËÙÈÎÎñ½øĞĞÖĞ`);
+              console.log(`\nå¤©å¤©åŠ é€Ÿä»»åŠ¡è¿›è¡Œä¸­`);
             } else {
-              console.log("\n" + "ÌìÌì¼ÓËÙ-¿ªÊ¼±¾´ÎÈÎÎñ ");
+              console.log("\n" + "å¤©å¤©åŠ é€Ÿ-å¼€å§‹æœ¬æ¬¡ä»»åŠ¡ ");
             }
             if (res.code === 0 && res.success) {
-              subTitle = `¡¾½±Àø¡¿${res.data.beans_num}¾©¶¹`;
+              subTitle = `ã€å¥–åŠ±ã€‘${res.data.beans_num}äº¬è±†`;
               if (res.data.task_status === 0) {
                 const taskID = res.data.source_id;
                 await jDSpeedUp(taskID);
               } else if (res.data.task_status === 1) {
                 const EndTime = res.data.end_time ? res.data.end_time : ""
-                console.log("\nÌìÌì¼ÓËÙ½øĞĞÖĞ-½áÊøÊ±¼ä: \n" + EndTime);
+                console.log("\nå¤©å¤©åŠ é€Ÿè¿›è¡Œä¸­-ç»“æŸæ—¶é—´: \n" + EndTime);
                 const space = await spaceEventList()
                 const HandleEvent = await spaceEventHandleEvent(space)
-                const step1 = await energyPropList();//¼ì²éÈ¼ÁÏ
-                const step2 = await receiveEnergyProp(step1);//ÁìÈ¡¿ÉÓÃµÄÈ¼ÁÏ
+                const step1 = await energyPropList();//æ£€æŸ¥ç‡ƒæ–™
+                const step2 = await receiveEnergyProp(step1);//é¢†å–å¯ç”¨çš„ç‡ƒæ–™
                 const step3 = await energyPropUsaleList(step2)
                 const step4 = await useEnergy(step3)
                 if (step4) {
                   await jDSpeedUp(null);
                 } else {
-                  message += `¡¾¿Õ¼äÕ¾¡¿ ${res.data.destination}\n`;
-                  message += `¡¾½áÊøÊ±¼ä¡¿ ${res.data.end_time}\n`;
-                  message += `¡¾½ø¶È¡¿ ${((res.data['done_distance'] / res.data.distance) * 100).toFixed(2)}%\n`;
+                  message += `ã€ç©ºé—´ç«™ã€‘ ${res.data.destination}\n`;
+                  message += `ã€ç»“æŸæ—¶é—´ã€‘ ${res.data.end_time}\n`;
+                  message += `ã€è¿›åº¦ã€‘ ${((res.data['done_distance'] / res.data.distance) * 100).toFixed(2)}%\n`;
                 }
               } else if (res.data.task_status === 2) {
                 if (data.match(/\"beans_num\":\d+/)) {
-                  //message += "¡¾ÉÏÂÖ½±Àø¡¿³É¹¦ÁìÈ¡" + data.match(/\"beans_num\":(\d+)/)[1] + "¾©¶¹ ?";
+                  //message += "ã€ä¸Šè½®å¥–åŠ±ã€‘æˆåŠŸé¢†å–" + data.match(/\"beans_num\":(\d+)/)[1] + "äº¬è±† ğŸ¶";
                   if (!jdNotify || jdNotify === 'false') {
-                    $.msg($.name, '', `¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName}\n` + "¡¾ÉÏÂÖÌ«¿ÕÂÃĞĞ¡¿³É¹¦ÁìÈ¡" + data.match(/\"beans_num\":(\d+)/)[1] + "¾©¶¹ ?");
+                    $.msg($.name, '', `ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName}\n` + "ã€ä¸Šè½®å¤ªç©ºæ—…è¡Œã€‘æˆåŠŸé¢†å–" + data.match(/\"beans_num\":(\d+)/)[1] + "äº¬è±† ğŸ¶");
                   }
                 } else {
-                  console.log("¾©¶«ÌìÌì-¼ÓËÙ: ³É¹¦, Ã÷Ï¸: ÎŞ¾©¶¹ ?")
+                  console.log("äº¬ä¸œå¤©å¤©-åŠ é€Ÿ: æˆåŠŸ, æ˜ç»†: æ— äº¬è±† ğŸ¶")
                 }
-                console.log("\nÌìÌì¼ÓËÙ-ÁìÈ¡ÉÏ´Î½±Àø³É¹¦")
+                console.log("\nå¤©å¤©åŠ é€Ÿ-é¢†å–ä¸Šæ¬¡å¥–åŠ±æˆåŠŸ")
                 await jDSpeedUp(null);
               } else {
-                console.log("\n" + "ÌìÌì¼ÓËÙ-ÅĞ¶Ï×´Ì¬ÂëÊ§°Ü")
+                console.log("\n" + "å¤©å¤©åŠ é€Ÿ-åˆ¤æ–­çŠ¶æ€ç å¤±è´¥")
               }
             }
           } else {
-            console.log(`¾©¶¹api·µ»ØÊı¾İÎª¿Õ£¬Çë¼ì²é×ÔÉíÔ­Òò`)
+            console.log(`äº¬è±†apiè¿”å›æ•°æ®ä¸ºç©ºï¼Œè¯·æ£€æŸ¥è‡ªèº«åŸå› `)
           }
         }
       } catch (e) {
-        // $.msg("¾©¶«ÌìÌì-¼ÓËÙ" + e.name + "??", JSON.stringify(e), e.message)
+        // $.msg("äº¬ä¸œå¤©å¤©-åŠ é€Ÿ" + e.name + "â€¼ï¸", JSON.stringify(e), e.message)
         $.logErr(e, resp);
       } finally {
         resolve()
@@ -169,7 +169,7 @@ function jDSpeedUp(sourceId) {
   })
 }
 
-// ¼ì²éÌ«¿ÕÌØÊâÊÂ¼ş
+// æ£€æŸ¥å¤ªç©ºç‰¹æ®Šäº‹ä»¶
 function spaceEventList() {
   return new Promise((resolve) => {
     let spaceEvents = [];
@@ -184,7 +184,7 @@ function spaceEventList() {
     $.get(spaceEventUrl, async (err, resp, data) => {
       try {
         if (err) {
-          console.log("\n¾©¶«ÌìÌì-¼ÓËÙ: ²éÑ¯Ì«¿ÕÌØÊâÊÂ¼şÇëÇóÊ§°Ü ????")
+          console.log("\näº¬ä¸œå¤©å¤©-åŠ é€Ÿ: æŸ¥è¯¢å¤ªç©ºç‰¹æ®Šäº‹ä»¶è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸")
           console.log(`${JSON.stringify(err)}`)
         } else {
           if (data) {
@@ -203,19 +203,19 @@ function spaceEventList() {
                 }
               }
               if (spaceEvents && spaceEvents.length > 0) {
-                console.log("\nÌìÌì¼ÓËÙ-²éÑ¯µ½" + spaceEvents.length + "¸öÌ«¿ÕÌØÊâÊÂ¼ş")
+                console.log("\nå¤©å¤©åŠ é€Ÿ-æŸ¥è¯¢åˆ°" + spaceEvents.length + "ä¸ªå¤ªç©ºç‰¹æ®Šäº‹ä»¶")
               } else {
-                console.log("\nÌìÌì¼ÓËÙ-ÔİÎŞÌ«¿ÕÌØÊâÊÂ¼ş")
+                console.log("\nå¤©å¤©åŠ é€Ÿ-æš‚æ— å¤ªç©ºç‰¹æ®Šäº‹ä»¶")
               }
             } else {
-              console.log("\nÌìÌì¼ÓËÙ-²éÑ¯ÎŞÌ«¿ÕÌØÊâÊÂ¼ş")
+              console.log("\nå¤©å¤©åŠ é€Ÿ-æŸ¥è¯¢æ— å¤ªç©ºç‰¹æ®Šäº‹ä»¶")
             }
           } else {
-            console.log(`¾©¶¹api·µ»ØÊı¾İÎª¿Õ£¬Çë¼ì²é×ÔÉíÔ­Òò`)
+            console.log(`äº¬è±†apiè¿”å›æ•°æ®ä¸ºç©ºï¼Œè¯·æ£€æŸ¥è‡ªèº«åŸå› `)
           }
         }
       } catch (e) {
-        // $.msg("ÌìÌì¼ÓËÙ-²éÑ¯Ì«¿ÕÌØÊâÊÂ¼ş" + e.name + "??", JSON.stringify(e), e.message)
+        // $.msg("å¤©å¤©åŠ é€Ÿ-æŸ¥è¯¢å¤ªç©ºç‰¹æ®Šäº‹ä»¶" + e.name + "â€¼ï¸", JSON.stringify(e), e.message)
         $.logErr(e, resp)
       } finally {
         resolve(spaceEvents)
@@ -224,7 +224,7 @@ function spaceEventList() {
   })
 }
 
-//´¦ÀíÌ«¿ÕÌØÊâÊÂ¼ş
+//å¤„ç†å¤ªç©ºç‰¹æ®Šäº‹ä»¶
 function spaceEventHandleEvent(spaceEventList) {
   return new Promise((resolve) => {
     if (spaceEventList && spaceEventList.length > 0) {
@@ -246,28 +246,28 @@ function spaceEventHandleEvent(spaceEventList) {
         $.get(spaceHandleUrl, (err, resp, data) => {
           try {
             if (err) {
-              console.log("\n¾©¶«ÌìÌì-¼ÓËÙ: ´¦ÀíÌ«¿ÕÌØÊâÊÂ¼şÇëÇóÊ§°Ü ????")
+              console.log("\näº¬ä¸œå¤©å¤©-åŠ é€Ÿ: å¤„ç†å¤ªç©ºç‰¹æ®Šäº‹ä»¶è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸")
               console.log(`${JSON.stringify(err)}`)
             } else {
               if (data) {
                 const cc = JSON.parse(data);
-                // console.log(`´¦ÀíÌØÊâÊÂ¼şµÄ½á¹û£º£º${JSON.stringify(cc)}`);
-                console.log("\nÌìÌì¼ÓËÙ-³¢ÊÔ´¦ÀíµÚ" + spaceEventCount + "¸öÌ«¿ÕÌØÊâÊÂ¼ş")
+                // console.log(`å¤„ç†ç‰¹æ®Šäº‹ä»¶çš„ç»“æœï¼šï¼š${JSON.stringify(cc)}`);
+                console.log("\nå¤©å¤©åŠ é€Ÿ-å°è¯•å¤„ç†ç¬¬" + spaceEventCount + "ä¸ªå¤ªç©ºç‰¹æ®Šäº‹ä»¶")
                 if (cc.message === "success" && cc.success) {
                   spaceNumTask += 1;
                 } else {
-                  console.log("\nÌìÌì¼ÓËÙ-´¦ÀíÌ«¿ÕÌØÊâÊÂ¼şÊ§°Ü")
+                  console.log("\nå¤©å¤©åŠ é€Ÿ-å¤„ç†å¤ªç©ºç‰¹æ®Šäº‹ä»¶å¤±è´¥")
                 }
               } else {
-                console.log(`¾©¶¹api·µ»ØÊı¾İÎª¿Õ£¬Çë¼ì²é×ÔÉíÔ­Òò`)
+                console.log(`äº¬è±†apiè¿”å›æ•°æ®ä¸ºç©ºï¼Œè¯·æ£€æŸ¥è‡ªèº«åŸå› `)
               }
             }
           } catch (e) {
-            // $.msg("ÌìÌì¼ÓËÙ-²éÑ¯´¦ÀíÌ«¿ÕÌØÊâÊÂ¼ş" + e.name + "??", JSON.stringify(e), e.message)
+            // $.msg("å¤©å¤©åŠ é€Ÿ-æŸ¥è¯¢å¤„ç†å¤ªç©ºç‰¹æ®Šäº‹ä»¶" + e.name + "â€¼ï¸", JSON.stringify(e), e.message)
             $.logErr(e, resp)
           } finally {
             if (spaceEventList.length === spaceNumTask) {
-              console.log("\nÌìÌì¼ÓËÙ-ÒÑ³É¹¦´¦Àí" + spaceNumTask + "¸öÌ«¿ÕÌØÊâÊÂ¼ş")
+              console.log("\nå¤©å¤©åŠ é€Ÿ-å·²æˆåŠŸå¤„ç†" + spaceNumTask + "ä¸ªå¤ªç©ºç‰¹æ®Šäº‹ä»¶")
               resolve()
             }
           }
@@ -279,7 +279,7 @@ function spaceEventHandleEvent(spaceEventList) {
   })
 }
 
-//¼ì²éÈ¼ÁÏ
+//æ£€æŸ¥ç‡ƒæ–™
 function energyPropList() {
   return new Promise((resolve) => {
     let TaskID = "";
@@ -295,7 +295,7 @@ function energyPropList() {
     $.get(QueryUrl, async (err, resp, data) => {
       try {
         if (err) {
-          console.log("\n¾©¶«ÌìÌì-¼ÓËÙ: ²éÑ¯µÀ¾ßÇëÇóÊ§°Ü ????")
+          console.log("\näº¬ä¸œå¤©å¤©-åŠ é€Ÿ: æŸ¥è¯¢é“å…·è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸")
           console.log(`${JSON.stringify(err)}`)
         } else {
           if (data) {
@@ -308,19 +308,19 @@ function energyPropList() {
               }
               if (TaskID.length > 0) {
                 TaskID = TaskID.substr(0, TaskID.length - 1).split(",")
-                console.log("\nÌìÌì¼ÓËÙ-²éÑ¯µ½" + TaskID.length + "¸ö¿ÉÓÃÈ¼ÁÏ")
+                console.log("\nå¤©å¤©åŠ é€Ÿ-æŸ¥è¯¢åˆ°" + TaskID.length + "ä¸ªå¯ç”¨ç‡ƒæ–™")
               } else {
-                console.log("\nÌìÌì¼ÓËÙ-¼ì²éÈ¼ÁÏ-ÔİÎŞ¿ÉÓÃÈ¼ÁÏ")
+                console.log("\nå¤©å¤©åŠ é€Ÿ-æ£€æŸ¥ç‡ƒæ–™-æš‚æ— å¯ç”¨ç‡ƒæ–™")
               }
             } else {
-              console.log("\nÌìÌì¼ÓËÙ-²éÑ¯ÎŞÈ¼ÁÏ")
+              console.log("\nå¤©å¤©åŠ é€Ÿ-æŸ¥è¯¢æ— ç‡ƒæ–™")
             }
           } else {
-            console.log(`¾©¶¹api·µ»ØÊı¾İÎª¿Õ£¬Çë¼ì²é×ÔÉíÔ­Òò`)
+            console.log(`äº¬è±†apiè¿”å›æ•°æ®ä¸ºç©ºï¼Œè¯·æ£€æŸ¥è‡ªèº«åŸå› `)
           }
         }
       } catch (eor) {
-        // $.msg("ÌìÌì¼ÓËÙ-²éÑ¯È¼ÁÏ" + eor.name + "??", JSON.stringify(eor), eor.message)
+        // $.msg("å¤©å¤©åŠ é€Ÿ-æŸ¥è¯¢ç‡ƒæ–™" + eor.name + "â€¼ï¸", JSON.stringify(eor), eor.message)
         $.logErr(e, resp)
       } finally {
         resolve(TaskID)
@@ -329,7 +329,7 @@ function energyPropList() {
   })
 }
 
-//ÁìÈ¡¿ÉÓÃµÄÈ¼ÁÏ
+//é¢†å–å¯ç”¨çš„ç‡ƒæ–™
 function receiveEnergyProp(CID) {
   return new Promise((resolve) => {
     var NumTask = 0;
@@ -352,25 +352,25 @@ function receiveEnergyProp(CID) {
         $.get(TUrl, (error, response, data) => {
           try {
             if (error) {
-              console.log("\nÌìÌì¼ÓËÙ-ÁìÈ¡µÀ¾ßÇëÇóÊ§°Ü ????")
+              console.log("\nå¤©å¤©åŠ é€Ÿ-é¢†å–é“å…·è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸")
               console.log(`${JSON.stringify(error)}`)
             } else {
               if (data) {
                 const cc = JSON.parse(data)
-                console.log("\nÌìÌì¼ÓËÙ-³¢ÊÔÁìÈ¡µÚ" + count + "¸ö¿ÉÓÃÈ¼ÁÏ")
+                console.log("\nå¤©å¤©åŠ é€Ÿ-å°è¯•é¢†å–ç¬¬" + count + "ä¸ªå¯ç”¨ç‡ƒæ–™")
                 if (cc.message === 'success') {
                   NumTask += 1
                 }
               } else {
-                console.log(`¾©¶¹api·µ»ØÊı¾İÎª¿Õ£¬Çë¼ì²é×ÔÉíÔ­Òò`)
+                console.log(`äº¬è±†apiè¿”å›æ•°æ®ä¸ºç©ºï¼Œè¯·æ£€æŸ¥è‡ªèº«åŸå› `)
               }
             }
           } catch (eor) {
-            // $.msg("ÌìÌì¼ÓËÙ-ÁìÈ¡¿ÉÓÃÈ¼ÁÏ" + eor.name + "??", JSON.stringify(eor), eor.message)
+            // $.msg("å¤©å¤©åŠ é€Ÿ-é¢†å–å¯ç”¨ç‡ƒæ–™" + eor.name + "â€¼ï¸", JSON.stringify(eor), eor.message)
             $.logErr(e, resp)
           } finally {
             if (CID.length === count) {
-              console.log("\nÌìÌì¼ÓËÙ-ÒÑ³É¹¦ÁìÈ¡" + NumTask + "¸ö¿ÉÓÃÈ¼ÁÏ")
+              console.log("\nå¤©å¤©åŠ é€Ÿ-å·²æˆåŠŸé¢†å–" + NumTask + "ä¸ªå¯ç”¨ç‡ƒæ–™")
               resolve(NumTask)
             }
           }
@@ -382,7 +382,7 @@ function receiveEnergyProp(CID) {
   })
 }
 
-//¼ì²éÊ£ÓàÈ¼ÁÏ
+//æ£€æŸ¥å‰©ä½™ç‡ƒæ–™
 function energyPropUsaleList(EID) {
   return new Promise((resolve) => {
     let TaskCID = '';
@@ -398,7 +398,7 @@ function energyPropUsaleList(EID) {
     $.get(EUrl, (error, response, data) => {
       try {
         if (error) {
-          console.log("\nÌìÌì¼ÓËÙ-²éÑ¯µÀ¾ßIDÇëÇóÊ§°Ü ????")
+          console.log("\nå¤©å¤©åŠ é€Ÿ-æŸ¥è¯¢é“å…·IDè¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸")
           console.log(`${JSON.stringify(error)}`)
         } else {
           if (data) {
@@ -412,20 +412,20 @@ function energyPropUsaleList(EID) {
                 }
                 if (TaskCID.length > 0) {
                   TaskCID = TaskCID.substr(0, TaskCID.length - 1).split(",")
-                  console.log("\nÌìÌì¼ÓËÙ-²éÑ¯³É¹¦" + TaskCID.length + "¸öÈ¼ÁÏID")
+                  console.log("\nå¤©å¤©åŠ é€Ÿ-æŸ¥è¯¢æˆåŠŸ" + TaskCID.length + "ä¸ªç‡ƒæ–™ID")
                 } else {
-                  console.log("\nÌìÌì¼ÓËÙ-ÔİÎŞÓĞĞ§È¼ÁÏID")
+                  console.log("\nå¤©å¤©åŠ é€Ÿ-æš‚æ— æœ‰æ•ˆç‡ƒæ–™ID")
                 }
               } else {
-                console.log("\nÌìÌì¼ÓËÙ-²éÑ¯ÎŞÈ¼ÁÏID")
+                console.log("\nå¤©å¤©åŠ é€Ÿ-æŸ¥è¯¢æ— ç‡ƒæ–™ID")
               }
             }
           } else {
-            console.log(`¾©¶¹api·µ»ØÊı¾İÎª¿Õ£¬Çë¼ì²é×ÔÉíÔ­Òò`)
+            console.log(`äº¬è±†apiè¿”å›æ•°æ®ä¸ºç©ºï¼Œè¯·æ£€æŸ¥è‡ªèº«åŸå› `)
           }
         }
       } catch (eor) {
-        // $.msg("ÌìÌì¼ÓËÙ-È¼ÁÏID" + eor.name + "??", JSON.stringify(eor), eor.message)
+        // $.msg("å¤©å¤©åŠ é€Ÿ-ç‡ƒæ–™ID" + eor.name + "â€¼ï¸", JSON.stringify(eor), eor.message)
         $.logErr(e, resp)
       } finally {
         resolve(TaskCID)
@@ -439,7 +439,7 @@ function energyPropUsaleList(EID) {
   })
 }
 
-//Ê¹ÓÃÄÜÔ´
+//ä½¿ç”¨èƒ½æº
 function useEnergy(PropID) {
   return new Promise((resolve) => {
     var PropNumTask = 0;
@@ -462,25 +462,25 @@ function useEnergy(PropID) {
         $.get(PropUrl, (error, response, data) => {
           try {
             if (error) {
-              console.log("\nÌìÌì¼ÓËÙ-Ê¹ÓÃÈ¼ÁÏÇëÇóÊ§°Ü ????")
+              console.log("\nå¤©å¤©åŠ é€Ÿ-ä½¿ç”¨ç‡ƒæ–™è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸")
               console.log(`${JSON.stringify(error)}`)
             } else {
               if (data) {
                 const cc = JSON.parse(data);
-                console.log("\nÌìÌì¼ÓËÙ-³¢ÊÔÊ¹ÓÃµÚ" + PropCount + "¸öÈ¼ÁÏ")
+                console.log("\nå¤©å¤©åŠ é€Ÿ-å°è¯•ä½¿ç”¨ç¬¬" + PropCount + "ä¸ªç‡ƒæ–™")
                 if (cc.message === 'success' && cc.success === true) {
                   PropNumTask += 1
                 }
               } else {
-                console.log(`¾©¶¹api·µ»ØÊı¾İÎª¿Õ£¬Çë¼ì²é×ÔÉíÔ­Òò`)
+                console.log(`äº¬è±†apiè¿”å›æ•°æ®ä¸ºç©ºï¼Œè¯·æ£€æŸ¥è‡ªèº«åŸå› `)
               }
             }
           } catch (eor) {
-            // $.msg("ÌìÌì¼ÓËÙ-Ê¹ÓÃÈ¼ÁÏ" + eor.name + "??", JSON.stringify(eor), eor.message)
+            // $.msg("å¤©å¤©åŠ é€Ÿ-ä½¿ç”¨ç‡ƒæ–™" + eor.name + "â€¼ï¸", JSON.stringify(eor), eor.message)
             $.logErr(e, resp)
           } finally {
             if (PropID.length === PropCount) {
-              console.log("\nÌìÌì¼ÓËÙ-ÒÑ³É¹¦Ê¹ÓÃ" + PropNumTask + "¸öÈ¼ÁÏ")
+              console.log("\nå¤©å¤©åŠ é€Ÿ-å·²æˆåŠŸä½¿ç”¨" + PropNumTask + "ä¸ªç‡ƒæ–™")
               resolve(PropNumTask)
             }
           }
@@ -491,7 +491,7 @@ function useEnergy(PropID) {
     }
   })
 }
-//³æ¶´
+//è™«æ´
 function getMemBerList() {
   return new Promise((resolve) => {
     const body = { "source": "game", "status": 0};
@@ -506,7 +506,7 @@ function getMemBerList() {
     $.get(spaceEventUrl, async (err, resp, data) => {
       try {
         if (err) {
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
           console.log(`${JSON.stringify(err)}`)
         } else {
           if (safeGet(data)) {
@@ -514,29 +514,29 @@ function getMemBerList() {
             if (data && data.success) {
               for (let item of data.data) {
                 if (item['taskStatus'] === 0) {
-                  $.log(`È¥ÁìÈ¡¡¾${item['title']}¡¿ÈÎÎñ\n`)
+                  $.log(`å»é¢†å–ã€${item['title']}ã€‘ä»»åŠ¡\n`)
                   await getMemBerGetTask(item['sourceId']);
                 }
               }
               $.getRewardBeans = 0;
-              console.log(`\n¼ì²éÊÇ·ñ¿ÉÁì³æ¶´¾©¶¹½±Àø`)
+              console.log(`\næ£€æŸ¥æ˜¯å¦å¯é¢†è™«æ´äº¬è±†å¥–åŠ±`)
               $.memBerList = data.data.filter(item => item['taskStatus'] === 2);
               if ($.memBerList && $.memBerList.length > 0) {
                 for (let uuids of $.memBerList) {
                   await getReward(uuids['uuid']);
                 }
                 if ($.getRewardBeans > 0) {
-                  $.msg(`${$.name}`, '', `¾©¶«ÕËºÅ${$.index}  ${$.nickName}\n³æ¶´ÈÎÎñ£º»ñµÃ${$.getRewardBeans}¾©¶¹`);
-                  if ($.isNode()) await notify.sendNotify(`${$.name} - ÕËºÅ${$.index} - ${$.nickName}`, `¾©¶«ÕËºÅ${$.index}  ${$.nickName}\n³æ¶´ÈÎÎñ£º»ñµÃ${$.getRewardBeans}¾©¶¹`)
+                  $.msg(`${$.name}`, '', `äº¬ä¸œè´¦å·${$.index}  ${$.nickName}\nè™«æ´ä»»åŠ¡ï¼šè·å¾—${$.getRewardBeans}äº¬è±†`);
+                  if ($.isNode()) await notify.sendNotify(`${$.name} - è´¦å·${$.index} - ${$.nickName}`, `äº¬ä¸œè´¦å·${$.index}  ${$.nickName}\nè™«æ´ä»»åŠ¡ï¼šè·å¾—${$.getRewardBeans}äº¬è±†`)
                 }
               } else {
-                console.log(`ÔİÎŞ¿ÉÁìÈ¡µÄ³æ¶´¾©¶¹½±Àø`)
+                console.log(`æš‚æ— å¯é¢†å–çš„è™«æ´äº¬è±†å¥–åŠ±`)
               }
             }
           }
         }
       } catch (e) {
-        // $.msg("ÌìÌì¼ÓËÙ-²éÑ¯Ì«¿ÕÌØÊâÊÂ¼ş" + e.name + "??", JSON.stringify(e), e.message)
+        // $.msg("å¤©å¤©åŠ é€Ÿ-æŸ¥è¯¢å¤ªç©ºç‰¹æ®Šäº‹ä»¶" + e.name + "â€¼ï¸", JSON.stringify(e), e.message)
         $.logErr(e, resp)
       } finally {
         resolve()
@@ -544,7 +544,7 @@ function getMemBerList() {
     })
   })
 }
-//ÁìÈ¡³æ¶´ÈÎÎñAPI
+//é¢†å–è™«æ´ä»»åŠ¡API
 function getMemBerGetTask(sourceId) {
   return new Promise((resolve) => {
     const body = { "source": "game", sourceId};
@@ -559,7 +559,7 @@ function getMemBerGetTask(sourceId) {
     $.get(options, async (err, resp, data) => {
       try {
         if (err) {
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
           console.log(`${JSON.stringify(err)}`)
         } else {
           if (safeGet(data)) {
@@ -591,7 +591,7 @@ function getReward(uuid) {
     $.get(options, async (err, resp, data) => {
       try {
         if (err) {
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
           console.log(`${JSON.stringify(err)}`)
         } else {
           if (safeGet(data)) {
@@ -628,17 +628,17 @@ function TotalBean() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (data) {
             data = JSON.parse(data);
             if (data['retcode'] === 13) {
-              $.isLogin = false; //cookie¹ıÆÚ
+              $.isLogin = false; //cookieè¿‡æœŸ
               return
             }
             $.nickName = data['base'].nickname;
           } else {
-            console.log(`¾©¶«·şÎñÆ÷·µ»Ø¿ÕÊı¾İ`)
+            console.log(`äº¬ä¸œæœåŠ¡å™¨è¿”å›ç©ºæ•°æ®`)
           }
         }
       } catch (e) {
@@ -655,7 +655,7 @@ function jsonParse(str) {
       return JSON.parse(str);
     } catch (e) {
       console.log(e);
-      $.msg($.name, '', 'ÇëÎğËæÒâÔÚBoxJsÊäÈë¿òĞŞ¸ÄÄÚÈİ\n½¨ÒéÍ¨¹ı½Å±¾È¥»ñÈ¡cookie')
+      $.msg($.name, '', 'è¯·å‹¿éšæ„åœ¨BoxJsè¾“å…¥æ¡†ä¿®æ”¹å†…å®¹\nå»ºè®®é€šè¿‡è„šæœ¬å»è·å–cookie')
       return [];
     }
   }
@@ -667,9 +667,9 @@ function safeGet(data) {
     }
   } catch (e) {
     console.log(e);
-    console.log(`¾©¶«·şÎñÆ÷·ÃÎÊÊı¾İÎª¿Õ£¬Çë¼ì²é×ÔÉíÉè±¸ÍøÂçÇé¿ö`);
+    console.log(`äº¬ä¸œæœåŠ¡å™¨è®¿é—®æ•°æ®ä¸ºç©ºï¼Œè¯·æ£€æŸ¥è‡ªèº«è®¾å¤‡ç½‘ç»œæƒ…å†µ`);
     return false;
   }
 }
 // prettier-ignore
-function Env(t,e){"undefined"!=typeof process&&JSON.stringify(process.env).indexOf("GIT_HUB")>-1&&process.exit(0);class s{constructor(t){this.env=t}send(t,e="GET"){t="string"==typeof t?{url:t}:t;let s=this.get;return"POST"===e&&(s=this.post),new Promise((e,i)=>{s.call(this,t,(t,s,r)=>{t?i(t):e(s)})})}get(t){return this.send.call(this.env,t)}post(t){return this.send.call(this.env,t,"POST")}}return new class{constructor(t,e){this.name=t,this.http=new s(this),this.data=null,this.dataFile="box.dat",this.logs=[],this.isMute=!1,this.isNeedRewrite=!1,this.logSeparator="\n",this.startTime=(new Date).getTime(),Object.assign(this,e),this.log("",`?${this.name}, ¿ªÊ¼!`)}isNode(){return"undefined"!=typeof module&&!!module.exports}isQuanX(){return"undefined"!=typeof $task}isSurge(){return"undefined"!=typeof $httpClient&&"undefined"==typeof $loon}isLoon(){return"undefined"!=typeof $loon}toObj(t,e=null){try{return JSON.parse(t)}catch{return e}}toStr(t,e=null){try{return JSON.stringify(t)}catch{return e}}getjson(t,e){let s=e;const i=this.getdata(t);if(i)try{s=JSON.parse(this.getdata(t))}catch{}return s}setjson(t,e){try{return this.setdata(JSON.stringify(t),e)}catch{return!1}}getScript(t){return new Promise(e=>{this.get({url:t},(t,s,i)=>e(i))})}runScript(t,e){return new Promise(s=>{let i=this.getdata("@chavy_boxjs_userCfgs.httpapi");i=i?i.replace(/\n/g,"").trim():i;let r=this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");r=r?1*r:20,r=e&&e.timeout?e.timeout:r;const[o,h]=i.split("@"),n={url:`http://${h}/v1/scripting/evaluate`,body:{script_text:t,mock_type:"cron",timeout:r},headers:{"X-Key":o,Accept:"*/*"}};this.post(n,(t,e,i)=>s(i))}).catch(t=>this.logErr(t))}loaddata(){if(!this.isNode())return{};{this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e);if(!s&&!i)return{};{const i=s?t:e;try{return JSON.parse(this.fs.readFileSync(i))}catch(t){return{}}}}}writedata(){if(this.isNode()){this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e),r=JSON.stringify(this.data);s?this.fs.writeFileSync(t,r):i?this.fs.writeFileSync(e,r):this.fs.writeFileSync(t,r)}}lodash_get(t,e,s){const i=e.replace(/\[(\d+)\]/g,".$1").split(".");let r=t;for(const t of i)if(r=Object(r)[t],void 0===r)return s;return r}lodash_set(t,e,s){return Object(t)!==t?t:(Array.isArray(e)||(e=e.toString().match(/[^.[\]]+/g)||[]),e.slice(0,-1).reduce((t,s,i)=>Object(t[s])===t[s]?t[s]:t[s]=Math.abs(e[i+1])>>0==+e[i+1]?[]:{},t)[e[e.length-1]]=s,t)}getdata(t){let e=this.getval(t);if(/^@/.test(t)){const[,s,i]=/^@(.*?)\.(.*?)$/.exec(t),r=s?this.getval(s):"";if(r)try{const t=JSON.parse(r);e=t?this.lodash_get(t,i,""):e}catch(t){e=""}}return e}setdata(t,e){let s=!1;if(/^@/.test(e)){const[,i,r]=/^@(.*?)\.(.*?)$/.exec(e),o=this.getval(i),h=i?"null"===o?null:o||"{}":"{}";try{const e=JSON.parse(h);this.lodash_set(e,r,t),s=this.setval(JSON.stringify(e),i)}catch(e){const o={};this.lodash_set(o,r,t),s=this.setval(JSON.stringify(o),i)}}else s=this.setval(t,e);return s}getval(t){return this.isSurge()||this.isLoon()?$persistentStore.read(t):this.isQuanX()?$prefs.valueForKey(t):this.isNode()?(this.data=this.loaddata(),this.data[t]):this.data&&this.data[t]||null}setval(t,e){return this.isSurge()||this.isLoon()?$persistentStore.write(t,e):this.isQuanX()?$prefs.setValueForKey(t,e):this.isNode()?(this.data=this.loaddata(),this.data[e]=t,this.writedata(),!0):this.data&&this.data[e]||null}initGotEnv(t){this.got=this.got?this.got:require("got"),this.cktough=this.cktough?this.cktough:require("tough-cookie"),this.ckjar=this.ckjar?this.ckjar:new this.cktough.CookieJar,t&&(t.headers=t.headers?t.headers:{},void 0===t.headers.Cookie&&void 0===t.cookieJar&&(t.cookieJar=this.ckjar))}get(t,e=(()=>{})){t.headers&&(delete t.headers["Content-Type"],delete t.headers["Content-Length"]),this.isSurge()||this.isLoon()?(this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.get(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)})):this.isQuanX()?(this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t))):this.isNode()&&(this.initGotEnv(t),this.got(t).on("redirect",(t,e)=>{try{if(t.headers["set-cookie"]){const s=t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();s&&this.ckjar.setCookieSync(s,null),e.cookieJar=this.ckjar}}catch(t){this.logErr(t)}}).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)}))}post(t,e=(()=>{})){if(t.body&&t.headers&&!t.headers["Content-Type"]&&(t.headers["Content-Type"]="application/x-www-form-urlencoded"),t.headers&&delete t.headers["Content-Length"],this.isSurge()||this.isLoon())this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.post(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)});else if(this.isQuanX())t.method="POST",this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t));else if(this.isNode()){this.initGotEnv(t);const{url:s,...i}=t;this.got.post(s,i).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)})}}time(t,e=null){const s=e?new Date(e):new Date;let i={"M+":s.getMonth()+1,"d+":s.getDate(),"H+":s.getHours(),"m+":s.getMinutes(),"s+":s.getSeconds(),"q+":Math.floor((s.getMonth()+3)/3),S:s.getMilliseconds()};/(y+)/.test(t)&&(t=t.replace(RegExp.$1,(s.getFullYear()+"").substr(4-RegExp.$1.length)));for(let e in i)new RegExp("("+e+")").test(t)&&(t=t.replace(RegExp.$1,1==RegExp.$1.length?i[e]:("00"+i[e]).substr((""+i[e]).length)));return t}msg(e=t,s="",i="",r){const o=t=>{if(!t)return t;if("string"==typeof t)return this.isLoon()?t:this.isQuanX()?{"open-url":t}:this.isSurge()?{url:t}:void 0;if("object"==typeof t){if(this.isLoon()){let e=t.openUrl||t.url||t["open-url"],s=t.mediaUrl||t["media-url"];return{openUrl:e,mediaUrl:s}}if(this.isQuanX()){let e=t["open-url"]||t.url||t.openUrl,s=t["media-url"]||t.mediaUrl;return{"open-url":e,"media-url":s}}if(this.isSurge()){let e=t.url||t.openUrl||t["open-url"];return{url:e}}}};if(this.isMute||(this.isSurge()||this.isLoon()?$notification.post(e,s,i,o(r)):this.isQuanX()&&$notify(e,s,i,o(r))),!this.isMuteLog){let t=["","==============?ÏµÍ³Í¨Öª?=============="];t.push(e),s&&t.push(s),i&&t.push(i),console.log(t.join("\n")),this.logs=this.logs.concat(t)}}log(...t){t.length>0&&(this.logs=[...this.logs,...t]),console.log(t.join(this.logSeparator))}logErr(t,e){const s=!this.isSurge()&&!this.isQuanX()&&!this.isLoon();s?this.log("",`??${this.name}, ´íÎó!`,t.stack):this.log("",`??${this.name}, ´íÎó!`,t)}wait(t){return new Promise(e=>setTimeout(e,t))}done(t={}){const e=(new Date).getTime(),s=(e-this.startTime)/1e3;this.log("",`?${this.name}, ½áÊø! ? ${s} Ãë`),this.log(),(this.isSurge()||this.isQuanX()||this.isLoon())&&$done(t)}}(t,e)}
+function Env(t,e){"undefined"!=typeof process&&JSON.stringify(process.env).indexOf("GIT_HUB")>-1&&process.exit(0);class s{constructor(t){this.env=t}send(t,e="GET"){t="string"==typeof t?{url:t}:t;let s=this.get;return"POST"===e&&(s=this.post),new Promise((e,i)=>{s.call(this,t,(t,s,r)=>{t?i(t):e(s)})})}get(t){return this.send.call(this.env,t)}post(t){return this.send.call(this.env,t,"POST")}}return new class{constructor(t,e){this.name=t,this.http=new s(this),this.data=null,this.dataFile="box.dat",this.logs=[],this.isMute=!1,this.isNeedRewrite=!1,this.logSeparator="\n",this.startTime=(new Date).getTime(),Object.assign(this,e),this.log("",`ğŸ””${this.name}, å¼€å§‹!`)}isNode(){return"undefined"!=typeof module&&!!module.exports}isQuanX(){return"undefined"!=typeof $task}isSurge(){return"undefined"!=typeof $httpClient&&"undefined"==typeof $loon}isLoon(){return"undefined"!=typeof $loon}toObj(t,e=null){try{return JSON.parse(t)}catch{return e}}toStr(t,e=null){try{return JSON.stringify(t)}catch{return e}}getjson(t,e){let s=e;const i=this.getdata(t);if(i)try{s=JSON.parse(this.getdata(t))}catch{}return s}setjson(t,e){try{return this.setdata(JSON.stringify(t),e)}catch{return!1}}getScript(t){return new Promise(e=>{this.get({url:t},(t,s,i)=>e(i))})}runScript(t,e){return new Promise(s=>{let i=this.getdata("@chavy_boxjs_userCfgs.httpapi");i=i?i.replace(/\n/g,"").trim():i;let r=this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");r=r?1*r:20,r=e&&e.timeout?e.timeout:r;const[o,h]=i.split("@"),n={url:`http://${h}/v1/scripting/evaluate`,body:{script_text:t,mock_type:"cron",timeout:r},headers:{"X-Key":o,Accept:"*/*"}};this.post(n,(t,e,i)=>s(i))}).catch(t=>this.logErr(t))}loaddata(){if(!this.isNode())return{};{this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e);if(!s&&!i)return{};{const i=s?t:e;try{return JSON.parse(this.fs.readFileSync(i))}catch(t){return{}}}}}writedata(){if(this.isNode()){this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e),r=JSON.stringify(this.data);s?this.fs.writeFileSync(t,r):i?this.fs.writeFileSync(e,r):this.fs.writeFileSync(t,r)}}lodash_get(t,e,s){const i=e.replace(/\[(\d+)\]/g,".$1").split(".");let r=t;for(const t of i)if(r=Object(r)[t],void 0===r)return s;return r}lodash_set(t,e,s){return Object(t)!==t?t:(Array.isArray(e)||(e=e.toString().match(/[^.[\]]+/g)||[]),e.slice(0,-1).reduce((t,s,i)=>Object(t[s])===t[s]?t[s]:t[s]=Math.abs(e[i+1])>>0==+e[i+1]?[]:{},t)[e[e.length-1]]=s,t)}getdata(t){let e=this.getval(t);if(/^@/.test(t)){const[,s,i]=/^@(.*?)\.(.*?)$/.exec(t),r=s?this.getval(s):"";if(r)try{const t=JSON.parse(r);e=t?this.lodash_get(t,i,""):e}catch(t){e=""}}return e}setdata(t,e){let s=!1;if(/^@/.test(e)){const[,i,r]=/^@(.*?)\.(.*?)$/.exec(e),o=this.getval(i),h=i?"null"===o?null:o||"{}":"{}";try{const e=JSON.parse(h);this.lodash_set(e,r,t),s=this.setval(JSON.stringify(e),i)}catch(e){const o={};this.lodash_set(o,r,t),s=this.setval(JSON.stringify(o),i)}}else s=this.setval(t,e);return s}getval(t){return this.isSurge()||this.isLoon()?$persistentStore.read(t):this.isQuanX()?$prefs.valueForKey(t):this.isNode()?(this.data=this.loaddata(),this.data[t]):this.data&&this.data[t]||null}setval(t,e){return this.isSurge()||this.isLoon()?$persistentStore.write(t,e):this.isQuanX()?$prefs.setValueForKey(t,e):this.isNode()?(this.data=this.loaddata(),this.data[e]=t,this.writedata(),!0):this.data&&this.data[e]||null}initGotEnv(t){this.got=this.got?this.got:require("got"),this.cktough=this.cktough?this.cktough:require("tough-cookie"),this.ckjar=this.ckjar?this.ckjar:new this.cktough.CookieJar,t&&(t.headers=t.headers?t.headers:{},void 0===t.headers.Cookie&&void 0===t.cookieJar&&(t.cookieJar=this.ckjar))}get(t,e=(()=>{})){t.headers&&(delete t.headers["Content-Type"],delete t.headers["Content-Length"]),this.isSurge()||this.isLoon()?(this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.get(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)})):this.isQuanX()?(this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t))):this.isNode()&&(this.initGotEnv(t),this.got(t).on("redirect",(t,e)=>{try{if(t.headers["set-cookie"]){const s=t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();s&&this.ckjar.setCookieSync(s,null),e.cookieJar=this.ckjar}}catch(t){this.logErr(t)}}).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)}))}post(t,e=(()=>{})){if(t.body&&t.headers&&!t.headers["Content-Type"]&&(t.headers["Content-Type"]="application/x-www-form-urlencoded"),t.headers&&delete t.headers["Content-Length"],this.isSurge()||this.isLoon())this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.post(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)});else if(this.isQuanX())t.method="POST",this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t));else if(this.isNode()){this.initGotEnv(t);const{url:s,...i}=t;this.got.post(s,i).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)})}}time(t,e=null){const s=e?new Date(e):new Date;let i={"M+":s.getMonth()+1,"d+":s.getDate(),"H+":s.getHours(),"m+":s.getMinutes(),"s+":s.getSeconds(),"q+":Math.floor((s.getMonth()+3)/3),S:s.getMilliseconds()};/(y+)/.test(t)&&(t=t.replace(RegExp.$1,(s.getFullYear()+"").substr(4-RegExp.$1.length)));for(let e in i)new RegExp("("+e+")").test(t)&&(t=t.replace(RegExp.$1,1==RegExp.$1.length?i[e]:("00"+i[e]).substr((""+i[e]).length)));return t}msg(e=t,s="",i="",r){const o=t=>{if(!t)return t;if("string"==typeof t)return this.isLoon()?t:this.isQuanX()?{"open-url":t}:this.isSurge()?{url:t}:void 0;if("object"==typeof t){if(this.isLoon()){let e=t.openUrl||t.url||t["open-url"],s=t.mediaUrl||t["media-url"];return{openUrl:e,mediaUrl:s}}if(this.isQuanX()){let e=t["open-url"]||t.url||t.openUrl,s=t["media-url"]||t.mediaUrl;return{"open-url":e,"media-url":s}}if(this.isSurge()){let e=t.url||t.openUrl||t["open-url"];return{url:e}}}};if(this.isMute||(this.isSurge()||this.isLoon()?$notification.post(e,s,i,o(r)):this.isQuanX()&&$notify(e,s,i,o(r))),!this.isMuteLog){let t=["","==============ğŸ“£ç³»ç»Ÿé€šçŸ¥ğŸ“£=============="];t.push(e),s&&t.push(s),i&&t.push(i),console.log(t.join("\n")),this.logs=this.logs.concat(t)}}log(...t){t.length>0&&(this.logs=[...this.logs,...t]),console.log(t.join(this.logSeparator))}logErr(t,e){const s=!this.isSurge()&&!this.isQuanX()&&!this.isLoon();s?this.log("",`â—ï¸${this.name}, é”™è¯¯!`,t.stack):this.log("",`â—ï¸${this.name}, é”™è¯¯!`,t)}wait(t){return new Promise(e=>setTimeout(e,t))}done(t={}){const e=(new Date).getTime(),s=(e-this.startTime)/1e3;this.log("",`ğŸ””${this.name}, ç»“æŸ! ğŸ•› ${s} ç§’`),this.log(),(this.isSurge()||this.isQuanX()||this.isLoon())&&$done(t)}}(t,e)}

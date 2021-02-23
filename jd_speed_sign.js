@@ -1,32 +1,32 @@
 /*
-¾©¶«¼«ËÙ°æÇ©µ½+×¬ÏÖ½ğÈÎÎñ
-Ã¿ÈÕ9Ã«×óÓÒ£¬Âú3£¬10£¬50¿É¶Ò»»ÎŞÃÅ¼÷ºì°ü
-??????Ò»¸öºÅĞèÒªÔËĞĞ40·ÖÖÓ×óÓÒ
+äº¬ä¸œæé€Ÿç‰ˆç­¾åˆ°+èµšç°é‡‘ä»»åŠ¡
+æ¯æ—¥9æ¯›å·¦å³ï¼Œæ»¡3ï¼Œ10ï¼Œ50å¯å…‘æ¢æ— é—¨æ§›çº¢åŒ…
+âš ï¸âš ï¸âš ï¸ä¸€ä¸ªå·éœ€è¦è¿è¡Œ40åˆ†é’Ÿå·¦å³
 
-»î¶¯Ê±¼ä£º³¤ÆÚ
-»î¶¯Èë¿Ú£º¾©¶«¼«ËÙ°æapp-ÏÖ½ğÇ©µ½
-ÒÑÖ§³ÖIOSË«¾©¶«ÕËºÅ,Node.jsÖ§³ÖN¸ö¾©¶«ÕËºÅ
-½Å±¾¼æÈİ: QuantumultX, Surge, Loon, JSBox, Node.js
+æ´»åŠ¨æ—¶é—´ï¼šé•¿æœŸ
+æ´»åŠ¨å…¥å£ï¼šäº¬ä¸œæé€Ÿç‰ˆapp-ç°é‡‘ç­¾åˆ°
+å·²æ”¯æŒIOSåŒäº¬ä¸œè´¦å·,Node.jsæ”¯æŒNä¸ªäº¬ä¸œè´¦å·
+è„šæœ¬å…¼å®¹: QuantumultX, Surge, Loon, JSBox, Node.js
 ============Quantumultx===============
 [task_local]
-#¾©¶«¼«ËÙ°æ
-0 7 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed_sign.js, tag=¾©¶«¼«ËÙ°æ, img-url=https://raw.githubusercontent.com/Orz-3/task/master/jd.png, enabled=true
+#äº¬ä¸œæé€Ÿç‰ˆ
+0 7 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed_sign.js, tag=äº¬ä¸œæé€Ÿç‰ˆ, img-url=https://raw.githubusercontent.com/Orz-3/task/master/jd.png, enabled=true
 
 ================Loon==============
 [Script]
-cron "0 7 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed_sign.js,tag=¾©¶«¼«ËÙ°æ
+cron "0 7 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed_sign.js,tag=äº¬ä¸œæé€Ÿç‰ˆ
 
 ===============Surge=================
-¾©¶«¼«ËÙ°æ = type=cron,cronexp="0 7 * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed_sign.js
+äº¬ä¸œæé€Ÿç‰ˆ = type=cron,cronexp="0 7 * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed_sign.js
 
-============Ğ¡»ğ¼ı=========
-¾©¶«¼«ËÙ°æ = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed_sign.js, cronexpr="0 7 * * *", timeout=3600, enable=true
+============å°ç«ç®­=========
+äº¬ä¸œæé€Ÿç‰ˆ = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed_sign.js, cronexpr="0 7 * * *", timeout=3600, enable=true
 */
 
-const $ = new Env('¾©¶«¼«ËÙ°æ');
+const $ = new Env('äº¬ä¸œæé€Ÿç‰ˆ');
 
 const notify = $.isNode() ? require('./sendNotify') : '';
-//Node.jsÓÃ»§ÇëÔÚjdCookie.js´¦ÌîĞ´¾©¶«ck;
+//Node.jsç”¨æˆ·è¯·åœ¨jdCookie.jså¤„å¡«å†™äº¬ä¸œck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 
 
@@ -46,7 +46,7 @@ const JD_API_HOST = 'https://api.m.jd.com/', actCode = 'visa-card-001';
 
 !(async () => {
   if (!cookiesArr[0]) {
-    $.msg($.name, '¡¾ÌáÊ¾¡¿ÇëÏÈ»ñÈ¡¾©¶«ÕËºÅÒ»cookie\nÖ±½ÓÊ¹ÓÃNobyDaµÄ¾©¶«Ç©µ½»ñÈ¡', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+    $.msg($.name, 'ã€æç¤ºã€‘è¯·å…ˆè·å–äº¬ä¸œè´¦å·ä¸€cookie\nç›´æ¥ä½¿ç”¨NobyDaçš„äº¬ä¸œç­¾åˆ°è·å–', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
     return;
   }
   for (let i = 0; i < cookiesArr.length; i++) {
@@ -58,12 +58,12 @@ const JD_API_HOST = 'https://api.m.jd.com/', actCode = 'visa-card-001';
       $.nickName = '';
       message = '';
       await TotalBean();
-      console.log(`\n******¿ªÊ¼¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName || $.UserName}*********\n`);
+      console.log(`\n******å¼€å§‹ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName || $.UserName}*********\n`);
       if (!$.isLogin) {
-        $.msg($.name, `¡¾ÌáÊ¾¡¿cookieÒÑÊ§Ğ§`, `¾©¶«ÕËºÅ${$.index} ${$.nickName || $.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+        $.msg($.name, `ã€æç¤ºã€‘cookieå·²å¤±æ•ˆ`, `äº¬ä¸œè´¦å·${$.index} ${$.nickName || $.UserName}\nè¯·é‡æ–°ç™»å½•è·å–\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
 
         if ($.isNode()) {
-          await notify.sendNotify(`${$.name}cookieÒÑÊ§Ğ§ - ${$.UserName}`, `¾©¶«ÕËºÅ${$.index} ${$.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡cookie`);
+          await notify.sendNotify(`${$.name}cookieå·²å¤±æ•ˆ - ${$.UserName}`, `äº¬ä¸œè´¦å·${$.index} ${$.UserName}\nè¯·é‡æ–°ç™»å½•è·å–cookie`);
         }
         continue
       }
@@ -72,7 +72,7 @@ const JD_API_HOST = 'https://api.m.jd.com/', actCode = 'visa-card-001';
   }
 })()
   .catch((e) => {
-    $.log('', `? ${$.name}, Ê§°Ü! Ô­Òò: ${e}!`, '')
+    $.log('', `âŒ ${$.name}, å¤±è´¥! åŸå› : ${e}!`, '')
   })
   .finally(() => {
     $.done();
@@ -99,8 +99,8 @@ async function jdGlobal() {
 
 function showMsg() {
   return new Promise(resolve => {
-    message += `±¾´ÎÔËĞĞ»ñµÃ${$.score}½ğ±Ò£¬¹²¼Æ${$.total}½ğ±Ò`
-    $.msg($.name, '', `¾©¶«ÕËºÅ${$.index}${$.nickName}\n${message}`);
+    message += `æœ¬æ¬¡è¿è¡Œè·å¾—${$.score}é‡‘å¸ï¼Œå…±è®¡${$.total}é‡‘å¸`
+    $.msg($.name, '', `äº¬ä¸œè´¦å·${$.index}${$.nickName}\n${message}`);
     resolve()
   })
 }
@@ -115,7 +115,7 @@ async function signInit() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
@@ -142,14 +142,14 @@ async function sign() {
         try {
           if (err) {
             console.log(`${JSON.stringify(err)}`)
-            console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+            console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
           } else {
             if (safeGet(data)) {
               data = JSON.parse(data);
               if (data.subCode === 0) {
-                console.log(`Ç©µ½»ñµÃ${data.data.signAmount}ÏÖ½ğ£¬¹²¼Æ»ñµÃ${data.data.cashDrawAmount}`)
+                console.log(`ç­¾åˆ°è·å¾—${data.data.signAmount}ç°é‡‘ï¼Œå…±è®¡è·å¾—${data.data.cashDrawAmount}`)
               } else {
-                console.log(`Ç©µ½Ê§°Ü£¬${data.msg}`)
+                console.log(`ç­¾åˆ°å¤±è´¥ï¼Œ${data.msg}`)
               }
             }
           }
@@ -173,7 +173,7 @@ async function taskList() {
         try {
           if (err) {
             console.log(`${JSON.stringify(err)}`)
-            console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+            console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
           } else {
             if (safeGet(data)) {
               data = JSON.parse(data);
@@ -194,7 +194,7 @@ async function taskList() {
                     }
                   }
                 } else {
-                  console.log(`${task.taskInfo.mainTitle}ÒÑÍê³É`)
+                  console.log(`${task.taskInfo.mainTitle}å·²å®Œæˆ`)
                 }
               }
             }
@@ -217,14 +217,14 @@ async function doTask(taskId) {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data.code === 0) {
-              console.log(`${data.data.taskInfo.mainTitle}ÈÎÎñÍê³É³É¹¦£¬Ô¤¼Æ»ñµÃ${data.data.reward}½ğ±Ò`)
+              console.log(`${data.data.taskInfo.mainTitle}ä»»åŠ¡å®ŒæˆæˆåŠŸï¼Œé¢„è®¡è·å¾—${data.data.reward}é‡‘å¸`)
             } else {
-              console.log(`ÈÎÎñÍê³ÉÊ§°Ü£¬${data.message}`)
+              console.log(`ä»»åŠ¡å®Œæˆå¤±è´¥ï¼Œ${data.message}`)
             }
           }
         }
@@ -244,7 +244,7 @@ async function queryJoy() {
         try {
           if (err) {
             console.log(`${JSON.stringify(err)}`)
-            console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+            console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
           } else {
             if (safeGet(data)) {
               data = JSON.parse(data);
@@ -273,15 +273,15 @@ async function rewardTask(id, taskId) {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data.code === 0) {
               $.score += data.data.reward
-              console.log(`ÆøÅİÊÕÈ¡³É¹¦£¬»ñµÃ${data.data.reward}½ğ±Ò`)
+              console.log(`æ°”æ³¡æ”¶å–æˆåŠŸï¼Œè·å¾—${data.data.reward}é‡‘å¸`)
             } else {
-              console.log(`ÆøÅİÊÕÈ¡Ê§°Ü£¬${data.message}`)
+              console.log(`æ°”æ³¡æ”¶å–å¤±è´¥ï¼Œ${data.message}`)
             }
           }
         }
@@ -304,14 +304,14 @@ async function queryItem(activeType = 1) {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data.code === 0 && data.data) {
               await startItem(data.data.nextResource, activeType)
             } else {
-              console.log(`ÉÌÆ·ÈÎÎñ¿ªÆôÊ§°Ü£¬${data.message}`)
+              console.log(`å•†å“ä»»åŠ¡å¼€å¯å¤±è´¥ï¼Œ${data.message}`)
               $.canStartNewItem = false
             }
           }
@@ -340,7 +340,7 @@ async function startItem(activeId, activeType) {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
@@ -349,16 +349,16 @@ async function startItem(activeId, activeType) {
                 let {videoBrowsing, taskCompletionProgress, taskCompletionLimit} = data.data.taskInfo
                 if (activeType !== 3)
                   videoBrowsing = activeType === 1 ? 5 : 10
-                console.log(`¡¾${taskCompletionProgress + 1}/${taskCompletionLimit}¡¿ä¯ÀÀÉÌÆ·ÈÎÎñ¼ÇÂ¼³É¹¦£¬µÈ´ı${videoBrowsing}Ãë`)
+                console.log(`ã€${taskCompletionProgress + 1}/${taskCompletionLimit}ã€‘æµè§ˆå•†å“ä»»åŠ¡è®°å½•æˆåŠŸï¼Œç­‰å¾…${videoBrowsing}ç§’`)
                 await $.wait(videoBrowsing * 1000)
                 await endItem(data.data.uuid, activeType, activeId, activeType === 3 ? videoBrowsing : "")
               } else {
-                console.log(`${$.taskName}ÈÎÎñÒÑ´ïÉÏÏŞ`)
+                console.log(`${$.taskName}ä»»åŠ¡å·²è¾¾ä¸Šé™`)
                 $.canStartNewItem = false
               }
             } else {
               $.canStartNewItem = false
-              console.log(`${$.taskName}ÈÎÎñ¿ªÆôÊ§°Ü£¬${data.message}`)
+              console.log(`${$.taskName}ä»»åŠ¡å¼€å¯å¤±è´¥ï¼Œ${data.message}`)
             }
           }
         }
@@ -389,14 +389,14 @@ async function endItem(uuid, activeType, activeId = "", videoTimeLength = "") {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data.code === 0 && data.isSuccess) {
               await rewardItem(uuid, activeType, activeId, videoTimeLength)
             } else {
-              console.log(`${$.taskName}ÈÎÎñ½áÊøÊ§°Ü£¬${data.message}`)
+              console.log(`${$.taskName}ä»»åŠ¡ç»“æŸå¤±è´¥ï¼Œ${data.message}`)
             }
           }
         }
@@ -427,15 +427,15 @@ async function rewardItem(uuid, activeType, activeId = "", videoTimeLength = "")
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data.code === 0 && data.isSuccess) {
               $.score += data.data.reward
-              console.log(`${$.taskName}ÈÎÎñÍê³É£¬»ñµÃ${data.data.reward}½ğ±Ò`)
+              console.log(`${$.taskName}ä»»åŠ¡å®Œæˆï¼Œè·å¾—${data.data.reward}é‡‘å¸`)
             } else {
-              console.log(`${$.taskName}ÈÎÎñÊ§°Ü£¬${data.message}`)
+              console.log(`${$.taskName}ä»»åŠ¡å¤±è´¥ï¼Œ${data.message}`)
             }
           }
         }
@@ -456,7 +456,7 @@ async function cash() {
         try {
           if (err) {
             console.log(`${JSON.stringify(err)}`)
-            console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+            console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
           } else {
             if (safeGet(data)) {
               data = JSON.parse(data);
@@ -536,17 +536,17 @@ function TotalBean() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (data) {
             data = JSON.parse(data);
             if (data['retcode'] === 13) {
-              $.isLogin = false; //cookie¹ıÆÚ
+              $.isLogin = false; //cookieè¿‡æœŸ
               return
             }
             $.nickName = data['base'].nickname;
           } else {
-            console.log(`¾©¶«·şÎñÆ÷·µ»Ø¿ÕÊı¾İ`)
+            console.log(`äº¬ä¸œæœåŠ¡å™¨è¿”å›ç©ºæ•°æ®`)
           }
         }
       } catch (e) {
@@ -565,7 +565,7 @@ function safeGet(data) {
     }
   } catch (e) {
     console.log(e);
-    console.log(`¾©¶«·şÎñÆ÷·ÃÎÊÊı¾İÎª¿Õ£¬Çë¼ì²é×ÔÉíÉè±¸ÍøÂçÇé¿ö`);
+    console.log(`äº¬ä¸œæœåŠ¡å™¨è®¿é—®æ•°æ®ä¸ºç©ºï¼Œè¯·æ£€æŸ¥è‡ªèº«è®¾å¤‡ç½‘ç»œæƒ…å†µ`);
     return false;
   }
 }
@@ -576,7 +576,7 @@ function jsonParse(str) {
       return JSON.parse(str);
     } catch (e) {
       console.log(e);
-      $.msg($.name, '', 'ÇëÎğËæÒâÔÚBoxJsÊäÈë¿òĞŞ¸ÄÄÚÈİ\n½¨ÒéÍ¨¹ı½Å±¾È¥»ñÈ¡cookie')
+      $.msg($.name, '', 'è¯·å‹¿éšæ„åœ¨BoxJsè¾“å…¥æ¡†ä¿®æ”¹å†…å®¹\nå»ºè®®é€šè¿‡è„šæœ¬å»è·å–cookie')
       return [];
     }
   }
@@ -591,4 +591,4 @@ function jsonParse(str) {
 });
 
 // prettier-ignore
-function Env(t,e){"undefined"!=typeof process&&JSON.stringify(process.env).indexOf("GIT_HUB")>-1&&process.exit(0);class s{constructor(t){this.env=t}send(t,e="GET"){t="string"==typeof t?{url:t}:t;let s=this.get;return"POST"===e&&(s=this.post),new Promise((e,i)=>{s.call(this,t,(t,s,r)=>{t?i(t):e(s)})})}get(t){return this.send.call(this.env,t)}post(t){return this.send.call(this.env,t,"POST")}}return new class{constructor(t,e){this.name=t,this.http=new s(this),this.data=null,this.dataFile="box.dat",this.logs=[],this.isMute=!1,this.isNeedRewrite=!1,this.logSeparator="\n",this.startTime=(new Date).getTime(),Object.assign(this,e),this.log("",`?${this.name}, ¿ªÊ¼!`)}isNode(){return"undefined"!=typeof module&&!!module.exports}isQuanX(){return"undefined"!=typeof $task}isSurge(){return"undefined"!=typeof $httpClient&&"undefined"==typeof $loon}isLoon(){return"undefined"!=typeof $loon}toObj(t,e=null){try{return JSON.parse(t)}catch{return e}}toStr(t,e=null){try{return JSON.stringify(t)}catch{return e}}getjson(t,e){let s=e;const i=this.getdata(t);if(i)try{s=JSON.parse(this.getdata(t))}catch{}return s}setjson(t,e){try{return this.setdata(JSON.stringify(t),e)}catch{return!1}}getScript(t){return new Promise(e=>{this.get({url:t},(t,s,i)=>e(i))})}runScript(t,e){return new Promise(s=>{let i=this.getdata("@chavy_boxjs_userCfgs.httpapi");i=i?i.replace(/\n/g,"").trim():i;let r=this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");r=r?1*r:20,r=e&&e.timeout?e.timeout:r;const[o,h]=i.split("@"),n={url:`http://${h}/v1/scripting/evaluate`,body:{script_text:t,mock_type:"cron",timeout:r},headers:{"X-Key":o,Accept:"*/*"}};this.post(n,(t,e,i)=>s(i))}).catch(t=>this.logErr(t))}loaddata(){if(!this.isNode())return{};{this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e);if(!s&&!i)return{};{const i=s?t:e;try{return JSON.parse(this.fs.readFileSync(i))}catch(t){return{}}}}}writedata(){if(this.isNode()){this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e),r=JSON.stringify(this.data);s?this.fs.writeFileSync(t,r):i?this.fs.writeFileSync(e,r):this.fs.writeFileSync(t,r)}}lodash_get(t,e,s){const i=e.replace(/\[(\d+)\]/g,".$1").split(".");let r=t;for(const t of i)if(r=Object(r)[t],void 0===r)return s;return r}lodash_set(t,e,s){return Object(t)!==t?t:(Array.isArray(e)||(e=e.toString().match(/[^.[\]]+/g)||[]),e.slice(0,-1).reduce((t,s,i)=>Object(t[s])===t[s]?t[s]:t[s]=Math.abs(e[i+1])>>0==+e[i+1]?[]:{},t)[e[e.length-1]]=s,t)}getdata(t){let e=this.getval(t);if(/^@/.test(t)){const[,s,i]=/^@(.*?)\.(.*?)$/.exec(t),r=s?this.getval(s):"";if(r)try{const t=JSON.parse(r);e=t?this.lodash_get(t,i,""):e}catch(t){e=""}}return e}setdata(t,e){let s=!1;if(/^@/.test(e)){const[,i,r]=/^@(.*?)\.(.*?)$/.exec(e),o=this.getval(i),h=i?"null"===o?null:o||"{}":"{}";try{const e=JSON.parse(h);this.lodash_set(e,r,t),s=this.setval(JSON.stringify(e),i)}catch(e){const o={};this.lodash_set(o,r,t),s=this.setval(JSON.stringify(o),i)}}else s=this.setval(t,e);return s}getval(t){return this.isSurge()||this.isLoon()?$persistentStore.read(t):this.isQuanX()?$prefs.valueForKey(t):this.isNode()?(this.data=this.loaddata(),this.data[t]):this.data&&this.data[t]||null}setval(t,e){return this.isSurge()||this.isLoon()?$persistentStore.write(t,e):this.isQuanX()?$prefs.setValueForKey(t,e):this.isNode()?(this.data=this.loaddata(),this.data[e]=t,this.writedata(),!0):this.data&&this.data[e]||null}initGotEnv(t){this.got=this.got?this.got:require("got"),this.cktough=this.cktough?this.cktough:require("tough-cookie"),this.ckjar=this.ckjar?this.ckjar:new this.cktough.CookieJar,t&&(t.headers=t.headers?t.headers:{},void 0===t.headers.Cookie&&void 0===t.cookieJar&&(t.cookieJar=this.ckjar))}get(t,e=(()=>{})){t.headers&&(delete t.headers["Content-Type"],delete t.headers["Content-Length"]),this.isSurge()||this.isLoon()?(this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.get(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)})):this.isQuanX()?(this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t))):this.isNode()&&(this.initGotEnv(t),this.got(t).on("redirect",(t,e)=>{try{if(t.headers["set-cookie"]){const s=t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();s&&this.ckjar.setCookieSync(s,null),e.cookieJar=this.ckjar}}catch(t){this.logErr(t)}}).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)}))}post(t,e=(()=>{})){if(t.body&&t.headers&&!t.headers["Content-Type"]&&(t.headers["Content-Type"]="application/x-www-form-urlencoded"),t.headers&&delete t.headers["Content-Length"],this.isSurge()||this.isLoon())this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.post(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)});else if(this.isQuanX())t.method="POST",this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t));else if(this.isNode()){this.initGotEnv(t);const{url:s,...i}=t;this.got.post(s,i).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)})}}time(t,e=null){const s=e?new Date(e):new Date;let i={"M+":s.getMonth()+1,"d+":s.getDate(),"H+":s.getHours(),"m+":s.getMinutes(),"s+":s.getSeconds(),"q+":Math.floor((s.getMonth()+3)/3),S:s.getMilliseconds()};/(y+)/.test(t)&&(t=t.replace(RegExp.$1,(s.getFullYear()+"").substr(4-RegExp.$1.length)));for(let e in i)new RegExp("("+e+")").test(t)&&(t=t.replace(RegExp.$1,1==RegExp.$1.length?i[e]:("00"+i[e]).substr((""+i[e]).length)));return t}msg(e=t,s="",i="",r){const o=t=>{if(!t)return t;if("string"==typeof t)return this.isLoon()?t:this.isQuanX()?{"open-url":t}:this.isSurge()?{url:t}:void 0;if("object"==typeof t){if(this.isLoon()){let e=t.openUrl||t.url||t["open-url"],s=t.mediaUrl||t["media-url"];return{openUrl:e,mediaUrl:s}}if(this.isQuanX()){let e=t["open-url"]||t.url||t.openUrl,s=t["media-url"]||t.mediaUrl;return{"open-url":e,"media-url":s}}if(this.isSurge()){let e=t.url||t.openUrl||t["open-url"];return{url:e}}}};if(this.isMute||(this.isSurge()||this.isLoon()?$notification.post(e,s,i,o(r)):this.isQuanX()&&$notify(e,s,i,o(r))),!this.isMuteLog){let t=["","==============?ÏµÍ³Í¨Öª?=============="];t.push(e),s&&t.push(s),i&&t.push(i),console.log(t.join("\n")),this.logs=this.logs.concat(t)}}log(...t){t.length>0&&(this.logs=[...this.logs,...t]),console.log(t.join(this.logSeparator))}logErr(t,e){const s=!this.isSurge()&&!this.isQuanX()&&!this.isLoon();s?this.log("",`??${this.name}, ´íÎó!`,t.stack):this.log("",`??${this.name}, ´íÎó!`,t)}wait(t){return new Promise(e=>setTimeout(e,t))}done(t={}){const e=(new Date).getTime(),s=(e-this.startTime)/1e3;this.log("",`?${this.name}, ½áÊø! ? ${s} Ãë`),this.log(),(this.isSurge()||this.isQuanX()||this.isLoon())&&$done(t)}}(t,e)}
+function Env(t,e){"undefined"!=typeof process&&JSON.stringify(process.env).indexOf("GIT_HUB")>-1&&process.exit(0);class s{constructor(t){this.env=t}send(t,e="GET"){t="string"==typeof t?{url:t}:t;let s=this.get;return"POST"===e&&(s=this.post),new Promise((e,i)=>{s.call(this,t,(t,s,r)=>{t?i(t):e(s)})})}get(t){return this.send.call(this.env,t)}post(t){return this.send.call(this.env,t,"POST")}}return new class{constructor(t,e){this.name=t,this.http=new s(this),this.data=null,this.dataFile="box.dat",this.logs=[],this.isMute=!1,this.isNeedRewrite=!1,this.logSeparator="\n",this.startTime=(new Date).getTime(),Object.assign(this,e),this.log("",`ğŸ””${this.name}, å¼€å§‹!`)}isNode(){return"undefined"!=typeof module&&!!module.exports}isQuanX(){return"undefined"!=typeof $task}isSurge(){return"undefined"!=typeof $httpClient&&"undefined"==typeof $loon}isLoon(){return"undefined"!=typeof $loon}toObj(t,e=null){try{return JSON.parse(t)}catch{return e}}toStr(t,e=null){try{return JSON.stringify(t)}catch{return e}}getjson(t,e){let s=e;const i=this.getdata(t);if(i)try{s=JSON.parse(this.getdata(t))}catch{}return s}setjson(t,e){try{return this.setdata(JSON.stringify(t),e)}catch{return!1}}getScript(t){return new Promise(e=>{this.get({url:t},(t,s,i)=>e(i))})}runScript(t,e){return new Promise(s=>{let i=this.getdata("@chavy_boxjs_userCfgs.httpapi");i=i?i.replace(/\n/g,"").trim():i;let r=this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");r=r?1*r:20,r=e&&e.timeout?e.timeout:r;const[o,h]=i.split("@"),n={url:`http://${h}/v1/scripting/evaluate`,body:{script_text:t,mock_type:"cron",timeout:r},headers:{"X-Key":o,Accept:"*/*"}};this.post(n,(t,e,i)=>s(i))}).catch(t=>this.logErr(t))}loaddata(){if(!this.isNode())return{};{this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e);if(!s&&!i)return{};{const i=s?t:e;try{return JSON.parse(this.fs.readFileSync(i))}catch(t){return{}}}}}writedata(){if(this.isNode()){this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e),r=JSON.stringify(this.data);s?this.fs.writeFileSync(t,r):i?this.fs.writeFileSync(e,r):this.fs.writeFileSync(t,r)}}lodash_get(t,e,s){const i=e.replace(/\[(\d+)\]/g,".$1").split(".");let r=t;for(const t of i)if(r=Object(r)[t],void 0===r)return s;return r}lodash_set(t,e,s){return Object(t)!==t?t:(Array.isArray(e)||(e=e.toString().match(/[^.[\]]+/g)||[]),e.slice(0,-1).reduce((t,s,i)=>Object(t[s])===t[s]?t[s]:t[s]=Math.abs(e[i+1])>>0==+e[i+1]?[]:{},t)[e[e.length-1]]=s,t)}getdata(t){let e=this.getval(t);if(/^@/.test(t)){const[,s,i]=/^@(.*?)\.(.*?)$/.exec(t),r=s?this.getval(s):"";if(r)try{const t=JSON.parse(r);e=t?this.lodash_get(t,i,""):e}catch(t){e=""}}return e}setdata(t,e){let s=!1;if(/^@/.test(e)){const[,i,r]=/^@(.*?)\.(.*?)$/.exec(e),o=this.getval(i),h=i?"null"===o?null:o||"{}":"{}";try{const e=JSON.parse(h);this.lodash_set(e,r,t),s=this.setval(JSON.stringify(e),i)}catch(e){const o={};this.lodash_set(o,r,t),s=this.setval(JSON.stringify(o),i)}}else s=this.setval(t,e);return s}getval(t){return this.isSurge()||this.isLoon()?$persistentStore.read(t):this.isQuanX()?$prefs.valueForKey(t):this.isNode()?(this.data=this.loaddata(),this.data[t]):this.data&&this.data[t]||null}setval(t,e){return this.isSurge()||this.isLoon()?$persistentStore.write(t,e):this.isQuanX()?$prefs.setValueForKey(t,e):this.isNode()?(this.data=this.loaddata(),this.data[e]=t,this.writedata(),!0):this.data&&this.data[e]||null}initGotEnv(t){this.got=this.got?this.got:require("got"),this.cktough=this.cktough?this.cktough:require("tough-cookie"),this.ckjar=this.ckjar?this.ckjar:new this.cktough.CookieJar,t&&(t.headers=t.headers?t.headers:{},void 0===t.headers.Cookie&&void 0===t.cookieJar&&(t.cookieJar=this.ckjar))}get(t,e=(()=>{})){t.headers&&(delete t.headers["Content-Type"],delete t.headers["Content-Length"]),this.isSurge()||this.isLoon()?(this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.get(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)})):this.isQuanX()?(this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t))):this.isNode()&&(this.initGotEnv(t),this.got(t).on("redirect",(t,e)=>{try{if(t.headers["set-cookie"]){const s=t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();s&&this.ckjar.setCookieSync(s,null),e.cookieJar=this.ckjar}}catch(t){this.logErr(t)}}).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)}))}post(t,e=(()=>{})){if(t.body&&t.headers&&!t.headers["Content-Type"]&&(t.headers["Content-Type"]="application/x-www-form-urlencoded"),t.headers&&delete t.headers["Content-Length"],this.isSurge()||this.isLoon())this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.post(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)});else if(this.isQuanX())t.method="POST",this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t));else if(this.isNode()){this.initGotEnv(t);const{url:s,...i}=t;this.got.post(s,i).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)})}}time(t,e=null){const s=e?new Date(e):new Date;let i={"M+":s.getMonth()+1,"d+":s.getDate(),"H+":s.getHours(),"m+":s.getMinutes(),"s+":s.getSeconds(),"q+":Math.floor((s.getMonth()+3)/3),S:s.getMilliseconds()};/(y+)/.test(t)&&(t=t.replace(RegExp.$1,(s.getFullYear()+"").substr(4-RegExp.$1.length)));for(let e in i)new RegExp("("+e+")").test(t)&&(t=t.replace(RegExp.$1,1==RegExp.$1.length?i[e]:("00"+i[e]).substr((""+i[e]).length)));return t}msg(e=t,s="",i="",r){const o=t=>{if(!t)return t;if("string"==typeof t)return this.isLoon()?t:this.isQuanX()?{"open-url":t}:this.isSurge()?{url:t}:void 0;if("object"==typeof t){if(this.isLoon()){let e=t.openUrl||t.url||t["open-url"],s=t.mediaUrl||t["media-url"];return{openUrl:e,mediaUrl:s}}if(this.isQuanX()){let e=t["open-url"]||t.url||t.openUrl,s=t["media-url"]||t.mediaUrl;return{"open-url":e,"media-url":s}}if(this.isSurge()){let e=t.url||t.openUrl||t["open-url"];return{url:e}}}};if(this.isMute||(this.isSurge()||this.isLoon()?$notification.post(e,s,i,o(r)):this.isQuanX()&&$notify(e,s,i,o(r))),!this.isMuteLog){let t=["","==============ğŸ“£ç³»ç»Ÿé€šçŸ¥ğŸ“£=============="];t.push(e),s&&t.push(s),i&&t.push(i),console.log(t.join("\n")),this.logs=this.logs.concat(t)}}log(...t){t.length>0&&(this.logs=[...this.logs,...t]),console.log(t.join(this.logSeparator))}logErr(t,e){const s=!this.isSurge()&&!this.isQuanX()&&!this.isLoon();s?this.log("",`â—ï¸${this.name}, é”™è¯¯!`,t.stack):this.log("",`â—ï¸${this.name}, é”™è¯¯!`,t)}wait(t){return new Promise(e=>setTimeout(e,t))}done(t={}){const e=(new Date).getTime(),s=(e-this.startTime)/1e3;this.log("",`ğŸ””${this.name}, ç»“æŸ! ğŸ•› ${s} ç§’`),this.log(),(this.isSurge()||this.isQuanX()||this.isLoon())&&$done(t)}}(t,e)}

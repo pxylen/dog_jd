@@ -1,36 +1,36 @@
 /*
-crazyJoyÈÎÎñ
+crazyJoyä»»åŠ¡
 
-Ã¿ÌìÔËĞĞÒ»´Î¼´¿É
+æ¯å¤©è¿è¡Œä¸€æ¬¡å³å¯
 
-»î¶¯Èë¿Ú£º¾©¶«APPÎÒµÄ-¸ü¶à¹¤¾ß-·è¿ñµÄJOY
-ÒÑÖ§³ÖIOSË«¾©¶«ÕËºÅ,Node.jsÖ§³ÖN¸ö¾©¶«ÕËºÅ
-½Å±¾¼æÈİ: QuantumultX, Surge, Loon, JSBox, Node.js
+æ´»åŠ¨å…¥å£ï¼šäº¬ä¸œAPPæˆ‘çš„-æ›´å¤šå·¥å…·-ç–¯ç‹‚çš„JOY
+å·²æ”¯æŒIOSåŒäº¬ä¸œè´¦å·,Node.jsæ”¯æŒNä¸ªäº¬ä¸œè´¦å·
+è„šæœ¬å…¼å®¹: QuantumultX, Surge, Loon, JSBox, Node.js
 ============Quantumultx===============
 [task_local]
-#crazyJoyÈÎÎñ
-10 7 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_crazy_joy.js, tag=crazyJoyÈÎÎñ, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jd_crazy_joy.png, enabled=true
+#crazyJoyä»»åŠ¡
+10 7 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_crazy_joy.js, tag=crazyJoyä»»åŠ¡, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jd_crazy_joy.png, enabled=true
 
 ================Loon==============
 [Script]
-cron "10 7 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_crazy_joy.js,tag=crazyJoyÈÎÎñ
+cron "10 7 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_crazy_joy.js,tag=crazyJoyä»»åŠ¡
 
 ===============Surge=================
-crazyJoyÈÎÎñ = type=cron,cronexp="10 7 * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_crazy_joy.js
+crazyJoyä»»åŠ¡ = type=cron,cronexp="10 7 * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_crazy_joy.js
 
-============Ğ¡»ğ¼ı=========
-crazyJoyÈÎÎñ = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_crazy_joy.js, cronexpr="10 7 * * *", timeout=3600, enable=true
+============å°ç«ç®­=========
+crazyJoyä»»åŠ¡ = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_crazy_joy.js, cronexpr="10 7 * * *", timeout=3600, enable=true
 
  */
 
 
-const $ = new Env('crazyJoyÈÎÎñ');
+const $ = new Env('crazyJoyä»»åŠ¡');
 const JD_API_HOST = 'https://api.m.jd.com/';
 
 const notify = $.isNode() ? require('./sendNotify') : '';
-let jdNotify = true;//ÊÇ·ñ¹Ø±ÕÍ¨Öª£¬false´ò¿ªÍ¨ÖªÍÆËÍ£¬true¹Ø±ÕÍ¨ÖªÍÆËÍ
-let helpSelf = false // Ñ­»·ÖúÁ¦£¬Ä¬ÈÏ¹Ø±Õ
-let applyJdBean = 2000; //·è¿ñµÄJOY¾©¶¹¶Ò»»£¬Ä¿Ç°×îĞ¡ÖµÎª2000¾©¶¹£¬Ä¬ÈÏÎª 0 ²»¿ªÆô¾©¶¹¶Ò»»
+let jdNotify = true;//æ˜¯å¦å…³é—­é€šçŸ¥ï¼Œfalseæ‰“å¼€é€šçŸ¥æ¨é€ï¼Œtrueå…³é—­é€šçŸ¥æ¨é€
+let helpSelf = false // å¾ªç¯åŠ©åŠ›ï¼Œé»˜è®¤å…³é—­
+let applyJdBean = 2000; //ç–¯ç‹‚çš„JOYäº¬è±†å…‘æ¢ï¼Œç›®å‰æœ€å°å€¼ä¸º2000äº¬è±†ï¼Œé»˜è®¤ä¸º 0 ä¸å¼€å¯äº¬è±†å…‘æ¢
 let cookiesArr = [], cookie = '', message = '';
 const inviteCodes = [
   'EdLPh8A6X5G1iWXu-uPYfA==@0gUO7F7N-4HVDh9mdQC2hg==@fUJTgR9z26fXdQgTvt_bgqt9zd5YaBeE@nCQQXQHKGjPCb7jkd8q2U-aCTjZMxL3s@2boGLV7TonMex8-nrT6EGat9zd5YaBeE@KTZmB4gV4zirfc3eWGgXhA==@dtTXFsCQ3tCWnXkLY8gyL6t9zd5YaBeE@-c4jG-fMiNon5YWAJsFHL6t9zd5YaBeE@hxG_ozzxvNjPuPCbly1WtA==',
@@ -50,7 +50,7 @@ if ($.isNode()) {
 !function(n){"use strict";function r(n,r){var t=(65535&n)+(65535&r);return(n>>16)+(r>>16)+(t>>16)<<16|65535&t}function t(n,r){return n<<r|n>>>32-r}function u(n,u,e,o,c,f){return r(t(r(r(u,n),r(o,f)),c),e)}function e(n,r,t,e,o,c,f){return u(r&t|~r&e,n,r,o,c,f)}function o(n,r,t,e,o,c,f){return u(r&e|t&~e,n,r,o,c,f)}function c(n,r,t,e,o,c,f){return u(r^t^e,n,r,o,c,f)}function f(n,r,t,e,o,c,f){return u(t^(r|~e),n,r,o,c,f)}function i(n,t){n[t>>5]|=128<<t%32,n[14+(t+64>>>9<<4)]=t;var u,i,a,h,g,l=1732584193,d=-271733879,v=-1732584194,C=271733878;for(u=0;u<n.length;u+=16)i=l,a=d,h=v,g=C,d=f(d=f(d=f(d=f(d=c(d=c(d=c(d=c(d=o(d=o(d=o(d=o(d=e(d=e(d=e(d=e(d,v=e(v,C=e(C,l=e(l,d,v,C,n[u],7,-680876936),d,v,n[u+1],12,-389564586),l,d,n[u+2],17,606105819),C,l,n[u+3],22,-1044525330),v=e(v,C=e(C,l=e(l,d,v,C,n[u+4],7,-176418897),d,v,n[u+5],12,1200080426),l,d,n[u+6],17,-1473231341),C,l,n[u+7],22,-45705983),v=e(v,C=e(C,l=e(l,d,v,C,n[u+8],7,1770035416),d,v,n[u+9],12,-1958414417),l,d,n[u+10],17,-42063),C,l,n[u+11],22,-1990404162),v=e(v,C=e(C,l=e(l,d,v,C,n[u+12],7,1804603682),d,v,n[u+13],12,-40341101),l,d,n[u+14],17,-1502002290),C,l,n[u+15],22,1236535329),v=o(v,C=o(C,l=o(l,d,v,C,n[u+1],5,-165796510),d,v,n[u+6],9,-1069501632),l,d,n[u+11],14,643717713),C,l,n[u],20,-373897302),v=o(v,C=o(C,l=o(l,d,v,C,n[u+5],5,-701558691),d,v,n[u+10],9,38016083),l,d,n[u+15],14,-660478335),C,l,n[u+4],20,-405537848),v=o(v,C=o(C,l=o(l,d,v,C,n[u+9],5,568446438),d,v,n[u+14],9,-1019803690),l,d,n[u+3],14,-187363961),C,l,n[u+8],20,1163531501),v=o(v,C=o(C,l=o(l,d,v,C,n[u+13],5,-1444681467),d,v,n[u+2],9,-51403784),l,d,n[u+7],14,1735328473),C,l,n[u+12],20,-1926607734),v=c(v,C=c(C,l=c(l,d,v,C,n[u+5],4,-378558),d,v,n[u+8],11,-2022574463),l,d,n[u+11],16,1839030562),C,l,n[u+14],23,-35309556),v=c(v,C=c(C,l=c(l,d,v,C,n[u+1],4,-1530992060),d,v,n[u+4],11,1272893353),l,d,n[u+7],16,-155497632),C,l,n[u+10],23,-1094730640),v=c(v,C=c(C,l=c(l,d,v,C,n[u+13],4,681279174),d,v,n[u],11,-358537222),l,d,n[u+3],16,-722521979),C,l,n[u+6],23,76029189),v=c(v,C=c(C,l=c(l,d,v,C,n[u+9],4,-640364487),d,v,n[u+12],11,-421815835),l,d,n[u+15],16,530742520),C,l,n[u+2],23,-995338651),v=f(v,C=f(C,l=f(l,d,v,C,n[u],6,-198630844),d,v,n[u+7],10,1126891415),l,d,n[u+14],15,-1416354905),C,l,n[u+5],21,-57434055),v=f(v,C=f(C,l=f(l,d,v,C,n[u+12],6,1700485571),d,v,n[u+3],10,-1894986606),l,d,n[u+10],15,-1051523),C,l,n[u+1],21,-2054922799),v=f(v,C=f(C,l=f(l,d,v,C,n[u+8],6,1873313359),d,v,n[u+15],10,-30611744),l,d,n[u+6],15,-1560198380),C,l,n[u+13],21,1309151649),v=f(v,C=f(C,l=f(l,d,v,C,n[u+4],6,-145523070),d,v,n[u+11],10,-1120210379),l,d,n[u+2],15,718787259),C,l,n[u+9],21,-343485551),l=r(l,i),d=r(d,a),v=r(v,h),C=r(C,g);return[l,d,v,C]}function a(n){var r,t="",u=32*n.length;for(r=0;r<u;r+=8)t+=String.fromCharCode(n[r>>5]>>>r%32&255);return t}function h(n){var r,t=[];for(t[(n.length>>2)-1]=void 0,r=0;r<t.length;r+=1)t[r]=0;var u=8*n.length;for(r=0;r<u;r+=8)t[r>>5]|=(255&n.charCodeAt(r/8))<<r%32;return t}function g(n){return a(i(h(n),8*n.length))}function l(n,r){var t,u,e=h(n),o=[],c=[];for(o[15]=c[15]=void 0,e.length>16&&(e=i(e,8*n.length)),t=0;t<16;t+=1)o[t]=909522486^e[t],c[t]=1549556828^e[t];return u=i(o.concat(h(r)),512+8*r.length),a(i(c.concat(u),640))}function d(n){var r,t,u="";for(t=0;t<n.length;t+=1)r=n.charCodeAt(t),u+="0123456789abcdef".charAt(r>>>4&15)+"0123456789abcdef".charAt(15&r);return u}function v(n){return unescape(encodeURIComponent(n))}function C(n){return g(v(n))}function A(n){return d(C(n))}function m(n,r){return l(v(n),v(r))}function s(n,r){return d(m(n,r))}function b(n,r,t){return r?t?m(r,n):s(r,n):t?C(n):A(n)}$.md5=b}();
 !(async () => {
   if (!cookiesArr[0]) {
-    $.msg($.name, '¡¾ÌáÊ¾¡¿ÇëÏÈ»ñÈ¡¾©¶«ÕËºÅÒ»cookie\nÖ±½ÓÊ¹ÓÃNobyDaµÄ¾©¶«Ç©µ½»ñÈ¡', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+    $.msg($.name, 'ã€æç¤ºã€‘è¯·å…ˆè·å–äº¬ä¸œè´¦å·ä¸€cookie\nç›´æ¥ä½¿ç”¨NobyDaçš„äº¬ä¸œç­¾åˆ°è·å–', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
     return;
   }
   await requireConfig();
@@ -64,14 +64,14 @@ if ($.isNode()) {
       $.isLogin = true;
       $.nickName = '';
       message = '';
-      $.GROWTH_REWARD_BEAN = 0;//½âËøµÈ¼¶½±ÀøµÄ¾©¶¹
+      $.GROWTH_REWARD_BEAN = 0;//è§£é”ç­‰çº§å¥–åŠ±çš„äº¬è±†
       await TotalBean();
-      console.log(`\n¿ªÊ¼¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName || $.UserName}\n`);
+      console.log(`\nå¼€å§‹ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName || $.UserName}\n`);
       if (!$.isLogin) {
-        $.msg($.name, `¡¾ÌáÊ¾¡¿cookieÒÑÊ§Ğ§`, `¾©¶«ÕËºÅ${$.index} ${$.nickName || $.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+        $.msg($.name, `ã€æç¤ºã€‘cookieå·²å¤±æ•ˆ`, `äº¬ä¸œè´¦å·${$.index} ${$.nickName || $.UserName}\nè¯·é‡æ–°ç™»å½•è·å–\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
 
         if ($.isNode()) {
-          await notify.sendNotify(`${$.name}cookieÒÑÊ§Ğ§ - ${$.UserName}`, `¾©¶«ÕËºÅ${$.index} ${$.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡cookie`);
+          await notify.sendNotify(`${$.name}cookieå·²å¤±æ•ˆ - ${$.UserName}`, `äº¬ä¸œè´¦å·${$.index} ${$.UserName}\nè¯·é‡æ–°ç™»å½•è·å–cookie`);
         }
         continue
       }
@@ -81,8 +81,8 @@ if ($.isNode()) {
   }
 
   if (helpSelf) {
-    console.log(`¿ªÊ¼Ñ­»·ÖúÁ¦`)
-    // ÖúÁ¦
+    console.log(`å¼€å§‹å¾ªç¯åŠ©åŠ›`)
+    // åŠ©åŠ›
     for (let i = 0; i < cookiesArr.length; i++) {
       if (cookiesArr[i]) {
         cookie = cookiesArr[i];
@@ -91,12 +91,12 @@ if ($.isNode()) {
         $.isLogin = true;
         $.nickName = '';
         await TotalBean();
-        console.log(`\n¿ªÊ¼¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName || $.UserName}\n`);
+        console.log(`\nå¼€å§‹ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName || $.UserName}\n`);
         if (!$.isLogin) {
-          $.msg($.name, `¡¾ÌáÊ¾¡¿cookieÒÑÊ§Ğ§`, `¾©¶«ÕËºÅ${$.index} ${$.nickName || $.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+          $.msg($.name, `ã€æç¤ºã€‘cookieå·²å¤±æ•ˆ`, `äº¬ä¸œè´¦å·${$.index} ${$.nickName || $.UserName}\nè¯·é‡æ–°ç™»å½•è·å–\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
 
           if ($.isNode()) {
-            await notify.sendNotify(`${$.name}cookieÒÑÊ§Ğ§ - ${$.UserName}`, `¾©¶«ÕËºÅ${$.index} ${$.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡cookie`);
+            await notify.sendNotify(`${$.name}cookieå·²å¤±æ•ˆ - ${$.UserName}`, `äº¬ä¸œè´¦å·${$.index} ${$.UserName}\nè¯·é‡æ–°ç™»å½•è·å–cookie`);
           }
           continue
         }
@@ -104,7 +104,7 @@ if ($.isNode()) {
         await helpFriends()
       }
     }
-    // ÁìÈ¡ÈÎÎñ½±Àø
+    // é¢†å–ä»»åŠ¡å¥–åŠ±
     for (let i = 0; i < cookiesArr.length; i++) {
       if (cookiesArr[i]) {
         cookie = cookiesArr[i];
@@ -113,12 +113,12 @@ if ($.isNode()) {
         $.isLogin = true;
         $.nickName = '';
         await TotalBean();
-        console.log(`\n¿ªÊ¼¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName || $.UserName}\n`);
+        console.log(`\nå¼€å§‹ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName || $.UserName}\n`);
         if (!$.isLogin) {
-          $.msg($.name, `¡¾ÌáÊ¾¡¿cookieÒÑÊ§Ğ§`, `¾©¶«ÕËºÅ${$.index} ${$.nickName || $.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+          $.msg($.name, `ã€æç¤ºã€‘cookieå·²å¤±æ•ˆ`, `äº¬ä¸œè´¦å·${$.index} ${$.nickName || $.UserName}\nè¯·é‡æ–°ç™»å½•è·å–\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
 
           if ($.isNode()) {
-            await notify.sendNotify(`${$.name}cookieÒÑÊ§Ğ§ - ${$.UserName}`, `¾©¶«ÕËºÅ${$.index} ${$.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡cookie`);
+            await notify.sendNotify(`${$.name}cookieå·²å¤±æ•ˆ - ${$.UserName}`, `äº¬ä¸œè´¦å·${$.index} ${$.UserName}\nè¯·é‡æ–°ç™»å½•è·å–cookie`);
           }
           continue
         }
@@ -128,7 +128,7 @@ if ($.isNode()) {
   }
 })()
   .catch((e) => {
-    $.log('', `? ${$.name}, Ê§°Ü! Ô­Òò: ${e}!`, '')
+    $.log('', `âŒ ${$.name}, å¤±è´¥! åŸå› : ${e}!`, '')
   })
   .finally(() => {
     $.done();
@@ -139,15 +139,15 @@ async function jdCrazyJoy() {
   $.bean = 0
   await getUserInfo($.nextCode)
   await doSign()
-  // ÖúÁ¦ºÃÓÑ
+  // åŠ©åŠ›å¥½å‹
   await helpFriends()
   await doTasks()
-  await getGrowthReward();//ÁìÈ¡½âËøµÄµÈ¼¶½±Àø
+  await getGrowthReward();//é¢†å–è§£é”çš„ç­‰çº§å¥–åŠ±
   await getCoin()
   await getUserBean()
   if ( applyJdBean!==0 && applyJdBean<=$.bean){
     await $.wait(1000)
-    console.log(`¼ì²âÄú´ò¿ªÁË×Ô¶¯¶Ò»»¿ª¹Ø£¬È¥¶Ò»»¾©¶¹`)
+    console.log(`æ£€æµ‹æ‚¨æ‰“å¼€äº†è‡ªåŠ¨å…‘æ¢å¼€å…³ï¼Œå»å…‘æ¢äº¬è±†`)
     await doApplyJdBean(applyJdBean)
   }
   await getSpecialJoy();
@@ -158,7 +158,7 @@ async function doTasks() {
   for (let j = 0; j < $.taskList.length; ++j) {
     let task = $.taskList[j];
     if (task['taskTypeId'] === 102) {
-      message += `${task.taskTitle}£º${task['doneTimes']}/${task.ext.count}\n`;
+      message += `${task.taskTitle}ï¼š${task['doneTimes']}/${task.ext.count}\n`;
     }
     if (task.status === 0 && task.taskTypeId === 103)
       for (let i = task.doneTimes; i < task.ext.count; ++i) {
@@ -169,22 +169,22 @@ async function doTasks() {
   }
 }
 function doApplyJdBean(bean = 1000) {
-  // ¶Ò»»¾©¶¹
+  // å…‘æ¢äº¬è±†
   let body = {"paramData":{"bean":bean}}
   return new Promise(async resolve => {
     $.get(taskUrl('crazyJoy_user_applyJdBeanPaid', JSON.stringify(body)), async (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data.success) {
-              console.log(`¶Ò»»${bean}¾©¶¹³É¹¦`)
-              message += `¶Ò»»¾©¶¹£º${bean}¾©¶¹³É¹¦\n`;
+              console.log(`å…‘æ¢${bean}äº¬è±†æˆåŠŸ`)
+              message += `å…‘æ¢äº¬è±†ï¼š${bean}äº¬è±†æˆåŠŸ\n`;
             } else {
-              console.log(`¶Ò»»${bean}¾©¶¹Ê§°Ü£¬´íÎóĞÅÏ¢£º${data.resultTips||data.message}`)
+              console.log(`å…‘æ¢${bean}äº¬è±†å¤±è´¥ï¼Œé”™è¯¯ä¿¡æ¯ï¼š${data.resultTips||data.message}`)
             }
           }
         }
@@ -203,18 +203,18 @@ function getUserInfo(code) {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data.success && data.data && data.data.userInviteCode) {
-              console.log(`\n¡¾¾©¶«ÕËºÅ${$.index}£¨${$.nickName || $.UserName}£©µÄ${$.name}ºÃÓÑ»¥ÖúÂë¡¿${data.data.userInviteCode}`)
+              console.log(`\nã€äº¬ä¸œè´¦å·${$.index}ï¼ˆ${$.nickName || $.UserName}ï¼‰çš„${$.name}å¥½å‹äº’åŠ©ç ã€‘${data.data.userInviteCode}`)
               $.selfCodes.push(data.data.userInviteCode)
               $.nextCode = data.data.userInviteCode
-              message += `${data.data['nickName']}£º${data.data['userTopLevelJoyId']}¼¶JOY\n`;
+              message += `${data.data['nickName']}ï¼š${data.data['userTopLevelJoyId']}çº§JOY\n`;
             }
             else
-              console.log(`ÓÃ»§ĞÅÏ¢»ñÈ¡Ê§°Ü`)
+              console.log(`ç”¨æˆ·ä¿¡æ¯è·å–å¤±è´¥`)
           }
         }
       } catch (e) {
@@ -243,14 +243,14 @@ function getTaskInfo() {
         $.taskList = []
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data.success && data.data && data.data.length) {
               $.taskList = data.data;
             } else {
-              console.log(`ÈÎÎñĞÅÏ¢»ñÈ¡Ê§°Ü`)
+              console.log(`ä»»åŠ¡ä¿¡æ¯è·å–å¤±è´¥`)
             }
           }
         }
@@ -269,12 +269,12 @@ function doSign() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data.success && data.data) {
-              console.log(`Ç©µ½³É¹¦£¬»ñµÃ${data.data.beans}¾©¶¹£¬${data.data.coins}½ğ±Ò`)
+              console.log(`ç­¾åˆ°æˆåŠŸï¼Œè·å¾—${data.data.beans}äº¬è±†ï¼Œ${data.data.coins}é‡‘å¸`)
             } else {
               console.log(data.message)
             }
@@ -296,16 +296,16 @@ function doTask(taskId) {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data.success && data.data && data.data.taskRecordId) {
-              console.log(`È¥×öÈÎÎñ¡¾${data.data.taskTitle}¡¿£¬ÈÎÎñid: ${data.data.taskRecordId}`)
+              console.log(`å»åšä»»åŠ¡ã€${data.data.taskTitle}ã€‘ï¼Œä»»åŠ¡id: ${data.data.taskRecordId}`)
               await $.wait(30000)
               await recordTask(taskId, data.data.taskRecordId)
             } else {
-              console.log(`»ñÈ¡ĞÅÏ¢Ê§°Ü`)
+              console.log(`è·å–ä¿¡æ¯å¤±è´¥`)
             }
           }
         }
@@ -325,15 +325,15 @@ function recordTask(taskId, taskRecordId) {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data.success) {
-              console.log(`ÈÎÎñ¡¾${data.data.taskTitle}¡¿¼ÇÂ¼³É¹¦£¬È¥Áì½±`)
+              console.log(`ä»»åŠ¡ã€${data.data.taskTitle}ã€‘è®°å½•æˆåŠŸï¼Œå»é¢†å¥–`)
               await awardTask(taskId)
             } else {
-              console.log(`»ñÈ¡ĞÅÏ¢Ê§°Ü`)
+              console.log(`è·å–ä¿¡æ¯å¤±è´¥`)
             }
           }
         }
@@ -353,14 +353,14 @@ function awardTask(taskId) {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data.success && data.data && data.data.taskTitle) {
-              console.log(`ÈÎÎñ¡¾${data.data.taskTitle}¡¿Áì½±³É¹¦£¬ÈÎÎñ½±Àø£º${data.data.beans}¾©¶¹£¬${data.data.coins}½ğ±Ò`)
+              console.log(`ä»»åŠ¡ã€${data.data.taskTitle}ã€‘é¢†å¥–æˆåŠŸï¼Œä»»åŠ¡å¥–åŠ±ï¼š${data.data.beans}äº¬è±†ï¼Œ${data.data.coins}é‡‘å¸`)
             } else {
-              console.log(`ÈÎÎñÁì½±ĞÅÏ¢»ñÈ¡Ê§°Ü`)
+              console.log(`ä»»åŠ¡é¢†å¥–ä¿¡æ¯è·å–å¤±è´¥`)
             }
           }
         }
@@ -380,16 +380,16 @@ function helpFriend(code) {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data['resultCode'] ==='0') {
-              console.log(`ÖúÁ¦½á¹û:${JSON.stringify(data)}`);
+              console.log(`åŠ©åŠ›ç»“æœ:${JSON.stringify(data)}`);
             } else if (data['resultCode'] === '2000402') {
               console.log(data.resultTips)
             } else {
-              console.log(`ÖúÁ¦Òì³£:${JSON.stringify(data)}`);
+              console.log(`åŠ©åŠ›å¼‚å¸¸:${JSON.stringify(data)}`);
             }
           }
         }
@@ -408,14 +408,14 @@ function getUserBean() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data.success && data.data && data.data.totalBeans)
               $.bean = data.data.totalBeans
             else
-              console.log(`»ñÈ¡ĞÅÏ¢Ê§°Ü`)
+              console.log(`è·å–ä¿¡æ¯å¤±è´¥`)
           }
         }
       } catch (e) {
@@ -433,7 +433,7 @@ function getCoin() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
@@ -450,7 +450,7 @@ function getCoin() {
     })
   })
 }
-//ÁìÈ¡½âËøµÈ¼¶½±Àø£¨¾©¶¹£©
+//é¢†å–è§£é”ç­‰çº§å¥–åŠ±ï¼ˆäº¬è±†ï¼‰
 function getGrowthReward() {
   return new Promise(async resolve => {
     const body = { "paramData":{"eventType":"GROWTH_REWARD"} };
@@ -458,7 +458,7 @@ function getGrowthReward() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
@@ -470,7 +470,7 @@ function getGrowthReward() {
                   }
                 }
                 if ($.GROWTH_REWARD_BEAN > 0) {
-                  message += `½âËøµÈ¼¶½±Àø£º»ñµÃ${$.GROWTH_REWARD_BEAN}¾©¶¹\n`;
+                  message += `è§£é”ç­‰çº§å¥–åŠ±ï¼šè·å¾—${$.GROWTH_REWARD_BEAN}äº¬è±†\n`;
                 }
               }
             }
@@ -484,7 +484,7 @@ function getGrowthReward() {
     })
   })
 }
-//»ñÈ¡ÌØÊâJOYÇé¿ö
+//è·å–ç‰¹æ®ŠJOYæƒ…å†µ
 function getSpecialJoy() {
   return new Promise(async resolve => {
     const body = { "paramData":{"typeId": 4} };
@@ -492,35 +492,35 @@ function getSpecialJoy() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data['resultCode'] === '0') {
               if (data.data) {
-                message += 'Îå¸£Íô:'
+                message += 'äº”ç¦æ±ª:'
                 if (data['data'] && data['data'].length > 0) {
                   for (let item of data['data']) {
                     if (item['joyId'] === 1003) {
-                      message += `¶à¶àJOY(${item['count']}Ö») `
+                      message += `å¤šå¤šJOY(${item['count']}åª) `
                     } else if (item['joyId'] === 1004) {
-                      message += `¿ìÀÖJOY(${item['count']}Ö») `
+                      message += `å¿«ä¹JOY(${item['count']}åª) `
                     } else if (item['joyId'] === 1005) {
-                      message += `ºÃÎïJOY(${item['count']}Ö») `
+                      message += `å¥½ç‰©JOY(${item['count']}åª) `
                     } else if (item['joyId'] === 1006) {
-                      message += `Ê¡Ç®JOY(${item['count']}Ö») `
+                      message += `çœé’±JOY(${item['count']}åª) `
                     } else if (item['joyId'] === 1007) {
-                      message += `¶«¶«JOY(${item['count']}Ö»)`
+                      message += `ä¸œä¸œJOY(${item['count']}åª)`
                     } else {
-                      message += `ÔİÎŞ`
+                      message += `æš‚æ— `
                     }
                   }
                 } else {
-                  message += `ÔİÎŞ`;
+                  message += `æš‚æ— `;
                 }
                 if (data['data'].length >= 5) {
-                  $.msg($.name, '', `¾©¶«ÕËºÅ ${$.index}${$.nickName}\n¹§Ï²Äã,ÒÑ¼¯³ÉÎå¸£Íô¿ÉºÏ³É·ÖºìJOYÁË`)
-                  if ($.isNode()) await notify.sendNotify(`${$.name} - ${$.index} - ${$.nickName}`, `¾©¶«ÕËºÅ ${$.index}${$.nickName}\n¹§Ï²Äã,ÒÑ¼¯³ÉÎå¸£Íô¿ÉºÏ³É·ÖºìJOYÁË`);
+                  $.msg($.name, '', `äº¬ä¸œè´¦å· ${$.index}${$.nickName}\næ­å–œä½ ,å·²é›†æˆäº”ç¦æ±ªå¯åˆæˆåˆ†çº¢JOYäº†`)
+                  if ($.isNode()) await notify.sendNotify(`${$.name} - ${$.index} - ${$.nickName}`, `äº¬ä¸œè´¦å· ${$.index}${$.nickName}\næ­å–œä½ ,å·²é›†æˆäº”ç¦æ±ªå¯åˆæˆåˆ†çº¢JOYäº†`);
                 }
               }
             }
@@ -541,7 +541,7 @@ function obtainAward(eventRecordId) {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
@@ -560,8 +560,8 @@ function obtainAward(eventRecordId) {
 }
 function showMsg() {
   return new Promise(async resolve => {
-    message += `\nµ±Ç°ĞÅÏ¢£º${$.bean}¾©¶¹£¬${$.coin}½ğ±Ò`
-    $.msg($.name, '', `¾©¶«ÕËºÅ${$.index} ${$.nickName}\n${message}`)
+    message += `\nå½“å‰ä¿¡æ¯ï¼š${$.bean}äº¬è±†ï¼Œ${$.coin}é‡‘å¸`
+    $.msg($.name, '', `äº¬ä¸œè´¦å·${$.index} ${$.nickName}\n${message}`)
     resolve()
   })
 }
@@ -583,16 +583,16 @@ function taskUrl(functionId, body = '') {
   }
 }
 function readShareCode() {
-  console.log(`¿ªÊ¼`)
+  console.log(`å¼€å§‹`)
   return new Promise(async resolve => {
     $.get({url: `https://code.chiang.fun/api/v1/jd/jdcrazyjoy/read/${randomCount}/`, 'timeout': 10000}, (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (data) {
-            console.log(`Ëæ»úÈ¡${randomCount}¸öÂë·Åµ½Äú¹Ì¶¨µÄ»¥ÖúÂëºóÃæ(²»Ó°ÏìÒÑÓĞ¹Ì¶¨»¥Öú)`)
+            console.log(`éšæœºå–${randomCount}ä¸ªç æ”¾åˆ°æ‚¨å›ºå®šçš„äº’åŠ©ç åé¢(ä¸å½±å“å·²æœ‰å›ºå®šäº’åŠ©)`)
             data = JSON.parse(data);
           }
         }
@@ -606,15 +606,15 @@ function readShareCode() {
     resolve()
   })
 }
-//¸ñÊ½»¯ÖúÁ¦Âë
+//æ ¼å¼åŒ–åŠ©åŠ›ç 
 function shareCodesFormat() {
   return new Promise(async resolve => {
-    // console.log(`µÚ${$.index}¸ö¾©¶«ÕËºÅµÄÖúÁ¦Âë:::${$.shareCodesArr[$.index - 1]}`)
+    // console.log(`ç¬¬${$.index}ä¸ªäº¬ä¸œè´¦å·çš„åŠ©åŠ›ç :::${$.shareCodesArr[$.index - 1]}`)
     $.newShareCodes = [];
     if ($.shareCodesArr[$.index - 1]) {
       $.newShareCodes = $.shareCodesArr[$.index - 1].split('@');
     } else {
-      console.log(`ÓÉÓÚÄúµÚ${$.index}¸ö¾©¶«ÕËºÅÎ´Ìá¹©shareCode,½«²ÉÄÉ±¾½Å±¾×Ô´øµÄÖúÁ¦Âë\n`)
+      console.log(`ç”±äºæ‚¨ç¬¬${$.index}ä¸ªäº¬ä¸œè´¦å·æœªæä¾›shareCode,å°†é‡‡çº³æœ¬è„šæœ¬è‡ªå¸¦çš„åŠ©åŠ›ç \n`)
       const tempIndex = $.index > inviteCodes.length ? (inviteCodes.length - 1) : ($.index - 1);
       $.newShareCodes = inviteCodes[tempIndex].split('@');
     }
@@ -622,15 +622,15 @@ function shareCodesFormat() {
     if (readShareCodeRes && readShareCodeRes.code === 200) {
       $.newShareCodes = [...new Set([...$.newShareCodes, ...(readShareCodeRes.data || [])])];
     }
-    console.log(`µÚ${$.index}¸ö¾©¶«ÕËºÅ½«ÒªÖúÁ¦µÄºÃÓÑ${JSON.stringify($.newShareCodes)}`)
+    console.log(`ç¬¬${$.index}ä¸ªäº¬ä¸œè´¦å·å°†è¦åŠ©åŠ›çš„å¥½å‹${JSON.stringify($.newShareCodes)}`)
     resolve();
   })
 }
 
 function requireConfig() {
   return new Promise(resolve => {
-    console.log(`¿ªÊ¼»ñÈ¡${$.name}ÅäÖÃÎÄ¼ş\n`);
-    //Node.jsÓÃ»§ÇëÔÚjdCookie.js´¦ÌîĞ´¾©¶«ck;
+    console.log(`å¼€å§‹è·å–${$.name}é…ç½®æ–‡ä»¶\n`);
+    //Node.jsç”¨æˆ·è¯·åœ¨jdCookie.jså¤„å¡«å†™äº¬ä¸œck;
     let shareCodes = [];
     if ($.isNode()) {
       if (process.env.JDJOY_SHARECODES) {
@@ -647,7 +647,7 @@ function requireConfig() {
         applyJdBean = process.env.JDJOY_APPLYJDBEAN
       }
     }
-    console.log(`¹²${cookiesArr.length}¸ö¾©¶«ÕËºÅ\n`);
+    console.log(`å…±${cookiesArr.length}ä¸ªäº¬ä¸œè´¦å·\n`);
     $.shareCodesArr = [];
     if ($.isNode()) {
       Object.keys(shareCodes).forEach((item) => {
@@ -656,7 +656,7 @@ function requireConfig() {
         }
       })
     }
-    console.log(`ÄúÌá¹©ÁË${$.shareCodesArr.length}¸öÕËºÅµÄ${$.name}ÖúÁ¦Âë\n`);
+    console.log(`æ‚¨æä¾›äº†${$.shareCodesArr.length}ä¸ªè´¦å·çš„${$.name}åŠ©åŠ›ç \n`);
     resolve()
   })
 }
@@ -668,7 +668,7 @@ function safeGet(data) {
     }
   } catch (e) {
     console.log(e);
-    console.log(`¾©¶«·şÎñÆ÷·ÃÎÊÊı¾İÎª¿Õ£¬Çë¼ì²é×ÔÉíÉè±¸ÍøÂçÇé¿ö`);
+    console.log(`äº¬ä¸œæœåŠ¡å™¨è®¿é—®æ•°æ®ä¸ºç©ºï¼Œè¯·æ£€æŸ¥è‡ªèº«è®¾å¤‡ç½‘ç»œæƒ…å†µ`);
     return false;
   }
 }
@@ -692,17 +692,17 @@ function TotalBean() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (data) {
             data = JSON.parse(data);
             if (data['retcode'] === 13) {
-              $.isLogin = false; //cookie¹ıÆÚ
+              $.isLogin = false; //cookieè¿‡æœŸ
               return
             }
             $.nickName = data['base'].nickname;
           } else {
-            console.log(`¾©¶«·şÎñÆ÷·µ»Ø¿ÕÊı¾İ`)
+            console.log(`äº¬ä¸œæœåŠ¡å™¨è¿”å›ç©ºæ•°æ®`)
           }
         }
       } catch (e) {
@@ -720,18 +720,18 @@ function jsonParse(str) {
       return JSON.parse(str);
     } catch (e) {
       console.log(e);
-      $.msg($.name, '', '²»ÒªÔÚBoxJSÊÖ¶¯¸´ÖÆÕ³ÌùĞŞ¸Äcookie')
+      $.msg($.name, '', 'ä¸è¦åœ¨BoxJSæ‰‹åŠ¨å¤åˆ¶ç²˜è´´ä¿®æ”¹cookie')
       return [];
     }
   }
 }
 /**
- * Éú³ÉËæ»úÊı×Ö
- * @param {number} min ×îĞ¡Öµ£¨°üº¬£©
- * @param {number} max ×î´óÖµ£¨²»°üº¬£©
+ * ç”Ÿæˆéšæœºæ•°å­—
+ * @param {number} min æœ€å°å€¼ï¼ˆåŒ…å«ï¼‰
+ * @param {number} max æœ€å¤§å€¼ï¼ˆä¸åŒ…å«ï¼‰
  */
 function randomNumber(min = 0, max = 100) {
   return Math.min(Math.floor(min + Math.random() * (max - min)), max);
 }
 // prettier-ignore
-function Env(t,e){"undefined"!=typeof process&&JSON.stringify(process.env).indexOf("GIT_HUB")>-1&&process.exit(0);class s{constructor(t){this.env=t}send(t,e="GET"){t="string"==typeof t?{url:t}:t;let s=this.get;return"POST"===e&&(s=this.post),new Promise((e,i)=>{s.call(this,t,(t,s,r)=>{t?i(t):e(s)})})}get(t){return this.send.call(this.env,t)}post(t){return this.send.call(this.env,t,"POST")}}return new class{constructor(t,e){this.name=t,this.http=new s(this),this.data=null,this.dataFile="box.dat",this.logs=[],this.isMute=!1,this.isNeedRewrite=!1,this.logSeparator="\n",this.startTime=(new Date).getTime(),Object.assign(this,e),this.log("",`?${this.name}, ¿ªÊ¼!`)}isNode(){return"undefined"!=typeof module&&!!module.exports}isQuanX(){return"undefined"!=typeof $task}isSurge(){return"undefined"!=typeof $httpClient&&"undefined"==typeof $loon}isLoon(){return"undefined"!=typeof $loon}toObj(t,e=null){try{return JSON.parse(t)}catch{return e}}toStr(t,e=null){try{return JSON.stringify(t)}catch{return e}}getjson(t,e){let s=e;const i=this.getdata(t);if(i)try{s=JSON.parse(this.getdata(t))}catch{}return s}setjson(t,e){try{return this.setdata(JSON.stringify(t),e)}catch{return!1}}getScript(t){return new Promise(e=>{this.get({url:t},(t,s,i)=>e(i))})}runScript(t,e){return new Promise(s=>{let i=this.getdata("@chavy_boxjs_userCfgs.httpapi");i=i?i.replace(/\n/g,"").trim():i;let r=this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");r=r?1*r:20,r=e&&e.timeout?e.timeout:r;const[o,h]=i.split("@"),n={url:`http://${h}/v1/scripting/evaluate`,body:{script_text:t,mock_type:"cron",timeout:r},headers:{"X-Key":o,Accept:"*/*"}};this.post(n,(t,e,i)=>s(i))}).catch(t=>this.logErr(t))}loaddata(){if(!this.isNode())return{};{this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e);if(!s&&!i)return{};{const i=s?t:e;try{return JSON.parse(this.fs.readFileSync(i))}catch(t){return{}}}}}writedata(){if(this.isNode()){this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e),r=JSON.stringify(this.data);s?this.fs.writeFileSync(t,r):i?this.fs.writeFileSync(e,r):this.fs.writeFileSync(t,r)}}lodash_get(t,e,s){const i=e.replace(/\[(\d+)\]/g,".$1").split(".");let r=t;for(const t of i)if(r=Object(r)[t],void 0===r)return s;return r}lodash_set(t,e,s){return Object(t)!==t?t:(Array.isArray(e)||(e=e.toString().match(/[^.[\]]+/g)||[]),e.slice(0,-1).reduce((t,s,i)=>Object(t[s])===t[s]?t[s]:t[s]=Math.abs(e[i+1])>>0==+e[i+1]?[]:{},t)[e[e.length-1]]=s,t)}getdata(t){let e=this.getval(t);if(/^@/.test(t)){const[,s,i]=/^@(.*?)\.(.*?)$/.exec(t),r=s?this.getval(s):"";if(r)try{const t=JSON.parse(r);e=t?this.lodash_get(t,i,""):e}catch(t){e=""}}return e}setdata(t,e){let s=!1;if(/^@/.test(e)){const[,i,r]=/^@(.*?)\.(.*?)$/.exec(e),o=this.getval(i),h=i?"null"===o?null:o||"{}":"{}";try{const e=JSON.parse(h);this.lodash_set(e,r,t),s=this.setval(JSON.stringify(e),i)}catch(e){const o={};this.lodash_set(o,r,t),s=this.setval(JSON.stringify(o),i)}}else s=this.setval(t,e);return s}getval(t){return this.isSurge()||this.isLoon()?$persistentStore.read(t):this.isQuanX()?$prefs.valueForKey(t):this.isNode()?(this.data=this.loaddata(),this.data[t]):this.data&&this.data[t]||null}setval(t,e){return this.isSurge()||this.isLoon()?$persistentStore.write(t,e):this.isQuanX()?$prefs.setValueForKey(t,e):this.isNode()?(this.data=this.loaddata(),this.data[e]=t,this.writedata(),!0):this.data&&this.data[e]||null}initGotEnv(t){this.got=this.got?this.got:require("got"),this.cktough=this.cktough?this.cktough:require("tough-cookie"),this.ckjar=this.ckjar?this.ckjar:new this.cktough.CookieJar,t&&(t.headers=t.headers?t.headers:{},void 0===t.headers.Cookie&&void 0===t.cookieJar&&(t.cookieJar=this.ckjar))}get(t,e=(()=>{})){t.headers&&(delete t.headers["Content-Type"],delete t.headers["Content-Length"]),this.isSurge()||this.isLoon()?(this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.get(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)})):this.isQuanX()?(this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t))):this.isNode()&&(this.initGotEnv(t),this.got(t).on("redirect",(t,e)=>{try{if(t.headers["set-cookie"]){const s=t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();s&&this.ckjar.setCookieSync(s,null),e.cookieJar=this.ckjar}}catch(t){this.logErr(t)}}).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)}))}post(t,e=(()=>{})){if(t.body&&t.headers&&!t.headers["Content-Type"]&&(t.headers["Content-Type"]="application/x-www-form-urlencoded"),t.headers&&delete t.headers["Content-Length"],this.isSurge()||this.isLoon())this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.post(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)});else if(this.isQuanX())t.method="POST",this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t));else if(this.isNode()){this.initGotEnv(t);const{url:s,...i}=t;this.got.post(s,i).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)})}}time(t,e=null){const s=e?new Date(e):new Date;let i={"M+":s.getMonth()+1,"d+":s.getDate(),"H+":s.getHours(),"m+":s.getMinutes(),"s+":s.getSeconds(),"q+":Math.floor((s.getMonth()+3)/3),S:s.getMilliseconds()};/(y+)/.test(t)&&(t=t.replace(RegExp.$1,(s.getFullYear()+"").substr(4-RegExp.$1.length)));for(let e in i)new RegExp("("+e+")").test(t)&&(t=t.replace(RegExp.$1,1==RegExp.$1.length?i[e]:("00"+i[e]).substr((""+i[e]).length)));return t}msg(e=t,s="",i="",r){const o=t=>{if(!t)return t;if("string"==typeof t)return this.isLoon()?t:this.isQuanX()?{"open-url":t}:this.isSurge()?{url:t}:void 0;if("object"==typeof t){if(this.isLoon()){let e=t.openUrl||t.url||t["open-url"],s=t.mediaUrl||t["media-url"];return{openUrl:e,mediaUrl:s}}if(this.isQuanX()){let e=t["open-url"]||t.url||t.openUrl,s=t["media-url"]||t.mediaUrl;return{"open-url":e,"media-url":s}}if(this.isSurge()){let e=t.url||t.openUrl||t["open-url"];return{url:e}}}};if(this.isMute||(this.isSurge()||this.isLoon()?$notification.post(e,s,i,o(r)):this.isQuanX()&&$notify(e,s,i,o(r))),!this.isMuteLog){let t=["","==============?ÏµÍ³Í¨Öª?=============="];t.push(e),s&&t.push(s),i&&t.push(i),console.log(t.join("\n")),this.logs=this.logs.concat(t)}}log(...t){t.length>0&&(this.logs=[...this.logs,...t]),console.log(t.join(this.logSeparator))}logErr(t,e){const s=!this.isSurge()&&!this.isQuanX()&&!this.isLoon();s?this.log("",`??${this.name}, ´íÎó!`,t.stack):this.log("",`??${this.name}, ´íÎó!`,t)}wait(t){return new Promise(e=>setTimeout(e,t))}done(t={}){const e=(new Date).getTime(),s=(e-this.startTime)/1e3;this.log("",`?${this.name}, ½áÊø! ? ${s} Ãë`),this.log(),(this.isSurge()||this.isQuanX()||this.isLoon())&&$done(t)}}(t,e)}
+function Env(t,e){"undefined"!=typeof process&&JSON.stringify(process.env).indexOf("GIT_HUB")>-1&&process.exit(0);class s{constructor(t){this.env=t}send(t,e="GET"){t="string"==typeof t?{url:t}:t;let s=this.get;return"POST"===e&&(s=this.post),new Promise((e,i)=>{s.call(this,t,(t,s,r)=>{t?i(t):e(s)})})}get(t){return this.send.call(this.env,t)}post(t){return this.send.call(this.env,t,"POST")}}return new class{constructor(t,e){this.name=t,this.http=new s(this),this.data=null,this.dataFile="box.dat",this.logs=[],this.isMute=!1,this.isNeedRewrite=!1,this.logSeparator="\n",this.startTime=(new Date).getTime(),Object.assign(this,e),this.log("",`ğŸ””${this.name}, å¼€å§‹!`)}isNode(){return"undefined"!=typeof module&&!!module.exports}isQuanX(){return"undefined"!=typeof $task}isSurge(){return"undefined"!=typeof $httpClient&&"undefined"==typeof $loon}isLoon(){return"undefined"!=typeof $loon}toObj(t,e=null){try{return JSON.parse(t)}catch{return e}}toStr(t,e=null){try{return JSON.stringify(t)}catch{return e}}getjson(t,e){let s=e;const i=this.getdata(t);if(i)try{s=JSON.parse(this.getdata(t))}catch{}return s}setjson(t,e){try{return this.setdata(JSON.stringify(t),e)}catch{return!1}}getScript(t){return new Promise(e=>{this.get({url:t},(t,s,i)=>e(i))})}runScript(t,e){return new Promise(s=>{let i=this.getdata("@chavy_boxjs_userCfgs.httpapi");i=i?i.replace(/\n/g,"").trim():i;let r=this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");r=r?1*r:20,r=e&&e.timeout?e.timeout:r;const[o,h]=i.split("@"),n={url:`http://${h}/v1/scripting/evaluate`,body:{script_text:t,mock_type:"cron",timeout:r},headers:{"X-Key":o,Accept:"*/*"}};this.post(n,(t,e,i)=>s(i))}).catch(t=>this.logErr(t))}loaddata(){if(!this.isNode())return{};{this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e);if(!s&&!i)return{};{const i=s?t:e;try{return JSON.parse(this.fs.readFileSync(i))}catch(t){return{}}}}}writedata(){if(this.isNode()){this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e),r=JSON.stringify(this.data);s?this.fs.writeFileSync(t,r):i?this.fs.writeFileSync(e,r):this.fs.writeFileSync(t,r)}}lodash_get(t,e,s){const i=e.replace(/\[(\d+)\]/g,".$1").split(".");let r=t;for(const t of i)if(r=Object(r)[t],void 0===r)return s;return r}lodash_set(t,e,s){return Object(t)!==t?t:(Array.isArray(e)||(e=e.toString().match(/[^.[\]]+/g)||[]),e.slice(0,-1).reduce((t,s,i)=>Object(t[s])===t[s]?t[s]:t[s]=Math.abs(e[i+1])>>0==+e[i+1]?[]:{},t)[e[e.length-1]]=s,t)}getdata(t){let e=this.getval(t);if(/^@/.test(t)){const[,s,i]=/^@(.*?)\.(.*?)$/.exec(t),r=s?this.getval(s):"";if(r)try{const t=JSON.parse(r);e=t?this.lodash_get(t,i,""):e}catch(t){e=""}}return e}setdata(t,e){let s=!1;if(/^@/.test(e)){const[,i,r]=/^@(.*?)\.(.*?)$/.exec(e),o=this.getval(i),h=i?"null"===o?null:o||"{}":"{}";try{const e=JSON.parse(h);this.lodash_set(e,r,t),s=this.setval(JSON.stringify(e),i)}catch(e){const o={};this.lodash_set(o,r,t),s=this.setval(JSON.stringify(o),i)}}else s=this.setval(t,e);return s}getval(t){return this.isSurge()||this.isLoon()?$persistentStore.read(t):this.isQuanX()?$prefs.valueForKey(t):this.isNode()?(this.data=this.loaddata(),this.data[t]):this.data&&this.data[t]||null}setval(t,e){return this.isSurge()||this.isLoon()?$persistentStore.write(t,e):this.isQuanX()?$prefs.setValueForKey(t,e):this.isNode()?(this.data=this.loaddata(),this.data[e]=t,this.writedata(),!0):this.data&&this.data[e]||null}initGotEnv(t){this.got=this.got?this.got:require("got"),this.cktough=this.cktough?this.cktough:require("tough-cookie"),this.ckjar=this.ckjar?this.ckjar:new this.cktough.CookieJar,t&&(t.headers=t.headers?t.headers:{},void 0===t.headers.Cookie&&void 0===t.cookieJar&&(t.cookieJar=this.ckjar))}get(t,e=(()=>{})){t.headers&&(delete t.headers["Content-Type"],delete t.headers["Content-Length"]),this.isSurge()||this.isLoon()?(this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.get(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)})):this.isQuanX()?(this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t))):this.isNode()&&(this.initGotEnv(t),this.got(t).on("redirect",(t,e)=>{try{if(t.headers["set-cookie"]){const s=t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();s&&this.ckjar.setCookieSync(s,null),e.cookieJar=this.ckjar}}catch(t){this.logErr(t)}}).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)}))}post(t,e=(()=>{})){if(t.body&&t.headers&&!t.headers["Content-Type"]&&(t.headers["Content-Type"]="application/x-www-form-urlencoded"),t.headers&&delete t.headers["Content-Length"],this.isSurge()||this.isLoon())this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.post(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)});else if(this.isQuanX())t.method="POST",this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t));else if(this.isNode()){this.initGotEnv(t);const{url:s,...i}=t;this.got.post(s,i).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)})}}time(t,e=null){const s=e?new Date(e):new Date;let i={"M+":s.getMonth()+1,"d+":s.getDate(),"H+":s.getHours(),"m+":s.getMinutes(),"s+":s.getSeconds(),"q+":Math.floor((s.getMonth()+3)/3),S:s.getMilliseconds()};/(y+)/.test(t)&&(t=t.replace(RegExp.$1,(s.getFullYear()+"").substr(4-RegExp.$1.length)));for(let e in i)new RegExp("("+e+")").test(t)&&(t=t.replace(RegExp.$1,1==RegExp.$1.length?i[e]:("00"+i[e]).substr((""+i[e]).length)));return t}msg(e=t,s="",i="",r){const o=t=>{if(!t)return t;if("string"==typeof t)return this.isLoon()?t:this.isQuanX()?{"open-url":t}:this.isSurge()?{url:t}:void 0;if("object"==typeof t){if(this.isLoon()){let e=t.openUrl||t.url||t["open-url"],s=t.mediaUrl||t["media-url"];return{openUrl:e,mediaUrl:s}}if(this.isQuanX()){let e=t["open-url"]||t.url||t.openUrl,s=t["media-url"]||t.mediaUrl;return{"open-url":e,"media-url":s}}if(this.isSurge()){let e=t.url||t.openUrl||t["open-url"];return{url:e}}}};if(this.isMute||(this.isSurge()||this.isLoon()?$notification.post(e,s,i,o(r)):this.isQuanX()&&$notify(e,s,i,o(r))),!this.isMuteLog){let t=["","==============ğŸ“£ç³»ç»Ÿé€šçŸ¥ğŸ“£=============="];t.push(e),s&&t.push(s),i&&t.push(i),console.log(t.join("\n")),this.logs=this.logs.concat(t)}}log(...t){t.length>0&&(this.logs=[...this.logs,...t]),console.log(t.join(this.logSeparator))}logErr(t,e){const s=!this.isSurge()&&!this.isQuanX()&&!this.isLoon();s?this.log("",`â—ï¸${this.name}, é”™è¯¯!`,t.stack):this.log("",`â—ï¸${this.name}, é”™è¯¯!`,t)}wait(t){return new Promise(e=>setTimeout(e,t))}done(t={}){const e=(new Date).getTime(),s=(e-this.startTime)/1e3;this.log("",`ğŸ””${this.name}, ç»“æŸ! ğŸ•› ${s} ç§’`),this.log(),(this.isSurge()||this.isQuanX()||this.isLoon())&&$done(t)}}(t,e)}

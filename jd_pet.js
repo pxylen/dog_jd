@@ -1,49 +1,49 @@
 /*
-¶«¶«ÃÈ³è ¸üĞÂµØÖ·£º https://jdsharedresourcescdn.azureedge.net/jdresource/jd_pet.js
-¸üĞÂÊ±¼ä£º2021-01-19
-»î¶¯Èë¿Ú£º¾©¶«APPÎÒµÄ-¸ü¶à¹¤¾ß-¶«¶«ÃÈ³è
-ÒÑÖ§³ÖIOSË«¾©¶«ÕËºÅ,Node.jsÖ§³ÖN¸ö¾©¶«ÕËºÅ
-½Å±¾¼æÈİ: QuantumultX, Surge, Loon, JSBox, Node.js
+ä¸œä¸œèŒå®  æ›´æ–°åœ°å€ï¼š https://jdsharedresourcescdn.azureedge.net/jdresource/jd_pet.js
+æ›´æ–°æ—¶é—´ï¼š2021-01-19
+æ´»åŠ¨å…¥å£ï¼šäº¬ä¸œAPPæˆ‘çš„-æ›´å¤šå·¥å…·-ä¸œä¸œèŒå® 
+å·²æ”¯æŒIOSåŒäº¬ä¸œè´¦å·,Node.jsæ”¯æŒNä¸ªäº¬ä¸œè´¦å·
+è„šæœ¬å…¼å®¹: QuantumultX, Surge, Loon, JSBox, Node.js
 
-»¥ÖúÂëshareCodeÇëÏÈÊÖ¶¯ÔËĞĞ½Å±¾²é¿´´òÓ¡¿É¿´µ½
-Ò»ÌìÖ»ÄÜ°ïÖú5¸öÈË¡£¶à³öµÄÖúÁ¦ÂëÎŞĞ§
+äº’åŠ©ç shareCodeè¯·å…ˆæ‰‹åŠ¨è¿è¡Œè„šæœ¬æŸ¥çœ‹æ‰“å°å¯çœ‹åˆ°
+ä¸€å¤©åªèƒ½å¸®åŠ©5ä¸ªäººã€‚å¤šå‡ºçš„åŠ©åŠ›ç æ— æ•ˆ
 
 =================================Quantumultx=========================
 [task_local]
-#¶«¶«ÃÈ³è
-15 6-18/6 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_pet.js, tag=¶«¶«ÃÈ³è, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jdmc.png, enabled=true
+#ä¸œä¸œèŒå® 
+15 6-18/6 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_pet.js, tag=ä¸œä¸œèŒå® , img-url=https://raw.githubusercontent.com/58xinian/icon/master/jdmc.png, enabled=true
 
 =================================Loon===================================
 [Script]
-cron "15 6-18/6 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_pet.js,tag=¶«¶«ÃÈ³è
+cron "15 6-18/6 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_pet.js,tag=ä¸œä¸œèŒå® 
 
 ===================================Surge================================
-¶«¶«ÃÈ³è = type=cron,cronexp="15 6-18/6 * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_pet.js
+ä¸œä¸œèŒå®  = type=cron,cronexp="15 6-18/6 * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_pet.js
 
-====================================Ğ¡»ğ¼ı=============================
-¶«¶«ÃÈ³è = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_pet.js, cronexpr="15 6-18/6 * * *", timeout=3600, enable=true
+====================================å°ç«ç®­=============================
+ä¸œä¸œèŒå®  = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_pet.js, cronexpr="15 6-18/6 * * *", timeout=3600, enable=true
 
 */
-const $ = new Env('¶«¶«ÃÈ³è');
+const $ = new Env('ä¸œä¸œèŒå® ');
 let cookiesArr = [], cookie = '', jdPetShareArr = [], isBox = false, notify, newShareCodes;
-//ÖúÁ¦ºÃÓÑ·ÖÏíÂë(×î¶à5¸ö,·ñÔòºóÃæµÄÖúÁ¦Ê§°Ü),Ô­Òò:¾©¶«Å©³¡Ã¿ÈËÃ¿ÌìÖ»ÓĞËÄ´ÎÖúÁ¦»ú»á
-//´Ë´ËÄÚÈİÊÇIOSÓÃ»§ÏÂÔØ½Å±¾µ½±¾µØÊ¹ÓÃ£¬ÌîĞ´»¥ÖúÂëµÄµØ·½£¬Í¬Ò»¾©¶«ÕËºÅµÄºÃÓÑ»¥ÖúÂëÇëÊ¹ÓÃ@·ûºÅ¸ô¿ª¡£
-//ÏÂÃæ¸ø³öÁ½¸öÕËºÅµÄÌîĞ´Ê¾Àı£¨iOSÖ»Ö§³Ö2¸ö¾©¶«ÕËºÅ£©
-let shareCodes = [ // IOS±¾µØ½Å±¾ÓÃ»§Õâ¸öÁĞ±íÌîÈëÄãÒªÖúÁ¦µÄºÃÓÑµÄshareCode
-   //ÕËºÅÒ»µÄºÃÓÑshareCode,²»Í¬ºÃÓÑµÄshareCodeÖĞ¼äÓÃ@·ûºÅ¸ô¿ª
+//åŠ©åŠ›å¥½å‹åˆ†äº«ç (æœ€å¤š5ä¸ª,å¦åˆ™åé¢çš„åŠ©åŠ›å¤±è´¥),åŸå› :äº¬ä¸œå†œåœºæ¯äººæ¯å¤©åªæœ‰å››æ¬¡åŠ©åŠ›æœºä¼š
+//æ­¤æ­¤å†…å®¹æ˜¯IOSç”¨æˆ·ä¸‹è½½è„šæœ¬åˆ°æœ¬åœ°ä½¿ç”¨ï¼Œå¡«å†™äº’åŠ©ç çš„åœ°æ–¹ï¼ŒåŒä¸€äº¬ä¸œè´¦å·çš„å¥½å‹äº’åŠ©ç è¯·ä½¿ç”¨@ç¬¦å·éš”å¼€ã€‚
+//ä¸‹é¢ç»™å‡ºä¸¤ä¸ªè´¦å·çš„å¡«å†™ç¤ºä¾‹ï¼ˆiOSåªæ”¯æŒ2ä¸ªäº¬ä¸œè´¦å·ï¼‰
+let shareCodes = [ // IOSæœ¬åœ°è„šæœ¬ç”¨æˆ·è¿™ä¸ªåˆ—è¡¨å¡«å…¥ä½ è¦åŠ©åŠ›çš„å¥½å‹çš„shareCode
+   //è´¦å·ä¸€çš„å¥½å‹shareCode,ä¸åŒå¥½å‹çš„shareCodeä¸­é—´ç”¨@ç¬¦å·éš”å¼€
   'MTAxODc2NTEzNTAwMDAwMDAwMjg3MDg2MA==@MTAxODc2NTEzMzAwMDAwMDAyNzUwMDA4MQ==@MTAxODc2NTEzMjAwMDAwMDAzMDI3MTMyOQ==@MTAxODc2NTEzNDAwMDAwMDAzMDI2MDI4MQ==@MTAxODcxOTI2NTAwMDAwMDAxOTQ3MjkzMw==',
-  //ÕËºÅ¶şµÄºÃÓÑshareCode,²»Í¬ºÃÓÑµÄshareCodeÖĞ¼äÓÃ@·ûºÅ¸ô¿ª
+  //è´¦å·äºŒçš„å¥½å‹shareCode,ä¸åŒå¥½å‹çš„shareCodeä¸­é—´ç”¨@ç¬¦å·éš”å¼€
   'MTAxODc2NTEzMjAwMDAwMDAzMDI3MTMyOQ==@MTAxODcxOTI2NTAwMDAwMDAyNjA4ODQyMQ==@MTAxODc2NTEzOTAwMDAwMDAyNzE2MDY2NQ==@MTE1NDUyMjEwMDAwMDAwNDI0MDM2MDc=@MTAxODc2NTEzMjAwMDAwMDAwNDA5MzAzMw==',
 ]
 let message = '', subTitle = '', option = {};
-let jdNotify = false;//ÊÇ·ñ¹Ø±ÕÍ¨Öª£¬false´ò¿ªÍ¨ÖªÍÆËÍ£¬true¹Ø±ÕÍ¨ÖªÍÆËÍ
+let jdNotify = false;//æ˜¯å¦å…³é—­é€šçŸ¥ï¼Œfalseæ‰“å¼€é€šçŸ¥æ¨é€ï¼Œtrueå…³é—­é€šçŸ¥æ¨é€
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
 let goodsUrl = '', taskInfoKey = [];
 let randomCount = $.isNode() ? 20 : 5;
 !(async () => {
   await requireConfig();
   if (!cookiesArr[0]) {
-    $.msg($.name, '¡¾ÌáÊ¾¡¿ÇëÏÈ»ñÈ¡¾©¶«ÕËºÅÒ»cookie\nÖ±½ÓÊ¹ÓÃNobyDaµÄ¾©¶«Ç©µ½»ñÈ¡', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+    $.msg($.name, 'ã€æç¤ºã€‘è¯·å…ˆè·å–äº¬ä¸œè´¦å·ä¸€cookie\nç›´æ¥ä½¿ç”¨NobyDaçš„äº¬ä¸œç­¾åˆ°è·å–', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
     return;
   }
   for (let i = 0; i < cookiesArr.length; i++) {
@@ -54,12 +54,12 @@ let randomCount = $.isNode() ? 20 : 5;
       $.isLogin = true;
       $.nickName = '';
       await TotalBean();
-      console.log(`\n¿ªÊ¼¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName || $.UserName}\n`);
+      console.log(`\nå¼€å§‹ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName || $.UserName}\n`);
       if (!$.isLogin) {
-        $.msg($.name, `¡¾ÌáÊ¾¡¿cookieÒÑÊ§Ğ§`, `¾©¶«ÕËºÅ${$.index} ${$.nickName || $.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
+        $.msg($.name, `ã€æç¤ºã€‘cookieå·²å¤±æ•ˆ`, `äº¬ä¸œè´¦å·${$.index} ${$.nickName || $.UserName}\nè¯·é‡æ–°ç™»å½•è·å–\nhttps://bean.m.jd.com/bean/signIndex.action`, {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
 
         if ($.isNode()) {
-          await notify.sendNotify(`${$.name}cookieÒÑÊ§Ğ§ - ${$.UserName}`, `¾©¶«ÕËºÅ${$.index} ${$.UserName}\nÇëÖØĞÂµÇÂ¼»ñÈ¡cookie`);
+          await notify.sendNotify(`${$.name}cookieå·²å¤±æ•ˆ - ${$.UserName}`, `äº¬ä¸œè´¦å·${$.index} ${$.UserName}\nè¯·é‡æ–°ç™»å½•è·å–cookie`);
         }
         continue
       }
@@ -74,110 +74,110 @@ let randomCount = $.isNode() ? 20 : 5;
   }
 })()
     .catch((e) => {
-      $.log('', `? ${$.name}, Ê§°Ü! Ô­Òò: ${e}!`, '')
+      $.log('', `âŒ ${$.name}, å¤±è´¥! åŸå› : ${e}!`, '')
     })
     .finally(() => {
       $.done();
     })
 async function jdPet() {
   try {
-    //²éÑ¯jd³èÎïĞÅÏ¢
+    //æŸ¥è¯¢jdå® ç‰©ä¿¡æ¯
     const initPetTownRes = await request('initPetTown');
-    message = `¡¾¾©¶«ÕËºÅ${$.index}¡¿${$.nickName}\n`;
+    message = `ã€äº¬ä¸œè´¦å·${$.index}ã€‘${$.nickName}\n`;
     if (initPetTownRes.code === '0' && initPetTownRes.resultCode === '0' && initPetTownRes.message === 'success') {
       $.petInfo = initPetTownRes.result;
       if ($.petInfo.userStatus === 0) {
-        // $.msg($.name, '', `¡¾ÌáÊ¾¡¿¾©¶«ÕËºÅ${$.index}${$.nickName}\nÃÈ³è»î¶¯Î´¿ªÆô\nÇëÊÖ¶¯È¥¾©¶«APP¿ªÆô»î¶¯\nÈë¿Ú£ºÎÒµÄ->ÓÎÏ·Óë»¥¶¯->²é¿´¸ü¶à¿ªÆô`, { "open-url": "openapp.jdmoble://" });
-        await slaveHelp();//ÖúÁ¦ºÃÓÑ
-        $.log($.name, '', `¡¾ÌáÊ¾¡¿¾©¶«ÕËºÅ${$.index}${$.nickName}\nÃÈ³è»î¶¯Î´¿ªÆô\nÇëÊÖ¶¯È¥¾©¶«APP¿ªÆô»î¶¯\nÈë¿Ú£ºÎÒµÄ->ÓÎÏ·Óë»¥¶¯->²é¿´¸ü¶à¿ªÆô`);
+        // $.msg($.name, '', `ã€æç¤ºã€‘äº¬ä¸œè´¦å·${$.index}${$.nickName}\nèŒå® æ´»åŠ¨æœªå¼€å¯\nè¯·æ‰‹åŠ¨å»äº¬ä¸œAPPå¼€å¯æ´»åŠ¨\nå…¥å£ï¼šæˆ‘çš„->æ¸¸æˆä¸äº’åŠ¨->æŸ¥çœ‹æ›´å¤šå¼€å¯`, { "open-url": "openapp.jdmoble://" });
+        await slaveHelp();//åŠ©åŠ›å¥½å‹
+        $.log($.name, '', `ã€æç¤ºã€‘äº¬ä¸œè´¦å·${$.index}${$.nickName}\nèŒå® æ´»åŠ¨æœªå¼€å¯\nè¯·æ‰‹åŠ¨å»äº¬ä¸œAPPå¼€å¯æ´»åŠ¨\nå…¥å£ï¼šæˆ‘çš„->æ¸¸æˆä¸äº’åŠ¨->æŸ¥çœ‹æ›´å¤šå¼€å¯`);
         return
       }
       if (!$.petInfo.goodsInfo) {
-        $.msg($.name, '', `¡¾ÌáÊ¾¡¿¾©¶«ÕËºÅ${$.index}${$.nickName}\nÔİÎ´Ñ¡¹ºĞÂµÄÉÌÆ·`, { "open-url": "openapp.jdmoble://" });
-        if ($.isNode()) await notify.sendNotify(`${$.name} - ${$.index} - ${$.nickName}`, `¡¾ÌáÊ¾¡¿¾©¶«ÕËºÅ${$.index}${$.nickName}\nÔİÎ´Ñ¡¹ºĞÂµÄÉÌÆ·`);
+        $.msg($.name, '', `ã€æç¤ºã€‘äº¬ä¸œè´¦å·${$.index}${$.nickName}\næš‚æœªé€‰è´­æ–°çš„å•†å“`, { "open-url": "openapp.jdmoble://" });
+        if ($.isNode()) await notify.sendNotify(`${$.name} - ${$.index} - ${$.nickName}`, `ã€æç¤ºã€‘äº¬ä¸œè´¦å·${$.index}${$.nickName}\næš‚æœªé€‰è´­æ–°çš„å•†å“`);
         return
       }
       goodsUrl = $.petInfo.goodsInfo && $.petInfo.goodsInfo.goodsUrl;
       // option['media-url'] = goodsUrl;
-      // console.log(`³õÊ¼»¯ÃÈ³èĞÅÏ¢Íê³É: ${JSON.stringify(petInfo)}`);
+      // console.log(`åˆå§‹åŒ–èŒå® ä¿¡æ¯å®Œæˆ: ${JSON.stringify(petInfo)}`);
       if ($.petInfo.petStatus === 5) {
-        await slaveHelp();//¿ÉÒÔ¶Ò»»¶øÃ»ÓĞÈ¥¶Ò»»,Ò²ÄÜ¼ÌĞøÖúÁ¦ºÃÓÑ
+        await slaveHelp();//å¯ä»¥å…‘æ¢è€Œæ²¡æœ‰å»å…‘æ¢,ä¹Ÿèƒ½ç»§ç»­åŠ©åŠ›å¥½å‹
         option['open-url'] = "openApp.jdMobile://";
-        $.msg($.name, `¡¾ÌáĞÑ?¡¿${$.petInfo.goodsInfo.goodsName}ÒÑ¿ÉÁìÈ¡`, 'ÇëÈ¥¾©¶«APP»òÎ¢ĞÅĞ¡³ÌĞò²é¿´', option);
+        $.msg($.name, `ã€æé†’â°ã€‘${$.petInfo.goodsInfo.goodsName}å·²å¯é¢†å–`, 'è¯·å»äº¬ä¸œAPPæˆ–å¾®ä¿¡å°ç¨‹åºæŸ¥çœ‹', option);
         if ($.isNode()) {
-          await notify.sendNotify(`${$.name} - ÕËºÅ${$.index} - ${$.nickName || $.UserName}½±Æ·ÒÑ¿ÉÁìÈ¡`, `¾©¶«ÕËºÅ${$.index} ${$.nickName}\n${$.petInfo.goodsInfo.goodsName}ÒÑ¿ÉÁìÈ¡`);
+          await notify.sendNotify(`${$.name} - è´¦å·${$.index} - ${$.nickName || $.UserName}å¥–å“å·²å¯é¢†å–`, `äº¬ä¸œè´¦å·${$.index} ${$.nickName}\n${$.petInfo.goodsInfo.goodsName}å·²å¯é¢†å–`);
         }
         return
       } else if ($.petInfo.petStatus === 6) {
-        await slaveHelp();//ÒÑÁìÈ¡ºì°ü,µ«Î´ÁìÑøĞÂµÄ,Ò²ÄÜ¼ÌĞøÖúÁ¦ºÃÓÑ
+        await slaveHelp();//å·²é¢†å–çº¢åŒ…,ä½†æœªé¢†å…»æ–°çš„,ä¹Ÿèƒ½ç»§ç»­åŠ©åŠ›å¥½å‹
         option['open-url'] = "openApp.jdMobile://";
-        $.msg($.name, `¡¾ÌáĞÑ?¡¿ÒÑÁìÈ¡ºì°ü,µ«Î´¼ÌĞøÁìÑøĞÂµÄÎïÆ·`, 'ÇëÈ¥¾©¶«APP»òÎ¢ĞÅĞ¡³ÌĞò¼ÌĞøÁìÑø', option);
+        $.msg($.name, `ã€æé†’â°ã€‘å·²é¢†å–çº¢åŒ…,ä½†æœªç»§ç»­é¢†å…»æ–°çš„ç‰©å“`, 'è¯·å»äº¬ä¸œAPPæˆ–å¾®ä¿¡å°ç¨‹åºç»§ç»­é¢†å…»', option);
         if ($.isNode()) {
-          await notify.sendNotify(`${$.name} - ÕËºÅ${$.index} - ${$.nickName || $.UserName}½±Æ·ÒÑ¿ÉÁìÈ¡`, `¾©¶«ÕËºÅ${$.index} ${$.nickName}\nÒÑÁìÈ¡ºì°ü,µ«Î´¼ÌĞøÁìÑøĞÂµÄÎïÆ·`);
+          await notify.sendNotify(`${$.name} - è´¦å·${$.index} - ${$.nickName || $.UserName}å¥–å“å·²å¯é¢†å–`, `äº¬ä¸œè´¦å·${$.index} ${$.nickName}\nå·²é¢†å–çº¢åŒ…,ä½†æœªç»§ç»­é¢†å…»æ–°çš„ç‰©å“`);
         }
         return
       }
-      console.log(`\n¡¾¾©¶«ÕËºÅ${$.index}£¨${$.nickName || $.UserName}£©µÄ${$.name}ºÃÓÑ»¥ÖúÂë¡¿${$.petInfo.shareCode}\n`);
+      console.log(`\nã€äº¬ä¸œè´¦å·${$.index}ï¼ˆ${$.nickName || $.UserName}ï¼‰çš„${$.name}å¥½å‹äº’åŠ©ç ã€‘${$.petInfo.shareCode}\n`);
       await taskInit();
       if ($.taskInit.resultCode === '9999' || !$.taskInit.result) {
-        console.log('³õÊ¼»¯ÈÎÎñÒì³£, ÇëÉÔºóÔÙÊÔ');
+        console.log('åˆå§‹åŒ–ä»»åŠ¡å¼‚å¸¸, è¯·ç¨åå†è¯•');
         return
       }
       $.taskInfo = $.taskInit.result;
 
-      await petSport();//åŞÍä
-      await slaveHelp();//ÖúÁ¦ºÃÓÑ
-      await masterHelpInit();//»ñÈ¡ÖúÁ¦µÄĞÅÏ¢
-      await doTask();//×öÈÕ³£ÈÎÎñ
-      await feedPetsAgain();//ÔÙ´ÎÍ¶Ê³
-      await energyCollect();//ÊÕ¼¯ºÃ¸Ğ¶È
+      await petSport();//é›å¼¯
+      await slaveHelp();//åŠ©åŠ›å¥½å‹
+      await masterHelpInit();//è·å–åŠ©åŠ›çš„ä¿¡æ¯
+      await doTask();//åšæ—¥å¸¸ä»»åŠ¡
+      await feedPetsAgain();//å†æ¬¡æŠ•é£Ÿ
+      await energyCollect();//æ”¶é›†å¥½æ„Ÿåº¦
       await showMsg();
-      console.log('È«²¿ÈÎÎñÍê³É, Èç¹û°ïÖúµ½Äú¿ÉÒÔµãÏÂ?STAR¹ÄÀøÎÒÒ»ÏÂ, Ã÷Ìì¼û~');
+      console.log('å…¨éƒ¨ä»»åŠ¡å®Œæˆ, å¦‚æœå¸®åŠ©åˆ°æ‚¨å¯ä»¥ç‚¹ä¸‹ğŸŒŸSTARé¼“åŠ±æˆ‘ä¸€ä¸‹, æ˜å¤©è§~');
     } else if (initPetTownRes.code === '0'){
-      console.log(`³õÊ¼»¯ÃÈ³èÊ§°Ü:  ${initPetTownRes.message}`);
+      console.log(`åˆå§‹åŒ–èŒå® å¤±è´¥:  ${initPetTownRes.message}`);
     }
   } catch (e) {
     $.logErr(e)
   }
 }
-// ÊÕÈ¡ËùÓĞºÃ¸Ğ¶È
+// æ”¶å–æ‰€æœ‰å¥½æ„Ÿåº¦
 async function energyCollect() {
-  console.log('¿ªÊ¼ÊÕÈ¡ÈÎÎñ½±ÀøºÃ¸Ğ¶È');
+  console.log('å¼€å§‹æ”¶å–ä»»åŠ¡å¥–åŠ±å¥½æ„Ÿåº¦');
   let function_id = arguments.callee.name.toString();
   const response = await request(function_id);
-  // console.log(`ÊÕÈ¡ÈÎÎñ½±ÀøºÃ¸Ğ¶ÈÍê³É:${JSON.stringify(response)}`);
+  // console.log(`æ”¶å–ä»»åŠ¡å¥–åŠ±å¥½æ„Ÿåº¦å®Œæˆ:${JSON.stringify(response)}`);
   if (response.resultCode === '0') {
-    message += `¡¾µÚ${response.result.medalNum + 1}¿éÑ«ÕÂÍê³É½ø¶È¡¿${response.result.medalPercent}%£¬»¹ĞèÊÕ¼¯${response.result.needCollectEnergy}ºÃ¸Ğ\n`;
-    message += `¡¾ÒÑ»ñµÃÑ«ÕÂ¡¿${response.result.medalNum}¿é£¬»¹ĞèÊÕ¼¯${response.result.needCollectMedalNum}¿é¼´¿É¶Ò»»½±Æ·¡°${$.petInfo.goodsInfo.goodsName}¡±\n`;
+    message += `ã€ç¬¬${response.result.medalNum + 1}å—å‹‹ç« å®Œæˆè¿›åº¦ã€‘${response.result.medalPercent}%ï¼Œè¿˜éœ€æ”¶é›†${response.result.needCollectEnergy}å¥½æ„Ÿ\n`;
+    message += `ã€å·²è·å¾—å‹‹ç« ã€‘${response.result.medalNum}å—ï¼Œè¿˜éœ€æ”¶é›†${response.result.needCollectMedalNum}å—å³å¯å…‘æ¢å¥–å“â€œ${$.petInfo.goodsInfo.goodsName}â€\n`;
   }
 }
-//ÔÙ´ÎÍ¶Ê³
+//å†æ¬¡æŠ•é£Ÿ
 async function feedPetsAgain() {
-  const response = await request('initPetTown');//ÔÙ´Î³õÊ¼»¯ÃÈ³è
+  const response = await request('initPetTown');//å†æ¬¡åˆå§‹åŒ–èŒå® 
   if (response.code === '0' && response.resultCode === '0' && response.message === 'success') {
     $.petInfo = response.result;
-    let foodAmount = $.petInfo.foodAmount; //Ê£Óà¹·Á¸
+    let foodAmount = $.petInfo.foodAmount; //å‰©ä½™ç‹—ç²®
     if (foodAmount - 100 >= 10) {
       for (let i = 0; i < parseInt((foodAmount - 100) / 10); i++) {
         const feedPetRes = await request('feedPets');
-        console.log(`Í¶Ê³feedPetRes`);
+        console.log(`æŠ•é£ŸfeedPetRes`);
         if (feedPetRes.resultCode == 0 && feedPetRes.code == 0) {
-          console.log('Í¶Ê³³É¹¦')
+          console.log('æŠ•é£ŸæˆåŠŸ')
         }
       }
       const response2 = await request('initPetTown');
       $.petInfo = response2.result;
       subTitle = $.petInfo.goodsInfo.goodsName;
-      // message += `¡¾Óë°®³èÏàÊ¶¡¿${$.petInfo.meetDays}Ìì\n`;
-      // message += `¡¾Ê£Óà¹·Á¸¡¿${$.petInfo.foodAmount}g\n`;
+      // message += `ã€ä¸çˆ±å® ç›¸è¯†ã€‘${$.petInfo.meetDays}å¤©\n`;
+      // message += `ã€å‰©ä½™ç‹—ç²®ã€‘${$.petInfo.foodAmount}g\n`;
     } else {
-      console.log("Ä¿Ç°Ê£Óà¹·Á¸£º¡¾" + foodAmount + "¡¿g,²»ÔÙ¼ÌĞøÍ¶Ê³,±£Áô²¿·Ö¹·Á¸ÓÃÓÚÍê³ÉµÚ¶şÌìÈÎÎñ");
+      console.log("ç›®å‰å‰©ä½™ç‹—ç²®ï¼šã€" + foodAmount + "ã€‘g,ä¸å†ç»§ç»­æŠ•é£Ÿ,ä¿ç•™éƒ¨åˆ†ç‹—ç²®ç”¨äºå®Œæˆç¬¬äºŒå¤©ä»»åŠ¡");
       subTitle = $.petInfo.goodsInfo && $.petInfo.goodsInfo.goodsName;
-      // message += `¡¾Óë°®³èÏàÊ¶¡¿${$.petInfo.meetDays}Ìì\n`;
-      // message += `¡¾Ê£Óà¹·Á¸¡¿${$.petInfo.foodAmount}g\n`;
+      // message += `ã€ä¸çˆ±å® ç›¸è¯†ã€‘${$.petInfo.meetDays}å¤©\n`;
+      // message += `ã€å‰©ä½™ç‹—ç²®ã€‘${$.petInfo.foodAmount}g\n`;
     }
   } else {
-    console.log(`³õÊ¼»¯ÃÈ³èÊ§°Ü:  ${JSON.stringify($.petInfo)}`);
+    console.log(`åˆå§‹åŒ–èŒå® å¤±è´¥:  ${JSON.stringify($.petInfo)}`);
   }
 }
 
@@ -186,21 +186,21 @@ async function doTask() {
   const { signInit, threeMealInit, firstFeedInit, feedReachInit, inviteFriendsInit, browseShopsInit, taskList } = $.taskInfo;
   for (let item of taskList) {
     if ($.taskInfo[item].finished) {
-      console.log(`ÈÎÎñ ${item} ÒÑÍê³É`)
+      console.log(`ä»»åŠ¡ ${item} å·²å®Œæˆ`)
     }
   }
-  //Ã¿ÈÕÇ©µ½
+  //æ¯æ—¥ç­¾åˆ°
   if (signInit && !signInit.finished) {
     await signInitFun();
   }
-  // Ê×´ÎÎ¹Ê³
+  // é¦–æ¬¡å–‚é£Ÿ
   if (firstFeedInit && !firstFeedInit.finished) {
     await firstFeedInitFun();
   }
-  // Èı²Í
+  // ä¸‰é¤
   if (threeMealInit && !threeMealInit.finished) {
     if (threeMealInit.timeRange === -1) {
-      console.log(`Î´µ½Èı²ÍÊ±¼ä`);
+      console.log(`æœªåˆ°ä¸‰é¤æ—¶é—´`);
     } else {
       await threeMealInitFun();
     }
@@ -214,7 +214,7 @@ async function doTask() {
       browseSingleShopInitList.push(item);
     }
   });
-  // È¥¹ä¹äºÃ»õ»á³¡
+  // å»é€›é€›å¥½è´§ä¼šåœº
   for (let item of browseSingleShopInitList) {
     const browseSingleShopInitTask = $.taskInfo[item];
     if (browseSingleShopInitTask && !browseSingleShopInitTask.finished) {
@@ -224,206 +224,206 @@ async function doTask() {
   if (inviteFriendsInit && !inviteFriendsInit.finished) {
     await inviteFriendsInitFun();
   }
-  // Í¶Ê³10´Î
+  // æŠ•é£Ÿ10æ¬¡
   if (feedReachInit && !feedReachInit.finished) {
     await feedReachInitFun();
   }
 }
-// ºÃÓÑÖúÁ¦ĞÅÏ¢
+// å¥½å‹åŠ©åŠ›ä¿¡æ¯
 async function masterHelpInit() {
   let res = await request(arguments.callee.name.toString());
-  // console.log(`ÖúÁ¦ĞÅÏ¢: ${JSON.stringify(res)}`);
+  // console.log(`åŠ©åŠ›ä¿¡æ¯: ${JSON.stringify(res)}`);
   if (res.code === '0' && res.resultCode === '0') {
     if (res.result.masterHelpPeoples && res.result.masterHelpPeoples.length >= 5) {
       if(!res.result.addedBonusFlag) {
-        console.log("¿ªÊ¼ÁìÈ¡¶îÍâ½±Àø");
+        console.log("å¼€å§‹é¢†å–é¢å¤–å¥–åŠ±");
         let getHelpAddedBonusResult = await request('getHelpAddedBonus');
         if (getHelpAddedBonusResult.resultCode === '0') {
-          message += `¡¾¶îÍâ½±Àø${getHelpAddedBonusResult.result.reward}ÁìÈ¡¡¿${getHelpAddedBonusResult.message}\n`;
+          message += `ã€é¢å¤–å¥–åŠ±${getHelpAddedBonusResult.result.reward}é¢†å–ã€‘${getHelpAddedBonusResult.message}\n`;
         }
-        console.log(`ÁìÈ¡30g¶îÍâ½±Àø½á¹û£º¡¾${getHelpAddedBonusResult.message}¡¿`);
+        console.log(`é¢†å–30gé¢å¤–å¥–åŠ±ç»“æœï¼šã€${getHelpAddedBonusResult.message}ã€‘`);
       } else {
-        console.log("ÒÑ¾­ÁìÈ¡¹ı5ºÃÓÑÖúÁ¦¶îÍâ½±Àø");
-        message += `¡¾¶îÍâ½±Àø¡¿ÒÑÁìÈ¡\n`;
+        console.log("å·²ç»é¢†å–è¿‡5å¥½å‹åŠ©åŠ›é¢å¤–å¥–åŠ±");
+        message += `ã€é¢å¤–å¥–åŠ±ã€‘å·²é¢†å–\n`;
       }
     } else {
-      console.log("ÖúÁ¦ºÃÓÑÎ´´ïµ½5¸ö")
-      message += `¡¾¶îÍâ½±Àø¡¿ÁìÈ¡Ê§°Ü£¬Ô­Òò£º¸øÄúÖúÁ¦µÄÈËÎ´´ï5¸ö\n`;
+      console.log("åŠ©åŠ›å¥½å‹æœªè¾¾åˆ°5ä¸ª")
+      message += `ã€é¢å¤–å¥–åŠ±ã€‘é¢†å–å¤±è´¥ï¼ŒåŸå› ï¼šç»™æ‚¨åŠ©åŠ›çš„äººæœªè¾¾5ä¸ª\n`;
     }
     if (res.result.masterHelpPeoples && res.result.masterHelpPeoples.length > 0) {
-      console.log('°ïÄúÖúÁ¦µÄºÃÓÑµÄÃûµ¥¿ªÊ¼')
+      console.log('å¸®æ‚¨åŠ©åŠ›çš„å¥½å‹çš„åå•å¼€å§‹')
       let str = '';
       res.result.masterHelpPeoples.map((item, index) => {
         if (index === (res.result.masterHelpPeoples.length - 1)) {
-          str += item.nickName || "ÄäÃûÓÃ»§";
+          str += item.nickName || "åŒ¿åç”¨æˆ·";
         } else {
-          str += (item.nickName || "ÄäÃûÓÃ»§") + '£¬';
+          str += (item.nickName || "åŒ¿åç”¨æˆ·") + 'ï¼Œ';
         }
       })
-      message += `¡¾ÖúÁ¦ÄúµÄºÃÓÑ¡¿${str}\n`;
+      message += `ã€åŠ©åŠ›æ‚¨çš„å¥½å‹ã€‘${str}\n`;
     }
   }
 }
 /**
- * ÖúÁ¦ºÃÓÑ, ÔİÊ±Ö§³ÖÒ»¸öºÃÓÑ, ĞèÒªÄÃµ½shareCode
- * shareCodeÎªÄãÒªÖúÁ¦µÄºÃÓÑµÄ
- * ÔËĞĞ½Å±¾Ê±Äã×Ô¼ºµÄshareCode»áÔÚ¿ØÖÆÌ¨Êä³ö, ¿ÉÒÔ½«Æä·ÖÏí¸øËûÈË
+ * åŠ©åŠ›å¥½å‹, æš‚æ—¶æ”¯æŒä¸€ä¸ªå¥½å‹, éœ€è¦æ‹¿åˆ°shareCode
+ * shareCodeä¸ºä½ è¦åŠ©åŠ›çš„å¥½å‹çš„
+ * è¿è¡Œè„šæœ¬æ—¶ä½ è‡ªå·±çš„shareCodeä¼šåœ¨æ§åˆ¶å°è¾“å‡º, å¯ä»¥å°†å…¶åˆ†äº«ç»™ä»–äºº
  */
 async function slaveHelp() {
-  //$.log(`\nÒò1.6ÈÕºÃÓÑÖúÁ¦¹¦ÄÜÏÂÏß¡£¹ÊÔİÊ±ÆÁ±Î\n`)
+  //$.log(`\nå› 1.6æ—¥å¥½å‹åŠ©åŠ›åŠŸèƒ½ä¸‹çº¿ã€‚æ•…æš‚æ—¶å±è”½\n`)
   //return
   let helpPeoples = '';
   for (let code of newShareCodes) {
-    console.log(`¿ªÊ¼ÖúÁ¦¾©¶«ÕËºÅ${$.index} - ${$.nickName}µÄºÃÓÑ: ${code}`);
+    console.log(`å¼€å§‹åŠ©åŠ›äº¬ä¸œè´¦å·${$.index} - ${$.nickName}çš„å¥½å‹: ${code}`);
     if (!code) continue;
     let response = await request(arguments.callee.name.toString(), {'shareCode': code});
     if (response.code === '0' && response.resultCode === '0') {
       if (response.result.helpStatus === 0) {
-        console.log('ÒÑ¸øºÃÓÑ: ¡¾' + response.result.masterNickName + '¡¿ÖúÁ¦³É¹¦');
-        helpPeoples += response.result.masterNickName + '£¬';
+        console.log('å·²ç»™å¥½å‹: ã€' + response.result.masterNickName + 'ã€‘åŠ©åŠ›æˆåŠŸ');
+        helpPeoples += response.result.masterNickName + 'ï¼Œ';
       } else if (response.result.helpStatus === 1) {
-        // Äú½ñÈÕÒÑÎŞÖúÁ¦»ú»á
-        console.log(`ÖúÁ¦ºÃÓÑ${response.result.masterNickName}Ê§°Ü£¬Äú½ñÈÕÒÑÎŞÖúÁ¦»ú»á`);
+        // æ‚¨ä»Šæ—¥å·²æ— åŠ©åŠ›æœºä¼š
+        console.log(`åŠ©åŠ›å¥½å‹${response.result.masterNickName}å¤±è´¥ï¼Œæ‚¨ä»Šæ—¥å·²æ— åŠ©åŠ›æœºä¼š`);
         break;
       } else if (response.result.helpStatus === 2) {
-        //¸ÃºÃÓÑÒÑÂú5ÈËÖúÁ¦£¬ÎŞĞèÄúÔÙ´ÎÖúÁ¦
-        console.log(`¸ÃºÃÓÑ${response.result.masterNickName}ÒÑÂú5ÈËÖúÁ¦£¬ÎŞĞèÄúÔÙ´ÎÖúÁ¦`);
+        //è¯¥å¥½å‹å·²æ»¡5äººåŠ©åŠ›ï¼Œæ— éœ€æ‚¨å†æ¬¡åŠ©åŠ›
+        console.log(`è¯¥å¥½å‹${response.result.masterNickName}å·²æ»¡5äººåŠ©åŠ›ï¼Œæ— éœ€æ‚¨å†æ¬¡åŠ©åŠ›`);
       } else {
-        console.log(`ÖúÁ¦ÆäËûÇé¿ö£º${JSON.stringify(response)}`);
+        console.log(`åŠ©åŠ›å…¶ä»–æƒ…å†µï¼š${JSON.stringify(response)}`);
       }
     } else {
-      console.log(`ÖúÁ¦ºÃÓÑ½á¹û: ${response.message}`);
+      console.log(`åŠ©åŠ›å¥½å‹ç»“æœ: ${response.message}`);
     }
   }
   if (helpPeoples && helpPeoples.length > 0) {
-    message += `¡¾ÄúÖúÁ¦µÄºÃÓÑ¡¿${helpPeoples.substr(0, helpPeoples.length - 1)}\n`;
+    message += `ã€æ‚¨åŠ©åŠ›çš„å¥½å‹ã€‘${helpPeoples.substr(0, helpPeoples.length - 1)}\n`;
   }
 }
-// åŞ¹·, Ã¿Ìì´ÎÊıÉÏÏŞ10´Î, Ëæ»ú¸ø¹·Á¸, Ã¿´ÎåŞ¹·½áÊøĞèµ÷ÓÃgetSportRewardÁìÈ¡½±Àø, ²ÅÄÜ½øĞĞÏÂÒ»´ÎåŞ¹·
+// é›ç‹—, æ¯å¤©æ¬¡æ•°ä¸Šé™10æ¬¡, éšæœºç»™ç‹—ç²®, æ¯æ¬¡é›ç‹—ç»“æŸéœ€è°ƒç”¨getSportRewardé¢†å–å¥–åŠ±, æ‰èƒ½è¿›è¡Œä¸‹ä¸€æ¬¡é›ç‹—
 async function petSport() {
-  console.log('¿ªÊ¼åŞÍä');
+  console.log('å¼€å§‹é›å¼¯');
   let times = 1
   const code = 0
   let resultCode = 0
   do {
     let response = await request(arguments.callee.name.toString())
-    console.log(`µÚ${times}´ÎåŞ¹·Íê³É: ${JSON.stringify(response)}`);
+    console.log(`ç¬¬${times}æ¬¡é›ç‹—å®Œæˆ: ${JSON.stringify(response)}`);
     resultCode = response.resultCode;
     if (resultCode == 0) {
       let sportRevardResult = await request('getSportReward');
-      console.log(`ÁìÈ¡åŞ¹·½±ÀøÍê³É: ${JSON.stringify(sportRevardResult)}`);
+      console.log(`é¢†å–é›ç‹—å¥–åŠ±å®Œæˆ: ${JSON.stringify(sportRevardResult)}`);
     }
     times++;
   } while (resultCode == 0 && code == 0)
   if (times > 1) {
-    // message += '¡¾Ê®´ÎåŞ¹·¡¿ÒÑÍê³É\n';
+    // message += 'ã€åæ¬¡é›ç‹—ã€‘å·²å®Œæˆ\n';
   }
 }
-// ³õÊ¼»¯ÈÎÎñ, ¿É²éÑ¯ÈÎÎñÍê³ÉÇé¿ö
+// åˆå§‹åŒ–ä»»åŠ¡, å¯æŸ¥è¯¢ä»»åŠ¡å®Œæˆæƒ…å†µ
 async function taskInit() {
-  console.log('¿ªÊ¼ÈÎÎñ³õÊ¼»¯');
+  console.log('å¼€å§‹ä»»åŠ¡åˆå§‹åŒ–');
   $.taskInit = await request(arguments.callee.name.toString(), {"version":1});
 }
-// Ã¿ÈÕÇ©µ½, Ã¿ÌìÒ»´Î
+// æ¯æ—¥ç­¾åˆ°, æ¯å¤©ä¸€æ¬¡
 async function signInitFun() {
-  console.log('×¼±¸Ã¿ÈÕÇ©µ½');
+  console.log('å‡†å¤‡æ¯æ—¥ç­¾åˆ°');
   const response = await request("getSignReward");
-  console.log(`Ã¿ÈÕÇ©µ½½á¹û: ${JSON.stringify(response)}`);
+  console.log(`æ¯æ—¥ç­¾åˆ°ç»“æœ: ${JSON.stringify(response)}`);
   if (response.code === '0' && response.resultCode === '0') {
-    console.log(`¡¾Ã¿ÈÕÇ©µ½³É¹¦¡¿½±Àø${response.result.signReward}g¹·Á¸\n`);
-    // message += `¡¾Ã¿ÈÕÇ©µ½³É¹¦¡¿½±Àø${response.result.signReward}g¹·Á¸\n`;
+    console.log(`ã€æ¯æ—¥ç­¾åˆ°æˆåŠŸã€‘å¥–åŠ±${response.result.signReward}gç‹—ç²®\n`);
+    // message += `ã€æ¯æ—¥ç­¾åˆ°æˆåŠŸã€‘å¥–åŠ±${response.result.signReward}gç‹—ç²®\n`;
   } else {
-    console.log(`¡¾Ã¿ÈÕÇ©µ½¡¿${response.message}\n`);
-    // message += `¡¾Ã¿ÈÕÇ©µ½¡¿${response.message}\n`;
+    console.log(`ã€æ¯æ—¥ç­¾åˆ°ã€‘${response.message}\n`);
+    // message += `ã€æ¯æ—¥ç­¾åˆ°ã€‘${response.message}\n`;
   }
 }
 
-// Èı²ÍÇ©µ½, Ã¿ÌìÈı¶ÎÇ©µ½Ê±¼ä
+// ä¸‰é¤ç­¾åˆ°, æ¯å¤©ä¸‰æ®µç­¾åˆ°æ—¶é—´
 async function threeMealInitFun() {
-  console.log('×¼±¸Èı²ÍÇ©µ½');
+  console.log('å‡†å¤‡ä¸‰é¤ç­¾åˆ°');
   const response = await request("getThreeMealReward");
-  console.log(`Èı²ÍÇ©µ½½á¹û: ${JSON.stringify(response)}`);
+  console.log(`ä¸‰é¤ç­¾åˆ°ç»“æœ: ${JSON.stringify(response)}`);
   if (response.code === '0' && response.resultCode === '0') {
-    console.log(`¡¾¶¨Ê±Áì¹·Á¸¡¿»ñµÃ${response.result.threeMealReward}g\n`);
-    // message += `¡¾¶¨Ê±Áì¹·Á¸¡¿»ñµÃ${response.result.threeMealReward}g\n`;
+    console.log(`ã€å®šæ—¶é¢†ç‹—ç²®ã€‘è·å¾—${response.result.threeMealReward}g\n`);
+    // message += `ã€å®šæ—¶é¢†ç‹—ç²®ã€‘è·å¾—${response.result.threeMealReward}g\n`;
   } else {
-    console.log(`¡¾¶¨Ê±Áì¹·Á¸¡¿${response.message}\n`);
-    // message += `¡¾¶¨Ê±Áì¹·Á¸¡¿${response.message}\n`;
+    console.log(`ã€å®šæ—¶é¢†ç‹—ç²®ã€‘${response.message}\n`);
+    // message += `ã€å®šæ—¶é¢†ç‹—ç²®ã€‘${response.message}\n`;
   }
 }
 
-// ä¯ÀÀÖ¸¶¨µêÆÌ ÈÎÎñ
+// æµè§ˆæŒ‡å®šåº—é“º ä»»åŠ¡
 async function browseSingleShopInit(item) {
-  console.log(`¿ªÊ¼×ö ${item.title} ÈÎÎñ£¬ ${item.desc}`);
+  console.log(`å¼€å§‹åš ${item.title} ä»»åŠ¡ï¼Œ ${item.desc}`);
   const body = {"index": item['index'], "version":1, "type":1};
   const body2 = {"index": item['index'], "version":1, "type":2};
   const response = await request("getSingleShopReward", body);
-  // console.log(`µã»÷½øÈ¥response::${JSON.stringify(response)}`);
+  // console.log(`ç‚¹å‡»è¿›å»response::${JSON.stringify(response)}`);
   if (response.code === '0' && response.resultCode === '0') {
     const response2 = await request("getSingleShopReward", body2);
-    // console.log(`ä¯ÀÀÍê±ÏÁìÈ¡½±Àø:response2::${JSON.stringify(response2)}`);
+    // console.log(`æµè§ˆå®Œæ¯•é¢†å–å¥–åŠ±:response2::${JSON.stringify(response2)}`);
     if (response2.code === '0' && response2.resultCode === '0') {
-      console.log(`¡¾ä¯ÀÀÖ¸¶¨µêÆÌ¡¿»ñÈ¡${response2.result.reward}g\n`);
-      // message += `¡¾ä¯ÀÀÖ¸¶¨µêÆÌ¡¿»ñÈ¡${response2.result.reward}g\n`;
+      console.log(`ã€æµè§ˆæŒ‡å®šåº—é“ºã€‘è·å–${response2.result.reward}g\n`);
+      // message += `ã€æµè§ˆæŒ‡å®šåº—é“ºã€‘è·å–${response2.result.reward}g\n`;
     }
   }
 }
 
-// ä¯ÀÀµêÆÌÈÎÎñ, ÈÎÎñ¿ÉÄÜÎª¶à¸ö? Ä¿Ç°Ö»ÓĞÒ»¸ö
+// æµè§ˆåº—é“ºä»»åŠ¡, ä»»åŠ¡å¯èƒ½ä¸ºå¤šä¸ª? ç›®å‰åªæœ‰ä¸€ä¸ª
 async function browseShopsInitFun() {
-  console.log('¿ªÊ¼ä¯ÀÀµêÆÌÈÎÎñ');
+  console.log('å¼€å§‹æµè§ˆåº—é“ºä»»åŠ¡');
   let times = 0;
   let resultCode = 0;
   let code = 0;
   do {
     let response = await request("getBrowseShopsReward");
-    console.log(`µÚ${times}´Îä¯ÀÀµêÆÌ½á¹û: ${JSON.stringify(response)}`);
+    console.log(`ç¬¬${times}æ¬¡æµè§ˆåº—é“ºç»“æœ: ${JSON.stringify(response)}`);
     code = response.code;
     resultCode = response.resultCode;
     times++;
   } while (resultCode == 0 && code == 0 && times < 5)
-  console.log('ä¯ÀÀµêÆÌÈÎÎñ½áÊø');
+  console.log('æµè§ˆåº—é“ºä»»åŠ¡ç»“æŸ');
 }
-// Ê×´ÎÍ¶Ê³ ÈÎÎñ
+// é¦–æ¬¡æŠ•é£Ÿ ä»»åŠ¡
 function firstFeedInitFun() {
-  console.log('Ê×´ÎÍ¶Ê³ÈÎÎñºÏ²¢µ½10´ÎÎ¹Ê³ÈÎÎñÖĞ\n');
+  console.log('é¦–æ¬¡æŠ•é£Ÿä»»åŠ¡åˆå¹¶åˆ°10æ¬¡å–‚é£Ÿä»»åŠ¡ä¸­\n');
 }
 
-// ÑûÇëĞÂÓÃ»§
+// é‚€è¯·æ–°ç”¨æˆ·
 async function inviteFriendsInitFun() {
-  console.log('ÑûÇëĞÂÓÃ»§¹¦ÄÜÎ´ÊµÏÖ');
+  console.log('é‚€è¯·æ–°ç”¨æˆ·åŠŸèƒ½æœªå®ç°');
   if ($.taskInfo.inviteFriendsInit.status == 1 && $.taskInfo.inviteFriendsInit.inviteFriendsNum > 0) {
-    // Èç¹ûÓĞÑûÇë¹ıĞÂÓÃ»§,×Ô¶¯ÁìÈ¡60gg½±Àø
+    // å¦‚æœæœ‰é‚€è¯·è¿‡æ–°ç”¨æˆ·,è‡ªåŠ¨é¢†å–60ggå¥–åŠ±
     const res = await request('getInviteFriendsReward');
     if (res.code == 0 && res.resultCode == 0) {
-      console.log(`ÁìÈ¡ÑûÇëĞÂÓÃ»§½±Àø³É¹¦,»ñµÃ¹·Á¸ÏÖÓĞ¹·Á¸${$.taskInfo.inviteFriendsInit.reward}g£¬${res.result.foodAmount}g`);
-      message += `¡¾ÑûÇëĞÂÓÃ»§¡¿»ñÈ¡¹·Á¸${$.taskInfo.inviteFriendsInit.reward}g\n`;
+      console.log(`é¢†å–é‚€è¯·æ–°ç”¨æˆ·å¥–åŠ±æˆåŠŸ,è·å¾—ç‹—ç²®ç°æœ‰ç‹—ç²®${$.taskInfo.inviteFriendsInit.reward}gï¼Œ${res.result.foodAmount}g`);
+      message += `ã€é‚€è¯·æ–°ç”¨æˆ·ã€‘è·å–ç‹—ç²®${$.taskInfo.inviteFriendsInit.reward}g\n`;
     }
   }
 }
 
 /**
- * Í¶Ê³10´Î ÈÎÎñ
+ * æŠ•é£Ÿ10æ¬¡ ä»»åŠ¡
  */
 async function feedReachInitFun() {
-  console.log('Í¶Ê³ÈÎÎñ¿ªÊ¼...');
-  let finishedTimes = $.taskInfo.feedReachInit.hadFeedAmount / 10; //ÒÑ¾­Î¹ÑøÁË¼¸´Î
-  let needFeedTimes = 10 - finishedTimes; //»¹ĞèÒª¼¸´Î
-  let tryTimes = 20; //³¢ÊÔ´ÎÊı
+  console.log('æŠ•é£Ÿä»»åŠ¡å¼€å§‹...');
+  let finishedTimes = $.taskInfo.feedReachInit.hadFeedAmount / 10; //å·²ç»å–‚å…»äº†å‡ æ¬¡
+  let needFeedTimes = 10 - finishedTimes; //è¿˜éœ€è¦å‡ æ¬¡
+  let tryTimes = 20; //å°è¯•æ¬¡æ•°
   do {
-    console.log(`»¹ĞèÒªÍ¶Ê³${needFeedTimes}´Î`);
+    console.log(`è¿˜éœ€è¦æŠ•é£Ÿ${needFeedTimes}æ¬¡`);
     const response = await request('feedPets');
-    console.log(`±¾´ÎÍ¶Ê³½á¹û: ${JSON.stringify(response)}`);
+    console.log(`æœ¬æ¬¡æŠ•é£Ÿç»“æœ: ${JSON.stringify(response)}`);
     if (response.resultCode == 0 && response.code == 0) {
       needFeedTimes--;
     }
     if (response.resultCode == 3003 && response.code == 0) {
-      console.log('Ê£Óà¹·Á¸²»×ã, Í¶Ê³½áÊø');
+      console.log('å‰©ä½™ç‹—ç²®ä¸è¶³, æŠ•é£Ÿç»“æŸ');
       needFeedTimes = 0;
     }
     tryTimes--;
   } while (needFeedTimes > 0 && tryTimes > 0)
-  console.log('Í¶Ê³ÈÎÎñ½áÊø...\n');
+  console.log('æŠ•é£Ÿä»»åŠ¡ç»“æŸ...\n');
 }
 async function showMsg() {
   let ctrTemp;
@@ -438,7 +438,7 @@ async function showMsg() {
   if (ctrTemp) {
     $.msg($.name, subTitle, message, option);
     if ($.isNode()) {
-      await notify.sendNotify(`${$.name} - ÕËºÅ${$.index} - ${$.nickName}`, `${subTitle}\n${message}`);
+      await notify.sendNotify(`${$.name} - è´¦å·${$.index} - ${$.nickName}`, `${subTitle}\n${message}`);
     }
   } else {
     $.log(`\n${message}\n`);
@@ -450,10 +450,10 @@ function readShareCode() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (data) {
-            console.log(`Ëæ»úÈ¡¸ö${randomCount}Âë·Åµ½Äú¹Ì¶¨µÄ»¥ÖúÂëºóÃæ(²»Ó°ÏìÒÑÓĞ¹Ì¶¨»¥Öú)`)
+            console.log(`éšæœºå–ä¸ª${randomCount}ç æ”¾åˆ°æ‚¨å›ºå®šçš„äº’åŠ©ç åé¢(ä¸å½±å“å·²æœ‰å›ºå®šäº’åŠ©)`)
             data = JSON.parse(data);
           }
         }
@@ -469,33 +469,33 @@ function readShareCode() {
 }
 function shareCodesFormat() {
   return new Promise(async resolve => {
-    // console.log(`µÚ${$.index}¸ö¾©¶«ÕËºÅµÄÖúÁ¦Âë:::${jdPetShareArr[$.index - 1]}`)
+    // console.log(`ç¬¬${$.index}ä¸ªäº¬ä¸œè´¦å·çš„åŠ©åŠ›ç :::${jdPetShareArr[$.index - 1]}`)
     newShareCodes = [];
     if (jdPetShareArr[$.index - 1]) {
       newShareCodes = jdPetShareArr[$.index - 1].split('@');
     } else {
-      console.log(`ÓÉÓÚÄúµÚ${$.index}¸ö¾©¶«ÕËºÅÎ´Ìá¹©shareCode,½«²ÉÄÉ±¾½Å±¾×Ô´øµÄÖúÁ¦Âë\n`)
+      console.log(`ç”±äºæ‚¨ç¬¬${$.index}ä¸ªäº¬ä¸œè´¦å·æœªæä¾›shareCode,å°†é‡‡çº³æœ¬è„šæœ¬è‡ªå¸¦çš„åŠ©åŠ›ç \n`)
       const tempIndex = $.index > shareCodes.length ? (shareCodes.length - 1) : ($.index - 1);
       newShareCodes = shareCodes[tempIndex].split('@');
     }
-    //ÒòºÃÓÑÖúÁ¦¹¦ÄÜÏÂÏß¡£¹ÊÔİÊ±ÆÁ±Î
+    //å› å¥½å‹åŠ©åŠ›åŠŸèƒ½ä¸‹çº¿ã€‚æ•…æš‚æ—¶å±è”½
     const readShareCodeRes = await readShareCode();
     //const readShareCodeRes = null;
     if (readShareCodeRes && readShareCodeRes.code === 200) {
       newShareCodes = [...new Set([...newShareCodes, ...(readShareCodeRes.data || [])])];
     }
-    console.log(`µÚ${$.index}¸ö¾©¶«ÕËºÅ½«ÒªÖúÁ¦µÄºÃÓÑ${JSON.stringify(newShareCodes)}`)
+    console.log(`ç¬¬${$.index}ä¸ªäº¬ä¸œè´¦å·å°†è¦åŠ©åŠ›çš„å¥½å‹${JSON.stringify(newShareCodes)}`)
     resolve();
   })
 }
 function requireConfig() {
   return new Promise(resolve => {
-    console.log('¿ªÊ¼»ñÈ¡¶«¶«ÃÈ³èÅäÖÃÎÄ¼ş\n')
+    console.log('å¼€å§‹è·å–ä¸œä¸œèŒå® é…ç½®æ–‡ä»¶\n')
     notify = $.isNode() ? require('./sendNotify') : '';
-    //Node.jsÓÃ»§ÇëÔÚjdCookie.js´¦ÌîĞ´¾©¶«ck;
+    //Node.jsç”¨æˆ·è¯·åœ¨jdCookie.jså¤„å¡«å†™äº¬ä¸œck;
     const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
     const jdPetShareCodes = $.isNode() ? require('./jdPetShareCodes.js') : '';
-    //IOSµÈÓÃ»§Ö±½ÓÓÃNobyDaµÄjd cookie
+    //IOSç­‰ç”¨æˆ·ç›´æ¥ç”¨NobyDaçš„jd cookie
     if ($.isNode()) {
       Object.keys(jdCookieNode).forEach((item) => {
         if (jdCookieNode[item]) {
@@ -506,7 +506,7 @@ function requireConfig() {
     } else {
       cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
     }
-    console.log(`¹²${cookiesArr.length}¸ö¾©¶«ÕËºÅ\n`)
+    console.log(`å…±${cookiesArr.length}ä¸ªäº¬ä¸œè´¦å·\n`)
     if ($.isNode()) {
       Object.keys(jdPetShareCodes).forEach((item) => {
         if (jdPetShareCodes[item]) {
@@ -545,8 +545,8 @@ function requireConfig() {
       }
     }
     // console.log(`jdPetShareArr::${JSON.stringify(jdPetShareArr)}`)
-    // console.log(`jdPetShareArrÕËºÅ³¤¶È::${jdPetShareArr.length}`)
-    console.log(`ÄúÌá¹©ÁË${jdPetShareArr.length}¸öÕËºÅµÄ¶«¶«ÃÈ³èÖúÁ¦Âë\n`);
+    // console.log(`jdPetShareArrè´¦å·é•¿åº¦::${jdPetShareArr.length}`)
+    console.log(`æ‚¨æä¾›äº†${jdPetShareArr.length}ä¸ªè´¦å·çš„ä¸œä¸œèŒå® åŠ©åŠ›ç \n`);
     resolve()
   })
 }
@@ -569,17 +569,17 @@ function TotalBean() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`)
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`)
         } else {
           if (data) {
             data = JSON.parse(data);
             if (data['retcode'] === 13) {
-              $.isLogin = false; //cookie¹ıÆÚ
+              $.isLogin = false; //cookieè¿‡æœŸ
               return
             }
             $.nickName = data['base'].nickname;
           } else {
-            console.log(`¾©¶«·şÎñÆ÷·µ»Ø¿ÕÊı¾İ`)
+            console.log(`äº¬ä¸œæœåŠ¡å™¨è¿”å›ç©ºæ•°æ®`)
           }
         }
       } catch (e) {
@@ -590,14 +590,14 @@ function TotalBean() {
     })
   })
 }
-// ÇëÇó
+// è¯·æ±‚
 async function request(function_id, body = {}) {
-  await $.wait(3000); //Ğª¿ÚÆø¶ù, ²»È»»á±¨²Ù×÷Æµ·±
+  await $.wait(3000); //æ­‡å£æ°”å„¿, ä¸ç„¶ä¼šæŠ¥æ“ä½œé¢‘ç¹
   return new Promise((resolve, reject) => {
     $.post(taskUrl(function_id, body), (err, resp, data) => {
       try {
         if (err) {
-          console.log('\n¶«¶«ÃÈ³è: API²éÑ¯ÇëÇóÊ§°Ü ????');
+          console.log('\nä¸œä¸œèŒå® : APIæŸ¥è¯¢è¯·æ±‚å¤±è´¥ â€¼ï¸â€¼ï¸');
           console.log(JSON.stringify(err));
           $.logErr(err);
         } else {
@@ -640,10 +640,10 @@ function jsonParse(str) {
       return JSON.parse(str);
     } catch (e) {
       console.log(e);
-      $.msg($.name, '', 'ÇëÎğËæÒâÔÚBoxJsÊäÈë¿òĞŞ¸ÄÄÚÈİ\n½¨ÒéÍ¨¹ı½Å±¾È¥»ñÈ¡cookie')
+      $.msg($.name, '', 'è¯·å‹¿éšæ„åœ¨BoxJsè¾“å…¥æ¡†ä¿®æ”¹å†…å®¹\nå»ºè®®é€šè¿‡è„šæœ¬å»è·å–cookie')
       return [];
     }
   }
 }
 // prettier-ignore
-function Env(t,e){"undefined"!=typeof process&&JSON.stringify(process.env).indexOf("GIT_HUB")>-1&&process.exit(0);class s{constructor(t){this.env=t}send(t,e="GET"){t="string"==typeof t?{url:t}:t;let s=this.get;return"POST"===e&&(s=this.post),new Promise((e,i)=>{s.call(this,t,(t,s,r)=>{t?i(t):e(s)})})}get(t){return this.send.call(this.env,t)}post(t){return this.send.call(this.env,t,"POST")}}return new class{constructor(t,e){this.name=t,this.http=new s(this),this.data=null,this.dataFile="box.dat",this.logs=[],this.isMute=!1,this.isNeedRewrite=!1,this.logSeparator="\n",this.startTime=(new Date).getTime(),Object.assign(this,e),this.log("",`?${this.name}, ¿ªÊ¼!`)}isNode(){return"undefined"!=typeof module&&!!module.exports}isQuanX(){return"undefined"!=typeof $task}isSurge(){return"undefined"!=typeof $httpClient&&"undefined"==typeof $loon}isLoon(){return"undefined"!=typeof $loon}toObj(t,e=null){try{return JSON.parse(t)}catch{return e}}toStr(t,e=null){try{return JSON.stringify(t)}catch{return e}}getjson(t,e){let s=e;const i=this.getdata(t);if(i)try{s=JSON.parse(this.getdata(t))}catch{}return s}setjson(t,e){try{return this.setdata(JSON.stringify(t),e)}catch{return!1}}getScript(t){return new Promise(e=>{this.get({url:t},(t,s,i)=>e(i))})}runScript(t,e){return new Promise(s=>{let i=this.getdata("@chavy_boxjs_userCfgs.httpapi");i=i?i.replace(/\n/g,"").trim():i;let r=this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");r=r?1*r:20,r=e&&e.timeout?e.timeout:r;const[o,h]=i.split("@"),n={url:`http://${h}/v1/scripting/evaluate`,body:{script_text:t,mock_type:"cron",timeout:r},headers:{"X-Key":o,Accept:"*/*"}};this.post(n,(t,e,i)=>s(i))}).catch(t=>this.logErr(t))}loaddata(){if(!this.isNode())return{};{this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e);if(!s&&!i)return{};{const i=s?t:e;try{return JSON.parse(this.fs.readFileSync(i))}catch(t){return{}}}}}writedata(){if(this.isNode()){this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e),r=JSON.stringify(this.data);s?this.fs.writeFileSync(t,r):i?this.fs.writeFileSync(e,r):this.fs.writeFileSync(t,r)}}lodash_get(t,e,s){const i=e.replace(/\[(\d+)\]/g,".$1").split(".");let r=t;for(const t of i)if(r=Object(r)[t],void 0===r)return s;return r}lodash_set(t,e,s){return Object(t)!==t?t:(Array.isArray(e)||(e=e.toString().match(/[^.[\]]+/g)||[]),e.slice(0,-1).reduce((t,s,i)=>Object(t[s])===t[s]?t[s]:t[s]=Math.abs(e[i+1])>>0==+e[i+1]?[]:{},t)[e[e.length-1]]=s,t)}getdata(t){let e=this.getval(t);if(/^@/.test(t)){const[,s,i]=/^@(.*?)\.(.*?)$/.exec(t),r=s?this.getval(s):"";if(r)try{const t=JSON.parse(r);e=t?this.lodash_get(t,i,""):e}catch(t){e=""}}return e}setdata(t,e){let s=!1;if(/^@/.test(e)){const[,i,r]=/^@(.*?)\.(.*?)$/.exec(e),o=this.getval(i),h=i?"null"===o?null:o||"{}":"{}";try{const e=JSON.parse(h);this.lodash_set(e,r,t),s=this.setval(JSON.stringify(e),i)}catch(e){const o={};this.lodash_set(o,r,t),s=this.setval(JSON.stringify(o),i)}}else s=this.setval(t,e);return s}getval(t){return this.isSurge()||this.isLoon()?$persistentStore.read(t):this.isQuanX()?$prefs.valueForKey(t):this.isNode()?(this.data=this.loaddata(),this.data[t]):this.data&&this.data[t]||null}setval(t,e){return this.isSurge()||this.isLoon()?$persistentStore.write(t,e):this.isQuanX()?$prefs.setValueForKey(t,e):this.isNode()?(this.data=this.loaddata(),this.data[e]=t,this.writedata(),!0):this.data&&this.data[e]||null}initGotEnv(t){this.got=this.got?this.got:require("got"),this.cktough=this.cktough?this.cktough:require("tough-cookie"),this.ckjar=this.ckjar?this.ckjar:new this.cktough.CookieJar,t&&(t.headers=t.headers?t.headers:{},void 0===t.headers.Cookie&&void 0===t.cookieJar&&(t.cookieJar=this.ckjar))}get(t,e=(()=>{})){t.headers&&(delete t.headers["Content-Type"],delete t.headers["Content-Length"]),this.isSurge()||this.isLoon()?(this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.get(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)})):this.isQuanX()?(this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t))):this.isNode()&&(this.initGotEnv(t),this.got(t).on("redirect",(t,e)=>{try{if(t.headers["set-cookie"]){const s=t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();s&&this.ckjar.setCookieSync(s,null),e.cookieJar=this.ckjar}}catch(t){this.logErr(t)}}).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)}))}post(t,e=(()=>{})){if(t.body&&t.headers&&!t.headers["Content-Type"]&&(t.headers["Content-Type"]="application/x-www-form-urlencoded"),t.headers&&delete t.headers["Content-Length"],this.isSurge()||this.isLoon())this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.post(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)});else if(this.isQuanX())t.method="POST",this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t));else if(this.isNode()){this.initGotEnv(t);const{url:s,...i}=t;this.got.post(s,i).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)})}}time(t,e=null){const s=e?new Date(e):new Date;let i={"M+":s.getMonth()+1,"d+":s.getDate(),"H+":s.getHours(),"m+":s.getMinutes(),"s+":s.getSeconds(),"q+":Math.floor((s.getMonth()+3)/3),S:s.getMilliseconds()};/(y+)/.test(t)&&(t=t.replace(RegExp.$1,(s.getFullYear()+"").substr(4-RegExp.$1.length)));for(let e in i)new RegExp("("+e+")").test(t)&&(t=t.replace(RegExp.$1,1==RegExp.$1.length?i[e]:("00"+i[e]).substr((""+i[e]).length)));return t}msg(e=t,s="",i="",r){const o=t=>{if(!t)return t;if("string"==typeof t)return this.isLoon()?t:this.isQuanX()?{"open-url":t}:this.isSurge()?{url:t}:void 0;if("object"==typeof t){if(this.isLoon()){let e=t.openUrl||t.url||t["open-url"],s=t.mediaUrl||t["media-url"];return{openUrl:e,mediaUrl:s}}if(this.isQuanX()){let e=t["open-url"]||t.url||t.openUrl,s=t["media-url"]||t.mediaUrl;return{"open-url":e,"media-url":s}}if(this.isSurge()){let e=t.url||t.openUrl||t["open-url"];return{url:e}}}};if(this.isMute||(this.isSurge()||this.isLoon()?$notification.post(e,s,i,o(r)):this.isQuanX()&&$notify(e,s,i,o(r))),!this.isMuteLog){let t=["","==============?ÏµÍ³Í¨Öª?=============="];t.push(e),s&&t.push(s),i&&t.push(i),console.log(t.join("\n")),this.logs=this.logs.concat(t)}}log(...t){t.length>0&&(this.logs=[...this.logs,...t]),console.log(t.join(this.logSeparator))}logErr(t,e){const s=!this.isSurge()&&!this.isQuanX()&&!this.isLoon();s?this.log("",`??${this.name}, ´íÎó!`,t.stack):this.log("",`??${this.name}, ´íÎó!`,t)}wait(t){return new Promise(e=>setTimeout(e,t))}done(t={}){const e=(new Date).getTime(),s=(e-this.startTime)/1e3;this.log("",`?${this.name}, ½áÊø! ? ${s} Ãë`),this.log(),(this.isSurge()||this.isQuanX()||this.isLoon())&&$done(t)}}(t,e)}
+function Env(t,e){"undefined"!=typeof process&&JSON.stringify(process.env).indexOf("GIT_HUB")>-1&&process.exit(0);class s{constructor(t){this.env=t}send(t,e="GET"){t="string"==typeof t?{url:t}:t;let s=this.get;return"POST"===e&&(s=this.post),new Promise((e,i)=>{s.call(this,t,(t,s,r)=>{t?i(t):e(s)})})}get(t){return this.send.call(this.env,t)}post(t){return this.send.call(this.env,t,"POST")}}return new class{constructor(t,e){this.name=t,this.http=new s(this),this.data=null,this.dataFile="box.dat",this.logs=[],this.isMute=!1,this.isNeedRewrite=!1,this.logSeparator="\n",this.startTime=(new Date).getTime(),Object.assign(this,e),this.log("",`ğŸ””${this.name}, å¼€å§‹!`)}isNode(){return"undefined"!=typeof module&&!!module.exports}isQuanX(){return"undefined"!=typeof $task}isSurge(){return"undefined"!=typeof $httpClient&&"undefined"==typeof $loon}isLoon(){return"undefined"!=typeof $loon}toObj(t,e=null){try{return JSON.parse(t)}catch{return e}}toStr(t,e=null){try{return JSON.stringify(t)}catch{return e}}getjson(t,e){let s=e;const i=this.getdata(t);if(i)try{s=JSON.parse(this.getdata(t))}catch{}return s}setjson(t,e){try{return this.setdata(JSON.stringify(t),e)}catch{return!1}}getScript(t){return new Promise(e=>{this.get({url:t},(t,s,i)=>e(i))})}runScript(t,e){return new Promise(s=>{let i=this.getdata("@chavy_boxjs_userCfgs.httpapi");i=i?i.replace(/\n/g,"").trim():i;let r=this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");r=r?1*r:20,r=e&&e.timeout?e.timeout:r;const[o,h]=i.split("@"),n={url:`http://${h}/v1/scripting/evaluate`,body:{script_text:t,mock_type:"cron",timeout:r},headers:{"X-Key":o,Accept:"*/*"}};this.post(n,(t,e,i)=>s(i))}).catch(t=>this.logErr(t))}loaddata(){if(!this.isNode())return{};{this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e);if(!s&&!i)return{};{const i=s?t:e;try{return JSON.parse(this.fs.readFileSync(i))}catch(t){return{}}}}}writedata(){if(this.isNode()){this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e),r=JSON.stringify(this.data);s?this.fs.writeFileSync(t,r):i?this.fs.writeFileSync(e,r):this.fs.writeFileSync(t,r)}}lodash_get(t,e,s){const i=e.replace(/\[(\d+)\]/g,".$1").split(".");let r=t;for(const t of i)if(r=Object(r)[t],void 0===r)return s;return r}lodash_set(t,e,s){return Object(t)!==t?t:(Array.isArray(e)||(e=e.toString().match(/[^.[\]]+/g)||[]),e.slice(0,-1).reduce((t,s,i)=>Object(t[s])===t[s]?t[s]:t[s]=Math.abs(e[i+1])>>0==+e[i+1]?[]:{},t)[e[e.length-1]]=s,t)}getdata(t){let e=this.getval(t);if(/^@/.test(t)){const[,s,i]=/^@(.*?)\.(.*?)$/.exec(t),r=s?this.getval(s):"";if(r)try{const t=JSON.parse(r);e=t?this.lodash_get(t,i,""):e}catch(t){e=""}}return e}setdata(t,e){let s=!1;if(/^@/.test(e)){const[,i,r]=/^@(.*?)\.(.*?)$/.exec(e),o=this.getval(i),h=i?"null"===o?null:o||"{}":"{}";try{const e=JSON.parse(h);this.lodash_set(e,r,t),s=this.setval(JSON.stringify(e),i)}catch(e){const o={};this.lodash_set(o,r,t),s=this.setval(JSON.stringify(o),i)}}else s=this.setval(t,e);return s}getval(t){return this.isSurge()||this.isLoon()?$persistentStore.read(t):this.isQuanX()?$prefs.valueForKey(t):this.isNode()?(this.data=this.loaddata(),this.data[t]):this.data&&this.data[t]||null}setval(t,e){return this.isSurge()||this.isLoon()?$persistentStore.write(t,e):this.isQuanX()?$prefs.setValueForKey(t,e):this.isNode()?(this.data=this.loaddata(),this.data[e]=t,this.writedata(),!0):this.data&&this.data[e]||null}initGotEnv(t){this.got=this.got?this.got:require("got"),this.cktough=this.cktough?this.cktough:require("tough-cookie"),this.ckjar=this.ckjar?this.ckjar:new this.cktough.CookieJar,t&&(t.headers=t.headers?t.headers:{},void 0===t.headers.Cookie&&void 0===t.cookieJar&&(t.cookieJar=this.ckjar))}get(t,e=(()=>{})){t.headers&&(delete t.headers["Content-Type"],delete t.headers["Content-Length"]),this.isSurge()||this.isLoon()?(this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.get(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)})):this.isQuanX()?(this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t))):this.isNode()&&(this.initGotEnv(t),this.got(t).on("redirect",(t,e)=>{try{if(t.headers["set-cookie"]){const s=t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();s&&this.ckjar.setCookieSync(s,null),e.cookieJar=this.ckjar}}catch(t){this.logErr(t)}}).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)}))}post(t,e=(()=>{})){if(t.body&&t.headers&&!t.headers["Content-Type"]&&(t.headers["Content-Type"]="application/x-www-form-urlencoded"),t.headers&&delete t.headers["Content-Length"],this.isSurge()||this.isLoon())this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.post(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)});else if(this.isQuanX())t.method="POST",this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t));else if(this.isNode()){this.initGotEnv(t);const{url:s,...i}=t;this.got.post(s,i).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)})}}time(t,e=null){const s=e?new Date(e):new Date;let i={"M+":s.getMonth()+1,"d+":s.getDate(),"H+":s.getHours(),"m+":s.getMinutes(),"s+":s.getSeconds(),"q+":Math.floor((s.getMonth()+3)/3),S:s.getMilliseconds()};/(y+)/.test(t)&&(t=t.replace(RegExp.$1,(s.getFullYear()+"").substr(4-RegExp.$1.length)));for(let e in i)new RegExp("("+e+")").test(t)&&(t=t.replace(RegExp.$1,1==RegExp.$1.length?i[e]:("00"+i[e]).substr((""+i[e]).length)));return t}msg(e=t,s="",i="",r){const o=t=>{if(!t)return t;if("string"==typeof t)return this.isLoon()?t:this.isQuanX()?{"open-url":t}:this.isSurge()?{url:t}:void 0;if("object"==typeof t){if(this.isLoon()){let e=t.openUrl||t.url||t["open-url"],s=t.mediaUrl||t["media-url"];return{openUrl:e,mediaUrl:s}}if(this.isQuanX()){let e=t["open-url"]||t.url||t.openUrl,s=t["media-url"]||t.mediaUrl;return{"open-url":e,"media-url":s}}if(this.isSurge()){let e=t.url||t.openUrl||t["open-url"];return{url:e}}}};if(this.isMute||(this.isSurge()||this.isLoon()?$notification.post(e,s,i,o(r)):this.isQuanX()&&$notify(e,s,i,o(r))),!this.isMuteLog){let t=["","==============ğŸ“£ç³»ç»Ÿé€šçŸ¥ğŸ“£=============="];t.push(e),s&&t.push(s),i&&t.push(i),console.log(t.join("\n")),this.logs=this.logs.concat(t)}}log(...t){t.length>0&&(this.logs=[...this.logs,...t]),console.log(t.join(this.logSeparator))}logErr(t,e){const s=!this.isSurge()&&!this.isQuanX()&&!this.isLoon();s?this.log("",`â—ï¸${this.name}, é”™è¯¯!`,t.stack):this.log("",`â—ï¸${this.name}, é”™è¯¯!`,t)}wait(t){return new Promise(e=>setTimeout(e,t))}done(t={}){const e=(new Date).getTime(),s=(e-this.startTime)/1e3;this.log("",`ğŸ””${this.name}, ç»“æŸ! ğŸ•› ${s} ç§’`),this.log(),(this.isSurge()||this.isQuanX()||this.isLoon())&&$done(t)}}(t,e)}

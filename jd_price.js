@@ -1,37 +1,37 @@
 /*
-¾©¶«±£¼Û
-¾©¶« api Ö»ÄÜ²éÑ¯60ÌìµÄ¶©µ¥
-±£¼ÛÆÚÏŞÊÇÒÔÎïÁ÷Ç©ÊÕÊ±¼äÎª×¼µÄ£¬30ÌìÊÇ×î³¤±£¼ÛÆÚ¡£
-ËùÒÔ¶©µ¥ÏÂµ¥Ê±¼äÒÔ¼°·¢»õ¡¢ÊÕ»õÊ±¼ä£¬Ò²¿ÉÄÜÕ¼ÓÃºÜ¶àÌì£¬60ÌìÄÚµÄ¶©µ¥½øĞĞ±£¼ÛÊÇÕı³£µÄ¡£
-Ã»½øĞĞ¹ı±£¼ÛµÄ60ÌìÄÚµÄ¶©µ¥¡£²éÑ¯Ò»´Î£¬²»·ûºÏ±£¼ÛµÄ£¬²»»áÔÙ´ÎÉêÇë±£¼Û¡£
-Ö§³ÖÔÆ¶ËcookieÊ¹ÓÃ
-ĞŞ¸Ä×Ô£ºhttps://raw.githubusercontent.com/ZCY01/daily_scripts/main/jd/jd_priceProtect.js
-ĞŞ¸Ä×Ô£ºhttps://raw.githubusercontent.com/id77/QuantumultX/master/task/jdGuaranteedPrice.js
+äº¬ä¸œä¿ä»·
+äº¬ä¸œ api åªèƒ½æŸ¥è¯¢60å¤©çš„è®¢å•
+ä¿ä»·æœŸé™æ˜¯ä»¥ç‰©æµç­¾æ”¶æ—¶é—´ä¸ºå‡†çš„ï¼Œ30å¤©æ˜¯æœ€é•¿ä¿ä»·æœŸã€‚
+æ‰€ä»¥è®¢å•ä¸‹å•æ—¶é—´ä»¥åŠå‘è´§ã€æ”¶è´§æ—¶é—´ï¼Œä¹Ÿå¯èƒ½å ç”¨å¾ˆå¤šå¤©ï¼Œ60å¤©å†…çš„è®¢å•è¿›è¡Œä¿ä»·æ˜¯æ­£å¸¸çš„ã€‚
+æ²¡è¿›è¡Œè¿‡ä¿ä»·çš„60å¤©å†…çš„è®¢å•ã€‚æŸ¥è¯¢ä¸€æ¬¡ï¼Œä¸ç¬¦åˆä¿ä»·çš„ï¼Œä¸ä¼šå†æ¬¡ç”³è¯·ä¿ä»·ã€‚
+æ”¯æŒäº‘ç«¯cookieä½¿ç”¨
+ä¿®æ”¹è‡ªï¼šhttps://raw.githubusercontent.com/ZCY01/daily_scripts/main/jd/jd_priceProtect.js
+ä¿®æ”¹è‡ªï¼šhttps://raw.githubusercontent.com/id77/QuantumultX/master/task/jdGuaranteedPrice.js
 
-¾©¶«±£¼ÛÒ³Ãæ½Å±¾£ºhttps://static.360buyimg.com/siteppStatic/script/priceskus-phone.js
-iOSÍ¬Ê±Ö§³ÖÊ¹ÓÃ NobyDa Óë domplin ½Å±¾µÄ¾©¶« cookie
-»î¶¯Ê±¼ä£º2021-2-14ÖÁ2021-3-3
-»î¶¯µØÖ·£ºhttps://prodev.m.jd.com/jdlite/active/31U4T6S4PbcK83HyLPioeCWrD63j/index.html
-»î¶¯Èë¿Ú£º¾©¶«±£¼Û
-ÒÑÖ§³ÖIOSË«¾©¶«ÕËºÅ,Node.jsÖ§³ÖN¸ö¾©¶«ÕËºÅ
-½Å±¾¼æÈİ: QuantumultX, Surge, Loon, JSBox, Node.js
+äº¬ä¸œä¿ä»·é¡µé¢è„šæœ¬ï¼šhttps://static.360buyimg.com/siteppStatic/script/priceskus-phone.js
+iOSåŒæ—¶æ”¯æŒä½¿ç”¨ NobyDa ä¸ domplin è„šæœ¬çš„äº¬ä¸œ cookie
+æ´»åŠ¨æ—¶é—´ï¼š2021-2-14è‡³2021-3-3
+æ´»åŠ¨åœ°å€ï¼šhttps://prodev.m.jd.com/jdlite/active/31U4T6S4PbcK83HyLPioeCWrD63j/index.html
+æ´»åŠ¨å…¥å£ï¼šäº¬ä¸œä¿ä»·
+å·²æ”¯æŒIOSåŒäº¬ä¸œè´¦å·,Node.jsæ”¯æŒNä¸ªäº¬ä¸œè´¦å·
+è„šæœ¬å…¼å®¹: QuantumultX, Surge, Loon, JSBox, Node.js
 ============Quantumultx===============
 [task_local]
-#¾©¶«±£¼Û
-0 2 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_price.js, tag=¾©¶«±£¼Û, img-url=https://raw.githubusercontent.com/Orz-3/task/master/jd.png, enabled=true
+#äº¬ä¸œä¿ä»·
+0 2 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_price.js, tag=äº¬ä¸œä¿ä»·, img-url=https://raw.githubusercontent.com/Orz-3/task/master/jd.png, enabled=true
 
 ================Loon==============
 [Script]
-cron "0 2 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_price.js,tag=¾©¶«±£¼Û
+cron "0 2 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_price.js,tag=äº¬ä¸œä¿ä»·
 
 ===============Surge=================
-¾©¶«±£¼Û = type=cron,cronexp="0 2 * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_price.js
+äº¬ä¸œä¿ä»· = type=cron,cronexp="0 2 * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_price.js
 
-============Ğ¡»ğ¼ı=========
-¾©¶«±£¼Û = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_price.js, cronexpr="0 2 * * *", timeout=3600, enable=true
+============å°ç«ç®­=========
+äº¬ä¸œä¿ä»· = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_price.js, cronexpr="0 2 * * *", timeout=3600, enable=true
  */
 
-const $ = new Env('¾©¶«±£¼Û');
+const $ = new Env('äº¬ä¸œä¿ä»·');
 
 const selfDomain = 'https://msitepp-fm.jd.com/';
 const unifiedGatewayName = 'https://api.m.jd.com/';
@@ -50,7 +50,7 @@ if ($.isNode()) {
   if (!cookiesArr[0]) {
     $.msg(
       $.name,
-      '¡¾ÌáÊ¾¡¿ÇëÏÈ»ñÈ¡¾©¶«ÕËºÅÒ»cookie\nÖ±½ÓÊ¹ÓÃNobyDaµÄ¾©¶«Ç©µ½»ñÈ¡',
+      'ã€æç¤ºã€‘è¯·å…ˆè·å–äº¬ä¸œè´¦å·ä¸€cookie\nç›´æ¥ä½¿ç”¨NobyDaçš„äº¬ä¸œç­¾åˆ°è·å–',
       'https://bean.m.jd.com/',
       {
         'open-url': 'https://bean.m.jd.com/',
@@ -71,10 +71,10 @@ if ($.isNode()) {
       if (!$.isLogin) {
         $.msg(
           $.name,
-          `¡¾ÌáÊ¾¡¿cookieÒÑÊ§Ğ§`,
-          `¾©¶«ÕËºÅ${$.index} ${
+          `ã€æç¤ºã€‘cookieå·²å¤±æ•ˆ`,
+          `äº¬ä¸œè´¦å·${$.index} ${
             $.nickName || $.UserName
-          }\nÇëÖØĞÂµÇÂ¼»ñÈ¡\nhttps://bean.m.jd.com/`,
+          }\nè¯·é‡æ–°ç™»å½•è·å–\nhttps://bean.m.jd.com/`,
           {
             'open-url': 'https://bean.m.jd.com/',
           }
@@ -82,7 +82,7 @@ if ($.isNode()) {
         continue;
       }
       console.log(
-        `\n***********¿ªÊ¼¡¾ÕËºÅ${$.index}¡¿${
+        `\n***********å¼€å§‹ã€è´¦å·${$.index}ã€‘${
           $.nickName || $.UserName
         }********\n`
       );
@@ -93,16 +93,16 @@ if ($.isNode()) {
       // TODO
       $.token = '';
       $.feSt = 'f';
-      console.log(`? »ñµÃÊ×Ò³Ãæ£¬½âÎö³¬²ÎÊı`);
+      console.log(`ğŸ’¥ è·å¾—é¦–é¡µé¢ï¼Œè§£æè¶…å‚æ•°`);
       await getHyperParams();
       // console.log($.HyperParam)
       console.log(`----------`);
-      console.log(`? »ñÈ¡ËùÓĞ¼Û¸ñ±£»¤ÁĞ±í£¬ÅÅ³ı¸½¼şÉÌÆ·`);
+      console.log(`ğŸ§¾ è·å–æ‰€æœ‰ä»·æ ¼ä¿æŠ¤åˆ—è¡¨ï¼Œæ’é™¤é™„ä»¶å•†å“`);
       for (let page = 1; $.hasNext; page++) {
         await getApplyData(page);
       }
       console.log(`----------`);
-      console.log(`? É¾³ı²»·ûºÏ¶©µ¥`);
+      console.log(`ğŸ—‘ åˆ é™¤ä¸ç¬¦åˆè®¢å•`);
       console.log(`----------`);
       let taskList = [];
       for (let order of $.orderList) {
@@ -110,14 +110,14 @@ if ($.isNode()) {
       }
       await Promise.all(taskList);
       console.log(`----------`);
-      console.log(`? ${$.orderList.length}¸öÉÌÆ·¼´½«ÉêÇë¼Û¸ñ±£»¤£¡`);
+      console.log(`ğŸ“Š ${$.orderList.length}ä¸ªå•†å“å³å°†ç”³è¯·ä»·æ ¼ä¿æŠ¤ï¼`);
       console.log(`----------`);
       for (let order of $.orderList) {
         await skuApply(order);
         await $.wait(300);
       }
       console.log(`----------`);
-      console.log(`? µÈ´ıÉêÇë¼Û¸ñ±£»¤½á¹û...`);
+      console.log(`â³ ç­‰å¾…ç”³è¯·ä»·æ ¼ä¿æŠ¤ç»“æœ...`);
       console.log(`----------`);
       for (let i = 1; i <= 30 && Object.keys($.applyMap).length > 0; i++) {
         await $.wait(1000);
@@ -130,7 +130,7 @@ if ($.isNode()) {
   }
 })()
   .catch((e) => {
-    console.log(`?? ${$.name} ÔËĞĞ´íÎó£¡\n${e}`);
+    console.log(`â—ï¸ ${$.name} è¿è¡Œé”™è¯¯ï¼\n${e}`);
   })
   .finally(() => $.done());
 
@@ -182,7 +182,7 @@ function getHyperParams() {
         };
       } catch (e) {
         reject(
-          `?? ${arguments.callee.name.toString()} API·µ»Ø½á¹û½âÎö³ö´í\n${e}\n${JSON.stringify(
+          `âš ï¸ ${arguments.callee.name.toString()} APIè¿”å›ç»“æœè§£æå‡ºé”™\n${e}\n${JSON.stringify(
             data
           )}`
         );
@@ -214,7 +214,7 @@ function getApplyData(page) {
       try {
         if (err) {
           console.log(
-            `? ${arguments.callee.name.toString()} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·\n${JSON.stringify(
+            `ğŸš« ${arguments.callee.name.toString()} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯\n${JSON.stringify(
               err
             )}`
           );
@@ -234,14 +234,14 @@ function getApplyData(page) {
             for (let i = 0; i < orders.length; i++) {
               let info = orders[i][1].split(',');
               if (info.length != 4) {
-                throw new Error(`¼Û¸ñ±£»¤ ${order[1]}.length != 4`);
+                throw new Error(`ä»·æ ¼ä¿æŠ¤ ${order[1]}.length != 4`);
               }
               const item = {
                 orderId: eval(info[0]),
                 skuId: eval(info[1]),
                 sequence: eval(info[2]),
                 orderCategory: eval(info[3]),
-                title: `?${titles[i][1].substr(0, 15)}?`,
+                title: `ğŸ›’${titles[i][1].substr(0, 15)}ğŸ›’`,
               };
               let id = `skuprice_${item.orderId}_${item.skuId}_${item.sequence}`;
               let reg = new RegExp(`${id}.*?isfujian="(.*?)"`);
@@ -252,17 +252,17 @@ function getApplyData(page) {
                   data,
                   skuRefundTypeDiv_orderId
                 );
-                // ÉèÖÃÔ­Â··µ»¹
+                // è®¾ç½®åŸè·¯è¿”è¿˜
                 if (item.refundtype === '2') item.refundtype = '1';
                 $.orderList.push(item);
               }
-              //else...×ğ¾´µÄ¹Ë¿ÍÄúºÃ£¬ÄúÑ¡ÔñµÄÉÌÆ·±¾ÉíÎªÔùÆ·£¬ÊÇ²»Ö§³Ö¼Û±£µÄßÏ£¬ÇëÄúÀí½â¡£
+              //else...å°Šæ•¬çš„é¡¾å®¢æ‚¨å¥½ï¼Œæ‚¨é€‰æ‹©çš„å•†å“æœ¬èº«ä¸ºèµ å“ï¼Œæ˜¯ä¸æ”¯æŒä»·ä¿çš„å‘¦ï¼Œè¯·æ‚¨ç†è§£ã€‚
             }
           }
         }
       } catch (e) {
         reject(
-          `?? ${arguments.callee.name.toString()} API·µ»Ø½á¹û½âÎö³ö´í\n${e}\n${JSON.stringify(
+          `âš ï¸ ${arguments.callee.name.toString()} APIè¿”å›ç»“æœè§£æå‡ºé”™\n${e}\n${JSON.stringify(
             data
           )}`
         );
@@ -273,7 +273,7 @@ function getApplyData(page) {
   });
 }
 
-//  ÉêÇë°´Å¥
+//  ç”³è¯·æŒ‰é’®
 function skuApply(order) {
   return new Promise((resolve, reject) => {
     const { orderId, orderCategory, skuId, refundtype } = order;
@@ -291,12 +291,12 @@ function skuApply(order) {
       feSt: $.feSt,
     };
 
-    console.log(`? ${order.title}`);
+    console.log(`ğŸˆ¸ ${order.title}`);
     $.post(taskUrl('siteppM_proApply', paramObj), (err, resp, data) => {
       try {
         if (err) {
           console.log(
-            `? ${arguments.callee.name.toString()} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·\n${JSON.stringify(
+            `ğŸš« ${arguments.callee.name.toString()} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯\n${JSON.stringify(
               err
             )}`
           );
@@ -307,12 +307,12 @@ function skuApply(order) {
               $.applyMap[data.proSkuApplyId[0]] = order;
             }
           } else {
-            console.log(`? ${order.title} ÉêÇëÊ§°Ü£º${data.errorMessage}`);
+            console.log(`ğŸš« ${order.title} ç”³è¯·å¤±è´¥ï¼š${data.errorMessage}`);
           }
         }
       } catch (e) {
         reject(
-          `?? ${arguments.callee.name.toString()} API·µ»Ø½á¹û½âÎö³ö´í\n${e}\n${JSON.stringify(
+          `âš ï¸ ${arguments.callee.name.toString()} APIè¿”å›ç»“æœè§£æå‡ºé”™\n${e}\n${JSON.stringify(
             data
           )}`
         );
@@ -323,7 +323,7 @@ function skuApply(order) {
   });
 }
 
-// ÀúÊ·½á¹û²éÑ¯
+// å†å²ç»“æœæŸ¥è¯¢
 function historyResultQuery(order) {
   return new Promise((resolve, reject) => {
     const { orderId, sequence, skuId } = order;
@@ -340,14 +340,14 @@ function historyResultQuery(order) {
     };
 
     const reg = new RegExp(
-      'overTime|[^¿â]²»Ö§³Ö¼Û±£|ÎŞ·¨ÉêÇë¼Û±£|ÇëÓÃÔ­¶©µ¥ÉêÇë'
+      'overTime|[^åº“]ä¸æ”¯æŒä»·ä¿|æ— æ³•ç”³è¯·ä»·ä¿|è¯·ç”¨åŸè®¢å•ç”³è¯·'
     );
     let deleted = true;
     $.post(taskUrl('siteppM_skuProResultPin', paramObj), (err, resp, data) => {
       try {
         if (err) {
           console.log(
-            `? ${arguments.callee.name.toString()} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·\n${JSON.stringify(
+            `ğŸš« ${arguments.callee.name.toString()} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯\n${JSON.stringify(
               err
             )}`
           );
@@ -356,13 +356,13 @@ function historyResultQuery(order) {
         }
       } catch (e) {
         reject(
-          `?? ${arguments.callee.name.toString()} API·µ»Ø½á¹û½âÎö³ö´í\n${e}\n${JSON.stringify(
+          `âš ï¸ ${arguments.callee.name.toString()} APIè¿”å›ç»“æœè§£æå‡ºé”™\n${e}\n${JSON.stringify(
             data
           )}`
         );
       } finally {
         if (deleted) {
-          console.log(`? É¾³ıÉÌÆ·£º${order.title}`);
+          console.log(`ğŸš« åˆ é™¤å•†å“ï¼š${order.title}`);
           $.orderList = $.orderList.filter((item) => {
             return item.orderId != order.orderId || item.skuId != order.skuId;
           });
@@ -379,20 +379,20 @@ function getApplyResult() {
       ajaxResultObj.hasResult != 'undefined' &&
       ajaxResultObj.hasResult == true
     ) {
-      //ÓĞ½á¹ûÁË
-      let proSkuApplyId = ajaxResultObj.applyResultVo.proSkuApplyId; //ÉêÇëid
+      //æœ‰ç»“æœäº†
+      let proSkuApplyId = ajaxResultObj.applyResultVo.proSkuApplyId; //ç”³è¯·id
       let order = $.applyMap[proSkuApplyId];
       delete $.applyMap[proSkuApplyId];
       if (ajaxResultObj.applyResultVo.proApplyStatus == 'ApplySuccess') {
-        //¼Û±£³É¹¦
+        //ä»·ä¿æˆåŠŸ
         $.refundtotalamount += ajaxResultObj.applyResultVo.refundtotalamount;
         console.log(
-          `? ${order.title} \n? ÉêÇë³É¹¦£º£¤${$.refundtotalamount}`
+          `ğŸ“‹ ${order.title} \nğŸŸ¢ ç”³è¯·æˆåŠŸï¼šï¿¥${$.refundtotalamount}`
         );
         console.log(`-----`);
       } else {
         console.log(
-          `? ${order.title} \n? ÉêÇëÊ§°Ü£º${ajaxResultObj.applyResultVo.failTypeStr} \n? Ê§°ÜÀàĞÍ:${ajaxResultObj.applyResultVo.failType}`
+          `ğŸ“‹ ${order.title} \nğŸ”´ ç”³è¯·å¤±è´¥ï¼š${ajaxResultObj.applyResultVo.failTypeStr} \nğŸ”´ å¤±è´¥ç±»å‹:${ajaxResultObj.applyResultVo.failType}`
         );
         console.log(`-----`);
       }
@@ -412,7 +412,7 @@ function getApplyResult() {
       try {
         if (err) {
           console.log(
-            `? ${arguments.callee.name.toString()} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·\n${JSON.stringify(
+            `ğŸš« ${arguments.callee.name.toString()} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯\n${JSON.stringify(
               err
             )}`
           );
@@ -426,7 +426,7 @@ function getApplyResult() {
         }
       } catch (e) {
         reject(
-          `?? ${arguments.callee.name.toString()} API·µ»Ø½á¹û½âÎö³ö´í\n${e}\n${JSON.stringify(
+          `âš ï¸ ${arguments.callee.name.toString()} APIè¿”å›ç»“æœè§£æå‡ºé”™\n${e}\n${JSON.stringify(
             data
           )}`
         );
@@ -471,14 +471,14 @@ function taskUrl(functionid, body) {
 }
 
 function showMsg() {
-  console.log(`? ±¾´Î¼Û¸ñ±£»¤½ğ¶î£º${$.refundtotalamount}?`);
+  console.log(`ğŸ§® æœ¬æ¬¡ä»·æ ¼ä¿æŠ¤é‡‘é¢ï¼š${$.refundtotalamount}ğŸ’°`);
   if ($.refundtotalamount) {
     $.msg(
       $.name,
       ``,
-      `¾©¶«ÕËºÅ${$.index} ${$.nickName || $.UserName}\n? ±¾´Î¼Û¸ñ±£»¤½ğ¶î£º${
+      `äº¬ä¸œè´¦å·${$.index} ${$.nickName || $.UserName}\nğŸ‰ æœ¬æ¬¡ä»·æ ¼ä¿æŠ¤é‡‘é¢ï¼š${
         $.refundtotalamount
-      }?`,
+      }ğŸ’°`,
       {
         'open-url':
           'https://msitepp-fm.jd.com/rest/priceprophone/priceProPhoneMenu',
@@ -507,7 +507,7 @@ function totalBean() {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`);
-          console.log(`${$.name} APIÇëÇóÊ§°Ü£¬Çë¼ì²éÍøÂ·ÖØÊÔ`);
+          console.log(`${$.name} APIè¯·æ±‚å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç½‘è·¯é‡è¯•`);
         } else {
           if (data) {
             data = JSON.parse(data);
@@ -517,7 +517,7 @@ function totalBean() {
             $.isLogin = true;
             $.nickName = data['base'].nickname;
           } else {
-            console.log(`¾©¶«·şÎñÆ÷·µ»Ø¿ÕÊı¾İ`);
+            console.log(`äº¬ä¸œæœåŠ¡å™¨è¿”å›ç©ºæ•°æ®`);
           }
         }
       } catch (e) {
@@ -538,7 +538,7 @@ function jsonParse(str) {
       $.msg(
         $.name,
         '',
-        'ÇëÎğËæÒâÔÚBoxJsÊäÈë¿òĞŞ¸ÄÄÚÈİ\n½¨ÒéÍ¨¹ı½Å±¾È¥»ñÈ¡cookie'
+        'è¯·å‹¿éšæ„åœ¨BoxJsè¾“å…¥æ¡†ä¿®æ”¹å†…å®¹\nå»ºè®®é€šè¿‡è„šæœ¬å»è·å–cookie'
       );
       return [];
     }
