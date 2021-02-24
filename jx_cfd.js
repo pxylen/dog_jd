@@ -16,7 +16,7 @@
     ??????寻宝报错声明: 出现app内助力错误，使用上述方式获取Token再试
 
     hostname = wq.jd.com
-    
+
     Quantumult X:
     [task_local]
     0 * * * * https://raw.githubusercontent.com/MoPoQAQ/Script/main/Me/jx_cfd.js, tag=京喜财富岛, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jxcfd.png, enabled=true
@@ -663,7 +663,7 @@ function createSuperAssistUser() {
   return new Promise(resolve => {
     const sceneIds = Object.keys($.info.SceneList);
     const sceneId = Math.min(...sceneIds);
-    $.get({ url: 'https://apii.ninesix.cc/api/jx-cfd' }, async (err, resp, _data) => {
+    $.get({ url: 'https://api.ninesix.cc/api/jx-cfd' }, async (err, resp, _data) => {
       try {
         const { data = {} } = JSON.parse(_data);
         $.log(`\n【??超级助力】超级助力码：${data.value}\n${$.showLog ? _data : ''}`);
@@ -691,7 +691,7 @@ function createAssistUser() {
   return new Promise(resolve => {
     const sceneIds = Object.keys($.info.SceneList);
     const sceneId = Math.min(...sceneIds);
-    $.get({ url: 'https://apii.ninesix.cc/api/jx-cfd' }, async (err, resp, _data) => {
+    $.get({ url: 'https://api.ninesix.cc/api/jx-cfd' }, async (err, resp, _data) => {
       try {
         const { data = {} } = JSON.parse(_data);
         $.log(`\n【?普通助力】普通助力码：${data.value}\n${$.showLog ? _data : ''}`);
@@ -776,7 +776,7 @@ function openGroup() {
 //助力好友寻宝大作战
 function joinGroup() {
   return new Promise( async (resolve) => {
-    $.get({ url: 'https://apiI.ninesix.cc/api/jx-cfd-group' }, (err, resp, _data) => {
+    $.get({ url: 'https://api.ninesix.cc/api/jx-cfd-group' }, (err, resp, _data) => {
       try {
         const { data = {} } = JSON.parse(_data);
         $.log(`\n【?寻宝大作战】随机助力码：${data.value}\n${$.showLog ? _data : ''}`);
