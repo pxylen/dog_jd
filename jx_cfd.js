@@ -1,61 +1,61 @@
 /**
 *
-    Name: ¾©Ï²²Æ¸»µº
-    Address: ¾©Ï²App ====>>>> È«Ãñ×¬´óÇ®
+    Name: äº¬å–œè´¢å¯Œå²›
+    Address: äº¬å–œApp ====>>>> å…¨æ°‘èµšå¤§é’±
     Update: 2021/1/13 10:30
     Thanks:
-      whyour´óÀĞ
+      whyourå¤§ä½¬
       TG: https://t.me/joinchat/O1WgnBbM18YjQQVFQ_D86w
       GitHub: https://github.com/whyour
-
-      ĞÂÓÃ»§Ç©µ½ÎÊÌâ·´À¡Õß£ºhttps://github.com/NanjolnoRing
-
-    »ñÈ¡Token·½Ê½£º
-      ´ò¿ª¡¾??¾©Ï²Å©³¡??¡¿£¬ÊÖ¶¯ÈÎÒâÍê³É<¹¤³§ÈÎÎñ>¡¢<Ç©µ½ÈÎÎñ>¡¢<½ğÅÆ³§³¤ÈÎÎñ>Ò»Ïî£¬ÌáÊ¾»ñÈ¡cookie³É¹¦¼´¿É£¬È»ºóÍË³öÅÜÈÎÎñ½Å±¾
-
-    ??????Ñ°±¦±¨´íÉùÃ÷: ³öÏÖappÄÚÖúÁ¦´íÎó£¬Ê¹ÓÃÉÏÊö·½Ê½»ñÈ¡TokenÔÙÊÔ
-
+      
+      æ–°ç”¨æˆ·ç­¾åˆ°é—®é¢˜åé¦ˆè€…ï¼šhttps://github.com/NanjolnoRing
+    
+    è·å–Tokenæ–¹å¼ï¼š
+      æ‰“å¼€ã€â—ï¸äº¬å–œå†œåœºâ—ï¸ã€‘ï¼Œæ‰‹åŠ¨ä»»æ„å®Œæˆ<å·¥å‚ä»»åŠ¡>ã€<ç­¾åˆ°ä»»åŠ¡>ã€<é‡‘ç‰Œå‚é•¿ä»»åŠ¡>ä¸€é¡¹ï¼Œæç¤ºè·å–cookieæˆåŠŸå³å¯ï¼Œç„¶åé€€å‡ºè·‘ä»»åŠ¡è„šæœ¬
+    
+    â—ï¸â—ï¸â—ï¸å¯»å®æŠ¥é”™å£°æ˜: å‡ºç°appå†…åŠ©åŠ›é”™è¯¯ï¼Œä½¿ç”¨ä¸Šè¿°æ–¹å¼è·å–Tokenå†è¯•
+    
     hostname = wq.jd.com
-
+    
     Quantumult X:
     [task_local]
-    0 * * * * https://raw.githubusercontent.com/MoPoQAQ/Script/main/Me/jx_cfd.js, tag=¾©Ï²²Æ¸»µº, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jxcfd.png, enabled=true
+    0 * * * * https://raw.githubusercontent.com/MoPoQAQ/Script/main/Me/jx_cfd.js, tag=äº¬å–œè´¢å¯Œå²›, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jxcfd.png, enabled=true
     [rewrite_local]
     ^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask url script-request-header https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_nc.cookie.js
 
     Loon:
     [Script]
-    http-request ^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_nc.cookie.js, requires-body=false, timeout=10, tag=¾©Ï²Å©³¡cookie
-    cron "0 * * * *" script-path=https://raw.githubusercontent.com/MoPoQAQ/Script/main/Me/jx_cfd.js,tag=¾©Ï²²Æ¸»µº
-
+    http-request ^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_nc.cookie.js, requires-body=false, timeout=10, tag=äº¬å–œå†œåœºcookie
+    cron "0 * * * *" script-path=https://raw.githubusercontent.com/MoPoQAQ/Script/main/Me/jx_cfd.js,tag=äº¬å–œè´¢å¯Œå²›
+    
     Surge:
-    ¾©Ï²²Æ¸»µº = type=cron,cronexp="0 * * * *",wake-system=1,timeout=20,script-path=https://raw.githubusercontent.com/MoPoQAQ/Script/main/Me/jx_cfd.js
-    ¾©Ï²Å©³¡cookie = type=http-request,pattern=^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask,requires-body=0,max-size=0,script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_nc.cookie.js
-
+    äº¬å–œè´¢å¯Œå²› = type=cron,cronexp="0 * * * *",wake-system=1,timeout=20,script-path=https://raw.githubusercontent.com/MoPoQAQ/Script/main/Me/jx_cfd.js
+    äº¬å–œå†œåœºcookie = type=http-request,pattern=^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask,requires-body=0,max-size=0,script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_nc.cookie.js
+    
     Shadowrocket:
     [Script]
-    ¾©Ï²²Æ¸»µº = type=cron,script-path=https://raw.githubusercontent.com/MoPoQAQ/Script/main/Me/jx_cfd.js,cronexpr="0 * * * *",timeout=120,enable=true
-    ¾©Ï²Å©³¡Cookie = type=http-request,script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_nc.cookie.js,pattern=^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask,max-size=131072,timeout=10,enable=true
+    äº¬å–œè´¢å¯Œå²› = type=cron,script-path=https://raw.githubusercontent.com/MoPoQAQ/Script/main/Me/jx_cfd.js,cronexpr="0 * * * *",timeout=120,enable=true
+    äº¬å–œå†œåœºCookie = type=http-request,script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_nc.cookie.js,pattern=^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask,max-size=131072,timeout=10,enable=true
 
-    BoxJS¶©ÔÄ
+    BoxJSè®¢é˜…
     https://raw.githubusercontent.com/whyour/hundun/master/quanx/whyour.boxjs.json
 
-    Docker£º
-      1.ÉÏ´«jx_cfd.jsÎÄ¼şµ½scriptsÎÄ¼ş¼ĞÏÂ
+    Dockerï¼š
+      1.ä¸Šä¼ jx_cfd.jsæ–‡ä»¶åˆ°scriptsæ–‡ä»¶å¤¹ä¸‹
 
-      2.ĞŞ¸ÄÒÔÏÂÈı¸ö²ÎÊı
+      2.ä¿®æ”¹ä»¥ä¸‹ä¸‰ä¸ªå‚æ•°
 
-      ################################## ÊÇ·ñÌí¼ÓDIY½Å±¾£¨Ñ¡Ìî£© ##################################
-      ## Èç¹ûÄã×Ô¼º»áĞ´shell½Å±¾£¬²¢ÇÒÏ£ÍûÔÚÃ¿´Îgit_pull.shÕâ¸ö½Å±¾ÔËĞĞÊ±£¬¶îÍâÔËĞĞÄãµÄDIY½Å±¾£¬Çë¸³ÖµÎª "true"
-      ## Í¬Ê±£¬ÇëÎñ±Ø½«ÄãµÄ½Å±¾ÃüÃûÎª diy.sh (Ö»ÄÜ½ĞÕâ¸öÎÄ¼şÃû)£¬·ÅÔÚ config Ä¿Â¼ÏÂ
-      ## ÎÒÒÑ¶¨ÒåºÃµÄ±äÁ¿£¬ÄãÈç¹ûÏëÖ±½ÓÊ¹ÓÃ£¬¿ÉÒÔ²Î¿¼±¾²Ö¿âÏÂ git_pull.sh ÎÄ¼ş
+      ################################## æ˜¯å¦æ·»åŠ DIYè„šæœ¬ï¼ˆé€‰å¡«ï¼‰ ##################################
+      ## å¦‚æœä½ è‡ªå·±ä¼šå†™shellè„šæœ¬ï¼Œå¹¶ä¸”å¸Œæœ›åœ¨æ¯æ¬¡git_pull.shè¿™ä¸ªè„šæœ¬è¿è¡Œæ—¶ï¼Œé¢å¤–è¿è¡Œä½ çš„DIYè„šæœ¬ï¼Œè¯·èµ‹å€¼ä¸º "true"
+      ## åŒæ—¶ï¼Œè¯·åŠ¡å¿…å°†ä½ çš„è„šæœ¬å‘½åä¸º diy.sh (åªèƒ½å«è¿™ä¸ªæ–‡ä»¶å)ï¼Œæ”¾åœ¨ config ç›®å½•ä¸‹
+      ## æˆ‘å·²å®šä¹‰å¥½çš„å˜é‡ï¼Œä½ å¦‚æœæƒ³ç›´æ¥ä½¿ç”¨ï¼Œå¯ä»¥å‚è€ƒæœ¬ä»“åº“ä¸‹ git_pull.sh æ–‡ä»¶
       EnableExtraShell="true"
 
-      ################################## ¶¨Òå¾©Ï²Å©³¡TOKEN£¨Ñ¡Ìî£© ##################################
-      ## Èç¹ûÄ³¸öCookieµÄÕËºÅÖÖÖ²µÄÊÇappÖÖ×Ó£¬Ôò±ØĞëÌîÈëÓĞĞ§µÄTOKEN£»¶øÖÖÖ²·ÇappÖÖ×ÓÔò²»ĞèÒªTOKEN
-      ## TOKENµÄĞÎÊ½£º{"farm_jstoken":"749a90f871adsfads8ffda7bf3b1576760","timestamp":"1610165423873","phoneid":"42c7e3dadfadsfdsaac-18f0e4f4a0cf"}
-      ## ÒòTOKENÖĞ´øÓĞË«ÒıºÅ£¬Òò´Ë£¬±äÁ¿ÖµÁ½²à±ØĞëÓÉÒ»¶Ôµ¥ÒıºÅÒıÆğÀ´
-      ## TOKENÈçºÎ»ñÈ¡ÇëÔÄ¶ÁÒÔÏÂÎÄ¼şµÄ×¢ÊÍ£ºhttps://github.com/lxk0301/jd_scripts/blob/master/jd_jxnc.js
+      ################################## å®šä¹‰äº¬å–œå†œåœºTOKENï¼ˆé€‰å¡«ï¼‰ ##################################
+      ## å¦‚æœæŸä¸ªCookieçš„è´¦å·ç§æ¤çš„æ˜¯appç§å­ï¼Œåˆ™å¿…é¡»å¡«å…¥æœ‰æ•ˆçš„TOKENï¼›è€Œç§æ¤éappç§å­åˆ™ä¸éœ€è¦TOKEN
+      ## TOKENçš„å½¢å¼ï¼š{"farm_jstoken":"749a90f871adsfads8ffda7bf3b1576760","timestamp":"1610165423873","phoneid":"42c7e3dadfadsfdsaac-18f0e4f4a0cf"}
+      ## å› TOKENä¸­å¸¦æœ‰åŒå¼•å·ï¼Œå› æ­¤ï¼Œå˜é‡å€¼ä¸¤ä¾§å¿…é¡»ç”±ä¸€å¯¹å•å¼•å·å¼•èµ·æ¥
+      ## TOKENå¦‚ä½•è·å–è¯·é˜…è¯»ä»¥ä¸‹æ–‡ä»¶çš„æ³¨é‡Šï¼šhttps://github.com/lxk0301/jd_scripts/blob/master/jd_jxnc.js
       TokenJxnc1='{"farm_jstoken":"xxx","phoneid":"xxx","timestamp":"xxx"}'
       TokenJxnc2=''
       TokenJxnc3=''
@@ -63,15 +63,15 @@
       TokenJxnc5=''
       TokenJxnc6=''
 
-      DockerÍ¨ÖªÍÆËÍ£º
-      ################################## ¾©Ï²²Æ¸»µºÊÇ·ñ¾²Ä¬ÔËĞĞ ##################################
-      ## Ä¬ÈÏÎª "false"£¬¾²Ä¬£¬²»·¢ËÍÍÆËÍÍ¨ÖªÏûÏ¢£¬ÈçÏëÊÕµ½Í¨Öª£¬ÇëĞŞ¸ÄÎª "true"
-      ## Èç¹ûÄã²»ÏëÍêÈ«¹Ø±Õ»òÕßÍêÈ«¿ªÆôÍ¨Öª£¬Ö»ÏëÔÚÌØ¶¨µÄÊ±¼ä·¢ËÍÍ¨Öª£¬¿ÉÒÔ²Î¿¼ÉÏÃæÃæµÄ¡°¶¨Òå¶«¶«ÃÈ³èÊÇ·ñ¾²Ä¬ÔËĞĞ¡±²¿·Ö£¬Éè¶¨¼¸¸öifÅĞ¶ÏÌõ¼ş
+      Dockeré€šçŸ¥æ¨é€ï¼š
+      ################################## äº¬å–œè´¢å¯Œå²›æ˜¯å¦é™é»˜è¿è¡Œ ##################################
+      ## é»˜è®¤ä¸º "false"ï¼Œé™é»˜ï¼Œä¸å‘é€æ¨é€é€šçŸ¥æ¶ˆæ¯ï¼Œå¦‚æƒ³æ”¶åˆ°é€šçŸ¥ï¼Œè¯·ä¿®æ”¹ä¸º "true"
+      ## å¦‚æœä½ ä¸æƒ³å®Œå…¨å…³é—­æˆ–è€…å®Œå…¨å¼€å¯é€šçŸ¥ï¼Œåªæƒ³åœ¨ç‰¹å®šçš„æ—¶é—´å‘é€é€šçŸ¥ï¼Œå¯ä»¥å‚è€ƒä¸Šé¢é¢çš„â€œå®šä¹‰ä¸œä¸œèŒå® æ˜¯å¦é™é»˜è¿è¡Œâ€éƒ¨åˆ†ï¼Œè®¾å®šå‡ ä¸ªifåˆ¤æ–­æ¡ä»¶
       export CFD_NOTIFY_CONTROL=""
 *
 **/
 
-const $ = new Env("¾©Ï²²Æ¸»µº");
+const $ = new Env("äº¬å–œè´¢å¯Œå²›");
 const JD_API_HOST = "https://m.jingxi.com/";
 const notify = $.isNode() ? require('./sendNotify') : '';
 const jdCookieNode = $.isNode() ? require("./jdCookie.js") : "";
@@ -96,63 +96,63 @@ $.info = {};
       $.userName = decodeURIComponent($.currentCookie.match(/pt_pin=(.+?);/) && $.currentCookie.match(/pt_pin=(.+?);/)[1]);
       $.index = i + 1;
       $.nickName = '';
-
-      $.log(`\n¿ªÊ¼¡¾¾©¶«ÕËºÅ${i + 1}¡¿${$.userName}`);
+      
+      $.log(`\nå¼€å§‹ã€äº¬ä¸œè´¦å·${i + 1}ã€‘${$.userName}`);
 
       const beginInfo = await getUserInfo();
-
+         
       await $.wait(500);
       await querySignList();
 
       await $.wait(500);
       await getMoney();
-
-      //ÈÕ³£ÈÎÎñ
+      
+      //æ—¥å¸¸ä»»åŠ¡
       await $.wait(500);
-      await getTaskList(0);
+      await getTaskList(0);      
       await $.wait(500);
       await browserTask(0);
-
-      //Ñ°±¦
+      
+      //å¯»å®
       await $.wait(500);
       await treasureHunt();
 
-      //Íµ²Æ¸»
+      //å·è´¢å¯Œ
       await $.wait(500);
       await friendCircle();
 
-      //³É¾ÍÈÎÎñ
+      //æˆå°±ä»»åŠ¡
       await $.wait(500);
       await getTaskList(1);
       await $.wait(500);
       await browserTask(1);
 
-      //³é½±
+      //æŠ½å¥–
       await $.wait(500);
       await funCenterState();
 
-      //ÁìÈ¡Ñ°±¦±¦Ïä
+      //é¢†å–å¯»å®å®ç®±
       await $.wait(500);
       await openPeriodBox();
 
       const endInfo = await getUserInfo();
       $.result.push(
-        `¡¾?²Æ¸»Öµ¡¿ÈÎÎñÇ°: ${beginInfo.ddwMoney}\n¡¾?²Æ¸»Öµ¡¿ÈÎÎñºó: ${endInfo.ddwMoney}`,
-        `¡¾?²Æ¸»Öµ¡¿¾»ÔöÖµ: ${endInfo.ddwMoney - beginInfo.ddwMoney}`
+        `ã€ğŸ’µè´¢å¯Œå€¼ã€‘ä»»åŠ¡å‰: ${beginInfo.ddwMoney}\nã€ğŸ’µè´¢å¯Œå€¼ã€‘ä»»åŠ¡å: ${endInfo.ddwMoney}`,
+        `ã€ğŸ’µè´¢å¯Œå€¼ã€‘å‡€å¢å€¼: ${endInfo.ddwMoney - beginInfo.ddwMoney}`
       );
 
-      //³öµºÑ°±¦´ó×÷Õ½
+      //å‡ºå²›å¯»å®å¤§ä½œæˆ˜
       await $.wait(500);
       await submitGroupId();
       await $.wait(500);
       await joinGroup();
-      //Ìá½»ÑûÇëÂë
+      //æäº¤é‚€è¯·ç 
       await $.wait(500);
       await submitInviteId($.userName);
-      //³¬¼¶ÖúÁ¦
+      //è¶…çº§åŠ©åŠ›
       await $.wait(500);
       await createSuperAssistUser();
-      //ÆÕÍ¨ÖúÁ¦
+      //æ™®é€šåŠ©åŠ›
       await $.wait(500);
       await createAssistUser();
     }
@@ -178,7 +178,7 @@ function getUserInfo() {
           strMyShareId,
           strPin,
         } = JSON.parse(data);
-        $.log(`\n»ñÈ¡ÓÃ»§ĞÅÏ¢£º${sErrMsg}\n${$.showLog ? data : ""}`);
+        $.log(`\nè·å–ç”¨æˆ·ä¿¡æ¯ï¼š${sErrMsg}\n${$.showLog ? data : ""}`);
         $.info = {
           ...$.info,
           SceneList,
@@ -207,18 +207,18 @@ function getUserInfo() {
   });
 }
 
-//Ç©µ½ÁĞ±í
+//ç­¾åˆ°åˆ—è¡¨
 function querySignList() {
   return new Promise(async (resolve) => {
     $.get(taskUrl(`task/QuerySignListV2`), async (err, resp, data) => {
       try {
         const { iRet, sData: { Sign = [{}], dwUserFlag }, sErrMsg } = JSON.parse(data);
-        $.log(`\nÇ©µ½ÁĞ±í£º${sErrMsg}\n${$.showLog ? data : ""}`);
+        $.log(`\nç­¾åˆ°åˆ—è¡¨ï¼š${sErrMsg}\n${$.showLog ? data : ""}`);
         const [{ dwStatus, ddwMoney }] = Sign.filter(x => x.dwShowFlag === 1);
         if (dwStatus === 0) {
           await userSignReward(dwUserFlag, ddwMoney);
         } else {
-          $.log(`\n?Ç©µ½£ºÄã½ñÈÕÒÑÇ©µ½¹ıÀ²£¬ÇëÃ÷ÌìÔÙÀ´`);
+          $.log(`\nğŸ“Œç­¾åˆ°ï¼šä½ ä»Šæ—¥å·²ç­¾åˆ°è¿‡å•¦ï¼Œè¯·æ˜å¤©å†æ¥`);
         }
       } catch (e) {
         $.logErr(e, resp);
@@ -229,7 +229,7 @@ function querySignList() {
   });
 }
 
-//Ç©µ½
+//ç­¾åˆ°
 async function userSignReward(dwUserFlag,ddwMoney) {
   return new Promise(async (resolve) => {
     $.get(
@@ -241,7 +241,7 @@ async function userSignReward(dwUserFlag,ddwMoney) {
         try {
           //$.log(data)
           const { iRet, sData: { ddwMoney }, sErrMsg } = JSON.parse(data);
-          $.log(`\n?Ç©µ½£º${sErrMsg}£¬»ñµÃ²Æ¸» ? ${ddwMoney || 0}\n${$.showLog ? data : ""}`);
+          $.log(`\nğŸ“Œç­¾åˆ°ï¼š${sErrMsg}ï¼Œè·å¾—è´¢å¯Œ Â¥ ${ddwMoney || 0}\n${$.showLog ? data : ""}`);
         } catch (e) {
           $.logErr(e, resp);
         } finally {
@@ -252,17 +252,17 @@ async function userSignReward(dwUserFlag,ddwMoney) {
   });
 }
 
-//ÁìÈ¡²Æ¸»Öµ
-//dwSource=[1,2,3]  1:µºÖ÷×Ô²ú²Æ¸» 2:ÆÕÍ¨ÖúÁ¦²Æ¸» 3:³¬¼¶ÖúÁ¦²Æ¸»
+//é¢†å–è´¢å¯Œå€¼
+//dwSource=[1,2,3]  1:å²›ä¸»è‡ªäº§è´¢å¯Œ 2:æ™®é€šåŠ©åŠ›è´¢å¯Œ 3:è¶…çº§åŠ©åŠ›è´¢å¯Œ
 function getMoney() {
   return new Promise(async (resolve) => {
     const sceneList = $.info.SceneList;
     for (var _key of Object.keys($.info.SceneList)) {
       try {
-        //ÁìÈ¡×Ô²ú²Æ¸»
+        //é¢†å–è‡ªäº§è´¢å¯Œ
         await $.wait(500);
         await getMoney_dwSource_1( _key, sceneList );
-        //ÁìÈ¡ÆÕÍ¨ÖúÁ¦µÄ²Æ¸»
+        //é¢†å–æ™®é€šåŠ©åŠ›çš„è´¢å¯Œ
         const employeeList = eval('('+ JSON.stringify(sceneList[_key].EmployeeList) +')');
         if(employeeList !== ""){
           for( var key of Object.keys(employeeList) ) {
@@ -270,7 +270,7 @@ function getMoney() {
             await getMoney_dwSource_2( _key, sceneList, key );
           }
         }
-        //ÁìÈ¡³¬¼¶ÖúÁ¦²Æ¸»
+        //é¢†å–è¶…çº§åŠ©åŠ›è´¢å¯Œ
         await $.wait(500);
         await getMoney_dwSource_3( _key, sceneList );
       } catch (e) {
@@ -282,7 +282,7 @@ function getMoney() {
   });
 }
 
-//ÁìÈ¡×Ô²ú²Æ¸»
+//é¢†å–è‡ªäº§è´¢å¯Œ
 function getMoney_dwSource_1( _key, sceneList ) {
   return new Promise(async (resolve) => {
     $.get(
@@ -290,7 +290,7 @@ function getMoney_dwSource_1( _key, sceneList ) {
       async (err, resp, data) => {
         try {
           const { iRet, dwMoney, sErrMsg } = JSON.parse(data);
-          $.log(`\n¡¾${sceneList[_key].strSceneName}¡¿?µºÖ÷ : ${ sErrMsg == 'success' ? `»ñÈ¡²Æ¸»Öµ£º? ${dwMoney || 0}` : sErrMsg } \n${$.showLog ? data : ""}`);
+          $.log(`\nã€${sceneList[_key].strSceneName}ã€‘ğŸå²›ä¸» : ${ sErrMsg == 'success' ? `è·å–è´¢å¯Œå€¼ï¼šÂ¥ ${dwMoney || 0}` : sErrMsg } \n${$.showLog ? data : ""}`);
         } catch (e) {
           $.logErr(e, resp);
         } finally {
@@ -301,15 +301,15 @@ function getMoney_dwSource_1( _key, sceneList ) {
   });
 }
 
-//ÁìÈ¡ÆÕÍ¨ÖúÁ¦µÄ²Æ¸»
+//é¢†å–æ™®é€šåŠ©åŠ›çš„è´¢å¯Œ
 function getMoney_dwSource_2( _key, sceneList, key ) {
   return new Promise(async (resolve) => {
     $.get(
-      taskUrl(`user/GetMoney`, `dwSceneId=${_key}&strEmployeeId=${key}&dwSource=2`),
+      taskUrl(`user/GetMoney`, `dwSceneId=${_key}&strEmployeeId=${key}&dwSource=2`), 
       async (err, resp, data) => {
         try {
           const { dwMoney, iRet, sErrMsg, strPin } = JSON.parse(data);
-          $.log(`\n¡¾${sceneList[_key].strSceneName}¡¿?ºÃÓÑ: ${ sErrMsg == 'success' ? `»ñÈ¡ÆÕÍ¨ÖúÁ¦²Æ¸»Öµ£º? ${dwMoney || 0}` : sErrMsg } \n${$.showLog ? data : ""}`);
+          $.log(`\nã€${sceneList[_key].strSceneName}ã€‘ğŸ‘¬å¥½å‹: ${ sErrMsg == 'success' ? `è·å–æ™®é€šåŠ©åŠ›è´¢å¯Œå€¼ï¼šÂ¥ ${dwMoney || 0}` : sErrMsg } \n${$.showLog ? data : ""}`);
         } catch (e) {
           $.logErr(e, resp);
         } finally {
@@ -320,15 +320,15 @@ function getMoney_dwSource_2( _key, sceneList, key ) {
   });
 }
 
-//ÁìÈ¡³¬¼¶ÖúÁ¦²Æ¸»
+//é¢†å–è¶…çº§åŠ©åŠ›è´¢å¯Œ
 function getMoney_dwSource_3( _key, sceneList ) {
   return new Promise(async (resolve) => {
     $.get(
-      taskUrl(`user/GetMoney`,`dwSceneId=${_key}&strEmployeeId=&dwSource=3&strPgtimestamp=${$.currentToken['timestamp']}&strPhoneID=${$.currentToken['phoneid']}&strPgUUNum=${$.currentToken['farm_jstoken']}`),
+      taskUrl(`user/GetMoney`,`dwSceneId=${_key}&strEmployeeId=&dwSource=3&strPgtimestamp=${$.currentToken['timestamp']}&strPhoneID=${$.currentToken['phoneid']}&strPgUUNum=${$.currentToken['farm_jstoken']}`), 
       async (err, resp, data) => {
         try {
           const { iRet, dwMoney, sErrMsg, strPin } = JSON.parse(data);
-          $.log(`\n¡¾${sceneList[_key].strSceneName}¡¿?ºÃÓÑ: ${ sErrMsg == 'success' ? `»ñÈ¡³¬¼¶ÖúÁ¦²Æ¸»Öµ£º? ${dwMoney || 0}` : sErrMsg } \n${$.showLog ? data : ""}`);
+          $.log(`\nã€${sceneList[_key].strSceneName}ã€‘ğŸ‘¬å¥½å‹: ${ sErrMsg == 'success' ? `è·å–è¶…çº§åŠ©åŠ›è´¢å¯Œå€¼ï¼šÂ¥ ${dwMoney || 0}` : sErrMsg } \n${$.showLog ? data : ""}`);
         } catch (e) {
           $.logErr(e, resp);
         } finally {
@@ -339,19 +339,19 @@ function getMoney_dwSource_3( _key, sceneList ) {
   });
 }
 
-//ºÃÓÑÈ¦Íµ²Æ¸»
+//å¥½å‹åœˆå·è´¢å¯Œ
 function friendCircle() {
   return new Promise(async (resolve) => {
     $.get(taskUrl(`user/FriendCircle`, `dwPageIndex=1&dwPageSize=20`), async(err, resp, data) => {
       try {
-        //$.log(`\nºÃÓÑÈ¦ÁĞ±í\n${data}`);
+        //$.log(`\nå¥½å‹åœˆåˆ—è¡¨\n${data}`);
         const {MomentList = [],iRet,sErrMsg,strShareId} = JSON.parse(data);
         for (moment of MomentList) {
           if (moment.strShareId !== strShareId && moment.dwAccessMoney > 0) {
             await queryFriendIsland(moment.strShareId);
             await $.wait(500);
           }
-        }
+        }  
       } catch (e) {
         $.logErr(e, resp);
       } finally {
@@ -361,13 +361,13 @@ function friendCircle() {
   });
 }
 
-//»ñÈ¡ºÃÓÑĞÅÏ¢
+//è·å–å¥½å‹ä¿¡æ¯
 function queryFriendIsland(strShareId,){
   return new Promise(async (resolve) => {
-    $.get(taskUrl(`user/QueryFriendIsland`, `strShareId=${strShareId}&sceneval=2`),
+    $.get(taskUrl(`user/QueryFriendIsland`, `strShareId=${strShareId}&sceneval=2`), 
       async(err, resp, data) => {
         try {
-          //$.log(`\n»ñÈ¡ºÃÓÑĞÅÏ¢\n${data}`);
+          //$.log(`\nè·å–å¥½å‹ä¿¡æ¯\n${data}`);
           const {SceneList = {},dwStealMoney,sErrMsg,strFriendNick} = JSON.parse(data);
           if (sErrMsg === "success") {
             const sceneList = eval('(' + JSON.stringify(SceneList) + ')');
@@ -376,7 +376,7 @@ function queryFriendIsland(strShareId,){
               await stealMoney(strShareId,sceneId,strFriendNick,sceneList[sceneId].strSceneName);
               await $.wait(500);
             }
-          }
+          } 
         } catch (e) {
           $.logErr(e, resp);
         } finally {
@@ -386,14 +386,14 @@ function queryFriendIsland(strShareId,){
   });
 }
 
-//Íµ²Æ¸»
+//å·è´¢å¯Œ
 function stealMoney(strShareId, sceneId, strFriendNick, strSceneName){
   return new Promise(async (resolve) =>{
     $.get(taskUrl(`user/StealMoney`, `strFriendId=${strShareId}&dwSceneId=${sceneId}&sceneval=2`), async(err, resp, data) => {
       try {
         //$.log(data);
         const {dwGetMoney,iRet,sErrMsg} = JSON.parse(data);
-        $.log(`\n?ÍµÈ¡ºÃÓÑ¡¾${strFriendNick}¡¿¡¾${strSceneName}¡¿²Æ¸»Öµ£º? ${dwGetMoney ? dwGetMoney : sErrMsg}\n${$.showLog ? data: ""}`);
+        $.log(`\nğŸ¤å·å–å¥½å‹ã€${strFriendNick}ã€‘ã€${strSceneName}ã€‘è´¢å¯Œå€¼ï¼šÂ¥ ${dwGetMoney ? dwGetMoney : sErrMsg}\n${$.showLog ? data: ""}`);
       } catch (e) {
         $.logErr(e, resp);
       } finally {
@@ -403,7 +403,7 @@ function stealMoney(strShareId, sceneId, strFriendNick, strSceneName){
   });
 }
 
-//Ñ°±¦
+//å¯»å®  
 async function treasureHunt() {
   if($.info.dwXBRemainCnt > 0) {
     const xbDetail = $.info.XBDetail;
@@ -414,11 +414,11 @@ async function treasureHunt() {
         await doTreasureHunt(strIndex);
         await $.wait(3000);
       } else {
-        $.log(`\n?Ñ°±¦£º±¦²ØÀäÈ´ÖĞ£¬ÇëµÈ´ıÀäÈ´Íê±Ï`);
+        $.log(`\nğŸå¯»å®ï¼šå®è—å†·å´ä¸­ï¼Œè¯·ç­‰å¾…å†·å´å®Œæ¯•`);
       }
     }
   } else {
-    $.log(`\n?Ñ°±¦£ºÑ°±¦´ÎÊı²»×ã`);
+    $.log(`\nğŸå¯»å®ï¼šå¯»å®æ¬¡æ•°ä¸è¶³`);
   }
 }
 
@@ -430,7 +430,7 @@ function doTreasureHunt(place) {
         try {
           //$.log(data);
           const { iRet, dwExpericnce, sErrMsg } = JSON.parse(data);
-          $.log(`\n¡¾${place}¡¿?Ñ°±¦£º${sErrMsg} £¬»ñÈ¡Ëæ»ú½±Àø£º? ${dwExpericnce || 0} \n${$.showLog ? data : ""}`);
+          $.log(`\nã€${place}ã€‘ğŸå¯»å®ï¼š${sErrMsg} ï¼Œè·å–éšæœºå¥–åŠ±ï¼šÂ¥ ${dwExpericnce || 0} \n${$.showLog ? data : ""}`);
           resolve(iRet)
         } catch (e) {
           $.logErr(e, resp);
@@ -442,29 +442,29 @@ function doTreasureHunt(place) {
   });
 }
 
-//ÈÎÎñ×¬²Æ¸»
+//ä»»åŠ¡èµšè´¢å¯Œ
 function getTaskList(taskType) {
   return new Promise(async (resolve) => {
     switch (taskType){
-      case 0: //ÈÕ³£ÈÎÎñ
+      case 0: //æ—¥å¸¸ä»»åŠ¡
         $.get(taskListUrl("GetUserTaskStatusList"), async (err, resp, data) => {
           try {
             const { ret, data: { userTaskStatusList = [] } = {}, msg } = JSON.parse(data);
             $.allTask = userTaskStatusList.filter((x) => x.awardStatus !== 1);
-            $.log(`\n»ñÈ¡¡¾?ÈÕ³£ÈÎÎñ¡¿ÁĞ±í ${msg}£¬×Ü¹²${$.allTask.length}¸öÈÎÎñ£¡\n${$.showLog ? data : ""}`);
+            $.log(`\nè·å–ã€ğŸ“†æ—¥å¸¸ä»»åŠ¡ã€‘åˆ—è¡¨ ${msg}ï¼Œæ€»å…±${$.allTask.length}ä¸ªä»»åŠ¡ï¼\n${$.showLog ? data : ""}`);
           } catch (e) {
-            $.logErr(e, resp);
+            $.logErr(e, resp);  
           } finally {
             resolve();
           }
         });
         break;
-      case 1: //³É¾ÍÈÎÎñ
+      case 1: //æˆå°±ä»»åŠ¡
         $.get(taskUrl("consume/AchieveInfo"), async (err, resp, data) => {
           try{
             const { iRet, sErrMsg, taskinfo = [] } = JSON.parse(data);
             $.allTask = taskinfo.filter((x) => x.dwAwardStatus === 1);
-            $.log(`\n»ñÈ¡¡¾?³É¾ÍÈÎÎñ¡¿ÁĞ±í ${sErrMsg}£¬×Ü¹²${$.allTask.length}¸öÈÎÎñ£¡\n${$.showLog ? data : ""}`);
+            $.log(`\nè·å–ã€ğŸ–æˆå°±ä»»åŠ¡ã€‘åˆ—è¡¨ ${sErrMsg}ï¼Œæ€»å…±${$.allTask.length}ä¸ªä»»åŠ¡ï¼\n${$.showLog ? data : ""}`);
           } catch (e) {
             $.logErr(e, resp);
           } finally {
@@ -478,47 +478,47 @@ function getTaskList(taskType) {
   });
 }
 
-//ä¯ÀÀÈÎÎñ + ×öÈÎÎñ + ÁìÈ¡½±Àø
+//æµè§ˆä»»åŠ¡ + åšä»»åŠ¡ + é¢†å–å¥–åŠ±
 function browserTask(taskType) {
   return new Promise(async (resolve) => {
     switch (taskType) {
-      case 0://ÈÕ³£ÈÎÎñ
+      case 0://æ—¥å¸¸ä»»åŠ¡
         const times = Math.max(...[...$.allTask].map((x) => x.configTargetTimes));
-        for (let i = 0; i < $.allTask.length; i++) {
+        for (let i = 0; i < $.allTask.length; i++) {          
           const taskinfo = $.allTask[i];
-          $.log(`\n¿ªÊ¼µÚ${i + 1}¸ö¡¾?ÈÕ³£ÈÎÎñ¡¿£º${taskinfo.taskName}`);
+          $.log(`\nå¼€å§‹ç¬¬${i + 1}ä¸ªã€ğŸ“†æ—¥å¸¸ä»»åŠ¡ã€‘ï¼š${taskinfo.taskName}`);
           const status = [true, true];
           for (let i = 0; i < times; i++) {
             await $.wait(500);
             if (status[0]) {
-              //×öÈÎÎñ
+              //åšä»»åŠ¡
               status[0] = await doTask(taskinfo);
             }
             await $.wait(500);
             if (status[1]) {
-              //ÁìÈ¡½±Àø
+              //é¢†å–å¥–åŠ±
               status[1] = await awardTask(0, taskinfo);
             }
             if (!status[0] && !status[1]) {
               break;
             }
           }
-          $.log(`\n½áÊøµÚ${i + 1}¸ö¡¾?ÈÕ³£ÈÎÎñ¡¿£º${taskinfo.taskName}\n`);
+          $.log(`\nç»“æŸç¬¬${i + 1}ä¸ªã€ğŸ“†æ—¥å¸¸ä»»åŠ¡ã€‘ï¼š${taskinfo.taskName}\n`);
         }
         break;
-      case 1://³É¾ÍÈÎÎñ
+      case 1://æˆå°±ä»»åŠ¡
         for (let i = 0; i < $.allTask.length; i++) {
           const taskinfo = $.allTask[i];
-          $.log(`\n¿ªÊ¼µÚ${i + 1}¸ö¡¾?³É¾ÍÈÎÎñ¡¿£º${taskinfo.strTaskDescr}`);
+          $.log(`\nå¼€å§‹ç¬¬${i + 1}ä¸ªã€ğŸ–æˆå°±ä»»åŠ¡ã€‘ï¼š${taskinfo.strTaskDescr}`);
           if(taskinfo.dwAwardStatus === "0"){
-            $.log(`\n${taskinfo.strTaskDescr}¡¾Áì³É¾Í½±Àø¡¿£º¸Ã³É¾ÍÈÎÎñÎ´´ïµ½ÃÅ¼÷}`);
+            $.log(`\n${taskinfo.strTaskDescr}ã€é¢†æˆå°±å¥–åŠ±ã€‘ï¼šè¯¥æˆå°±ä»»åŠ¡æœªè¾¾åˆ°é—¨æ§›}`);
           } else {
             await $.wait(500);
-            //Áì½±Àø
+            //é¢†å¥–åŠ±
             await awardTask(1, taskinfo);
           }
-          $.log(`\n½áÊøµÚ${i + 1}¸ö¡¾?³É¾ÍÈÎÎñ¡¿£º${taskinfo.strTaskDescr}\n`);
-        }
+          $.log(`\nç»“æŸç¬¬${i + 1}ä¸ªã€ğŸ–æˆå°±ä»»åŠ¡ã€‘ï¼š${taskinfo.strTaskDescr}\n`);
+        }        
         break;
       default:
         break;
@@ -527,20 +527,20 @@ function browserTask(taskType) {
   });
 }
 
-//×öÈÎÎñ
+//åšä»»åŠ¡
 function doTask(taskinfo) {
   return new Promise(async (resolve) => {
     const { taskId, completedTimes, configTargetTimes, taskName } = taskinfo;
     if (parseInt(completedTimes) >= parseInt(configTargetTimes)) {
       resolve(false);
-      $.log(`\n${taskName}¡¾×öÈÕ³£ÈÎÎñ¡¿£º mission success`);
+      $.log(`\n${taskName}ã€åšæ—¥å¸¸ä»»åŠ¡ã€‘ï¼š mission success`);
       return;
     }
     $.get(taskListUrl(`DoTask`, `taskId=${taskId}`), (err, resp, data) => {
       try {
         //$.log(`taskId:${taskId},data:${data}`);
         const { msg, ret } = JSON.parse(data);
-        $.log(`\n${taskName}¡¾×öÈÕ³£ÈÎÎñ¡¿£º${msg.indexOf("»î¶¯Ì«»ğ±¬ÁË") !== -1 ? "ÈÎÎñ½øĞĞÖĞ»òÕßÎ´µ½ÈÎÎñÊ±¼ä" : msg }\n${$.showLog ? data : ""}`);
+        $.log(`\n${taskName}ã€åšæ—¥å¸¸ä»»åŠ¡ã€‘ï¼š${msg.indexOf("æ´»åŠ¨å¤ªç«çˆ†äº†") !== -1 ? "ä»»åŠ¡è¿›è¡Œä¸­æˆ–è€…æœªåˆ°ä»»åŠ¡æ—¶é—´" : msg }\n${$.showLog ? data : ""}`);
         resolve(ret === 0);
       } catch (e) {
         $.logErr(e, resp);
@@ -551,22 +551,22 @@ function doTask(taskinfo) {
   });
 }
 
-//ÁìÈ¡½±Àø
+//é¢†å–å¥–åŠ±
 function awardTask( taskType, taskinfo) {
   return new Promise((resolve) => {
     switch (taskType) {
-      case 0://ÈÕ³£ÈÎÎñ
+      case 0://æ—¥å¸¸ä»»åŠ¡
         const { taskId, taskName } = taskinfo;
         $.get(taskListUrl(`Award`, `taskId=${taskId}`), (err, resp, data) => {
           try {
             const { msg, ret, data: { prizeInfo = '' } = {} } = JSON.parse(data);
             let str = '';
-            if (msg.indexOf('»î¶¯Ì«»ğ±¬ÁË') !== -1) {
-              str = 'ÈÎÎñÎª³É¾ÍÈÎÎñ»òÕßÎ´µ½ÈÎÎñÊ±¼ä';
+            if (msg.indexOf('æ´»åŠ¨å¤ªç«çˆ†äº†') !== -1) {
+              str = 'ä»»åŠ¡ä¸ºæˆå°±ä»»åŠ¡æˆ–è€…æœªåˆ°ä»»åŠ¡æ—¶é—´';
             } else {
-              str = msg + prizeInfo ? ` »ñµÃ²Æ¸»Öµ ? ${JSON.parse(prizeInfo).ddwMoney}` : '';
+              str = msg + prizeInfo ? ` è·å¾—è´¢å¯Œå€¼ Â¥ ${JSON.parse(prizeInfo).ddwMoney}` : '';
             }
-            $.log(`\n${taskName}¡¾ÁìÈÕ³£½±Àø¡¿£º${str}\n${$.showLog ? data : ''}`);
+            $.log(`\n${taskName}ã€é¢†æ—¥å¸¸å¥–åŠ±ã€‘ï¼š${str}\n${$.showLog ? data : ''}`);
             resolve(ret === 0);
           } catch (e) {
             $.logErr(e, resp);
@@ -575,12 +575,12 @@ function awardTask( taskType, taskinfo) {
           }
         });
         break
-      case 1://³É¾Í½±Àø
+      case 1://æˆå°±å¥–åŠ±
         const { strTaskIndex, strTaskDescr } = taskinfo;
         $.get(taskUrl(`consume/AchieveAward`, `strTaskIndex=${strTaskIndex}`), (err, resp, data) => {
           try {
             const { iRet, sErrMsg, dwExpericnce } = JSON.parse(data);
-            $.log(`\n${strTaskDescr}¡¾Áì³É¾Í½±Àø¡¿£º success »ñµÃ²Æ¸»Öµ£º? ${dwExpericnce}\n${ $.showLog ? data : '' }`);
+            $.log(`\n${strTaskDescr}ã€é¢†æˆå°±å¥–åŠ±ã€‘ï¼š success è·å¾—è´¢å¯Œå€¼ï¼šÂ¥ ${dwExpericnce}\n${ $.showLog ? data : '' }`);
           } catch (e) {
             $.logErr(e, resp);
           } finally {
@@ -594,7 +594,7 @@ function awardTask( taskType, taskinfo) {
   });
 }
 
-//ÓéÀÖÖĞĞÄ
+//å¨±ä¹ä¸­å¿ƒ
 function funCenterState() {
   return new Promise(resolve => {
     $.get(taskUrl(`consume/FunCenterState`, `strType=1`), async(err, resp, data) => {
@@ -613,13 +613,13 @@ function funCenterState() {
   });
 }
 
-//³é½±»ú
+//æŠ½å¥–æœº
 function soltMachine(strCouponPool,strGoodsPool,ddwConfVersion) {
   return new Promise(resolve => {
     $.get(taskUrl(`consume/SlotMachine`,`strCouponPool=${strCouponPool}&strGoodsPool=${strGoodsPool}&ddwConfVersion=${ddwConfVersion}`), async(err, resp, data) => {
       try {
         const { iRet, sErrMsg, strAwardPoolName } = JSON.parse(data);
-        $.log(`\n¡¾³é½±½á¹û¡¿? ${strAwardPoolName != "" ? "Î´ÖĞ½±" : strAwardPoolName} \n${ $.showLog ? data : '' }`);
+        $.log(`\nã€æŠ½å¥–ç»“æœã€‘ğŸ° ${strAwardPoolName != "" ? "æœªä¸­å¥–" : strAwardPoolName} \n${ $.showLog ? data : '' }`);
       } catch (e) {
         $.logErr(e, resp);
       } finally {
@@ -629,14 +629,14 @@ function soltMachine(strCouponPool,strGoodsPool,ddwConfVersion) {
   });
 }
 
-//Ìá½»»¥ÖúÂë
+//æäº¤äº’åŠ©ç 
 function submitInviteId(userName) {
   return new Promise(resolve => {
     if (!$.info || !$.info.strMyShareId) {
       resolve();
       return;
     }
-    $.log('\n¡¾?µºÖ÷¡¿ÄãµÄ»¥ÖúÂë: ' + $.info.strMyShareId);
+    $.log('\nã€ğŸ–å²›ä¸»ã€‘ä½ çš„äº’åŠ©ç : ' + $.info.strMyShareId);
     $.post(
       {
         url: `https://api.ninesix.cc/api/jx-cfd/${$.info.strMyShareId}/${encodeURIComponent(userName)}`,
@@ -644,9 +644,9 @@ function submitInviteId(userName) {
       async (err, resp, _data) => {
         try {
           const { data = {}, code } = JSON.parse(_data);
-          $.log(`\n¡¾?µºÖ÷¡¿ÑûÇëÂëÌá½»£º${code}\n${$.showLog ? _data : ''}`);
+          $.log(`\nã€ğŸ–å²›ä¸»ã€‘é‚€è¯·ç æäº¤ï¼š${code}\n${$.showLog ? _data : ''}`);
           if (data.value) {
-            $.result.push('¡¾?µºÖ÷¡¿ÑûÇëÂëÌá½»³É¹¦£¡');
+            $.result.push('ã€ğŸ–å²›ä¸»ã€‘é‚€è¯·ç æäº¤æˆåŠŸï¼');
           }
         } catch (e) {
           $.logErr(e, resp);
@@ -658,7 +658,7 @@ function submitInviteId(userName) {
   });
 }
 
-//Ëæ»ú³¬¼¶ÖúÁ¦ºÃÓÑ
+//éšæœºè¶…çº§åŠ©åŠ›å¥½å‹
 function createSuperAssistUser() {
   return new Promise(resolve => {
     const sceneIds = Object.keys($.info.SceneList);
@@ -666,11 +666,11 @@ function createSuperAssistUser() {
     $.get({ url: 'https://api.ninesix.cc/api/jx-cfd' }, async (err, resp, _data) => {
       try {
         const { data = {} } = JSON.parse(_data);
-        $.log(`\n¡¾??³¬¼¶ÖúÁ¦¡¿³¬¼¶ÖúÁ¦Âë£º${data.value}\n${$.showLog ? _data : ''}`);
+        $.log(`\nã€ğŸ‘«ğŸ»è¶…çº§åŠ©åŠ›ã€‘è¶…çº§åŠ©åŠ›ç ï¼š${data.value}\n${$.showLog ? _data : ''}`);
         $.get(taskUrl('user/JoinScene', `strPgtimestamp=${$.currentToken['timestamp']}&strPhoneID=${$.currentToken['phoneid']}&strPgUUNum=${$.currentToken['farm_jstoken']}&strShareId=${escape(data.value)}&dwSceneId=${sceneId}&dwType=2`), async (err, resp, data) => {
           try {
             const { sErrMsg, data: { rewardMoney = 0 } = {} } = JSON.parse(data);
-            $.log(`\n¡¾??³¬¼¶ÖúÁ¦¡¿³¬¼¶ÖúÁ¦£º${sErrMsg}\n${$.showLog ? data : ''}`);
+            $.log(`\nã€ğŸ‘«ğŸ»è¶…çº§åŠ©åŠ›ã€‘è¶…çº§åŠ©åŠ›ï¼š${sErrMsg}\n${$.showLog ? data : ''}`);
           } catch (e) {
             $.logErr(e, resp);
           } finally {
@@ -686,7 +686,7 @@ function createSuperAssistUser() {
   });
 }
 
-//Ëæ»úÖúÁ¦ºÃÓÑ
+//éšæœºåŠ©åŠ›å¥½å‹
 function createAssistUser() {
   return new Promise(resolve => {
     const sceneIds = Object.keys($.info.SceneList);
@@ -694,11 +694,11 @@ function createAssistUser() {
     $.get({ url: 'https://api.ninesix.cc/api/jx-cfd' }, async (err, resp, _data) => {
       try {
         const { data = {} } = JSON.parse(_data);
-        $.log(`\n¡¾?ÆÕÍ¨ÖúÁ¦¡¿ÆÕÍ¨ÖúÁ¦Âë£º${data.value}\n${$.showLog ? _data : ''}`);
+        $.log(`\nã€ğŸ‘¬æ™®é€šåŠ©åŠ›ã€‘æ™®é€šåŠ©åŠ›ç ï¼š${data.value}\n${$.showLog ? _data : ''}`);
         $.get(taskUrl('user/JoinScene', `strShareId=${escape(data.value)}&dwSceneId=${sceneId}`), async (err, resp, data) => {
           try {
             const { sErrMsg, data: { rewardMoney = 0 } = {} } = JSON.parse(data);
-            $.log(`\n¡¾?ÆÕÍ¨ÖúÁ¦¡¿ÖúÁ¦£º${sErrMsg}\n${$.showLog ? data : ''}`);
+            $.log(`\nã€ğŸ‘¬æ™®é€šåŠ©åŠ›ã€‘åŠ©åŠ›ï¼š${sErrMsg}\n${$.showLog ? data : ''}`);
           } catch (e) {
             $.logErr(e, resp);
           } finally {
@@ -714,7 +714,7 @@ function createAssistUser() {
   });
 }
 
-//Ìá½»»¥ÖúÂë
+//æäº¤äº’åŠ©ç 
 function submitGroupId() {
   return new Promise(resolve => {
     $.get(taskUrl(`user/GatherForture`), async (err, resp, g_data) => {
@@ -729,15 +729,15 @@ function submitGroupId() {
             return;
           }
         } else {
-          $.log('ÄãµÄ¡¾?Ñ°±¦´ó×÷Õ½¡¿»¥ÖúÂë: ' + strGroupId);
+          $.log('ä½ çš„ã€ğŸå¯»å®å¤§ä½œæˆ˜ã€‘äº’åŠ©ç : ' + strGroupId);
           $.post(
             {url: `https://api.ninesix.cc/api/jx-cfd-group/${strGroupId}/${encodeURIComponent(strPin)}`},
             async (err, resp, _data) => {
               try {
                 const { data = {}, code } = JSON.parse(_data);
-                $.log(`\n¡¾?Ñ°±¦´ó×÷Õ½¡¿ÑûÇëÂëÌá½»£º${code}\n${$.showLog ? _data : ''}`);
+                $.log(`\nã€ğŸå¯»å®å¤§ä½œæˆ˜ã€‘é‚€è¯·ç æäº¤ï¼š${code}\n${$.showLog ? _data : ''}`);
                 if (data.value) {
-                  $.result.push('¡¾?Ñ°±¦´ó×÷Õ½¡¿ÑûÇëÂëÌá½»³É¹¦£¡');
+                  $.result.push('ã€ğŸå¯»å®å¤§ä½œæˆ˜ã€‘é‚€è¯·ç æäº¤æˆåŠŸï¼');
                 }
               } catch (e) {
                 $.logErr(e, resp);
@@ -756,13 +756,13 @@ function submitGroupId() {
   });
 }
 
-//¿ªÆôÑ°±¦´ó×÷Õ½
+//å¼€å¯å¯»å®å¤§ä½œæˆ˜
 function openGroup() {
   return new Promise( async (resolve) => {
     $.get(taskUrl(`user/OpenGroup`, `dwIsNewUser=${$.info.dwIsNewUser}`), async (err, resp, data) => {
       try {
         const { sErrMsg } = JSON.parse(data);
-        $.log(`\n¡¾?Ñ°±¦´ó×÷Õ½¡¿${sErrMsg}\n${$.showLog ? data : ''}`);
+        $.log(`\nã€ğŸå¯»å®å¤§ä½œæˆ˜ã€‘${sErrMsg}\n${$.showLog ? data : ''}`);
         resolve(0);
       } catch (e) {
         $.logErr(e, resp);
@@ -773,17 +773,17 @@ function openGroup() {
   });
 }
 
-//ÖúÁ¦ºÃÓÑÑ°±¦´ó×÷Õ½
+//åŠ©åŠ›å¥½å‹å¯»å®å¤§ä½œæˆ˜
 function joinGroup() {
   return new Promise( async (resolve) => {
     $.get({ url: 'https://api.ninesix.cc/api/jx-cfd-group' }, (err, resp, _data) => {
       try {
         const { data = {} } = JSON.parse(_data);
-        $.log(`\n¡¾?Ñ°±¦´ó×÷Õ½¡¿Ëæ»úÖúÁ¦Âë£º${data.value}\n${$.showLog ? _data : ''}`);
+        $.log(`\nã€ğŸå¯»å®å¤§ä½œæˆ˜ã€‘éšæœºåŠ©åŠ›ç ï¼š${data.value}\n${$.showLog ? _data : ''}`);
         $.get(taskUrl(`user/JoinGroup`, `strGroupId=${data.value}&dwIsNewUser=${$.info.dwIsNewUser}&pgtimestamp=${$.currentToken['timestamp']}&phoneID=${$.currentToken['phoneid']}&pgUUNum=${$.currentToken['farm_jstoken']}`), (err, resp, data) => {
           try {
             const { sErrMsg } = JSON.parse(data);
-            $.log(`\n¡¾?Ñ°±¦´ó×÷Õ½¡¿ÖúÁ¦£º${sErrMsg}\n${$.showLog ? data : ''}`);
+            $.log(`\nã€ğŸå¯»å®å¤§ä½œæˆ˜ã€‘åŠ©åŠ›ï¼š${sErrMsg}\n${$.showLog ? data : ''}`);
           } catch (e) {
             $.logErr(e, resp);
           } finally {
@@ -799,21 +799,21 @@ function joinGroup() {
   });
 }
 
-//Ñ°±¦´ó×÷Õ½¿ª±¦Ïä
+//å¯»å®å¤§ä½œæˆ˜å¼€å®ç®±
 function openPeriodBox() {
-  return new Promise( async (resolve) => {
+  return new Promise( async (resolve) => { 
     $.get(taskUrl(`user/GatherForture`), async (err, resp, data) => {
       try {
         const { PeriodBox = [{}] } = JSON.parse(data);
         for (var i = 0; i < PeriodBox.length ; i++) {
           const { dwStatus, dwSeq, strBrandName } = PeriodBox[i];
-          //1:Î´´ïÌõ¼ş 2:¿É¿ªÆô 3:ÒÑ¿ªÆô
+          //1:æœªè¾¾æ¡ä»¶ 2:å¯å¼€å¯ 3:å·²å¼€å¯
           if (dwStatus == 2) {
             await $.wait(1000);
             await $.get(taskUrl(`user/OpenPeriodBox`, `dwSeq=${dwSeq}`), async (err, resp, data) => {
               try {
                 const { dwMoney, iRet, sErrMsg } = JSON.parse(data)
-                $.log(`\n¡¾?Ñ°±¦´ó×÷Õ½¡¿¡¾${strBrandName}¡¿¿ª±¦Ïä£º${sErrMsg == 'success' ? ` »ñµÃ²Æ¸»Öµ ? ${dwMoney}` : sErrMsg }\n${$.showLog ? data : ''}`);
+                $.log(`\nã€ğŸå¯»å®å¤§ä½œæˆ˜ã€‘ã€${strBrandName}ã€‘å¼€å®ç®±ï¼š${sErrMsg == 'success' ? ` è·å¾—è´¢å¯Œå€¼ Â¥ ${dwMoney}` : sErrMsg }\n${$.showLog ? data : ''}`);
               } catch (e) {
                 $.logErr(e, resp);
               } finally {
@@ -821,16 +821,16 @@ function openPeriodBox() {
               }
             });
           } else if (dwStatus == 3) {
-            $.log(`\n¡¾?Ñ°±¦´ó×÷Õ½¡¿¡¾${strBrandName}¡¿¿ª±¦Ïä£º±¦ÏäÒÑ¿ªÆô¹ı£¡`);
+            $.log(`\nã€ğŸå¯»å®å¤§ä½œæˆ˜ã€‘ã€${strBrandName}ã€‘å¼€å®ç®±ï¼šå®ç®±å·²å¼€å¯è¿‡ï¼`);
           } else {
-            $.log(`\n¡¾?Ñ°±¦´ó×÷Õ½¡¿¡¾${strBrandName}¡¿¿ª±¦Ïä£ºÎ´´ïµ½±¦Ïä¿ªÆôÌõ¼ş£¬¿ìÈ¥ÑûÇëºÃÓÑÖúÁ¦°É£¡`);
+            $.log(`\nã€ğŸå¯»å®å¤§ä½œæˆ˜ã€‘ã€${strBrandName}ã€‘å¼€å®ç®±ï¼šæœªè¾¾åˆ°å®ç®±å¼€å¯æ¡ä»¶ï¼Œå¿«å»é‚€è¯·å¥½å‹åŠ©åŠ›å§ï¼`);
             resolve();
           }
         }
       } catch (e) {
         $.logErr(e, resp);
       } finally {
-        resolve();
+        resolve(); 
       }
     });
   });
@@ -845,7 +845,7 @@ function getCookies() {
   if (!$.cookieArr[0]) {
     $.msg(
       $.name,
-      "¡¾?ÌáÊ¾¡¿ÇëÏÈ»ñÈ¡¾©¶«ÕËºÅÒ»cookie\nÖ±½ÓÊ¹ÓÃNobyDaµÄ¾©¶«Ç©µ½»ñÈ¡",
+      "ã€â°æç¤ºã€‘è¯·å…ˆè·å–äº¬ä¸œè´¦å·ä¸€cookie\nç›´æ¥ä½¿ç”¨NobyDaçš„äº¬ä¸œç­¾åˆ°è·å–",
       "https://bean.m.jd.com/",
       { "open-url": "https://bean.m.jd.com/", }
     );
@@ -865,7 +865,7 @@ function getTokens() {
   if (!$.tokenArr[0]) {
     $.msg(
       $.name,
-      "¡¾?ÌáÊ¾¡¿ÇëÏÈ»ñÈ¡¾©Ï²Token\n»ñÈ¡·½Ê½¼û½Å±¾ËµÃ÷"
+      "ã€â°æç¤ºã€‘è¯·å…ˆè·å–äº¬å–œToken\nè·å–æ–¹å¼è§è„šæœ¬è¯´æ˜"
     );
     return false;
   }
@@ -917,10 +917,10 @@ function showMsg() {
     } else {
       $.msg($.name, "", `\n${$.result.join("\n")}`);
     }
-
+    
     if ($.isNode() && process.env.CFD_NOTIFY_CONTROL)
-      await notify.sendNotify(`${$.name} - ÕËºÅ${$.index} - ${$.nickName}`, `ÕËºÅ${$.index}£º${$.nickName || $.userName}\n${$.result.join("\n")}`);
-
+      await notify.sendNotify(`${$.name} - è´¦å·${$.index} - ${$.nickName}`, `è´¦å·${$.index}ï¼š${$.nickName || $.userName}\n${$.result.join("\n")}`);
+      
     resolve();
   });
 }
