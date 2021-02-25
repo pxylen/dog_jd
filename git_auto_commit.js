@@ -1,4 +1,4 @@
-//git目录下新建index.js
+//git目录下新建 update.js
 const child_process = require("child_process");
 //定义一个执行cmd的函数
 const execCMD = function(cmd){
