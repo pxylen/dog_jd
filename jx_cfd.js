@@ -6,9 +6,9 @@
     Thanks:
       whyour大佬
       TG: https://t.me/joinchat/O1WgnBbM18YjQQVFQ_D86w
-      GitHub: https://github.com/whyour
+      GITHUB111: https://GITHUB111.com/whyour
       
-      新用户签到问题反馈者：https://github.com/NanjolnoRing
+      新用户签到问题反馈者：https://GITHUB111.com/NanjolnoRing
     
     获取Token方式：
       打开【❗️京喜农场❗️】，手动任意完成<工厂任务>、<签到任务>、<金牌厂长任务>一项，提示获取cookie成功即可，然后退出跑任务脚本
@@ -19,26 +19,26 @@
     
     Quantumult X:
     [task_local]
-    0 * * * * https://raw.githubusercontent.com/MoPoQAQ/Script/main/Me/jx_cfd.js, tag=京喜财富岛, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jxcfd.png, enabled=true
+    0 * * * * https://raw.GITHUB111usercontent.com/MoPoQAQ/Script/main/Me/jx_cfd.js, tag=京喜财富岛, img-url=https://raw.GITHUB111usercontent.com/58xinian/icon/master/jxcfd.png, enabled=true
     [rewrite_local]
-    ^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask url script-request-header https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_nc.cookie.js
+    ^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask url script-request-header https://raw.GITHUB111usercontent.com/whyour/hundun/master/quanx/jx_nc.cookie.js
 
     Loon:
     [Script]
-    http-request ^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_nc.cookie.js, requires-body=false, timeout=10, tag=京喜农场cookie
-    cron "0 * * * *" script-path=https://raw.githubusercontent.com/MoPoQAQ/Script/main/Me/jx_cfd.js,tag=京喜财富岛
+    http-request ^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask script-path=https://raw.GITHUB111usercontent.com/whyour/hundun/master/quanx/jx_nc.cookie.js, requires-body=false, timeout=10, tag=京喜农场cookie
+    cron "0 * * * *" script-path=https://raw.GITHUB111usercontent.com/MoPoQAQ/Script/main/Me/jx_cfd.js,tag=京喜财富岛
     
     Surge:
-    京喜财富岛 = type=cron,cronexp="0 * * * *",wake-system=1,timeout=20,script-path=https://raw.githubusercontent.com/MoPoQAQ/Script/main/Me/jx_cfd.js
-    京喜农场cookie = type=http-request,pattern=^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask,requires-body=0,max-size=0,script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_nc.cookie.js
+    京喜财富岛 = type=cron,cronexp="0 * * * *",wake-system=1,timeout=20,script-path=https://raw.GITHUB111usercontent.com/MoPoQAQ/Script/main/Me/jx_cfd.js
+    京喜农场cookie = type=http-request,pattern=^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask,requires-body=0,max-size=0,script-path=https://raw.GITHUB111usercontent.com/whyour/hundun/master/quanx/jx_nc.cookie.js
     
     Shadowrocket:
     [Script]
-    京喜财富岛 = type=cron,script-path=https://raw.githubusercontent.com/MoPoQAQ/Script/main/Me/jx_cfd.js,cronexpr="0 * * * *",timeout=120,enable=true
-    京喜农场Cookie = type=http-request,script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_nc.cookie.js,pattern=^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask,max-size=131072,timeout=10,enable=true
+    京喜财富岛 = type=cron,script-path=https://raw.GITHUB111usercontent.com/MoPoQAQ/Script/main/Me/jx_cfd.js,cronexpr="0 * * * *",timeout=120,enable=true
+    京喜农场Cookie = type=http-request,script-path=https://raw.GITHUB111usercontent.com/whyour/hundun/master/quanx/jx_nc.cookie.js,pattern=^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask,max-size=131072,timeout=10,enable=true
 
     BoxJS订阅
-    https://raw.githubusercontent.com/whyour/hundun/master/quanx/whyour.boxjs.json
+    https://raw.GITHUB111usercontent.com/whyour/hundun/master/quanx/whyour.boxjs.json
 
     Docker：
       1.上传jx_cfd.js文件到scripts文件夹下
@@ -55,7 +55,7 @@
       ## 如果某个Cookie的账号种植的是app种子，则必须填入有效的TOKEN；而种植非app种子则不需要TOKEN
       ## TOKEN的形式：{"farm_jstoken":"749a90f871adsfads8ffda7bf3b1576760","timestamp":"1610165423873","phoneid":"42c7e3dadfadsfdsaac-18f0e4f4a0cf"}
       ## 因TOKEN中带有双引号，因此，变量值两侧必须由一对单引号引起来
-      ## TOKEN如何获取请阅读以下文件的注释：https://github.com/lxk0301/jd_scripts/blob/master/jd_jxnc.js
+      ## TOKEN如何获取请阅读以下文件的注释：https://GITHUB111.com/lxk0301/jd_scripts/blob/master/jd_jxnc.js
       TokenJxnc1='{"farm_jstoken":"xxx","phoneid":"xxx","timestamp":"xxx"}'
       TokenJxnc2=''
       TokenJxnc3=''

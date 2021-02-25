@@ -48,7 +48,7 @@ const sleep = ms => new Promise(res => setTimeout(res, ms));
       }
 
       console.log(`创建函数`);
-      let inputYML = ".GIT_HUB/workflows/deploy_tencent_scf.yml";
+      let inputYML = ".GITHUB111/workflows/deploy_tencent_scf.yml";
       let obj = yaml.load(fs.readFileSync(inputYML, { encoding: "utf-8" }));
       params = {
         Code: {
@@ -91,7 +91,7 @@ const sleep = ms => new Promise(res => setTimeout(res, ms));
 
   /* console.log(`更新环境变量`);
   // 更新环境变量
-  let inputYML = ".GIT_HUB/workflows/deploy_tencent_scf.yml";
+  let inputYML = ".GITHUB111/workflows/deploy_tencent_scf.yml";
   let obj = yaml.load(fs.readFileSync(inputYML, { encoding: "utf-8" }));
   let vars = [];
   for (let key in obj.jobs.build.steps[3].env) {
@@ -171,11 +171,11 @@ const sleep = ms => new Promise(res => setTimeout(res, ms));
 })()
   .catch(e => console.log(e))
   .finally(async () => {
-    // 当环境为GIT_HUB action时创建action.js文件判断部署是否进行失败通知
-    if (process.env.GIT_HUB_ACTIONS == "true") {
+    // 当环境为GITHUB111 action时创建action.js文件判断部署是否进行失败通知
+    if (process.env.GITHUB111_ACTIONS == "true") {
       fs.writeFile(
         "action.js",
-        `var action = ` + process.env.action + `;action > 0 ? require("./sendNotify").sendNotify("云函数部署异常！请重试","点击通知，登入后查看详情",{ url: process.env.GIT_HUB_SERVER_URL + "/" + process.env.GIT_HUB_REPOSITORY + "/actions/runs/" + process.env.GIT_HUB_RUN_ID + "?check_suite_focus=true" }): ""`,
+        `var action = ` + process.env.action + `;action > 0 ? require("./sendNotify").sendNotify("云函数部署异常！请重试","点击通知，登入后查看详情",{ url: process.env.GITHUB111_SERVER_URL + "/" + process.env.GITHUB111_REPOSITORY + "/actions/runs/" + process.env.GITHUB111_RUN_ID + "?check_suite_focus=true" }): ""`,
         "utf8",
         function (error) {
           if (error) {

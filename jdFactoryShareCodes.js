@@ -7,7 +7,7 @@
 // 同一个京东账号的好友互助码用@符号隔开,不同京东账号之间用&符号或者换行隔开,下面给一个示例
 // 如: 京东账号1的shareCode1@京东账号1的shareCode2&京东账号2的shareCode1@京东账号2的shareCode2
 let shareCodes = [
-  'T020vf1wQxse913KJxz3kPMMCjVWnYaS5kRrbA@T0225KkcRB4b9QfRdkylnPQKcACjVWnYaS5kRrbA@T0225KkcRU8Y_QXXJk7ylaEIdwCjVWnYaS5kRrbA',//账号一的好友shareCode,不同好友中间用@符号隔开
+  '',//账号一的好友shareCode,不同好友中间用@符号隔开
   '',//账号二的好友shareCode，不同好友中间用@符号隔开
 ]
 
@@ -17,7 +17,7 @@ if (logShareCodes.DDFACTORY_SHARECODES.length > 0 && !process.env.DDFACTORY_SHAR
   process.env.DDFACTORY_SHARECODES = logShareCodes.DDFACTORY_SHARECODES.join('&');
 }
 
-// 判断GIT_HUB action里面是否有东东工厂互助码
+// 判断GITHUB111 action里面是否有东东工厂互助码
 if (process.env.DDFACTORY_SHARECODES) {
   if (process.env.DDFACTORY_SHARECODES.indexOf('&') > -1) {
     console.log(`您的互助码选择的是用&隔开\n`)

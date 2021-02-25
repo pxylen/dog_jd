@@ -7,8 +7,8 @@
 // 同一个京东账号的好友互助码用@符号隔开,不同京东账号之间用&符号或者换行隔开,下面给一个示例
 // 如: 京东账号1的shareCode1@京东账号1的shareCode2&京东账号2的shareCode1@京东账号2的shareCode2
 let PetShareCodes = [
-  'MTAxODcxOTI2NTAwMDAwMDAxNTY0MTE3NQ==@MTAxODc2NTEzOTAwMDAwMDAwMDUzOTM2Nw==@MTE1NDQ5OTUwMDAwMDAwNDM4NjE3MzM=',//账号一的好友shareCode,不同好友中间用@符号隔开
-  '',//账号二的好友shareCode，不同好友中间用@符号隔开
+  'MTAxODc2NTEzNTAwMDAwMDAwMjg3MDg2MA==@MTAxODc2NTEzMzAwMDAwMDAyNzUwMDA4MQ==@MTAxODc2NTEzMjAwMDAwMDAzMDI3MTMyOQ==@MTAxODc2NTEzNDAwMDAwMDAzMDI2MDI4MQ==',//账号一的好友shareCode,不同好友中间用@符号隔开
+  'MTAxODc2NTEzMjAwMDAwMDAzMDI3MTMyOQ==@MTAxODcxOTI2NTAwMDAwMDAyNjA4ODQyMQ==@MTAxODc2NTEzOTAwMDAwMDAyNzE2MDY2NQ==',//账号二的好友shareCode，不同好友中间用@符号隔开
 ]
 
 // 从日志获取互助码
@@ -17,7 +17,7 @@ if (logShareCodes.PETSHARECODES.length > 0 && !process.env.PETSHARECODES) {
   process.env.PETSHARECODES = logShareCodes.PETSHARECODES.join('&');
 }
 
-// 判断GIT_HUB action里面是否有东东萌宠互助码
+// 判断GITHUB111 action里面是否有东东萌宠互助码
 if (process.env.PETSHARECODES) {
   if (process.env.PETSHARECODES.indexOf('&') > -1) {
     console.log(`您的东东萌宠互助码选择的是用&隔开\n`)
