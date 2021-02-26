@@ -1,27 +1,27 @@
 /*
-京喜农场 Tokens
-此文件为Node.js专用。其他用户请忽略
-支持京东N个账号
+浜枩鍐滃満 Tokens
+姝ゆ枃浠朵负Node.js涓撶敤銆傚叾浠栫敤鎴疯蹇界暐
+鏀寔浜笢N涓处鍙�
  */
-// 每个账号 token 是一个 json，示例如下
+// 姣忎釜璐﹀彿 token 鏄竴涓� json锛岀ず渚嬪涓�
 // {"farm_jstoken":"749a90f871adsfads8ffda7bf3b1576760","timestamp":"1610165423873","phoneid":"42c7e3dadfadsfdsaac-18f0e4f4a0cf"}
 let JxncTokens = [
-  '',//账号一的京喜农场token
-  '',//账号二的京喜农场token
+  '',//璐﹀彿涓�鐨勪含鍠滃啘鍦簍oken
+  '',//璐﹀彿浜岀殑浜枩鍐滃満token
 ]
-// 判断github action里面是否有京喜农场 token 
+// 鍒ゆ柇github action閲岄潰鏄惁鏈変含鍠滃啘鍦� token 
 if (process.env.JXNCTOKENS) {
   if (process.env.JXNCTOKENS.indexOf('&') > -1) {
-    console.log(`您的京喜农场 token 选择的是用&隔开\n`)
+    console.log(`鎮ㄧ殑浜枩鍐滃満 token 閫夋嫨鐨勬槸鐢�&闅斿紑\n`)
     JxncTokens = process.env.JXNCTOKENS.split('&');
   } else if (process.env.JXNCTOKENS.indexOf('\n') > -1) {
-    console.log(`您的京喜农场 token 选择的是用换行隔开\n`)
+    console.log(`鎮ㄧ殑浜枩鍐滃満 token 閫夋嫨鐨勬槸鐢ㄦ崲琛岄殧寮�\n`)
     JxncTokens = process.env.JXNCTOKENS.split('\n');
   } else {
     JxncTokens = process.env.JXNCTOKENS.split();
   }
 } else if (process.env.JD_COOKIE) {
-  console.log(`由于您环境变量里面未提供 tokens，当种植 APP 种子时，将不能正常进行任务，请提供 token 或 种植非 APP 种子！`)
+  console.log(`鐢变簬鎮ㄧ幆澧冨彉閲忛噷闈㈡湭鎻愪緵 tokens锛屽綋绉嶆 APP 绉嶅瓙鏃讹紝灏嗕笉鑳芥甯歌繘琛屼换鍔★紝璇锋彁渚� token 鎴� 绉嶆闈� APP 绉嶅瓙锛乣)
 }
 for (let i = 0; i < JxncTokens.length; i++) {
   const index = (i + 1 === 1) ? '' : (i + 1);

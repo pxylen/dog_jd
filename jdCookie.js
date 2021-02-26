@@ -1,33 +1,33 @@
 /*
-此文件为Node.js专用。其他用户请忽略
+姝ゆ枃浠朵负Node.js涓撶敤銆傚叾浠栫敤鎴疯蹇界暐
  */
-//此处填写京东账号cookie。
+//姝ゅ濉啓浜笢璐﹀彿cookie銆�
 let CookieJDs = [
-  '',//账号一ck,例:pt_key=XXX;pt_pin=XXX;
-  '',//账号二ck,例:pt_key=XXX;pt_pin=XXX;如有更多,依次类推
+  '',//璐﹀彿涓�ck,渚�:pt_key=XXX;pt_pin=XXX;
+  '',//璐﹀彿浜宑k,渚�:pt_key=XXX;pt_pin=XXX;濡傛湁鏇村,渚濇绫绘帹
 ]
-// 判断环境变量里面是否有京东ck
+// 鍒ゆ柇鐜鍙橀噺閲岄潰鏄惁鏈変含涓渃k
 if (process.env.JD_COOKIE) {
   if (process.env.JD_COOKIE.indexOf('&') > -1) {
-    console.log(`您的cookie选择的是用&隔开\n`)
+    console.log(`鎮ㄧ殑cookie閫夋嫨鐨勬槸鐢�&闅斿紑\n`)
     CookieJDs = process.env.JD_COOKIE.split('&');
   } else if (process.env.JD_COOKIE.indexOf('\n') > -1) {
-    console.log(`您的cookie选择的是用换行隔开\n`)
+    console.log(`鎮ㄧ殑cookie閫夋嫨鐨勬槸鐢ㄦ崲琛岄殧寮�\n`)
     CookieJDs = process.env.JD_COOKIE.split('\n');
   } else {
     CookieJDs = [process.env.JD_COOKIE];
   }
 }
 if (JSON.stringify(process.env).indexOf('GIT_HUB')>-1) {
-  console.log(`请勿使用github action运行此脚本,无论你是从你自己的私库还是其他哪里拉取的源代码，都会导致我被封号\n`);
+  console.log(`璇峰嬁浣跨敤github action杩愯姝よ剼鏈�,鏃犺浣犳槸浠庝綘鑷繁鐨勭搴撹繕鏄叾浠栧摢閲屾媺鍙栫殑婧愪唬鐮侊紝閮戒細瀵艰嚧鎴戣灏佸彿\n`);
   !(async () => {
-    await require('./sendNotify').sendNotify('提醒', `请勿使用github action、滥用github资源会封我仓库以及账号`)
+    await require('./sendNotify').sendNotify('鎻愰啋', `璇峰嬁浣跨敤github action銆佹互鐢╣ithub璧勬簮浼氬皝鎴戜粨搴撲互鍙婅处鍙穈)
     await process.exit(0);
   })()
 }
 CookieJDs = [...new Set(CookieJDs.filter(item => item !== "" && item !== null && item !== undefined))]
-console.log(`\n====================共有${CookieJDs.length}个京东账号Cookie=========\n`);
-console.log(`==================脚本执行- 北京时间(UTC+8)：${new Date(new Date().getTime() + new Date().getTimezoneOffset()*60*1000 + 8*60*60*1000).toLocaleString()}=====================\n`)
+console.log(`\n====================鍏辨湁${CookieJDs.length}涓含涓滆处鍙稢ookie=========\n`);
+console.log(`==================鑴氭湰鎵ц- 鍖椾含鏃堕棿(UTC+8)锛�${new Date(new Date().getTime() + new Date().getTimezoneOffset()*60*1000 + 8*60*60*1000).toLocaleString()}=====================\n`)
 for (let i = 0; i < CookieJDs.length; i++) {
   const index = (i + 1 === 1) ? '' : (i + 1);
   exports['CookieJD' + index] = CookieJDs[i].trim();
