@@ -26,7 +26,7 @@
 |  `DD_BOT_SECRET`  |                           钉钉推送                           | 非必须 | (`DD_BOT_TOKEN`和`DD_BOT_SECRET`两者必需) ,密钥，机器人安全设置页面，加签一栏下面显示的SEC开头的`SECXXXXXXXXXX`等字符 , 注:钉钉机器人安全设置只需勾选`加签`即可，其他选项不要勾选,再不懂看 [这个图](icon/DD_bot.png) |
 |    `QYWX_KEY`     |                         企业微信机器人推送                         | 非必须 | 密钥，企业微信推送 webhook 后面的 key [详见官方说明文档](https://work.weixin.qq.com/api/doc/90000/90136/91770) |
 |     `QYWX_AM`     |                       企业微信应用消息推送                     | 非必须 | corpid,corpsecret,touser,agentid,素材库图片id [参考文档](http://note.youdao.com/s/HMiudGkb)<br>素材库图片填0为图文消息, 填1为纯文本消息         |
-|  `IGOT_PUSH_KEY`  |                           iGot推送                           | 非必须 | iGot聚合推送，支持多方式推送，确保消息可达。 [参考文档](https://wahao.GITHUB111.io/Bark-MP-helper ) |
+|  `IGOT_PUSH_KEY`  |                           iGot推送                           | 非必须 | iGot聚合推送，支持多方式推送，确保消息可达。 [参考文档](https://wahao.github.io/Bark-MP-helper ) |
 | `PUSH_PLUS_TOKEN` |                         pushplus推送                         | 非必须 | 微信扫码登录后一对一推送或一对多推送下面的token(您的Token) [官方网站](http://pushplus.hxtrip.com/) |
 | `PUSH_PLUS_USER`  |                         pushplus推送                         | 非必须 | 一对多推送的“群组编码”（一对多推送下面->您的群组(如无则新建)->群组编码）注:(1、需订阅者扫描二维码 2、如果您是创建群组所属人，也需点击“查看二维码”扫描绑定，否则不能接受群组消息推送)，只填`PUSH_PLUS_TOKEN`默认为一对一推送 |
 |  `TG_PROXY_HOST`  |                      Telegram 代理的 IP                      | 非必须 | 代理类型为 http。例子：http代理 http://127.0.0.1:1080 则填写 127.0.0.1 |
@@ -45,7 +45,7 @@
 |     `JDJOY_SHARECODES`      |  疯狂的JOY<br>互助码   | 非必须 |            6/             | 填写规则和上面类似，或见下方[互助码的填写规则](#互助码的填写规则) |
 |    `BOOKSHOP_SHARECODES`    |   京东书店<br>互助码   | 非必须 |            10/            | 填写规则和上面类似，或见下方[互助码的填写规则](#互助码的填写规则) |
 |    `JD_CASH_SHARECODES`     |  签到领现金<br>互助码  | 非必须 |            10/            | 填写规则和上面类似，或见下方[互助码的填写规则](#互助码的填写规则) |
-|      `JXNC_SHARECODES`      |   京喜农场<br>互助码   | 非必须 |             /             | 注意：京喜农场种植种子发生变化的时候，互助码也会变！！<br>每个账号 shareCode 是一个 json，<br>json 需要用单引号包裹且是一行字符串，<br>否则设置环境变量时会出错，<br>示例：'{"smp":"22bdadsfaadsfadse8a",<br>"active":"jdnc_1_btorange210113_2","joinnum":"1"}'，<br>多账单间使用`&`或换行分开。<br>详细说明参见[#Pr202](https://GITHUB111.com/LXK9301/jd_scripts/pull/202)<br>如果使用`docker-compose`部署就不需要在互助码两端加单引号。详细参见Issues[#I35AG8](https://gitee.com/lxk0301/jd_scripts/issues/I35AG8)|
+|      `JXNC_SHARECODES`      |   京喜农场<br>互助码   | 非必须 |             /             | 注意：京喜农场种植种子发生变化的时候，互助码也会变！！<br>每个账号 shareCode 是一个 json，<br>json 需要用单引号包裹且是一行字符串，<br>否则设置环境变量时会出错，<br>示例：'{"smp":"22bdadsfaadsfadse8a",<br>"active":"jdnc_1_btorange210113_2","joinnum":"1"}'，<br>多账单间使用`&`或换行分开。<br>详细说明参见[#Pr202](https://github.com/LXK9301/jd_scripts/pull/202)<br>如果使用`docker-compose`部署就不需要在互助码两端加单引号。详细参见Issues[#I35AG8](https://gitee.com/lxk0301/jd_scripts/issues/I35AG8)|
 |    `JDSGMH_SHARECODES`      |  闪购盲盒<br>互助码  | 非必须 |            10/            | 填写规则和上面类似，或见下方[互助码的填写规则](#互助码的填写规则) |
 
 
@@ -54,7 +54,7 @@
 
 |             Name             |             归属             |  属性  | 说明                                                         |
 | :--------------------------: | :--------------------------: | :----: | ------------------------------------------------------------ |
-|        `JD_BEAN_STOP`        |      京东多合一签到             | 非必须 | `jd_bean_sign.js`自定义延迟签到,单位毫秒.默认分批并发无延迟，<br>延迟作用于每个签到接口，如填入延迟则切换顺序签到(耗时较长)，<br>如需填写建议输入数字`1`，详见[此处说明](https://GITHUB111.com/NobyDa/Script/blob/master/JD-DailyBonus/JD_DailyBonus.js#L93) |
+|        `JD_BEAN_STOP`        |      京东多合一签到             | 非必须 | `jd_bean_sign.js`自定义延迟签到,单位毫秒.默认分批并发无延迟，<br>延迟作用于每个签到接口，如填入延迟则切换顺序签到(耗时较长)，<br>如需填写建议输入数字`1`，详见[此处说明](https://github.com/NobyDa/Script/blob/master/JD-DailyBonus/JD_DailyBonus.js#L93) |
 |  `JD_BEAN_SIGN_STOP_NOTIFY`  |      京东多合一签到             | 非必须 | `jd_bean_sign.js`脚本运行后不推送签到结果通知，默认推送，填`true`表示不发送通知 |
 | `JD_BEAN_SIGN_NOTIFY_SIMPLE` |      京东多合一签到             | 非必须 | `jd_bean_sign.js`脚本运行后推送签到结果简洁版通知，<br>默认推送全部签到结果，填`true`表示推送简洁通知，[效果图](./icon/bean_sign_simple.jpg) |
 |     `PET_NOTIFY_CONTROL`     |     东东萌宠<br>推送开关     | 非必须 | 控制京东萌宠是否静默运行,<br>`false`为否(发送推送通知消息),`true`为是(即：不发送推送通知消息) |

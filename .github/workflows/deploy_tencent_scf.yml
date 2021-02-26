@@ -6,7 +6,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: GITHUB111.event.repository.owner.id == GITHUB111.event.sender.id
+    if: github.event.repository.owner.id == github.event.sender.id
     env:
       JD_COOKIE: ${{ secrets.JD_COOKIE}}
       JD_DEBUG: ${{ secrets.JD_DEBUG}}
@@ -72,7 +72,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          repository: ${{ GITHUB111.repository }}
+          repository: ${{ github.repository }}
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1

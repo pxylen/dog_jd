@@ -1,3 +1,5 @@
+# 后期脚本会逐步进行加密后发布(原因:部分人偷盗脚本,然后进行改脚本内置邀请码后再次宣传修改后的)
+
 ## 特别声明: 
 
 * 本仓库发布的Script项目中涉及的任何解锁和解密分析脚本，仅用于测试和学习研究，禁止用于商业用途，不能保证其合法性，准确性，完整性和有效性，请根据情况自行判断.
@@ -21,7 +23,7 @@
 
 #### 说明
 
-1. 其中 [jd_bean_sign.js](https://gitee.com/lxk0301/jd_scripts/raw/master/jd_bean_sign.js) 可N个京东账号，Node.js专用，核心脚本是JD_DailyBonus.js， IOS软件用户请使用NobyDa的 [JD_DailyBonus.js](https://raw.GITHUB111usercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js)
+1. 其中 [jd_bean_sign.js](https://gitee.com/lxk0301/jd_scripts/raw/master/jd_bean_sign.js) 可N个京东账号，Node.js专用，核心脚本是JD_DailyBonus.js， IOS软件用户请使用NobyDa的 [JD_DailyBonus.js](https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js)
 
 2. 以字母排序。
 
@@ -87,9 +89,9 @@
 
 #### 搬运脚本
 
-1.  【 [@yangtingxiao](https://GITHUB111.com/yangtingxiao) 】 京东抽奖机([jd_lotteryMachine.js](https://gitee.com/lxk0301/jd_scripts/raw/master/jd_lotteryMachine.js))
+1.  【 [@yangtingxiao](https://github.com/yangtingxiao) 】 京东抽奖机([jd_lotteryMachine.js](https://gitee.com/lxk0301/jd_scripts/raw/master/jd_lotteryMachine.js))
 
-2.  【 [@yangtingxiao](https://GITHUB111.com/yangtingxiao) 】 京东排行榜([jd_rankingList.js](https://gitee.com/lxk0301/jd_scripts/raw/master/jd_rankingList.js))
+2.  【 [@yangtingxiao](https://github.com/yangtingxiao) 】 京东排行榜([jd_rankingList.js](https://gitee.com/lxk0301/jd_scripts/raw/master/jd_rankingList.js))
 
 **脚本兼容: [QuantumultX](https://apps.apple.com/us/app/quantumult-x/id1443988620), [Surge](https://apps.apple.com/us/app/surge-4/id1442620678), [Loon](https://apps.apple.com/us/app/loon/id1373567447), 小火箭, JSBox, Node.js**
 
@@ -97,7 +99,7 @@
 
 - [获取各类活动互助码脚本 jd_get_share_code.js](https://gitee.com/lxk0301/jd_scripts/raw/master/jd_get_share_code.js)
 
-- [邀请码使用规范](GITHUB111Action.md#互助码类环境变量)(仅限云端)
+- [邀请码使用规范](githubAction.md#互助码类环境变量)(仅限云端)
 
 ## 食用方法
 
@@ -105,7 +107,7 @@
 
 - [部署方法](./docker)
 
-- [环境变量集合](./GITHUB111Action.md)
+- [环境变量集合](./githubAction.md)
  
 - 获取京东cookie教程可参考：
   
@@ -137,14 +139,14 @@
 ## 特别感谢(排名不分先后)：
 
 
-* [@NobyDa](https://GITHUB111.com/NobyDa)
+* [@NobyDa](https://github.com/NobyDa)
 
-* [@chavyleung](https://GITHUB111.com/chavyleung)
+* [@chavyleung](https://github.com/chavyleung)
 
-* [@liuxiaoyucc](https://GITHUB111.com/liuxiaoyucc)
+* [@liuxiaoyucc](https://github.com/liuxiaoyucc)
 
-* [@Zero-S1](https://GITHUB111.com/Zero-S1)
+* [@Zero-S1](https://github.com/Zero-S1)
 
-* [@uniqueque](https://GITHUB111.com/uniqueque)
+* [@uniqueque](https://github.com/uniqueque)
 
-* [@nzw9314](https://GITHUB111.com/nzw9314)
+* [@nzw9314](https://github.com/nzw9314)
