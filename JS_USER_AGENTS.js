@@ -78,9 +78,9 @@ const USER_AGENTS = [
   'jdltapp;iPad;3.1.0;14.4;network/wifi;hasUPPay/0;pushNoticeIsOpen/0;lang/zh_CN;model/iPad7,5;addressid/;hasOCPay/0;appBuild/1017;supportBestPay/0;pv/4.14;apprpd/MyJD_Main;ref/MyJdMTAManager;psq/3;ads/;psn/956c074c769cd2eeab2e36fca24ad4c9e469751a|8;jdv/0|;adk/;app_device/IOS;pap/JA2020_3112531|3.1.0|IOS 14.4;Mozilla/5.0 (iPad; CPU OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1',
 ]
 /**
- * 鐢熸垚闅忔満鏁板瓧
- * @param {number} min 鏈�灏忓�硷紙鍖呭惈锛�
- * @param {number} max 鏈�澶у�硷紙涓嶅寘鍚級
+ * 生成随机数字
+ * @param {number} min 最小值（包含）
+ * @param {number} max 最大值（不包含）
  */
 function randomNumber(min = 0, max = 100) {
   return Math.min(Math.floor(min + Math.random() * (max - min)), max);

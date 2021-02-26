@@ -6,62 +6,62 @@
  */
 const querystring = require("querystring");
 const $ = new Env();
-// =======================================寰俊server閰遍�氱煡璁剧疆鍖哄煙===========================================
-//姝ゅ濉綘鐢宠鐨凷CKEY.
-//(鐜鍙橀噺鍚� PUSH_KEY)
+// =======================================微信server酱通知设置区域===========================================
+//此处填你申请的SCKEY.
+//(环境变量名 PUSH_KEY)
 let SCKEY = '';
 
-// =======================================Bark App閫氱煡璁剧疆鍖哄煙===========================================
-//姝ゅ濉綘BarkAPP鐨勪俊鎭�(IP/璁惧鐮侊紝渚嬪锛歨ttps://api.day.app/XXXXXXXX)
+// =======================================Bark App通知设置区域===========================================
+//此处填你BarkAPP的信息(IP/设备码，例如：https://api.day.app/XXXXXXXX)
 let BARK_PUSH = '';
-//BARK app鎺ㄩ�侀搩澹�,閾冨０鍒楄〃鍘籄PP鏌ョ湅澶嶅埗濉啓
+//BARK app推送铃声,铃声列表去APP查看复制填写
 let BARK_SOUND = '';
 
 
-// =======================================telegram鏈哄櫒浜洪�氱煡璁剧疆鍖哄煙===========================================
-//姝ゅ濉綘telegram bot 鐨凾oken锛屼緥濡傦細1077xxx4424:AAFjv0FcqxxxxxxgEMGfi22B4yh15R5uw
-//(鐜鍙橀噺鍚� TG_BOT_TOKEN)
+// =======================================telegram机器人通知设置区域===========================================
+//此处填你telegram bot 的Token，例如：1077xxx4424:AAFjv0FcqxxxxxxgEMGfi22B4yh15R5uw
+//(环境变量名 TG_BOT_TOKEN)
 let TG_BOT_TOKEN = '';
-//姝ゅ濉綘鎺ユ敹閫氱煡娑堟伅鐨則elegram鐢ㄦ埛鐨刬d锛屼緥濡傦細129xxx206
-//(鐜鍙橀噺鍚� TG_USER_ID)
+//此处填你接收通知消息的telegram用户的id，例如：129xxx206
+//(环境变量名 TG_USER_ID)
 let TG_USER_ID = '';
 
-// =======================================閽夐拤鏈哄櫒浜洪�氱煡璁剧疆鍖哄煙===========================================
-//姝ゅ濉綘閽夐拤 bot 鐨剋ebhook锛屼緥濡傦細5a544165465465645d0f31dca676e7bd07415asdasd
-//(鐜鍙橀噺鍚� DD_BOT_TOKEN)
+// =======================================钉钉机器人通知设置区域===========================================
+//此处填你钉钉 bot 的webhook，例如：5a544165465465645d0f31dca676e7bd07415asdasd
+//(环境变量名 DD_BOT_TOKEN)
 let DD_BOT_TOKEN = '';
-//瀵嗛挜锛屾満鍣ㄤ汉瀹夊叏璁剧疆椤甸潰锛屽姞绛句竴鏍忎笅闈㈡樉绀虹殑SEC寮�澶寸殑瀛楃涓�
+//密钥，机器人安全设置页面，加签一栏下面显示的SEC开头的字符串
 let DD_BOT_SECRET = '';
 
-// =======================================浼佷笟寰俊鏈哄櫒浜洪�氱煡璁剧疆鍖哄煙===========================================
-//姝ゅ濉綘浼佷笟寰俊鏈哄櫒浜虹殑 webhook(璇﹁鏂囨。 https://work.weixin.qq.com/api/doc/90000/90136/91770)锛屼緥濡傦細693a91f6-7xxx-4bc4-97a0-0ec2sifa5aaa
-//(鐜鍙橀噺鍚� QYWX_KEY)
+// =======================================企业微信机器人通知设置区域===========================================
+//此处填你企业微信机器人的 webhook(详见文档 https://work.weixin.qq.com/api/doc/90000/90136/91770)，例如：693a91f6-7xxx-4bc4-97a0-0ec2sifa5aaa
+//(环境变量名 QYWX_KEY)
 let QYWX_KEY = '';
 
-// =======================================浼佷笟寰俊搴旂敤娑堟伅閫氱煡璁剧疆鍖哄煙===========================================
+// =======================================企业微信应用消息通知设置区域===========================================
 /*
-姝ゅ濉綘浼佷笟寰俊搴旂敤娑堟伅鐨勫��(璇﹁鏂囨。 https://work.weixin.qq.com/api/doc/90000/90135/90236)
-鐜鍙橀噺鍚� QYWX_AM渚濇濉叆 corpid,corpsecret,touser(娉�:澶氫釜鎴愬憳ID浣跨敤|闅斿紑),agentid,娑堟伅绫诲瀷(閫夊～,涓嶅～榛樿鏂囨湰娑堟伅绫诲瀷)
-娉ㄦ剰鐢�,鍙烽殧寮�(鑻辨枃杈撳叆娉曠殑閫楀彿)锛屼緥濡傦細wwcff56746d9adwers,B-791548lnzXBE6_BWfxdf3kSTMJr9vFEPKAbh6WERQ,mingcheng,1000001,2COXgjH2UIfERF2zxrtUOKgQ9XklUqMdGSWLBoW_lSDAdafat
-鍙�夋帹閫佹秷鎭被鍨�(鎺ㄨ崘浣跨敤鍥炬枃娑堟伅锛坢pnews锛�):
-- 鏂囨湰鍗＄墖娑堟伅: 0 (鏁板瓧闆�)
-- 鏂囨湰娑堟伅: 1 (鏁板瓧涓�)
-- 鍥炬枃娑堟伅锛坢pnews锛�: 绱犳潗搴撳浘鐗噄d, 鍙煡鐪嬫鏁欑▼(http://note.youdao.com/s/HMiudGkb)鎴栬��(https://note.youdao.com/ynoteshare1/index.html?id=1a0c8aff284ad28cbd011b29b3ad0191&type=note)
+此处填你企业微信应用消息的值(详见文档 https://work.weixin.qq.com/api/doc/90000/90135/90236)
+环境变量名 QYWX_AM依次填入 corpid,corpsecret,touser(注:多个成员ID使用|隔开),agentid,消息类型(选填,不填默认文本消息类型)
+注意用,号隔开(英文输入法的逗号)，例如：wwcff56746d9adwers,B-791548lnzXBE6_BWfxdf3kSTMJr9vFEPKAbh6WERQ,mingcheng,1000001,2COXgjH2UIfERF2zxrtUOKgQ9XklUqMdGSWLBoW_lSDAdafat
+可选推送消息类型(推荐使用图文消息（mpnews）):
+- 文本卡片消息: 0 (数字零)
+- 文本消息: 1 (数字一)
+- 图文消息（mpnews）: 素材库图片id, 可查看此教程(http://note.youdao.com/s/HMiudGkb)或者(https://note.youdao.com/ynoteshare1/index.html?id=1a0c8aff284ad28cbd011b29b3ad0191&type=note)
 */
 let QYWX_AM = '';
 
-// =======================================iGot鑱氬悎鎺ㄩ�侀�氱煡璁剧疆鍖哄煙===========================================
-//姝ゅ濉偍iGot鐨勪俊鎭�(鎺ㄩ�乲ey锛屼緥濡傦細https://push.hellyw.com/XXXXXXXX)
+// =======================================iGot聚合推送通知设置区域===========================================
+//此处填您iGot的信息(推送key，例如：https://push.hellyw.com/XXXXXXXX)
 let IGOT_PUSH_KEY = '';
 
-// =======================================push+璁剧疆鍖哄煙=======================================
-//瀹樻柟鏂囨。锛歨ttps://pushplus.hxtrip.com/
-//PUSH_PLUS_TOKEN锛氬井淇℃壂鐮佺櫥褰曞悗涓�瀵逛竴鎺ㄩ�佹垨涓�瀵瑰鎺ㄩ�佷笅闈㈢殑token(鎮ㄧ殑Token)锛屼笉鎻愪緵PUSH_PLUS_USER鍒欓粯璁や负涓�瀵逛竴鎺ㄩ��
-//PUSH_PLUS_USER锛� 涓�瀵瑰鎺ㄩ�佺殑鈥滅兢缁勭紪鐮佲�濓紙涓�瀵瑰鎺ㄩ�佷笅闈�->鎮ㄧ殑缇ょ粍(濡傛棤鍒欐柊寤�)->缇ょ粍缂栫爜锛屽鏋滄偍鏄垱寤虹兢缁勪汉銆備篃闇�鐐瑰嚮鈥滄煡鐪嬩簩缁寸爜鈥濇壂鎻忕粦瀹氾紝鍚﹀垯涓嶈兘鎺ュ彈缇ょ粍娑堟伅鎺ㄩ�侊級
+// =======================================push+设置区域=======================================
+//官方文档：https://pushplus.hxtrip.com/
+//PUSH_PLUS_TOKEN：微信扫码登录后一对一推送或一对多推送下面的token(您的Token)，不提供PUSH_PLUS_USER则默认为一对一推送
+//PUSH_PLUS_USER： 一对多推送的“群组编码”（一对多推送下面->您的群组(如无则新建)->群组编码，如果您是创建群组人。也需点击“查看二维码”扫描绑定，否则不能接受群组消息推送）
 let PUSH_PLUS_TOKEN = '';
 let PUSH_PLUS_USER = '';
 
-//==========================浜戠鐜鍙橀噺鐨勫垽鏂笌鎺ユ敹=========================
+//==========================云端环境变量的判断与接收=========================
 if (process.env.PUSH_KEY) {
   SCKEY = process.env.PUSH_KEY;
 }
@@ -77,7 +77,7 @@ if (process.env.QQ_MODE) {
 
 if (process.env.BARK_PUSH) {
   if(process.env.BARK_PUSH.indexOf('https') > -1 || process.env.BARK_PUSH.indexOf('http') > -1) {
-    //鍏煎BARK鑷缓鐢ㄦ埛
+    //兼容BARK自建用户
     BARK_PUSH = process.env.BARK_PUSH
   } else {
     BARK_PUSH = `https://api.day.app/${process.env.BARK_PUSH}`
@@ -87,7 +87,7 @@ if (process.env.BARK_PUSH) {
   }
 } else {
   if(BARK_PUSH && BARK_PUSH.indexOf('https') === -1 && BARK_PUSH.indexOf('http') === -1) {
-    //鍏煎BARK鏈湴鐢ㄦ埛鍙～鍐欒澶囩爜鐨勬儏鍐�
+    //兼容BARK本地用户只填写设备码的情况
     BARK_PUSH = `https://api.day.app/${BARK_PUSH}`
   }
 }
@@ -123,33 +123,33 @@ if (process.env.PUSH_PLUS_TOKEN) {
 if (process.env.PUSH_PLUS_USER) {
   PUSH_PLUS_USER = process.env.PUSH_PLUS_USER;
 }
-//==========================浜戠鐜鍙橀噺鐨勫垽鏂笌鎺ユ敹=========================
+//==========================云端环境变量的判断与接收=========================
 
 
 async function sendNotify(text, desp, params = {}) {
-  //鎻愪緵6绉嶉�氱煡
-  desp += `\n鏈剼鏈紑婧愬厤璐逛娇鐢� By锛歨ttps://gitee.com/lxk0301/jd_docker`;
+  //提供6种通知
+  desp += `\n本脚本开源免费使用 By：https://gitee.com/lxk0301/jd_docker`;
   await Promise.all([
-    serverNotify(text, desp),//寰俊server閰�
-    pushPlusNotify(text, desp)//pushplus(鎺ㄩ�佸姞)
+    serverNotify(text, desp),//微信server酱
+    pushPlusNotify(text, desp)//pushplus(推送加)
   ])
-  //鐢变簬涓婅堪涓ょ寰俊閫氱煡闇�鐐瑰嚮杩涘幓鎵嶈兘鏌ョ湅鍒拌鎯咃紝鏁卼ext(鏍囬鍐呭)鎼哄甫浜嗚处鍙峰簭鍙蜂互鍙婃樀绉颁俊鎭紝鏂逛究涓嶇偣鍑讳篃鍙煡閬撴槸鍝釜浜笢鍝釜娲诲姩
+  //由于上述两种微信通知需点击进去才能查看到详情，故text(标题内容)携带了账号序号以及昵称信息，方便不点击也可知道是哪个京东哪个活动
   text = text.match(/.*?(?=\s?-)/g) ? text.match(/.*?(?=\s?-)/g)[0] : text;
   await Promise.all([
     BarkNotify(text, desp, params),//iOS Bark APP
-    tgBotNotify(text, desp),//telegram 鏈哄櫒浜�
-    ddBotNotify(text, desp),//閽夐拤鏈哄櫒浜�
-    qywxBotNotify(text, desp), //浼佷笟寰俊鏈哄櫒浜�
-    qywxamNotify(text, desp), //浼佷笟寰俊搴旂敤娑堟伅鎺ㄩ��
+    tgBotNotify(text, desp),//telegram 机器人
+    ddBotNotify(text, desp),//钉钉机器人
+    qywxBotNotify(text, desp), //企业微信机器人
+    qywxamNotify(text, desp), //企业微信应用消息推送
     iGotNotify(text, desp, params),//iGot
-    //CoolPush(text, desp)//QQ閰锋帹
+    //CoolPush(text, desp)//QQ酷推
   ])
 }
 
 function serverNotify(text, desp, timeout = 2100) {
   return  new Promise(resolve => {
     if (SCKEY) {
-      //寰俊server閰辨帹閫侀�氱煡涓�涓猏n涓嶄細鎹㈣锛岄渶瑕佷袱涓猏n鎵嶈兘鎹㈣锛屾晠鍋氭鏇挎崲
+      //微信server酱推送通知一个\n不会换行，需要两个\n才能换行，故做此替换
       desp = desp.replace(/[\n\r]/g, '\n\n');
       const options = {
         url: SCKEY.includes('SCT') ? `https://sctapi.ftqq.com/${SCKEY}.send` : `https://sc.ftqq.com/${SCKEY}.send`,
@@ -162,18 +162,18 @@ function serverNotify(text, desp, timeout = 2100) {
         $.post(options, (err, resp, data) => {
           try {
             if (err) {
-              console.log('鍙戦�侀�氱煡璋冪敤API澶辫触锛侊紒\n')
+              console.log('发送通知调用API失败！！\n')
               console.log(err);
             } else {
               data = JSON.parse(data);
-              //server閰卞拰Server閰甭稵urbo鐗堢殑杩斿洖json鏍煎紡涓嶅お涓�鏍�
+              //server酱和Server酱·Turbo版的返回json格式不太一样
               if (data.errno === 0 || data.data.errno === 0 ) {
-                console.log('server閰卞彂閫侀�氱煡娑堟伅鎴愬姛\n')
+                console.log('server酱发送通知消息成功\n')
               } else if (data.errno === 1024) {
-                // 涓�鍒嗛挓鍐呭彂閫佺浉鍚岀殑鍐呭浼氳Е鍙�
-                console.log(`server閰卞彂閫侀�氱煡娑堟伅寮傚父: ${data.errmsg}\n`)
+                // 一分钟内发送相同的内容会触发
+                console.log(`server酱发送通知消息异常: ${data.errmsg}\n`)
               } else {
-                console.log(`server閰卞彂閫侀�氱煡娑堟伅寮傚父\n${JSON.stringify(data)}`)
+                console.log(`server酱发送通知消息异常\n${JSON.stringify(data)}`)
               }
             }
           } catch (e) {
@@ -184,7 +184,7 @@ function serverNotify(text, desp, timeout = 2100) {
         })
       }, timeout)
     } else {
-      console.log('鎮ㄦ湭鎻愪緵server閰辩殑SCKEY锛屽彇娑堝井淇℃帹閫佹秷鎭�氱煡\n');
+      console.log('您未提供server酱的SCKEY，取消微信推送消息通知\n');
       resolve()
     }
   })
@@ -200,11 +200,11 @@ function CoolPush(text, desp) {
         }
       }
 
-      // 宸茬煡鏁忔劅璇�
-      text = text.replace(/浜眴/g, "璞嗚眴");
-      desp = desp.replace(/浜眴/g, "");
-      desp = desp.replace(/馃惗/g, "");
-      desp = desp.replace(/绾㈠寘/g, "H鍖�");
+      // 已知敏感词
+      text = text.replace(/京豆/g, "豆豆");
+      desp = desp.replace(/京豆/g, "");
+      desp = desp.replace(/🐶/g, "");
+      desp = desp.replace(/红包/g, "H包");
 
       switch (QQ_MODE) {
         case "email":
@@ -220,35 +220,35 @@ function CoolPush(text, desp) {
       let pushMode = function(t) {
         switch (t){
           case "send":
-            return "涓汉";
+            return "个人";
           case "group":
-            return "QQ缇�";
+            return "QQ群";
           case "wx":
-            return "寰俊";
+            return "微信";
           case "ww":
-            return "浼佷笟寰俊";
+            return "企业微信";
           case "email":
-            return "閭欢";
+            return "邮件";
           default:
-            return "鏈煡鏂瑰紡"
+            return "未知方式"
         }
       }
 
       $.post(options, (err, resp, data) => {
         try {
           if (err) {
-            console.log(`鍙戦��${pushMode(QQ_MODE)}閫氱煡璋冪敤API澶辫触锛侊紒\n`)
+            console.log(`发送${pushMode(QQ_MODE)}通知调用API失败！！\n`)
             console.log(err);
           } else {
             data = JSON.parse(data);
             if (data.code === 200) {
-              console.log(`閰锋帹鍙戦��${pushMode(QQ_MODE)}閫氱煡娑堟伅鎴愬姛\n`)
+              console.log(`酷推发送${pushMode(QQ_MODE)}通知消息成功\n`)
             } else if (data.code === 400) {
-              console.log(`QQ閰锋帹(Cool Push)鍙戦��${pushMode(QQ_MODE)}鎺ㄩ�佸け璐ワ細${data.msg}\n`)
+              console.log(`QQ酷推(Cool Push)发送${pushMode(QQ_MODE)}推送失败：${data.msg}\n`)
             } else if (data.code === 503) {
-              console.log(`QQ閰锋帹鍑洪敊锛�${data.message}锛�${data.data}\n`)
+              console.log(`QQ酷推出错，${data.message}：${data.data}\n`)
             }else{
-              console.log(`閰锋帹鎺ㄩ�佸紓甯�: ${JSON.stringify(data)}`);
+              console.log(`酷推推送异常: ${JSON.stringify(data)}`);
             }
           }
         } catch (e) {
@@ -258,7 +258,7 @@ function CoolPush(text, desp) {
         }
       })
     } else {
-      console.log('鎮ㄦ湭鎻愪緵閰锋帹鐨凷KEY锛屽彇娑圦Q鎺ㄩ�佹秷鎭�氱煡\n');
+      console.log('您未提供酷推的SKEY，取消QQ推送消息通知\n');
       resolve()
     }
   })
@@ -276,12 +276,12 @@ function BarkNotify(text, desp, params={}) {
       $.get(options, (err, resp, data) => {
         try {
           if (err) {
-            console.log('Bark APP鍙戦�侀�氱煡璋冪敤API澶辫触锛侊紒\n')
+            console.log('Bark APP发送通知调用API失败！！\n')
             console.log(err);
           } else {
             data = JSON.parse(data);
             if (data.code === 200) {
-              console.log('Bark APP鍙戦�侀�氱煡娑堟伅鎴愬姛\n')
+              console.log('Bark APP发送通知消息成功\n')
             } else {
               console.log(`${data.message}\n`);
             }
@@ -293,7 +293,7 @@ function BarkNotify(text, desp, params={}) {
         }
       })
     } else {
-      console.log('鎮ㄦ湭鎻愪緵Bark鐨凙PP鎺ㄩ�丅ARK_PUSH锛屽彇娑圔ark鎺ㄩ�佹秷鎭�氱煡\n');
+      console.log('您未提供Bark的APP推送BARK_PUSH，取消Bark推送消息通知\n');
       resolve()
     }
   })
@@ -324,16 +324,16 @@ function tgBotNotify(text, desp) {
       $.post(options, (err, resp, data) => {
         try {
           if (err) {
-            console.log('telegram鍙戦�侀�氱煡娑堟伅澶辫触锛侊紒\n')
+            console.log('telegram发送通知消息失败！！\n')
             console.log(err);
           } else {
             data = JSON.parse(data);
             if (data.ok) {
-              console.log('Telegram鍙戦�侀�氱煡娑堟伅瀹屾垚銆俓n')
+              console.log('Telegram发送通知消息完成。\n')
             } else if (data.error_code === 400) {
-              console.log('璇蜂富鍔ㄧ粰bot鍙戦�佷竴鏉℃秷鎭苟妫�鏌ユ帴鏀剁敤鎴稩D鏄惁姝ｇ‘銆俓n')
+              console.log('请主动给bot发送一条消息并检查接收用户ID是否正确。\n')
             } else if (data.error_code === 401){
-              console.log('Telegram bot token 濉啓閿欒銆俓n')
+              console.log('Telegram bot token 填写错误。\n')
             }
           }
         } catch (e) {
@@ -343,7 +343,7 @@ function tgBotNotify(text, desp) {
         }
       })
     } else {
-      console.log('鎮ㄦ湭鎻愪緵telegram鏈哄櫒浜烘帹閫佹墍闇�鐨凾G_BOT_TOKEN鍜孴G_USER_ID锛屽彇娑坱elegram鎺ㄩ�佹秷鎭�氱煡\n');
+      console.log('您未提供telegram机器人推送所需的TG_BOT_TOKEN和TG_USER_ID，取消telegram推送消息通知\n');
       resolve()
     }
   })
@@ -372,12 +372,12 @@ function ddBotNotify(text, desp) {
       $.post(options, (err, resp, data) => {
         try {
           if (err) {
-            console.log('閽夐拤鍙戦�侀�氱煡娑堟伅澶辫触锛侊紒\n')
+            console.log('钉钉发送通知消息失败！！\n')
             console.log(err);
           } else {
             data = JSON.parse(data);
             if (data.errcode === 0) {
-              console.log('閽夐拤鍙戦�侀�氱煡娑堟伅瀹屾垚銆俓n')
+              console.log('钉钉发送通知消息完成。\n')
             } else {
               console.log(`${data.errmsg}\n`)
             }
@@ -392,12 +392,12 @@ function ddBotNotify(text, desp) {
       $.post(options, (err, resp, data) => {
         try {
           if (err) {
-            console.log('閽夐拤鍙戦�侀�氱煡娑堟伅澶辫触锛侊紒\n')
+            console.log('钉钉发送通知消息失败！！\n')
             console.log(err);
           } else {
             data = JSON.parse(data);
             if (data.errcode === 0) {
-              console.log('閽夐拤鍙戦�侀�氱煡娑堟伅瀹屾垚銆俓n')
+              console.log('钉钉发送通知消息完成。\n')
             } else {
               console.log(`${data.errmsg}\n`)
             }
@@ -409,7 +409,7 @@ function ddBotNotify(text, desp) {
         }
       })
     } else {
-      console.log('鎮ㄦ湭鎻愪緵閽夐拤鏈哄櫒浜烘帹閫佹墍闇�鐨凞D_BOT_TOKEN鎴栬�匘D_BOT_SECRET锛屽彇娑堥拤閽夋帹閫佹秷鎭�氱煡\n');
+      console.log('您未提供钉钉机器人推送所需的DD_BOT_TOKEN或者DD_BOT_SECRET，取消钉钉推送消息通知\n');
       resolve()
     }
   })
@@ -433,12 +433,12 @@ function qywxBotNotify(text, desp) {
       $.post(options, (err, resp, data) => {
         try {
           if (err) {
-            console.log('浼佷笟寰俊鍙戦�侀�氱煡娑堟伅澶辫触锛侊紒\n');
+            console.log('企业微信发送通知消息失败！！\n');
             console.log(err);
           } else {
             data = JSON.parse(data);
             if (data.errcode === 0) {
-              console.log('浼佷笟寰俊鍙戦�侀�氱煡娑堟伅瀹屾垚銆俓n');
+              console.log('企业微信发送通知消息完成。\n');
             } else {
               console.log(`${data.errmsg}\n`);
             }
@@ -450,7 +450,7 @@ function qywxBotNotify(text, desp) {
         }
       });
     } else {
-      console.log('鎮ㄦ湭鎻愪緵浼佷笟寰俊鏈哄櫒浜烘帹閫佹墍闇�鐨凲YWX_KEY锛屽彇娑堜紒涓氬井淇℃帹閫佹秷鎭�氱煡\n');
+      console.log('您未提供企业微信机器人推送所需的QYWX_KEY，取消企业微信推送消息通知\n');
       resolve();
     }
   });
@@ -462,8 +462,8 @@ function ChangeUserId(desp) {
     const userIdTmp = QYWX_AM_AY[2].split("|");
     let userId = "";
     for (let i = 0; i < userIdTmp.length; i++) {
-      const count = "璐﹀彿" + (i + 1);
-      const count2 = "绛惧埌鍙� " + (i + 1);
+      const count = "账号" + (i + 1);
+      const count2 = "签到号 " + (i + 1);
       if (desp.match(count) || desp.match(count2)) {
         userId = userIdTmp[i];
       }
@@ -503,7 +503,7 @@ function qywxamNotify(text, desp) {
                 title: `${text}`,
                 description: `${desp}`,
                 url: 'https://github.com/lxk0301/jd_scripts',
-                btntxt: '鏇村'
+                btntxt: '更多'
               }
             }
             break;
@@ -525,7 +525,7 @@ function qywxamNotify(text, desp) {
                   {
                     title: `${text}`,
                     thumb_media_id: `${QYWX_AM_AY[4]}`,
-                    author: `鏅鸿兘鍔╂墜`,
+                    author: `智能助手`,
                     content_source_url: ``,
                     content: `${html}`,
                     digest: `${desp}`
@@ -535,7 +535,7 @@ function qywxamNotify(text, desp) {
             }
         };
         if (!QYWX_AM_AY[4]) {
-          //濡備笉鎻愪緵绗洓涓弬鏁�,鍒欓粯璁よ繘琛屾枃鏈秷鎭被鍨嬫帹閫�
+          //如不提供第四个参数,则默认进行文本消息类型推送
           options = {
             msgtype: 'text',
             text: {
@@ -559,12 +559,12 @@ function qywxamNotify(text, desp) {
         $.post(options, (err, resp, data) => {
           try {
             if (err) {
-              console.log('鎴愬憳ID:' + ChangeUserId(desp) + '浼佷笟寰俊搴旂敤娑堟伅鍙戦�侀�氱煡娑堟伅澶辫触锛侊紒\n');
+              console.log('成员ID:' + ChangeUserId(desp) + '企业微信应用消息发送通知消息失败！！\n');
               console.log(err);
             } else {
               data = JSON.parse(data);
               if (data.errcode === 0) {
-                console.log('鎴愬憳ID:' + ChangeUserId(desp) + '浼佷笟寰俊搴旂敤娑堟伅鍙戦�侀�氱煡娑堟伅瀹屾垚銆俓n');
+                console.log('成员ID:' + ChangeUserId(desp) + '企业微信应用消息发送通知消息完成。\n');
               } else {
                 console.log(`${data.errmsg}\n`);
               }
@@ -577,7 +577,7 @@ function qywxamNotify(text, desp) {
         });
       });
     } else {
-      console.log('鎮ㄦ湭鎻愪緵浼佷笟寰俊搴旂敤娑堟伅鎺ㄩ�佹墍闇�鐨凲YWX_AM锛屽彇娑堜紒涓氬井淇″簲鐢ㄦ秷鎭帹閫佹秷鎭�氱煡\n');
+      console.log('您未提供企业微信应用消息推送所需的QYWX_AM，取消企业微信应用消息推送消息通知\n');
       resolve();
     }
   });
@@ -586,10 +586,10 @@ function qywxamNotify(text, desp) {
 function iGotNotify(text, desp, params={}){
   return  new Promise(resolve => {
     if (IGOT_PUSH_KEY) {
-      // 鏍￠獙浼犲叆鐨処GOT_PUSH_KEY鏄惁鏈夋晥
+      // 校验传入的IGOT_PUSH_KEY是否有效
       const IGOT_PUSH_KEY_REGX = new RegExp("^[a-zA-Z0-9]{24}$")
       if(!IGOT_PUSH_KEY_REGX.test(IGOT_PUSH_KEY)) {
-        console.log('鎮ㄦ墍鎻愪緵鐨処GOT_PUSH_KEY鏃犳晥\n')
+        console.log('您所提供的IGOT_PUSH_KEY无效\n')
         resolve()
         return 
       }
@@ -603,14 +603,14 @@ function iGotNotify(text, desp, params={}){
       $.post(options, (err, resp, data) => {
         try {
           if (err) {
-            console.log('鍙戦�侀�氱煡璋冪敤API澶辫触锛侊紒\n')
+            console.log('发送通知调用API失败！！\n')
             console.log(err);
           } else {
             if(typeof data === 'string') data = JSON.parse(data);
             if (data.ret === 0) {
-              console.log('iGot鍙戦�侀�氱煡娑堟伅鎴愬姛\n')
+              console.log('iGot发送通知消息成功\n')
             } else {
-              console.log(`iGot鍙戦�侀�氱煡娑堟伅澶辫触锛�${data.errMsg}\n`)
+              console.log(`iGot发送通知消息失败：${data.errMsg}\n`)
             }
           }
         } catch (e) {
@@ -620,7 +620,7 @@ function iGotNotify(text, desp, params={}){
         }
       })
     } else {
-      console.log('鎮ㄦ湭鎻愪緵iGot鐨勬帹閫両GOT_PUSH_KEY锛屽彇娑坕Got鎺ㄩ�佹秷鎭�氱煡\n');
+      console.log('您未提供iGot的推送IGOT_PUSH_KEY，取消iGot推送消息通知\n');
       resolve()
     }
   })
@@ -629,7 +629,7 @@ function iGotNotify(text, desp, params={}){
 function pushPlusNotify(text, desp) {
   return new Promise(resolve => {
     if (PUSH_PLUS_TOKEN) {
-      desp = desp.replace(/[\n\r]/g, '<br>'); // 榛樿涓篽tml, 涓嶆敮鎸乸laintext
+      desp = desp.replace(/[\n\r]/g, '<br>'); // 默认为html, 不支持plaintext
       const body = {
         token: `${PUSH_PLUS_TOKEN}`,
         title: `${text}`,
@@ -646,14 +646,14 @@ function pushPlusNotify(text, desp) {
       $.post(options, (err, resp, data) => {
         try {
           if (err) {
-            console.log(`push+鍙戦��${PUSH_PLUS_USER ? '涓�瀵瑰' : '涓�瀵逛竴'}閫氱煡娑堟伅澶辫触锛侊紒\n`)
+            console.log(`push+发送${PUSH_PLUS_USER ? '一对多' : '一对一'}通知消息失败！！\n`)
             console.log(err);
           } else {
             data = JSON.parse(data);
             if (data.code === 200) {
-              console.log(`push+鍙戦��${PUSH_PLUS_USER ? '涓�瀵瑰' : '涓�瀵逛竴'}閫氱煡娑堟伅瀹屾垚銆俓n`)
+              console.log(`push+发送${PUSH_PLUS_USER ? '一对多' : '一对一'}通知消息完成。\n`)
             } else {
-              console.log(`push+鍙戦��${PUSH_PLUS_USER ? '涓�瀵瑰' : '涓�瀵逛竴'}閫氱煡娑堟伅澶辫触锛�${data.msg}\n`)
+              console.log(`push+发送${PUSH_PLUS_USER ? '一对多' : '一对一'}通知消息失败：${data.msg}\n`)
             }
           }
         } catch (e) {
@@ -663,7 +663,7 @@ function pushPlusNotify(text, desp) {
         }
       })
     } else {
-      console.log('鎮ㄦ湭鎻愪緵push+鎺ㄩ�佹墍闇�鐨凱USH_PLUS_TOKEN锛屽彇娑坧ush+鎺ㄩ�佹秷鎭�氱煡\n');
+      console.log('您未提供push+推送所需的PUSH_PLUS_TOKEN，取消push+推送消息通知\n');
       resolve()
     }
   })

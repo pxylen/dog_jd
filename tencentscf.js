@@ -10,7 +10,7 @@ const clientConfig = {
     secretId: process.env.TENCENT_SECRET_ID,
     secretKey: process.env.TENCENT_SECRET_KEY
   },
-  region: process.env.TENCENT_REGION, // 鍖哄煙鍙傝�冿紝https://cloud.tencent.com/document/product/583/17299
+  region: process.env.TENCENT_REGION, // 区域参考，https://cloud.tencent.com/document/product/583/17299
   profile: {
     httpProfile: {
       endpoint: "scf.tencentcloudapi.com"
@@ -30,8 +30,8 @@ const sleep = ms => new Promise(res => setTimeout(res, ms));
       const file_buffer = fs.readFileSync("./myfile.zip");
       const contents_in_base64 = file_buffer.toString("base64");
       if (func.length) {
-        console.log(`鏇存柊鍑芥暟`);
-        // 鏇存柊浠ｇ爜锛屽垹闄ゅ悗閲嶅缓
+        console.log(`更新函数`);
+        // 更新代码，删除后重建
         params = {
           FunctionName: process.env.TENCENT_FUNCTION_NAME
         };
@@ -44,10 +44,10 @@ const sleep = ms => new Promise(res => setTimeout(res, ms));
             process.env.action++;
           }
         );
-        await sleep(1000 * 50); // 绛夊緟50绉�
+        await sleep(1000 * 50); // 等待50秒
       }
 
-      console.log(`鍒涘缓鍑芥暟`);
+      console.log(`创建函数`);
       let inputYML = ".github/workflows/deploy_tencent_scf.yml";
       let obj = yaml.load(fs.readFileSync(inputYML, { encoding: "utf-8" }));
       params = {
@@ -71,7 +71,7 @@ const sleep = ms => new Promise(res => setTimeout(res, ms));
           });
         }
       }
-      console.log(`鎮ㄤ竴鍏卞～鍐欎簡${vars.length}涓幆澧冨彉閲廯, vars);
+      console.log(`您一共填写了${vars.length}个环境变量`, vars);
       await client.CreateFunction(params).then(
         data => {
           console.log(data);
@@ -81,7 +81,7 @@ const sleep = ms => new Promise(res => setTimeout(res, ms));
           process.env.action++;
         }
       );
-      await sleep(1000 * 50); // 绛夊緟50绉�
+      await sleep(1000 * 50); // 等待50秒
     },
     err => {
       console.error("error", err);
@@ -89,8 +89,8 @@ const sleep = ms => new Promise(res => setTimeout(res, ms));
     }
   );
 
-  /* console.log(`鏇存柊鐜鍙橀噺`);
-  // 鏇存柊鐜鍙橀噺
+  /* console.log(`更新环境变量`);
+  // 更新环境变量
   let inputYML = ".github/workflows/deploy_tencent_scf.yml";
   let obj = yaml.load(fs.readFileSync(inputYML, { encoding: "utf-8" }));
   let vars = [];
@@ -101,7 +101,7 @@ const sleep = ms => new Promise(res => setTimeout(res, ms));
         Value: process.env[key]
       });
   }
-  console.log(`鎮ㄤ竴鍏卞～鍐欎簡${vars.length}涓幆澧冨彉閲廯);
+  console.log(`您一共填写了${vars.length}个环境变量`);
   params = {
     FunctionName: process.env.TENCENT_FUNCTION_NAME,
     Environment: {
@@ -145,8 +145,8 @@ const sleep = ms => new Promise(res => setTimeout(res, ms));
     );
   } */
 
-  // 鏇存柊瑙﹀彂鍣�
-  console.log(`鍘绘洿鏂拌Е鍙戝櫒`);
+  // 更新触发器
+  console.log(`去更新触发器`);
   let inputYML = "serverless.yml";
   let obj = yaml.load(fs.readFileSync(inputYML, { encoding: "utf-8" }));
   for (let vo of obj.inputs.events) {
@@ -171,18 +171,18 @@ const sleep = ms => new Promise(res => setTimeout(res, ms));
 })()
   .catch(e => console.log(e))
   .finally(async () => {
-    // 褰撶幆澧冧负GitHub action鏃跺垱寤篴ction.js鏂囦欢鍒ゆ柇閮ㄧ讲鏄惁杩涜澶辫触閫氱煡
+    // 当环境为GitHub action时创建action.js文件判断部署是否进行失败通知
     if (process.env.GIT_HUB_ACTIONS == "true") {
       fs.writeFile(
         "action.js",
-        `var action = ` + process.env.action + `;action > 0 ? require("./sendNotify").sendNotify("浜戝嚱鏁伴儴缃插紓甯革紒璇烽噸璇�","鐐瑰嚮閫氱煡锛岀櫥鍏ュ悗鏌ョ湅璇︽儏",{ url: process.env.GIT_HUB_SERVER_URL + "/" + process.env.GIT_HUB_REPOSITORY + "/actions/runs/" + process.env.GIT_HUB_RUN_ID + "?check_suite_focus=true" }): ""`,
+        `var action = ` + process.env.action + `;action > 0 ? require("./sendNotify").sendNotify("云函数部署异常！请重试","点击通知，登入后查看详情",{ url: process.env.GIT_HUB_SERVER_URL + "/" + process.env.GIT_HUB_REPOSITORY + "/actions/runs/" + process.env.GIT_HUB_RUN_ID + "?check_suite_focus=true" }): ""`,
         "utf8",
         function (error) {
           if (error) {
             console.log(error);
             return false;
           }
-          console.log("鍐欏叆action.js鎴愬姛");
+          console.log("写入action.js成功");
         }
       );
     }
