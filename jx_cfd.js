@@ -2,43 +2,53 @@
 *
     Name: 京喜财富岛
     Address: 京喜App ====>>>> 全民赚大钱
-    Update: 2021/1/13 10:30
+    Author: MoPoQAQ
+    Created：2020/x/xx xx:xx
+    Updated: 2021/2/25 11:11
     Thanks:
       whyour大佬
       TG: https://t.me/joinchat/O1WgnBbM18YjQQVFQ_D86w
-      GITHUB111: https://GITHUB111.com/whyour
+      GitHub: https://github.com/whyour
       
-      新用户签到问题反馈者：https://GITHUB111.com/NanjolnoRing
+      新用户签到问题反馈者：https://github.com/NanjolnoRing
     
     获取Token方式：
-      打开【❗️京喜农场❗️】，手动任意完成<工厂任务>、<签到任务>、<金牌厂长任务>一项，提示获取cookie成功即可，然后退出跑任务脚本
+      1.打开【❗️京喜农场❗️】，手动任意完成<工厂任务>、<签到任务>、<金牌厂长任务>一项，提示获取cookie成功即可，然后退出跑任务脚本
+      2.京喜工厂收取电力一次
+      3.财富岛手动提现一次
     
-    ❗️❗️❗️寻宝报错声明: 出现app内助力错误，使用上述方式获取Token再试
-    
-    hostname = wq.jd.com
+    hostname = wq.jd.com, m.jingxi.com
     
     Quantumult X:
     [task_local]
-    0 * * * * https://raw.GITHUB111usercontent.com/MoPoQAQ/Script/main/Me/jx_cfd.js, tag=京喜财富岛, img-url=https://raw.GITHUB111usercontent.com/58xinian/icon/master/jxcfd.png, enabled=true
+    0 * * * * https://raw.githubusercontent.com/moposmall/Script/main/Me/jx_cfd.js, tag=京喜财富岛, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jxcfd.png, enabled=true
     [rewrite_local]
-    ^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask url script-request-header https://raw.GITHUB111usercontent.com/whyour/hundun/master/quanx/jx_nc.cookie.js
+    ^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask url script-request-header https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js
+    ^https\:\/\/m\.jingxi\.com\/dreamfactory\/generator\/CollectCurrentElectricity url script-request-header https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js
+    ^https\:\/\/m\.jingxi\.com\/jxcfd\/consume\/CashOut url script-request-header https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js
 
     Loon:
     [Script]
-    http-request ^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask script-path=https://raw.GITHUB111usercontent.com/whyour/hundun/master/quanx/jx_nc.cookie.js, requires-body=false, timeout=10, tag=京喜农场cookie
-    cron "0 * * * *" script-path=https://raw.GITHUB111usercontent.com/MoPoQAQ/Script/main/Me/jx_cfd.js,tag=京喜财富岛
+    http-request ^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js, requires-body=false, timeout=10, tag=京喜token
+    http-request ^https\:\/\/m\.jingxi\.com\/dreamfactory\/generator\/CollectCurrentElectricity script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js, requires-body=false, timeout=10, tag=京喜token
+    http-request ^^https\:\/\/m\.jingxi\.com\/jxcfd\/consume\/CashOut script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js, requires-body=false, timeout=10, tag=京喜token
+    cron "0 * * * *" script-path=https://raw.githubusercontent.com/moposmall/Script/main/Me/jx_cfd.js,tag=京喜财富岛
     
     Surge:
-    京喜财富岛 = type=cron,cronexp="0 * * * *",wake-system=1,timeout=20,script-path=https://raw.GITHUB111usercontent.com/MoPoQAQ/Script/main/Me/jx_cfd.js
-    京喜农场cookie = type=http-request,pattern=^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask,requires-body=0,max-size=0,script-path=https://raw.GITHUB111usercontent.com/whyour/hundun/master/quanx/jx_nc.cookie.js
+    京喜财富岛 = type=cron,cronexp="0 * * * *",wake-system=1,timeout=20,script-path=https://raw.githubusercontent.com/moposmall/Script/main/Me/jx_cfd.js
+    京喜token = type=http-request,pattern=^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask,requires-body=0,max-size=0,script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js
+    京喜token = type=http-request,pattern=^https\:\/\/m\.jingxi\.com\/dreamfactory\/generator\/CollectCurrentElectricity,requires-body=0,max-size=0,script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js
+    京喜token = type=http-request,pattern=^https\:\/\/m\.jingxi\.com\/jxcfd\/consume\/CashOut,requires-body=0,max-size=0,script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js
     
     Shadowrocket:
     [Script]
-    京喜财富岛 = type=cron,script-path=https://raw.GITHUB111usercontent.com/MoPoQAQ/Script/main/Me/jx_cfd.js,cronexpr="0 * * * *",timeout=120,enable=true
-    京喜农场Cookie = type=http-request,script-path=https://raw.GITHUB111usercontent.com/whyour/hundun/master/quanx/jx_nc.cookie.js,pattern=^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask,max-size=131072,timeout=10,enable=true
-
+    京喜财富岛 = type=cron,script-path=https://raw.githubusercontent.com/moposmall/Script/main/Me/jx_cfd.js,cronexpr="0 * * * *",timeout=120,enable=true
+    京喜token = type=http-request,script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js,pattern=^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask,max-size=131072,timeout=10,enable=true
+    京喜token = type=http-request,script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js,pattern=^https\:\/\/m\.jingxi\.com\/dreamfactory\/generator\/CollectCurrentElectricity,max-size=131072,timeout=10,enable=true
+    京喜token = type=http-request,script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js,pattern=^https\:\/\/m\.jingxi\.com\/jxcfd\/consume\/CashOut,max-size=131072,timeout=10,enable=true
+    
     BoxJS订阅
-    https://raw.GITHUB111usercontent.com/whyour/hundun/master/quanx/whyour.boxjs.json
+    https://raw.githubusercontent.com/whyour/hundun/master/quanx/whyour.boxjs.json
 
     Docker：
       1.上传jx_cfd.js文件到scripts文件夹下
@@ -55,7 +65,7 @@
       ## 如果某个Cookie的账号种植的是app种子，则必须填入有效的TOKEN；而种植非app种子则不需要TOKEN
       ## TOKEN的形式：{"farm_jstoken":"749a90f871adsfads8ffda7bf3b1576760","timestamp":"1610165423873","phoneid":"42c7e3dadfadsfdsaac-18f0e4f4a0cf"}
       ## 因TOKEN中带有双引号，因此，变量值两侧必须由一对单引号引起来
-      ## TOKEN如何获取请阅读以下文件的注释：https://GITHUB111.com/lxk0301/jd_scripts/blob/master/jd_jxnc.js
+      ## TOKEN如何获取请阅读以下文件的注释：https://github.com/lxk0301/jd_scripts/blob/master/jd_jxnc.js
       TokenJxnc1='{"farm_jstoken":"xxx","phoneid":"xxx","timestamp":"xxx"}'
       TokenJxnc2=''
       TokenJxnc3=''
@@ -68,6 +78,14 @@
       ## 默认为 "false"，静默，不发送推送通知消息，如想收到通知，请修改为 "true"
       ## 如果你不想完全关闭或者完全开启通知，只想在特定的时间发送通知，可以参考上面面的“定义东东萌宠是否静默运行”部分，设定几个if判断条件
       export CFD_NOTIFY_CONTROL=""
+
+    logs:
+    2021/2/24 9:00
+      - 添加自动领取年终福利活动
+      - 添加自动领取升级奖励
+      - 修复超级助力App环境问题
+    2021/2/25 11:11
+      - 修复长时间不改代码问题
 *
 **/
 
@@ -91,7 +109,7 @@ $.info = {};
   if (!getTokens()) return;
   for (let i = 0; i < $.cookieArr.length; i++) {
     $.currentCookie = $.cookieArr[i];
-    $.currentToken = $.tokenArr[i];
+    $.currentToken = $.tokenArr[i] || {};
     if ($.currentCookie) {
       $.userName = decodeURIComponent($.currentCookie.match(/pt_pin=(.+?);/) && $.currentCookie.match(/pt_pin=(.+?);/)[1]);
       $.index = i + 1;
@@ -103,6 +121,13 @@ $.info = {};
          
       await $.wait(500);
       await querySignList();
+
+      //领取岛主升级奖励
+      promotionAward();
+
+      //领取年终福利
+      await $.wait(500);
+      getAdvEmployee(1001);
 
       await $.wait(500);
       await getMoney();
@@ -336,6 +361,65 @@ function getMoney_dwSource_3( _key, sceneList ) {
         }
       }
     );
+  });
+}
+
+//判断年终福利是否领取
+//user/GetAdvEmployee
+//strZone=jxcfd&bizCode=jxcfd&source=jxcfd&dwEnv=7&_cfd_t=1614127340116&ptag=138631.26.55&
+//dwSenceId=1001&dwIsSlave=0&_stk=_cfd_t%2CbizCode%2CdwEnv%2CdwIsSlave%2CdwSenceId%2Cptag%2Csource%2CstrZone
+//&_=1614127340121&sceneval=2&g_login_type=1&callback=jsonpCBKH&g_ty=ls
+function getAdvEmployee(_key) { 
+  $.get(taskUrl(`user/GetAdvEmployee`, `dwSenceId=${_key}&dwIsSlave=0&_stk=_cfd_t%2CbizCode%2CdwEnv%2CdwIsSlave%2CdwSenceId%2Cptag%2Csource%2CstrZone`), async(err, resp, data) => {
+    try {
+      const { SceneEmployeeInfo:{ SceneId, SceneName, dwCurStage } , dwNextSceneId, sErrMsg } = JSON.parse(data);
+      if( sErrMsg === `success` && dwCurStage === 1) {
+        await advEmployeeAward( SceneId, SceneName );
+        await $.wait(500);
+        if(dwNextSceneId > 0 ) {
+          _key = dwNextSceneId;
+          getAdvEmployee (_key);
+        }
+      }
+    } catch (e) {
+      $.logErr(e, resp);
+    }
+  });
+}
+
+//领取年终福利
+//user/AdvEmployeeAward
+//strZone=jxcfd&bizCode=jxcfd&source=jxcfd&dwEnv=7&_cfd_t=1614127342671&ptag=138631.26.55
+//&dwSenceId=1001&_stk=_cfd_t%2CbizCode%2CdwEnv%2CdwSenceId%2Cptag%2Csource%2CstrZone&_ste=1
+//&_=1614127342672&sceneval=2&g_login_type=1&callback=jsonpCBKQ&g_ty=ls
+function advEmployeeAward(_key, strSceneName) {
+  return new Promise(async (resolve) =>{
+    $.get(taskUrl(`user/AdvEmployeeAward`,`dwSenceId=${_key}&_stk=_cfd_t%2CbizCode%2CdwEnv%2CdwSenceId%2Cptag%2Csource%2CstrZone`), async(err, resp, data) => {
+      try {
+        const  { sErrMsg, strAwardDetail: { strName } } = JSON.parse(data);
+        $.log(`\n【${strSceneName}】💰雇主奖励：${ sErrMsg == 'success' ? `获取雇主奖励：¥ ${strName || 0}` : sErrMsg } \n${$.showLog ? data : ""}`);
+      } catch (e) {
+        $.logErr(e, resp);
+      } finally {
+        resolve();
+      }
+    });
+  });
+}
+
+//领取岛主升级奖励
+//user/PromotionAward
+//strZone=jxcfd&bizCode=jxcfd&source=jxcfd&dwEnv=7&_cfd_t=1614127340122&ptag=138631.26.55
+//&_stk=_cfd_t%2CbizCode%2CdwEnv%2Cptag%2Csource%2CstrZone&_ste=1
+//&_=1614127340124&sceneval=2&g_login_type=1&callback=jsonpCBKI&g_ty=ls
+function promotionAward() {
+  $.get(taskUrl(`user/PromotionAward`, `_stk=_cfd_t%2CbizCode%2CdwEnv%2Cptag%2Csource%2CstrZone`), async (err, resp, data) => {
+    try {
+      const { sErrMsg, strPrizeName } = JSON.parse(data);
+      $.log(`\n💰岛主升级奖励：${ sErrMsg == 'success' ? `获取升级奖励：¥ ${strPrizeName || 0}` : sErrMsg } \n${$.showLog ? data : ""}`);
+    } catch (e) {
+      $.logErr(e, resp);
+    }
   });
 }
 
@@ -659,6 +743,11 @@ function submitInviteId(userName) {
 }
 
 //随机超级助力好友
+//user/JoinScene
+//strZone=jxcfd&bizCode=jxcfd&source=jxcfd&dwEnv=7&_cfd_t=1614129401306&ptag=&
+//strShareId=90A15070F26FE5335C0DD5B80BC737B570EE3333E55C6586B913301C30BBD298&dwSceneId=1001&dwType=2
+//&strPgtimestamp=1614129401239&strPhoneID=1fdab515ff3293f7fa8979661e521458d5a7a0b3&strPgUUNum=5e9a1cf37e0ad6fbe634840fcfe0ebb3
+//&_stk=_cfd_t%2CbizCode%2CdwEnv%2CdwSceneId%2CdwType%2Cptag%2Csource%2CstrPgUUNum%2CstrPgtimestamp%2CstrPhoneID%2CstrShareId%2CstrZone
 function createSuperAssistUser() {
   return new Promise(resolve => {
     const sceneIds = Object.keys($.info.SceneList);
@@ -667,7 +756,7 @@ function createSuperAssistUser() {
       try {
         const { data = {} } = JSON.parse(_data);
         $.log(`\n【👫🏻超级助力】超级助力码：${data.value}\n${$.showLog ? _data : ''}`);
-        $.get(taskUrl('user/JoinScene', `strPgtimestamp=${$.currentToken['timestamp']}&strPhoneID=${$.currentToken['phoneid']}&strPgUUNum=${$.currentToken['farm_jstoken']}&strShareId=${escape(data.value)}&dwSceneId=${sceneId}&dwType=2`), async (err, resp, data) => {
+        $.get(taskUrl('user/JoinScene', `strPgtimestamp=${$.currentToken['timestamp']}&strPhoneID=${$.currentToken['phoneid']}&strPgUUNum=${$.currentToken['farm_jstoken']}&strShareId=${escape(data.value)}&dwSceneId=${sceneId}&dwType=2&_stk=_cfd_t%2CbizCode%2CdwEnv%2CdwSceneId%2CdwType%2Cptag%2Csource%2CstrPgUUNum%2CstrPgtimestamp%2CstrPhoneID%2CstrShareId%2CstrZone`), async (err, resp, data) => {
           try {
             const { sErrMsg, data: { rewardMoney = 0 } = {} } = JSON.parse(data);
             $.log(`\n【👫🏻超级助力】超级助力：${sErrMsg}\n${$.showLog ? data : ''}`);
@@ -741,6 +830,7 @@ function submitGroupId() {
                 }
               } catch (e) {
                 $.logErr(e, resp);
+                resolve();
               } finally {
                 resolve();
               }
@@ -774,13 +864,18 @@ function openGroup() {
 }
 
 //助力好友寻宝大作战
+//user/JoinGroup
+//strZone=jxcfd&bizCode=jxcfd&source=jxcfd&dwEnv=7&_cfd_t=1614153421905&ptag=138920.20.4&
+//strGroupId=Jxcfd_GroupId_202_37661794&dwIsNewUser=0&pgtimestamp=1614153421889&phoneID=1fdab515ff3293f7fa8979661e521458d5a7a0b3&pgUUNum=794e1fa83f6455e43a18853b4f6e1419
+//&_stk=_cfd_t%2CbizCode%2CdwEnv%2CdwIsNewUser%2CpgUUNum%2Cpgtimestamp%2CphoneID%2Cptag%2Csource%2CstrGroupId%2CstrZone&_ste=1
+//&_=1614153421918&sceneval=2&g_login_type=1&callback=jsonpCBKI&g_ty=ls
 function joinGroup() {
   return new Promise( async (resolve) => {
     $.get({ url: 'https://api.ninesix.cc/api/jx-cfd-group' }, (err, resp, _data) => {
       try {
         const { data = {} } = JSON.parse(_data);
         $.log(`\n【🏝寻宝大作战】随机助力码：${data.value}\n${$.showLog ? _data : ''}`);
-        $.get(taskUrl(`user/JoinGroup`, `strGroupId=${data.value}&dwIsNewUser=${$.info.dwIsNewUser}&pgtimestamp=${$.currentToken['timestamp']}&phoneID=${$.currentToken['phoneid']}&pgUUNum=${$.currentToken['farm_jstoken']}`), (err, resp, data) => {
+        $.get(taskUrl(`user/JoinGroup`, `strGroupId=${data.value}&dwIsNewUser=${$.info.dwIsNewUser}&pgtimestamp=${$.currentToken['timestamp']}&phoneID=${$.currentToken['phoneid']}&pgUUNum=${$.currentToken['farm_jstoken']}&_stk=_cfd_t%2CbizCode%2CdwEnv%2CdwIsNewUser%2CpgUUNum%2Cpgtimestamp%2CphoneID%2Cptag%2Csource%2CstrGroupId%2CstrZone`), (err, resp, data) => {
           try {
             const { sErrMsg } = JSON.parse(data);
             $.log(`\n【🏝寻宝大作战】助力：${sErrMsg}\n${$.showLog ? data : ''}`);
@@ -840,7 +935,8 @@ function getCookies() {
   if ($.isNode()) {
     $.cookieArr = Object.values(jdCookieNode);
   } else {
-    $.cookieArr = [$.getdata("CookieJD") || "", $.getdata("CookieJD2") || ""];
+    const CookiesJd = JSON.parse($.getdata("CookiesJD") || "[]").filter(x => !!x).map(x => x.cookie);
+    $.cookieArr = [$.getdata("CookieJD") || "", $.getdata("CookieJD2") || "", ...CookiesJd];
   }
   if (!$.cookieArr[0]) {
     $.msg(
@@ -860,7 +956,7 @@ function getTokens() {
       $.tokenArr.push(jdTokenNode[item] ? JSON.parse(jdTokenNode[item]) : '{}');
     })
   } else {
-    $.tokenArr = [$.getdata('jxnc_token1') || '{}', $.getdata('jxnc_token2') || '{}'];
+    $.tokenArr = JSON.parse($.getdata('jx_tokens') || '[]');
   }
   if (!$.tokenArr[0]) {
     $.msg(
@@ -918,7 +1014,7 @@ function showMsg() {
       $.msg($.name, "", `\n${$.result.join("\n")}`);
     }
     
-    if ($.isNode() && process.env.CFD_NOTIFY_CONTROL)
+    if ($.isNode() && process.env.CFD_NOTIFY_CONTROL === 'true')
       await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName}`, `账号${$.index}：${$.nickName || $.userName}\n${$.result.join("\n")}`);
       
     resolve();
