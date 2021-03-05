@@ -21,10 +21,10 @@ let BARK_SOUND = '';
 // =======================================telegram机器人通知设置区域===========================================
 //此处填你telegram bot 的Token，例如：1077xxx4424:AAFjv0FcqxxxxxxgEMGfi22B4yh15R5uw
 //(环境变量名 TG_BOT_TOKEN)
-let TG_BOT_TOKEN = '';
+let TG_BOT_TOKEN = '1602317650:AAHRnGq_S-uSrMF8fYKzVs9ySTZmr0PqX4s';
 //此处填你接收通知消息的telegram用户的id，例如：129xxx206
 //(环境变量名 TG_USER_ID)
-let TG_USER_ID = '';
+let TG_USER_ID = '890990931';
 
 // =======================================钉钉机器人通知设置区域===========================================
 //此处填你钉钉 bot 的webhook，例如：5a544165465465645d0f31dca676e7bd07415asdasd
@@ -303,7 +303,7 @@ function tgBotNotify(text, desp) {
   return  new Promise(resolve => {
     if (TG_BOT_TOKEN && TG_USER_ID) {
       const options = {
-        url: `https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage`,
+        url: `https://tgcdn.lensu.workers.dev/bot${TG_BOT_TOKEN}/sendMessage`,
         body: `chat_id=${TG_USER_ID}&text=${text}\n\n${desp}&disable_web_page_preview=true`,
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
