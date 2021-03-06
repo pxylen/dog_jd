@@ -24,7 +24,7 @@ let allGoodList = []
 
 // default params
 $.pageSize = 12
-let cidsList = ["手机数码", "手机数码", "电脑办公", "家居家装"]
+let cidsList = ["手机数码", "生鲜美食", "家庭清洁", "食品饮料"]
 let typeList = ["普通试用", "闪电试用"]
 let goodFilters = "教程@软件@英语@辅导@培训".split('@')
 let minPrice = 0
