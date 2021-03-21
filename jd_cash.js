@@ -314,7 +314,14 @@ function shareCodesFormat() {
 function requireConfig() {
   return new Promise(resolve => {
     console.log(`开始获取${$.name}配置文件\n`);
-    let shareCodes = [];
+    let shareCodes = [
+    'eU9YaOywZq8gpziEw3AT0g@eU9Ya-qyNPpz-WfWmCAS3w@eU9Yaeu0Zfon9mrVzHQV0Q@IhMxZeqzYPwm92e6iw@eU9Yau3jNakm8j-DyXcUhQ',
+    'IBs0b-m1ZPU79mjWz3cV@eU9Ya-qyNPpz-WfWmCAS3w@eU9Yaeu0Zfon9mrVzHQV0Q@IhMxZeqzYPwm92e6iw@eU9Yau3jNakm8j-DyXcUhQ',
+    'IBs0b-m1ZPU79mjWz3cV@eU9YaOywZq8gpziEw3AT0g@eU9Yaeu0Zfon9mrVzHQV0Q@IhMxZeqzYPwm92e6iw@eU9Yau3jNakm8j-DyXcUhQ',
+    'IBs0b-m1ZPU79mjWz3cV@eU9YaOywZq8gpziEw3AT0g@eU9Ya-qyNPpz-WfWmCAS3w@IhMxZeqzYPwm92e6iw@eU9Yau3jNakm8j-DyXcUhQ',
+    'IBs0b-m1ZPU79mjWz3cV@eU9YaOywZq8gpziEw3AT0g@eU9Ya-qyNPpz-WfWmCAS3w@eU9Yaeu0Zfon9mrVzHQV0Q@eU9Yau3jNakm8j-DyXcUhQ',
+    'IBs0b-m1ZPU79mjWz3cV@eU9YaOywZq8gpziEw3AT0g@eU9Ya-qyNPpz-WfWmCAS3w@eU9Yaeu0Zfon9mrVzHQV0Q@IhMxZeqzYPwm92e6iw'
+    ];
     if ($.isNode()) {
       if (process.env.JD_CASH_SHARECODES) {
         if (process.env.JD_CASH_SHARECODES.indexOf('\n') > -1) {
