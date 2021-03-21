@@ -676,7 +676,10 @@ function requireConfig() {
   return new Promise(resolve => {
     console.log(`开始获取${$.name}配置文件\n`);
     //Node.js用户请在jdCookie.js处填写京东ck;
-    let shareCodes = []
+    let shareCodes = [
+    '9ed2aa1d0f494a22aa346c24789515c5',
+    'fde5ac98de834408b56a4692cb8e9084',
+    ]
     console.log(`共${cookiesArr.length}个京东账号\n`);
     $.shareCodesArr = [];
     if ($.isNode()) {

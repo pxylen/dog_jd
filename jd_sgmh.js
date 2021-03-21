@@ -273,7 +273,11 @@ function requireConfig() {
         shareCodes = process.env.JDSGMH_SHARECODES.split('&');
       }
     }
-    $.shareCodesArr = [];
+    $.shareCodesArr = [
+    'T0225KkcRB4b9QfRdkylnPQKcACjVQmoaT5kRrbA@T0225KkcRRkf9lLWJx70k_AMcwCjVQmoaT5kRrbA',
+    'T020vf1wQxse913KJxz3kPMMCjVQmoaT5kRrbA@T0225KkcRRkf9lLWJx70k_AMcwCjVQmoaT5kRrbA',
+    'T020vf1wQxse913KJxz3kPMMCjVQmoaT5kRrbA@T0225KkcRB4b9QfRdkylnPQKcACjVQmoaT5kRrbA'
+    ];
     if ($.isNode()) {
       Object.keys(shareCodes).forEach((item) => {
         if (shareCodes[item]) {
