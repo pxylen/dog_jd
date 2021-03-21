@@ -691,12 +691,12 @@ function requireConfig() {
           shareCodes = process.env.BOOKSHOP_SHARECODES.split('&');
         }
       }
-      Object.keys(shareCodes).forEach((item) => {
-        if (shareCodes[item]) {
-          $.shareCodesArr.push(shareCodes[item])
-        }
-      })
     }
+      Object.keys(shareCodes).forEach((item) => {
+            if (shareCodes[item]) {
+              $.shareCodesArr.push(shareCodes[item])
+            }
+          })
     console.log(`您提供了${$.shareCodesArr.length}个账号的${$.name}助力码\n`);
     resolve()
   })

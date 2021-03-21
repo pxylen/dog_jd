@@ -278,13 +278,13 @@ function requireConfig() {
     'T020vf1wQxse913KJxz3kPMMCjVQmoaT5kRrbA@T0225KkcRRkf9lLWJx70k_AMcwCjVQmoaT5kRrbA',
     'T020vf1wQxse913KJxz3kPMMCjVQmoaT5kRrbA@T0225KkcRB4b9QfRdkylnPQKcACjVQmoaT5kRrbA'
     ];
-    if ($.isNode()) {
+//    if ($.isNode()) {
       Object.keys(shareCodes).forEach((item) => {
         if (shareCodes[item]) {
           $.shareCodesArr.push(shareCodes[item])
         }
       })
-    }
+//    }
     console.log(`您提供了${$.shareCodesArr.length}个账号的${$.name}助力码\n`);
     resolve()
   })
