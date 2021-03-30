@@ -314,14 +314,7 @@ function shareCodesFormat() {
 function requireConfig() {
   return new Promise(resolve => {
     console.log(`开始获取${$.name}配置文件\n`);
-    let shareCodes = [
-    'eU9YaOywZq8gpziEw3AT0g@eU9Ya-qyNPpz-WfWmCAS3w@eU9Yaeu0Zfon9mrVzHQV0Q@IhMxZeqzYPwm92e6iw@eU9Yau3jNakm8j-DyXcUhQ',
-    'IBs0b-m1ZPU79mjWz3cV@eU9Ya-qyNPpz-WfWmCAS3w@eU9Yaeu0Zfon9mrVzHQV0Q@IhMxZeqzYPwm92e6iw@eU9Yau3jNakm8j-DyXcUhQ',
-    'IBs0b-m1ZPU79mjWz3cV@eU9YaOywZq8gpziEw3AT0g@eU9Yaeu0Zfon9mrVzHQV0Q@IhMxZeqzYPwm92e6iw@eU9Yau3jNakm8j-DyXcUhQ',
-    'IBs0b-m1ZPU79mjWz3cV@eU9YaOywZq8gpziEw3AT0g@eU9Ya-qyNPpz-WfWmCAS3w@IhMxZeqzYPwm92e6iw@eU9Yau3jNakm8j-DyXcUhQ',
-    'IBs0b-m1ZPU79mjWz3cV@eU9YaOywZq8gpziEw3AT0g@eU9Ya-qyNPpz-WfWmCAS3w@eU9Yaeu0Zfon9mrVzHQV0Q@eU9Yau3jNakm8j-DyXcUhQ',
-    'IBs0b-m1ZPU79mjWz3cV@eU9YaOywZq8gpziEw3AT0g@eU9Ya-qyNPpz-WfWmCAS3w@eU9Yaeu0Zfon9mrVzHQV0Q@IhMxZeqzYPwm92e6iw'
-    ];
+    let shareCodes = [];
     if ($.isNode()) {
       if (process.env.JD_CASH_SHARECODES) {
         if (process.env.JD_CASH_SHARECODES.indexOf('\n') > -1) {
@@ -333,13 +326,13 @@ function requireConfig() {
     }
     console.log(`共${cookiesArr.length}个京东账号\n`);
     $.shareCodesArr = [];
-//    if ($.isNode()) {
+    if ($.isNode()) {
       Object.keys(shareCodes).forEach((item) => {
         if (shareCodes[item]) {
           $.shareCodesArr.push(shareCodes[item])
         }
       })
-//    }
+    }
     console.log(`您提供了${$.shareCodesArr.length}个账号的${$.name}助力码\n`);
     resolve()
   })
@@ -370,7 +363,7 @@ function taskUrl(functionId, body = {}) {
       'Connection': 'keep-alive',
       'Content-Type': 'application/json',
       'Referer': 'http://wq.jd.com/wxapp/pages/hd-interaction/index/index',
-      'User-Agent': $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.2.2;14.2;%E4%BA%AC%E4%B8%9C/9.2.2 CFNetwork/1206 Darwin/20.1.0"),
+      'User-Agent': $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
       'Accept-Language': 'zh-cn',
       'Accept-Encoding': 'gzip, deflate, br',
     }
@@ -430,7 +423,7 @@ function TotalBean() {
         "Connection": "keep-alive",
         "Cookie": cookie,
         "Referer": "https://wqs.jd.com/my/jingdou/my.shtml?sceneval=2",
-        "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.2.2;14.2;%E4%BA%AC%E4%B8%9C/9.2.2 CFNetwork/1206 Darwin/20.1.0")
+        "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1")
       }
     }
     $.post(options, (err, resp, data) => {

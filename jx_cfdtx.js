@@ -1,53 +1,38 @@
 /**
 *
-  Name:财富岛兑换
+  Name:财富岛提现
   Address: 京喜App ====>>>> 全民赚大钱
-  Author：MoPoQAQ
-  Update: 2021/2/3 16:30
 
-  Thanks: 
-    💢疯疯💢
-    银河大佬：https://GITHUB111.com/zbt494
+ * 获取京喜tokens方式
+ * 打开京喜农场，手动完成任意任务，必须完成任务领到水滴，提示获取cookie成功
+ * 打开京喜工厂，收取电力，提示获取cookie成功
+ * 打开京喜财富岛，手动成功提现一次，提示获取cookie成功
+ * 手动任意完成，提示获取cookie成功即可，然后退出跑任务脚本
 
-  获取Token方式(三选一)：
-    1.打开【❗️京喜农场❗️】，手动任意完成<工厂任务>、<签到任务>、<金牌厂长任务>一项，提示获取cookie成功即可，然后退出跑任务脚本
-    2.京喜工厂收取电力一次
-    3.财富岛手动提现一次
+  hostname = wq.jd.com, m.jingxi.com
 
-   Quantumult X:
-    [task_local]
-    0 0 * * * jx_cfdtx.js, tag=财富岛兑换, img-url=https://raw.GITHUB111usercontent.com/58xinian/icon/master/jxcfd.png, enabled=true
-    [rewrite_local]
-    ^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask url script-request-header https://raw.GITHUB111usercontent.com/whyour/hundun/master/quanx/jx_tokens.js
-    ^https\:\/\/m\.jingxi\.com\/dreamfactory\/generator\/CollectCurrentElectricity url script-request-header https://raw.GITHUB111usercontent.com/whyour/hundun/master/quanx/jx_tokens.js
-    ^https\:\/\/m\.jingxi\.com\/jxcfd\/consume\/CashOut url script-request-header https://raw.GITHUB111usercontent.com/whyour/hundun/master/quanx/jx_tokens.js
-    
-  Loon:
-    [Script]
-    http-request ^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask script-path=https://raw.GITHUB111usercontent.com/whyour/hundun/master/quanx/jx_tokens.js, requires-body=false, timeout=10, tag=京喜token
-    http-request ^https\:\/\/m\.jingxi\.com\/dreamfactory\/generator\/CollectCurrentElectricity script-path=https://raw.GITHUB111usercontent.com/whyour/hundun/master/quanx/jx_tokens.js, requires-body=false, timeout=10, tag=京喜token
-    http-request ^^https\:\/\/m\.jingxi\.com\/jxcfd\/consume\/CashOut script-path=https://raw.GITHUB111usercontent.com/whyour/hundun/master/quanx/jx_tokens.js, requires-body=false, timeout=10, tag=京喜token
-    cron "0 0 * * *" script-path=jx_cfdtx,tag=财富岛兑换
-    
-  Surge:
-    财富岛兑换 = type=cron,cronexp="0 0 * * *",wake-system=1,timeout=20,script-path=jx_cfdtx
-    京喜token = type=http-request,pattern=^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask,requires-body=0,max-size=0,script-path=https://raw.GITHUB111usercontent.com/whyour/hundun/master/quanx/jx_tokens.js
-    京喜token = type=http-request,pattern=^https\:\/\/m\.jingxi\.com\/dreamfactory\/generator\/CollectCurrentElectricity,requires-body=0,max-size=0,script-path=https://raw.GITHUB111usercontent.com/whyour/hundun/master/quanx/jx_tokens.js
-    京喜token = type=http-request,pattern=^https\:\/\/m\.jingxi\.com\/jxcfd\/consume\/CashOut,requires-body=0,max-size=0,script-path=https://raw.GITHUB111usercontent.com/whyour/hundun/master/quanx/jx_tokens.js
-    
-  Shadowrocket:
-    [Script]
-    财富岛兑换 = type=cron,script-path=jx_cfdtx,cronexpr="0 0 * * *",timeout=120,enable=true
-    京喜token = type=http-request,script-path=https://raw.GITHUB111usercontent.com/whyour/hundun/master/quanx/jx_tokens.js,pattern=^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask,max-size=131072,timeout=10,enable=true
-    京喜token = type=http-request,script-path=https://raw.GITHUB111usercontent.com/whyour/hundun/master/quanx/jx_tokens.js,pattern=^https\:\/\/m\.jingxi\.com\/dreamfactory\/generator\/CollectCurrentElectricity,max-size=131072,timeout=10,enable=true
-    京喜token = type=http-request,script-path=https://raw.GITHUB111usercontent.com/whyour/hundun/master/quanx/jx_tokens.js,pattern=^https\:\/\/m\.jingxi\.com\/jxcfd\/consume\/CashOut,max-size=131072,timeout=10,enable=true
-    
-  BoxJS订阅
-    https://raw.GITHUB111usercontent.com/whyour/hundun/master/quanx/whyour.boxjs.json
+  # quanx
+  [rewrite_local]
+  ^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask url script-request-header https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js
+  ^https\:\/\/m\.jingxi\.com\/dreamfactory\/generator\/CollectCurrentElectricity url script-request-header https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js
+  ^https\:\/\/m\.jingxi\.com\/jxcfd\/consume\/CashOut url script-request-header https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js
+
+  # loon
+  [Script]
+  http-request ^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js, requires-body=false, timeout=10, tag=京喜token
+  http-request ^https\:\/\/m\.jingxi\.com\/dreamfactory\/generator\/CollectCurrentElectricity script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js, requires-body=false, timeout=10, tag=京喜token
+  http-request ^^https\:\/\/m\.jingxi\.com\/jxcfd\/consume\/CashOut script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js, requires-body=false, timeout=10, tag=京喜token
+
+  # surge
+  [Script]
+  京喜token = type=http-request,pattern=^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask,requires-body=0,max-size=0,script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js
+  京喜token = type=http-request,pattern=^https\:\/\/m\.jingxi\.com\/dreamfactory\/generator\/CollectCurrentElectricity,requires-body=0,max-size=0,script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js
+  京喜token = type=http-request,pattern=^https\:\/\/m\.jingxi\.com\/jxcfd\/consume\/CashOut,requires-body=0,max-size=0,script-path=https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js
+
 *
 **/
 
-const $ = new Env("财富岛兑换💸");
+const $ = new Env("京喜财富岛提现");
 const JD_API_HOST = "https://m.jingxi.com/";
 const jdCookieNode = $.isNode() ? require("./jdCookie.js") : "";
 const jdTokenNode = $.isNode() ? require('./jdJxncTokens.js') : '';
@@ -65,7 +50,7 @@ $.userName = '';
   if (!getTokens()) return;
   for (let i = 0; i < $.cookieArr.length; i++) {
     $.currentCookie = $.cookieArr[i];
-    $.currentToken = $.tokenArr[i] || {};
+    $.currentToken = $.tokenArr[i];
     if ($.currentCookie) {
       $.userName =  decodeURIComponent($.currentCookie.match(/pt_pin=(.+?);/) && $.currentCookie.match(/pt_pin=(.+?);/)[1]);
       $.log(`\n开始【京东账号${i + 1}】${$.userName}`);
@@ -83,7 +68,7 @@ function cashOut() {
     $.get(
       taskUrl(
         `consume/CashOut`,
-        `ddwMoney=100&dwIsCreateToken=0&ddwMinPaperMoney=50000&strPgtimestamp=${$.currentToken['timestamp']}&strPhoneID=${$.currentToken['phoneid']}&strPgUUNum=${$.currentToken['farm_jstoken']}`
+        `ddwMoney=100&dwIsCreateToken=0&ddwMinPaperMoney=100000&strPgtimestamp=${$.currentToken['timestamp']}&strPhoneID=${$.currentToken['phoneid']}&strPgUUNum=${$.currentToken['farm_jstoken']}`
       ), 
       async (err, resp, data) => {
         try {
@@ -91,6 +76,7 @@ function cashOut() {
           const { iRet, sErrMsg } = JSON.parse(data);
           $.log(sErrMsg);
           $.result.push(`【${$.userName}】\n ${sErrMsg == "" ? sErrMsg="今天手气太棒了" : sErrMsg}`);
+          resolve(sErrMsg);
         } catch (e) {
           $.logErr(e, resp);
         } finally {
