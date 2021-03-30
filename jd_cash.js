@@ -325,14 +325,21 @@ function requireConfig() {
       }
     }
     console.log(`共${cookiesArr.length}个京东账号\n`);
-    $.shareCodesArr = [];
-    if ($.isNode()) {
+    $.shareCodesArr = [
+    'eU9YaOywZq8gpziEw3AT0g@eU9Ya-qyNPpz-WfWmCAS3w@eU9Yaeu0Zfon9mrVzHQV0Q@IhMxZeqzYPwm92e6iw@eU9Yau3jNakm8j-DyXcUhQ',
+    'IBs0b-m1ZPU79mjWz3cV@eU9Ya-qyNPpz-WfWmCAS3w@eU9Yaeu0Zfon9mrVzHQV0Q@IhMxZeqzYPwm92e6iw@eU9Yau3jNakm8j-DyXcUhQ',
+    'IBs0b-m1ZPU79mjWz3cV@eU9YaOywZq8gpziEw3AT0g@eU9Yaeu0Zfon9mrVzHQV0Q@IhMxZeqzYPwm92e6iw@eU9Yau3jNakm8j-DyXcUhQ',
+    'IBs0b-m1ZPU79mjWz3cV@eU9YaOywZq8gpziEw3AT0g@eU9Ya-qyNPpz-WfWmCAS3w@IhMxZeqzYPwm92e6iw@eU9Yau3jNakm8j-DyXcUhQ',
+    'IBs0b-m1ZPU79mjWz3cV@eU9YaOywZq8gpziEw3AT0g@eU9Ya-qyNPpz-WfWmCAS3w@eU9Yaeu0Zfon9mrVzHQV0Q@eU9Yau3jNakm8j-DyXcUhQ',
+    'IBs0b-m1ZPU79mjWz3cV@eU9YaOywZq8gpziEw3AT0g@eU9Ya-qyNPpz-WfWmCAS3w@eU9Yaeu0Zfon9mrVzHQV0Q@IhMxZeqzYPwm92e6iw'
+    ];
+//    if ($.isNode()) {
       Object.keys(shareCodes).forEach((item) => {
         if (shareCodes[item]) {
           $.shareCodesArr.push(shareCodes[item])
         }
       })
-    }
+//    }
     console.log(`您提供了${$.shareCodesArr.length}个账号的${$.name}助力码\n`);
     resolve()
   })
