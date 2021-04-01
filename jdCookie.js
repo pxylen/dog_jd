@@ -7,8 +7,8 @@ let CookieJDs = [
 'pt_key=AAJgPsdTADD2WOILVUxm8MDtQaXN99a8__-mVtk1e7CIdibZNoKTCkRs-fUZagoFjvmI-Tn_wMQ; pt_pin=jd_4020c6ffa8304;',
 'pt_key=AAJgQvnBADCGLgSnr9wM9k5ervM2hlk4tU_dFdMW6wZKMYkC9fd639HGLSfeiTm12KKZL34REs4; pt_pin=jd_760b6e893cc19;',
 'pt_key=AAJgUX8KADDHhxqIaBlQGo57tMvM_1nNRjzK02Sdfuo7gIC8UJOMoft6rcpX6viqqdT2fDUOY1k; pt_pin=jd_5a18a06d61f23;',
-'pt_key=AAJgPeYSADD6bS9ogssVTdMX6tklW5wEHW60YtTmZXoz0h7ukPfDXjiluq59ovNkVzPcTYsBX_o; pt_pin=jd_5763617407767;',
-'pt_key=AAJgP0_lADD78_y6TSk5jzFeMk2vz8W26oGGFo0Kk4ewMMrzzFeoF9t1lVzpgwK8gI_YuRnwEoc; pt_pin=jd_vrbCVTRTVXuJ;',
+'pt_key=AAJgZYNFADBp-aLeIJr_97EeP0F78IgEn7nSkDqRe0siSoZqegdERS00gYQchQDWZuChe8eSpAQ; pt_pin=jd_5763617407767;',
+'pt_key=AAJgZYUlADD5r6Ev-Zqd_j_2IPZVG32lIYglDVdNPsMtuPFVtombhAOtVAgwJdH_C8l7dWOqvB4; pt_pin=jd_vrbCVTRTVXuJ;',
 'pt_key=AAJgQJkgADA70jWUdnVkM6BxOWsQQK4WfYcEjxav2-mYj_JHXr0u6tgetzmXWCwIJQ1ZFvwU1Iw; pt_pin=18696160069_p;',
 'pt_key=AAJgTC82ADDwjl9697IMRiA06V79pvjIeGISd-yNzREWn1LDRC9jt62g0MHUedWcPf4IgaUhEkQ; pt_pin=jd_61ace03af247c;'
 ]
