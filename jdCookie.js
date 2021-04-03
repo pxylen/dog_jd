@@ -1,7 +1,6 @@
 /*
 此文件为Node.js专用。其他用户请忽略
  */
-//此处填写京东账号cookie。 'pt_key=AAJgPsdTADD2WOILVUxm8MDtQaXN99a8__-mVtk1e7CIdibZNoKTCkRs-fUZagoFjvmI-Tn_wMQ; pt_pin=jd_4020c6ffa8304;', 账号2失效
 let CookieJDs = [
 'pt_key=AAJgUXzmADAX9_q9-wh7AEOmPYEsq7Xavbatu4KwVlvALdAfxo33d1O2ZrTkEKYhKkm4qBOL0a0; pt_pin=30335729-763446;',
 'pt_key=AAJgZxL7ADC2bTlx_9Qp_rkN5OWl95r6a6uEgJjBtDDIloscXTwBbRKIwhGINpJMEGad_jGmU4A; pt_pin=jd_4020c6ffa8304;',
@@ -9,7 +8,6 @@ let CookieJDs = [
 'pt_key=AAJgUX8KADDHhxqIaBlQGo57tMvM_1nNRjzK02Sdfuo7gIC8UJOMoft6rcpX6viqqdT2fDUOY1k; pt_pin=jd_5a18a06d61f23;',
 'pt_key=AAJgZYNFADBp-aLeIJr_97EeP0F78IgEn7nSkDqRe0siSoZqegdERS00gYQchQDWZuChe8eSpAQ; pt_pin=jd_5763617407767;',
 'pt_key=AAJgZYUlADD5r6Ev-Zqd_j_2IPZVG32lIYglDVdNPsMtuPFVtombhAOtVAgwJdH_C8l7dWOqvB4; pt_pin=jd_vrbCVTRTVXuJ;',
-'pt_key=AAJgQJkgADA70jWUdnVkM6BxOWsQQK4WfYcEjxav2-mYj_JHXr0u6tgetzmXWCwIJQ1ZFvwU1Iw; pt_pin=18696160069_p;',
 'pt_key=AAJgTC82ADDwjl9697IMRiA06V79pvjIeGISd-yNzREWn1LDRC9jt62g0MHUedWcPf4IgaUhEkQ; pt_pin=jd_61ace03af247c;'
 ]
 // 判断环境变量里面是否有京东ck
