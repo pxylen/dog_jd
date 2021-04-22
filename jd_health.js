@@ -298,14 +298,7 @@ function requireConfig() {
   return new Promise(resolve => {
     console.log(`开始获取${$.name}配置文件\n`);
     //Node.js用户请在jdCookie.js处填写京东ck;
-    let shareCodes = [
-    'T0225KkcRB4b9QfRdkylnPQKcACjVfnoaW5kRrbA@T0225KkcRxgZp1KCKBP3x6QLfQCjVfnoaW5kRrbA@T0225KkcRRkf9lLWJx70k_AMcwCjVfnoaW5kRrbA@T018v_V1SRgY81TXJhOb1ACjVfnoaW5kRrbA@T0225KkcRh9IpgHXI0uilvMNJwCjVfnoaW5kRrbA',
-    'T020vf1wQxse913KJxz3kPMMCjVfnoaW5kRrbA@T0225KkcRxgZp1KCKBP3x6QLfQCjVfnoaW5kRrbA@T0225KkcRRkf9lLWJx70k_AMcwCjVfnoaW5kRrbA@T018v_V1SRgY81TXJhOb1ACjVfnoaW5kRrbA@T0225KkcRh9IpgHXI0uilvMNJwCjVfnoaW5kRrbA',
-    'T020vf1wQxse913KJxz3kPMMCjVfnoaW5kRrbA@T0225KkcRB4b9QfRdkylnPQKcACjVfnoaW5kRrbA@T0225KkcRRkf9lLWJx70k_AMcwCjVfnoaW5kRrbA@T018v_V1SRgY81TXJhOb1ACjVfnoaW5kRrbA@T0225KkcRh9IpgHXI0uilvMNJwCjVfnoaW5kRrbA',
-    'T020vf1wQxse913KJxz3kPMMCjVfnoaW5kRrbA@T0225KkcRB4b9QfRdkylnPQKcACjVfnoaW5kRrbA@T0225KkcRxgZp1KCKBP3x6QLfQCjVfnoaW5kRrbA@T018v_V1SRgY81TXJhOb1ACjVfnoaW5kRrbA@T0225KkcRh9IpgHXI0uilvMNJwCjVfnoaW5kRrbA',
-    'T020vf1wQxse913KJxz3kPMMCjVfnoaW5kRrbA@T0225KkcRB4b9QfRdkylnPQKcACjVfnoaW5kRrbA@T0225KkcRxgZp1KCKBP3x6QLfQCjVfnoaW5kRrbA@T0225KkcRRkf9lLWJx70k_AMcwCjVfnoaW5kRrbA@T0225KkcRh9IpgHXI0uilvMNJwCjVfnoaW5kRrbA',
-    'T020vf1wQxse913KJxz3kPMMCjVfnoaW5kRrbA@T0225KkcRB4b9QfRdkylnPQKcACjVfnoaW5kRrbA@T0225KkcRxgZp1KCKBP3x6QLfQCjVfnoaW5kRrbA@T0225KkcRRkf9lLWJx70k_AMcwCjVfnoaW5kRrbA@T018v_V1SRgY81TXJhOb1ACjVfnoaW5kRrbA'
-    ];
+    let shareCodes = [];
     if ($.isNode()) {
       if (process.env.JDHEALTH_SHARECODES) {
         if (process.env.JDHEALTH_SHARECODES.indexOf('\n') > -1) {
@@ -316,7 +309,14 @@ function requireConfig() {
       }
     }
     console.log(`共${cookiesArr.length}个京东账号\n`);
-    $.shareCodesArr = [];
+    $.shareCodesArr = [
+     'T0225KkcRB4b9QfRdkylnPQKcACjVfnoaW5kRrbA@T0225KkcRxgZp1KCKBP3x6QLfQCjVfnoaW5kRrbA@T0225KkcRRkf9lLWJx70k_AMcwCjVfnoaW5kRrbA@T018v_V1SRgY81TXJhOb1ACjVfnoaW5kRrbA@T0225KkcRh9IpgHXI0uilvMNJwCjVfnoaW5kRrbA',
+     'T020vf1wQxse913KJxz3kPMMCjVfnoaW5kRrbA@T0225KkcRxgZp1KCKBP3x6QLfQCjVfnoaW5kRrbA@T0225KkcRRkf9lLWJx70k_AMcwCjVfnoaW5kRrbA@T018v_V1SRgY81TXJhOb1ACjVfnoaW5kRrbA@T0225KkcRh9IpgHXI0uilvMNJwCjVfnoaW5kRrbA',
+     'T020vf1wQxse913KJxz3kPMMCjVfnoaW5kRrbA@T0225KkcRB4b9QfRdkylnPQKcACjVfnoaW5kRrbA@T0225KkcRRkf9lLWJx70k_AMcwCjVfnoaW5kRrbA@T018v_V1SRgY81TXJhOb1ACjVfnoaW5kRrbA@T0225KkcRh9IpgHXI0uilvMNJwCjVfnoaW5kRrbA',
+     'T020vf1wQxse913KJxz3kPMMCjVfnoaW5kRrbA@T0225KkcRB4b9QfRdkylnPQKcACjVfnoaW5kRrbA@T0225KkcRxgZp1KCKBP3x6QLfQCjVfnoaW5kRrbA@T018v_V1SRgY81TXJhOb1ACjVfnoaW5kRrbA@T0225KkcRh9IpgHXI0uilvMNJwCjVfnoaW5kRrbA',
+     'T020vf1wQxse913KJxz3kPMMCjVfnoaW5kRrbA@T0225KkcRB4b9QfRdkylnPQKcACjVfnoaW5kRrbA@T0225KkcRxgZp1KCKBP3x6QLfQCjVfnoaW5kRrbA@T0225KkcRRkf9lLWJx70k_AMcwCjVfnoaW5kRrbA@T0225KkcRh9IpgHXI0uilvMNJwCjVfnoaW5kRrbA',
+     'T020vf1wQxse913KJxz3kPMMCjVfnoaW5kRrbA@T0225KkcRB4b9QfRdkylnPQKcACjVfnoaW5kRrbA@T0225KkcRxgZp1KCKBP3x6QLfQCjVfnoaW5kRrbA@T0225KkcRRkf9lLWJx70k_AMcwCjVfnoaW5kRrbA@T018v_V1SRgY81TXJhOb1ACjVfnoaW5kRrbA'
+    ];
     if ($.isNode()) {
       Object.keys(shareCodes).forEach((item) => {
         if (shareCodes[item]) {
