@@ -2,7 +2,7 @@
 * @Author: LXK9301
 * @Date: 2020-11-03 20:35:07
 * @Last Modified by: LXK9301
-* @Last Modified time: 2021-4-20 13:27:09
+* @Last Modified time: 2021-4-23 13:27:09
 */
 /*
 活动入口：京东APP首页-领京豆-摇京豆/京东APP首页-我的-京东会员-摇京豆
@@ -14,16 +14,16 @@ Modified from https://github.com/Zero-S1/JD_tools/blob/master/JD_vvipclub.py
 ============QuantumultX==============
 [task_local]
 #摇京豆
-5 0,23 * * * https://gitee.com/lxk0301/jd_scripts/raw/master/jd_club_lottery.js, tag=摇京豆, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jdyjd.png, enabled=true
+5 0,23 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_club_lottery.js, tag=摇京豆, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jdyjd.png, enabled=true
 =================Loon===============
 [Script]
-cron "5 0,23 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_club_lottery.js,tag=摇京豆
+cron "5 0,23 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_club_lottery.js,tag=摇京豆
 =================Surge==============
 [Script]
-摇京豆 = type=cron,cronexp="5 0,23 * * *",wake-system=1,timeout=3600,script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_club_lottery.js
+摇京豆 = type=cron,cronexp="5 0,23 * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_club_lottery.js
 
 ============小火箭=========
-摇京豆 = type=cron,script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_club_lottery.js, cronexpr="5 0,23 * * *", timeout=3600, enable=true
+摇京豆 = type=cron,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_club_lottery.js, cronexpr="5 0,23 * * *", timeout=3600, enable=true
 */
 
 const $ = new Env('摇京豆');
@@ -93,7 +93,7 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
     $.canHelp = true;
     if ($.canHelp && $.activityId) {
       $.assigFirends = $.assigFirends.concat({
-        "encryptAssignmentId": "2mPXah3aWb3Q86kkaCMhey6sNYR4",
+        "encryptAssignmentId": $.assigFirends[0] && $.assigFirends[0]['encryptAssignmentId'],
         "assignmentType": 2,
         "itemId": "SZm_olqSxIOtH97BATGmKoWraLaw",
       })
@@ -478,8 +478,8 @@ function welcomeHome() {
               if (shakeFloorNew) {
                 const jump = shakeFloorNew['jump'];
                 if (jump && jump.params && jump['params']['url']) {
-                  // superShakeBeanConfig['superShakeUlr'] = jump.params.url;
-                  // console.log(`【超级摇一摇】活动链接：${superShakeBeanConfig['superShakeUlr']}`);
+                  $.superShakeUrl = "jump.params.url"
+                  console.log(`【超级摇一摇】活动链接：${jump.params.url}`);
                 }
               }
               if (shakeFloorNew && shakeFloorNew2) {
@@ -515,9 +515,9 @@ function superBrandMainPage() {
             data = JSON.parse(data);
             if (data['code'] === '0') {
               if (data['data']['bizCode'] === '0') {
-                superShakeBeanConfig['superShakeUlr'] = jump.params.url;
-                console.log(`【超级摇一摇】活动链接：${superShakeBeanConfig['superShakeUlr']}`);
-
+                //superShakeBeanConfig['superShakeUlr'] = jump.params.url;
+                //console.log(`【超级摇一摇】活动链接：${superShakeBeanConfig['superShakeUlr']}`);
+                superShakeBeanConfig['superShakeUlr'] = $.superShakeUrl;
                 $.activityId = data['data']['result']['activityBaseInfo']['activityId'];
                 $.encryptProjectId = data['data']['result']['activityBaseInfo']['encryptProjectId'];
                 $.activityName = data['data']['result']['activityBaseInfo']['activityName'];

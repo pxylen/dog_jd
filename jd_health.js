@@ -309,14 +309,7 @@ function requireConfig() {
       }
     }
     console.log(`共${cookiesArr.length}个京东账号\n`);
-    $.shareCodesArr = [
-     'T0225KkcRB4b9QfRdkylnPQKcACjVfnoaW5kRrbA@T0225KkcRxgZp1KCKBP3x6QLfQCjVfnoaW5kRrbA@T0225KkcRRkf9lLWJx70k_AMcwCjVfnoaW5kRrbA@T018v_V1SRgY81TXJhOb1ACjVfnoaW5kRrbA@T0225KkcRh9IpgHXI0uilvMNJwCjVfnoaW5kRrbA',
-     'T020vf1wQxse913KJxz3kPMMCjVfnoaW5kRrbA@T0225KkcRxgZp1KCKBP3x6QLfQCjVfnoaW5kRrbA@T0225KkcRRkf9lLWJx70k_AMcwCjVfnoaW5kRrbA@T018v_V1SRgY81TXJhOb1ACjVfnoaW5kRrbA@T0225KkcRh9IpgHXI0uilvMNJwCjVfnoaW5kRrbA',
-     'T020vf1wQxse913KJxz3kPMMCjVfnoaW5kRrbA@T0225KkcRB4b9QfRdkylnPQKcACjVfnoaW5kRrbA@T0225KkcRRkf9lLWJx70k_AMcwCjVfnoaW5kRrbA@T018v_V1SRgY81TXJhOb1ACjVfnoaW5kRrbA@T0225KkcRh9IpgHXI0uilvMNJwCjVfnoaW5kRrbA',
-     'T020vf1wQxse913KJxz3kPMMCjVfnoaW5kRrbA@T0225KkcRB4b9QfRdkylnPQKcACjVfnoaW5kRrbA@T0225KkcRxgZp1KCKBP3x6QLfQCjVfnoaW5kRrbA@T018v_V1SRgY81TXJhOb1ACjVfnoaW5kRrbA@T0225KkcRh9IpgHXI0uilvMNJwCjVfnoaW5kRrbA',
-     'T020vf1wQxse913KJxz3kPMMCjVfnoaW5kRrbA@T0225KkcRB4b9QfRdkylnPQKcACjVfnoaW5kRrbA@T0225KkcRxgZp1KCKBP3x6QLfQCjVfnoaW5kRrbA@T0225KkcRRkf9lLWJx70k_AMcwCjVfnoaW5kRrbA@T0225KkcRh9IpgHXI0uilvMNJwCjVfnoaW5kRrbA',
-     'T020vf1wQxse913KJxz3kPMMCjVfnoaW5kRrbA@T0225KkcRB4b9QfRdkylnPQKcACjVfnoaW5kRrbA@T0225KkcRxgZp1KCKBP3x6QLfQCjVfnoaW5kRrbA@T0225KkcRRkf9lLWJx70k_AMcwCjVfnoaW5kRrbA@T018v_V1SRgY81TXJhOb1ACjVfnoaW5kRrbA'
-    ];
+    $.shareCodesArr = [];
     if ($.isNode()) {
       Object.keys(shareCodes).forEach((item) => {
         if (shareCodes[item]) {
