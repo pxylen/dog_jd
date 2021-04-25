@@ -1359,7 +1359,12 @@ function requireConfig() {
     //Node.js用户请在jdCookie.js处填写京东ck;
     const shareCodes = $.isNode() ? require('./jdDreamFactoryShareCodes.js') : '';
     console.log(`共${cookiesArr.length}个京东账号\n`);
-    $.shareCodesArr = [];
+    $.shareCodesArr = [
+'fllNMVqHsAkF5Tmos3OYeQ==@xYiOaxF9lPhTieBTR_Gl3w==@ewXx3P6RBKMNI_QluPmJaw==',
+'bGO_dcvKvAz1tu26ipMiSw==@xYiOaxF9lPhTieBTR_Gl3w==@ewXx3P6RBKMNI_QluPmJaw==',
+'bGO_dcvKvAz1tu26ipMiSw==@fllNMVqHsAkF5Tmos3OYeQ==@ewXx3P6RBKMNI_QluPmJaw==',
+'bGO_dcvKvAz1tu26ipMiSw==@fllNMVqHsAkF5Tmos3OYeQ==@xYiOaxF9lPhTieBTR_Gl3w=='
+    ];
     if ($.isNode()) {
       Object.keys(shareCodes).forEach((item) => {
         if (shareCodes[item]) {
