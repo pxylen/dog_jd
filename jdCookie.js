@@ -3,7 +3,6 @@
  */
 let CookieJDs = [
 'pt_key=AAJgeRE_ADAdzzZZ4GGCVei5IUB-0B7ilJkCuJtqwrmWR8ZKwYjd2Uau1YO035X0tWFL37gtfS8; pt_pin=30335729-763446;',
-'pt_key=AAJgZxL7ADC2bTlx_9Qp_rkN5OWl95r6a6uEgJjBtDDIloscXTwBbRKIwhGINpJMEGad_jGmU4A; pt_pin=jd_4020c6ffa8304;',
 'pt_key=AAJgapnbADDhDk_w7YLc3SIn6lVKfjA7pQTdv_siv2ak_Lwnlksq4_lJCwMGMYc3vnsfZ0X-ZjU; pt_pin=jd_760b6e893cc19;',
 'pt_key=AAJgeRHgADDIcVbBGfe0UWyVIhN659_OH9WPGqV3TAHEsYGBeWfy-e1dZT_bxUvhh31G185SIxA; pt_pin=jd_5a18a06d61f23;',
 'pt_key=AAJgjRMhADDqaFc4GWbfsyMrcvHFcgOqfdRoNKr20g28VITx7Ohoewddfwraz3ipu-kZ6-1L5Sw; pt_pin=jd_5763617407767;',
