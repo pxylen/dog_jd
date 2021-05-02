@@ -7,7 +7,6 @@ let CookieJDs = [
 'pt_key=AAJgapnbADDhDk_w7YLc3SIn6lVKfjA7pQTdv_siv2ak_Lwnlksq4_lJCwMGMYc3vnsfZ0X-ZjU; pt_pin=jd_760b6e893cc19;',
 'pt_key=AAJgeRHgADDIcVbBGfe0UWyVIhN659_OH9WPGqV3TAHEsYGBeWfy-e1dZT_bxUvhh31G185SIxA; pt_pin=jd_5a18a06d61f23;',
 'pt_key=AAJgjRMhADDqaFc4GWbfsyMrcvHFcgOqfdRoNKr20g28VITx7Ohoewddfwraz3ipu-kZ6-1L5Sw; pt_pin=jd_5763617407767;',
-'pt_key=AAJgZYUlADD5r6Ev-Zqd_j_2IPZVG32lIYglDVdNPsMtuPFVtombhAOtVAgwJdH_C8l7dWOqvB4; pt_pin=jd_vrbCVTRTVXuJ;',
 'pt_key=AAJgbSDOADBMrEFOf5pj23Qw_aVPIJmWF8gnT4SE1QZrtsNVs7hSZi7Q8lk2dHOFjG5HXc9Y_A8; pt_pin=18696160069_p;',
 'pt_key=AAJgc8fsADBVk66FAcJNs7YQ8f-obIuLk5SHdlDx8BSjEiC25GZH3OoZkRwjcxloa74f-rZf-DI; pt_pin=jd_61ace03af247c;'
 ]
