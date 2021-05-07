@@ -8,7 +8,6 @@ let CookieJDs = [
 'pt_key=AAJgeRHgADDIcVbBGfe0UWyVIhN659_OH9WPGqV3TAHEsYGBeWfy-e1dZT_bxUvhh31G185SIxA; pt_pin=jd_5a18a06d61f23;',
 'pt_key=AAJgjRMhADDqaFc4GWbfsyMrcvHFcgOqfdRoNKr20g28VITx7Ohoewddfwraz3ipu-kZ6-1L5Sw; pt_pin=jd_5763617407767;',
 'pt_key=AAJgk8VfADA5zK7_jbKBPAFN8kY0dJDs3aEr_oqdRqdk4PyswrxUiQFfc_8wvZXuevya9j1IVzw; pt_pin=jd_vrbCVTRTVXuJ;',
-'pt_key=AAJgbSDOADBMrEFOf5pj23Qw_aVPIJmWF8gnT4SE1QZrtsNVs7hSZi7Q8lk2dHOFjG5HXc9Y_A8; pt_pin=18696160069_p;',
 'pt_key=AAJgc8fsADBVk66FAcJNs7YQ8f-obIuLk5SHdlDx8BSjEiC25GZH3OoZkRwjcxloa74f-rZf-DI; pt_pin=jd_61ace03af247c;'
 ]
 // 判断环境变量里面是否有京东ck
