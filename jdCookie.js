@@ -9,7 +9,7 @@ let CookieJDs = [
 'pt_key=AAJgjRMhADDqaFc4GWbfsyMrcvHFcgOqfdRoNKr20g28VITx7Ohoewddfwraz3ipu-kZ6-1L5Sw; pt_pin=jd_5763617407767;',
 'pt_key=AAJgk8VfADA5zK7_jbKBPAFN8kY0dJDs3aEr_oqdRqdk4PyswrxUiQFfc_8wvZXuevya9j1IVzw; pt_pin=jd_vrbCVTRTVXuJ;',
 'pt_key=AAJgmJcxADCfiG8T9d9eoROzAl7jred-TjcamfXDirwXprNwGf4N6y4h_15GyUkZvPFcAp5mOjE; pt_pin=18696160069_p;',
-'pt_key=AAJgc8fsADBVk66FAcJNs7YQ8f-obIuLk5SHdlDx8BSjEiC25GZH3OoZkRwjcxloa74f-rZf-DI; pt_pin=jd_61ace03af247c;'
+'pt_key=AAJgm1XWADD1Ly086Y_k5Lpbdsm4pA0tpUN49Gqde4ucRvbewSqw6LxVc7QAmHbyfznBNH7VV1o; pt_pin=jd_61ace03af247c;'
 ]
 // 判断环境变量里面是否有京东ck
 if (process.env.JD_COOKIE) {
