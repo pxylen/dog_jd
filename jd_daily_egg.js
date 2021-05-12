@@ -13,7 +13,7 @@ TODO
 ============Quantumultx===============
 [task_local]
 #天天提鹅
-10 * * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_daily_egg.js, tag=天天提鹅, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jdte.png, enabled=true
+10 * * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_daily_egg.js, tag=天天提鹅, img-url=https://gayhub.lensu.workers.dev/58xinian/icon/master/jdte.png, enabled=true
 
 ================Loon==============
 [Script]

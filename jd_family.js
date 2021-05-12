@@ -10,7 +10,7 @@
 ============Quantumultx===============
 [task_local]
 #京东家庭号
-1 12,23 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_family.js, tag=京东家庭号, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jd_family.png, enabled=true
+1 12,23 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_family.js, tag=京东家庭号, img-url=https://gayhub.lensu.workers.dev/58xinian/icon/master/jd_family.png, enabled=true
 
 ================Loon==============
 [Script]

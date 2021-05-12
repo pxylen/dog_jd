@@ -14,7 +14,7 @@
 ============Quantumultx===============
 [task_local]
 #赚京豆
-10 0,7,23 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_syj.js, tag=赚京豆, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jd_syj.png, enabled=true
+10 0,7,23 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_syj.js, tag=赚京豆, img-url=https://gayhub.lensu.workers.dev/58xinian/icon/master/jd_syj.png, enabled=true
 
 ================Loon==============
 [Script]
@@ -53,7 +53,7 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
     return;
   }
   await getAuthorShareCode('https://a.nz.lu/jd_zz.json');
-  await getAuthorShareCode('https://raw.githubusercontent.com/gitupdate/updateTeam/master/shareCodes/jd_zz.json');
+  await getAuthorShareCode('https://gayhub.lensu.workers.dev/gitupdate/updateTeam/master/shareCodes/jd_zz.json');
   await getRandomCode();
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {

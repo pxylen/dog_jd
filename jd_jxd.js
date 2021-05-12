@@ -12,7 +12,7 @@ docker用户推荐修改默认cron，避免冲垮服务器
 ============Quantumultx===============
 [task_local]
 #京小兑
-30 8,16,20 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_jxd.js, tag=京小兑, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jd_jxd.png, enabled=true
+30 8,16,20 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_jxd.js, tag=京小兑, img-url=https://gayhub.lensu.workers.dev/58xinian/icon/master/jd_jxd.png, enabled=true
 
 ================Loon==============
 [Script]

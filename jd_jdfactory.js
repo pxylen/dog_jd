@@ -17,7 +17,7 @@
 ============Quantumultx===============
 [task_local]
 #东东工厂
-10 * * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_jdfactory.js, tag=东东工厂, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jd_factory.png, enabled=true
+10 * * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_jdfactory.js, tag=东东工厂, img-url=https://gayhub.lensu.workers.dev/58xinian/icon/master/jd_factory.png, enabled=true
 
 ================Loon==============
 [Script]

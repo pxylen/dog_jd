@@ -12,7 +12,7 @@
 ============Quantumultx===============
 [task_local]
 #京东汽车兑换
-0 0 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_car_exchange.js, tag=京东汽车兑换, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jd_redPacket.png, enabled=true
+0 0 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_car_exchange.js, tag=京东汽车兑换, img-url=https://gayhub.lensu.workers.dev/58xinian/icon/master/jd_redPacket.png, enabled=true
 
 ================Loon==============
 [Script]
