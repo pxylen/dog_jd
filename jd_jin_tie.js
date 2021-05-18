@@ -5,7 +5,7 @@
 =================QuantumultX==============
 [task_local]
 #领金贴
-10 0 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_jin_tie.js, tag=领金贴, img-url=https://gayhub.lensu.workers.dev/Orz-3/mini/master/Color/jd.png, enabled=true
+10 0 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_jin_tie.js, tag=领金贴, img-url=https://ghproxy.com/https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 ===========Loon===============
 [Script]
 cron "10 0 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_jin_tie.js,tag=领金贴

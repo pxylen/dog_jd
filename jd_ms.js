@@ -14,7 +14,7 @@
 ============Quantumultx===============
 [task_local]
 #京东秒秒币
-10 7 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_ms.js, tag=京东秒秒币, img-url=https://gayhub.lensu.workers.dev/yogayyy/Scripts/master/Icon/shylocks/jd_ms.jpg, enabled=true
+10 7 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_ms.js, tag=京东秒秒币, img-url=https://ghproxy.com/https://raw.githubusercontent.com/yogayyy/Scripts/master/Icon/shylocks/jd_ms.jpg, enabled=true
 
 ================Loon==============
 [Script]

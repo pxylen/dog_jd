@@ -15,7 +15,7 @@ IOS用户支持京东双账号,NodeJs用户支持N个京东账号
 ==========Quantumult X==========
 [task_local]
 #宠汪汪偷好友积分与狗粮
-10 0-21/3 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_joy_steal.js, tag=宠汪汪偷好友积分与狗粮, img-url=https://gayhub.lensu.workers.dev/58xinian/icon/master/jdcww.png, enabled=true
+10 0-21/3 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_joy_steal.js, tag=宠汪汪偷好友积分与狗粮, img-url=https://ghproxy.com/https://raw.githubusercontent.com/58xinian/icon/master/jdcww.png, enabled=true
 
 =======Loon========
 [Script]

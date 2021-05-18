@@ -11,7 +11,7 @@
 ===============Quantumultx===============
 [task_local]
 #点点券
-10 0,20 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_necklace.js, tag=点点券, img-url=https://gayhub.lensu.workers.dev/Orz-3/mini/master/Color/jd.png, enabled=true
+10 0,20 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_necklace.js, tag=点点券, img-url=https://ghproxy.com/https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 
 ================Loon==============
 [Script]

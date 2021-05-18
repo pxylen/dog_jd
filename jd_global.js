@@ -10,7 +10,7 @@
 ============Quantumultx===============
 [task_local]
 #环球挑战赛
-0 9,12,20,21 2-22 2 * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_global.js, tag=环球挑战赛, img-url=https://gayhub.lensu.workers.dev/yogayyy/Scripts/main/Icon/lxk0301/jd_global.png, enabled=true
+0 9,12,20,21 2-22 2 * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_global.js, tag=环球挑战赛, img-url=https://ghproxy.com/https://raw.githubusercontent.com/yogayyy/Scripts/main/Icon/lxk0301/jd_global.png, enabled=true
 
 ================Loon==============
 [Script]

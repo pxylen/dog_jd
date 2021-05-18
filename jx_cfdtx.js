@@ -1,6 +1,6 @@
 /**
 *
-  Name:财富岛提现 (修改自https://gayhub.lensu.workers.dev/pxylen/dog_jd/master/jx_cfdtx.js)
+  Name:财富岛提现 (修改自https://ghproxy.com/https://raw.githubusercontent.com/pxylen/dog_jd/master/jx_cfdtx.js)
   Address: 京喜App ====>>>> 全民赚大钱
 
  * 获取京喜tokens方式
@@ -13,21 +13,21 @@
 
   # quanx
   [rewrite_local]
-  ^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask url script-request-header https://gayhub.lensu.workers.dev/whyour/hundun/master/quanx/jx_tokens.js
-  ^https\:\/\/m\.jingxi\.com\/dreamfactory\/generator\/CollectCurrentElectricity url script-request-header https://gayhub.lensu.workers.dev/whyour/hundun/master/quanx/jx_tokens.js
-  ^https\:\/\/m\.jingxi\.com\/jxcfd\/consume\/CashOut url script-request-header https://gayhub.lensu.workers.dev/whyour/hundun/master/quanx/jx_tokens.js
+  ^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask url script-request-header https://ghproxy.com/https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js
+  ^https\:\/\/m\.jingxi\.com\/dreamfactory\/generator\/CollectCurrentElectricity url script-request-header https://ghproxy.com/https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js
+  ^https\:\/\/m\.jingxi\.com\/jxcfd\/consume\/CashOut url script-request-header https://ghproxy.com/https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js
 
   # loon
   [Script]
-  http-request ^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask script-path=https://gayhub.lensu.workers.dev/whyour/hundun/master/quanx/jx_tokens.js, requires-body=false, timeout=10, tag=京喜token
-  http-request ^https\:\/\/m\.jingxi\.com\/dreamfactory\/generator\/CollectCurrentElectricity script-path=https://gayhub.lensu.workers.dev/whyour/hundun/master/quanx/jx_tokens.js, requires-body=false, timeout=10, tag=京喜token
-  http-request ^^https\:\/\/m\.jingxi\.com\/jxcfd\/consume\/CashOut script-path=https://gayhub.lensu.workers.dev/whyour/hundun/master/quanx/jx_tokens.js, requires-body=false, timeout=10, tag=京喜token
+  http-request ^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask script-path=https://ghproxy.com/https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js, requires-body=false, timeout=10, tag=京喜token
+  http-request ^https\:\/\/m\.jingxi\.com\/dreamfactory\/generator\/CollectCurrentElectricity script-path=https://ghproxy.com/https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js, requires-body=false, timeout=10, tag=京喜token
+  http-request ^^https\:\/\/m\.jingxi\.com\/jxcfd\/consume\/CashOut script-path=https://ghproxy.com/https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js, requires-body=false, timeout=10, tag=京喜token
 
   # surge
   [Script]
-  京喜token = type=http-request,pattern=^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask,requires-body=0,max-size=0,script-path=https://gayhub.lensu.workers.dev/whyour/hundun/master/quanx/jx_tokens.js
-  京喜token = type=http-request,pattern=^https\:\/\/m\.jingxi\.com\/dreamfactory\/generator\/CollectCurrentElectricity,requires-body=0,max-size=0,script-path=https://gayhub.lensu.workers.dev/whyour/hundun/master/quanx/jx_tokens.js
-  京喜token = type=http-request,pattern=^https\:\/\/m\.jingxi\.com\/jxcfd\/consume\/CashOut,requires-body=0,max-size=0,script-path=https://gayhub.lensu.workers.dev/whyour/hundun/master/quanx/jx_tokens.js
+  京喜token = type=http-request,pattern=^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask,requires-body=0,max-size=0,script-path=https://ghproxy.com/https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js
+  京喜token = type=http-request,pattern=^https\:\/\/m\.jingxi\.com\/dreamfactory\/generator\/CollectCurrentElectricity,requires-body=0,max-size=0,script-path=https://ghproxy.com/https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js
+  京喜token = type=http-request,pattern=^https\:\/\/m\.jingxi\.com\/jxcfd\/consume\/CashOut,requires-body=0,max-size=0,script-path=https://ghproxy.com/https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_tokens.js
 
 *
 **/

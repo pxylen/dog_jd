@@ -8,7 +8,7 @@
 ============Quantumultx===============
 [task_local]
 #京东汽车
-10 7 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_car.js, tag=京东汽车, img-url=https://gayhub.lensu.workers.dev/58xinian/icon/master/jd_redPacket.png, enabled=true
+10 7 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_car.js, tag=京东汽车, img-url=https://ghproxy.com/https://raw.githubusercontent.com/58xinian/icon/master/jd_redPacket.png, enabled=true
 
 ================Loon==============
 [Script]

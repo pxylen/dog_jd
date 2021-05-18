@@ -29,7 +29,7 @@ hostname = draw.jdfcloud.com
 ===================Quantumult X=====================
 [task_local]
 # 宠汪汪邀请助力与赛跑助力
-15 10 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_joy_run.js, tag=宠汪汪邀请助力与赛跑助力, img-url=https://gayhub.lensu.workers.dev/58xinian/icon/master/jdcww.png, enabled=true
+15 10 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_joy_run.js, tag=宠汪汪邀请助力与赛跑助力, img-url=https://ghproxy.com/https://raw.githubusercontent.com/58xinian/icon/master/jdcww.png, enabled=true
 [rewrite_local]
 # 宠汪汪助力更新Token
 ^https:\/\/draw\.jdfcloud\.com(\/mirror)?\/\/api\/user\/addUser\?code= url script-response-body https://jdsharedresourcescdn.azureedge.net/jdresource/jd_joy_run.js

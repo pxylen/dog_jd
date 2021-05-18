@@ -11,7 +11,7 @@
 =================QuantumultX==============
 [task_local]
 #天天加速
-8 0-23/3 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed.js, tag=京东天天加速, img-url=https://gayhub.lensu.workers.dev/58xinian/icon/master/jdjs.png, enabled=true
+8 0-23/3 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed.js, tag=京东天天加速, img-url=https://ghproxy.com/https://raw.githubusercontent.com/58xinian/icon/master/jdjs.png, enabled=true
 
 ============Loon================
 [Script]

@@ -8,7 +8,7 @@
 ============QuantumultX==============
 [task_local]
 #球队赢好礼
-10 1 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_tcl.js, tag=球队赢好礼, img-url=https://gayhub.lensu.workers.dev/58xinian/icon/master/jdyjd.png, enabled=true
+10 1 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_tcl.js, tag=球队赢好礼, img-url=https://ghproxy.com/https://raw.githubusercontent.com/58xinian/icon/master/jdyjd.png, enabled=true
 =================Loon===============
 [Script]
 cron "10 1 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_tcl.js,tag=球队赢好礼

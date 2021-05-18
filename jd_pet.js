@@ -11,7 +11,7 @@
 =================================Quantumultx=========================
 [task_local]
 #东东萌宠
-15 6-18/6 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_pet.js, tag=东东萌宠, img-url=https://gayhub.lensu.workers.dev/58xinian/icon/master/jdmc.png, enabled=true
+15 6-18/6 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_pet.js, tag=东东萌宠, img-url=https://ghproxy.com/https://raw.githubusercontent.com/58xinian/icon/master/jdmc.png, enabled=true
 
 =================================Loon===================================
 [Script]

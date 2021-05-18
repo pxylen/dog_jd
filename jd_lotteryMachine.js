@@ -1,6 +1,6 @@
 /*
 
-京东抽奖机 https://gayhub.lensu.workers.dev/yangtingxiao/QuantumultX/master/scripts/jd/jd_lotteryMachine.js
+京东抽奖机 https://ghproxy.com/https://raw.githubusercontent.com/yangtingxiao/QuantumultX/master/scripts/jd/jd_lotteryMachine.js
 活动入口：京东APP中各种抽奖活动的汇总
 自用
 author：yangtingxiao
@@ -42,7 +42,7 @@ async function main() {
     }
   });
 }
-function updateShareCodes(url = 'https://gayhub.lensu.workers.dev/yangtingxiao/QuantumultX/master/scripts/jd/jd_lotteryMachine.js') {
+function updateShareCodes(url = 'https://ghproxy.com/https://raw.githubusercontent.com/yangtingxiao/QuantumultX/master/scripts/jd/jd_lotteryMachine.js') {
   return new Promise(resolve => {
     $.get({url, timeout: 10000}, async (err, resp, data) => {
       try {

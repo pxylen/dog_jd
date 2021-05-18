@@ -7,7 +7,7 @@
 ===================quantumultx================
 [task_local]
 #每日抽奖
-13 1,22,23 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_daily_lottery.js, tag=每日抽奖, img-url=https://gayhub.lensu.workers.dev/Orz-3/mini/master/Color/jd.png, enabled=true
+13 1,22,23 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_daily_lottery.js, tag=每日抽奖, img-url=https://ghproxy.com/https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 
 =====================Loon================
 [Script]

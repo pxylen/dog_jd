@@ -254,7 +254,7 @@ function taskUrl(function_id, body = {}) {
   }
 }
 
-function getRedRainIds(url = "https://gayhub.lensu.workers.dev/gitupdate/updateTeam/master/redrain.json") {
+function getRedRainIds(url = "https://ghproxy.com/https://raw.githubusercontent.com/gitupdate/updateTeam/master/redrain.json") {
   return new Promise(async resolve => {
     const options = {
       url: `${url}?${new Date()}`, "timeout": 10000, headers: {

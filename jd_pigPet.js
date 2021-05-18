@@ -16,7 +16,7 @@
 ===============Quantumultx===============
 [task_local]
 #京东金融养猪猪
-12 0-23/6 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_pigPet.js, tag=京东金融养猪猪, img-url=https://gayhub.lensu.workers.dev/58xinian/icon/master/jdyz.png, enabled=true
+12 0-23/6 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_pigPet.js, tag=京东金融养猪猪, img-url=https://ghproxy.com/https://raw.githubusercontent.com/58xinian/icon/master/jdyz.png, enabled=true
 
 ================Loon==============
 [Script]

@@ -7,7 +7,7 @@
 ==============Quantumult X==============
 [task_local]
 #京东宠汪汪喂食
-15 0-23/1 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_joy_feedPets.js, tag=京东宠汪汪喂食, img-url=https://gayhub.lensu.workers.dev/58xinian/icon/master/jdcww.png, enabled=true
+15 0-23/1 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_joy_feedPets.js, tag=京东宠汪汪喂食, img-url=https://ghproxy.com/https://raw.githubusercontent.com/58xinian/icon/master/jdcww.png, enabled=true
 
 ==============Loon===============
 [Script]

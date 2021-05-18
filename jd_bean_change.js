@@ -14,7 +14,7 @@
 ============QuantumultX==============
 [task_local]
 #京东资产变动通知
-2 9 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_bean_change.js, tag=京东资产变动通知, img-url=https://gayhub.lensu.workers.dev/Orz-3/mini/master/Color/jd.png, enabled=true
+2 9 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_bean_change.js, tag=京东资产变动通知, img-url=https://ghproxy.com/https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 ================Loon===============
 [Script]
 cron "2 9 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_bean_change.js, tag=京东资产变动通知
