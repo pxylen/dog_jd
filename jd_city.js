@@ -36,7 +36,7 @@ if ($.isNode()) {
   cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 }
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
-let inviteCodes = ['HYbnyO6gRQqrfYf1V5h_mu9LUCmzFO8bjx72j4LMICAb_w']
+let inviteCodes = ['xBd-HlYMlLUzqSkuz0qzAzuayqOG3FfAIeOTGLowr29_KbnH2bV4EX4@RtGKzr_wSAn2eIKZRdRm07jvOMS2zVH-g8ri6aOIZPDcI8v7CA@W9GxiKbYIkLcHMXmYIt_mhidwkvZjcvMhX-m5_i2N9q8OtI@RtGKzuWmEw71eIKaQtVn1-X7GtR8p7IcvhW_nUO4Jn0LobU7RA', 'xBd-HlYMlLUzqSkuz0qzAzuayqOG3FfAIeOTGLowr29_KbnH2bV4EX4@RtGKzr_wSAn2eIKZRdRm07jvOMS2zVH-g8ri6aOIZPDcI8v7CA@W9GxiKbYIkLcHMXmYIt_mhidwkvZjcvMhX-m5_i2N9q8OtI@RtGKzuWmEw71eIKaQtVn1-X7GtR8p7IcvhW_nUO4Jn0LobU7RA']
 !(async () => {
   if (!cookiesArr[0]) {
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
@@ -143,7 +143,7 @@ function getInfo(inviteId, flag = false) {
             if (data.data && !data.data.result.userActBaseInfo.inviteId) {
               console.log(`账号已黑，看不到邀请码`);
             } else {
-              if (flag) console.log(`\n\n\n好友助力码：${data.data && data.data.result.userActBaseInfo.inviteId}\n\n\n`)
+              if (flag) console.log(`\n【京东账号${$.index}（${$.UserName}）的${$.name}好友互助码】${data.data && data.data.result.userActBaseInfo.inviteId}\n`);
             }
             if (data.data && data['data']['bizCode'] === 0) {
               for(let vo of data.data.result && data.data.result.mainInfos || []){
@@ -240,7 +240,7 @@ function city_lotteryAward() {
 function readShareCode() {
   console.log(`开始`)
   return new Promise(async resolve => {
-    $.get({url: `http://jd.turinglabs.net/api/v2/jd/city/read/10/`, 'timeout': 10000}, (err, resp, data) => {
+    $.get({url: `http://share.turinglabs.net/api/v3/city/query/10/`, 'timeout': 10000}, (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
@@ -272,10 +272,10 @@ function shareCodesFormat() {
       const tempIndex = $.index > inviteCodes.length ? (inviteCodes.length - 1) : ($.index - 1);
       $.newShareCodes = inviteCodes[tempIndex].split('@');
     }
-    // const readShareCodeRes = await readShareCode();
-    // if (readShareCodeRes && readShareCodeRes.code === 200) {
-    //   $.newShareCodes = [...new Set([...$.newShareCodes, ...(readShareCodeRes.data || [])])];
-    // }
+    const readShareCodeRes = await readShareCode();
+    if (readShareCodeRes && readShareCodeRes.code === 200) {
+      $.newShareCodes = [...new Set([...$.newShareCodes, ...(readShareCodeRes.data || [])])];
+    }
     console.log(`第${$.index}个京东账号将要助力的好友${JSON.stringify($.newShareCodes)}`)
     resolve();
   })
@@ -304,7 +304,7 @@ function requireConfig() {
     'H4Xmy-mjQwO-eYWZE9A1mls2Mqyc3J90mELru8eu8sATavdl@RtGKzOymQVmlKNXLH9cz0nDpWNRrbqK_FImepvgxVSq5lA_mbA@RtGKzeuiQgyieYeaENM10bnKxOUmWb-2A2gDsP0F8efFGE30IA@HY3jweqlRwqjeIr1V5h_msOrzHoX_YvgzEySnBn1gP_tlw@RtGKzu31El-jfdLMFdA0hQZ44eYztIrhaNXzf3vb_tblLk9Otw',
     'H4Xmy-mjQwO-eYWZE9A1mls2Mqyc3J90mELru8eu8sATavdl@RtGKzOymQVmlKNXLH9cz0nDpWNRrbqK_FImepvgxVSq5lA_mbA@RtGKz-qkEwz2doqZRIcy3yKzfZnL6DZJRDQchnheY01bvhSGeg@HY3jweqlRwqjeIr1V5h_msOrzHoX_YvgzEySnBn1gP_tlw@RtGKzu31El-jfdLMFdA0hQZ44eYztIrhaNXzf3vb_tblLk9Otw',
     'H4Xmy-mjQwO-eYWZE9A1mls2Mqyc3J90mELru8eu8sATavdl@RtGKzOymQVmlKNXLH9cz0nDpWNRrbqK_FImepvgxVSq5lA_mbA@RtGKz-qkEwz2doqZRIcy3yKzfZnL6DZJRDQchnheY01bvhSGeg@RtGKzeuiQgyieYeaENM10bnKxOUmWb-2A2gDsP0F8efFGE30IA@RtGKzu31El-jfdLMFdA0hQZ44eYztIrhaNXzf3vb_tblLk9Otw',
-    'H4Xmy-mjQwO-eYWZE9A1mls2Mqyc3J90mELru8eu8sATavdl@RtGKzOymQVmlKNXLH9cz0nDpWNRrbqK_FImepvgxVSq5lA_mbA@RtGKz-qkEwz2doqZRIcy3yKzfZnL6DZJRDQchnheY01bvhSGeg@RtGKzeuiQgyieYeaENM10bnKxOUmWb-2A2gDsP0F8efFGE30IA@HY3jweqlRwqjeIr1V5h_msOrzHoX_YvgzEySnBn1gP_tlw'
+    'H4Xmy-mjQwO-eYWZE9A1mls2Mqyc3J90mELru8eu8sATavdl@RtGKzOymQVmlKNXLH9cz0nDpWNRrbqK_FImepvgxVSq5lA_mbA@RtGKz-qkEwz2doqZRIcy3yKzfZnL6DZJRDQchnheY01bvhSGeg@RtGKzeuiQgyieYeaENM10bnKxOUmWb-2A2gDsP0F8efFGE30IA@HY3jweqlRwqjeIr1V5h_msOrzHoX_YvgzEySnBn1gP_tlw',
     ];
     if ($.isNode()) {
       Object.keys(shareCodes).forEach((item) => {
