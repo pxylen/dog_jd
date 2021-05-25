@@ -4,11 +4,11 @@ author:star
 解密参考自：https://github.com/yangtingxiao/QuantumultX/blob/master/scripts/jd/jd_zoo.js
 活动入口：京东APP-》搜索 玩一玩-》瓜分20亿
 邀请好友助力：内部账号自行互助(排名靠前账号得到的机会多)
-PK互助：考虑中
+PK互助：内部账号自行互助(排名靠前账号得到的机会多)
 地图任务：未完成，后期添加
 金融APP任务：未完成，后期添加
 活动时间：2021-05-24至2021-06-20
-更新时间：2021-05-25
+脚本更新时间：2021-05-25
 脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
 ===================quantumultx================
 [task_local]
@@ -43,7 +43,7 @@ if ($.isNode()) {
   cookiesArr = [
     $.getdata("CookieJD"),
     $.getdata("CookieJD2"),
-    ...$.toObj($.getdata("CookiesJD") || "Í[]").map((item) => item.cookie)].filter((item) => !!item);
+    ...$.toObj($.getdata("CookiesJD") || "[]").map((item) => item.cookie)].filter((item) => !!item);
 }
 !(async () => {
   if (!cookiesArr[0]) {
@@ -52,11 +52,11 @@ if ($.isNode()) {
   }
   console.log('活动入口：京东APP-》搜索 玩一玩-》瓜分20亿\n' +
       '邀请好友助力：内部账号自行互助(排名靠前账号得到的机会多)\n' +
-      'PK互助：考虑中\n' +
+      'PK互助：内部账号自行互助(排名靠前账号得到的机会多)\n' +
       '地图任务：未完成，后期添加\n' +
       '金融APP任务：未完成，后期添加\n' +
       '活动时间：2021-05-24至2021-06-20\n' +
-      '更新时间：2021-05-25');
+      '脚本更新时间：2021-05-25');
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
       $.cookie = cookiesArr[i];
@@ -81,7 +81,14 @@ if ($.isNode()) {
     $.secretp = $.secretpInfo[$.UserName];
     $.index = i + 1;
     //console.log($.inviteList);
-    //console.log(`\n******开始【京东账号${$.index}】${$.UserName}*********\n`);
+    //pk助力
+    console.log(`\n******开始pk助力*********\n`);
+    for (let i = 0; i < $.pkInviteList.length; i++) {
+      console.log(`${$.UserName} 去助力PK码 ${$.pkInviteList[i]}`);
+      $.pkInviteId = $.pkInviteList[i];
+      await takePostRequest('pkHelp');
+    }
+    console.log(`\n******开始邀请好友助力*********\n`);
     for (let j = 0; j < $.inviteList.length && $.canHelp; j++) {
       $.oneInviteInfo = $.inviteList[j];
       if ($.oneInviteInfo.ues === $.UserName || $.oneInviteInfo.max) {
@@ -104,131 +111,130 @@ if ($.isNode()) {
     })
 
 async function zoo() {
-  $.signSingle = {};
-  $.homeData = {};
-  $.secretp = ``;
-  $.taskList = [];
-  $.shopSign = ``;
-  await takePostRequest('zoo_signSingle');
-  if (JSON.stringify($.signSingle) === `{}` || $.signSingle.bizCode !== 0) {
-    console.log($.signSingle.bizMsg);
-    return;
-  } else {
-    console.log(`\n获取活动信息`);
-  }
-  await $.wait(1000);
-  await takePostRequest('zoo_getHomeData');
-  await $.wait(1000);
-  await takePostRequest('zoo_getSignHomeData');
-  await $.wait(1000);
-  if($.signHomeData.todayStatus === 0){
-    console.log(`去签到`);
-    await takePostRequest('zoo_sign');
-    await $.wait(1000);
-  }else{
-    console.log(`已签到`);
-  }
-  await takePostRequest('zoo_getFeedDetail');
-  await $.wait(1000);
-  let raiseInfo = $.homeData.result.homeMainInfo.raiseInfo;
-  if (Number(raiseInfo.totalScore) > Number(raiseInfo.nextLevelScore) && raiseInfo.buttonStatus === 1) {
-    console.log(`满足升级条件，去升级`);
-    await $.wait(3000);
-    await takePostRequest('zoo_raise');
-  }
-  //收金币
-  await $.wait(1000);
-  await takePostRequest('zoo_collectProduceScore');
-  await $.wait(1000);
-  await takePostRequest('zoo_getTaskDetail');
-  await $.wait(1000);
-  //做任务
-  for (let i = 0; i < $.taskList.length && $.secretp; i++) {
-    $.oneTask = $.taskList[i];
-    if ([1, 3, 5, 7, 9, 26].includes($.oneTask.taskType) && $.oneTask.status === 1) {
-      $.activityInfoList = $.oneTask.shoppingActivityVos || $.oneTask.brandMemberVos || $.oneTask.followShopVo || $.oneTask.browseShopVo
-      for (let j = 0; j < $.activityInfoList.length; j++) {
-        $.oneActivityInfo = $.activityInfoList[j];
-        if ($.oneActivityInfo.status !== 1) {
-          continue;
-        }
-        $.callbackInfo = {};
-        console.log(`做任务：${$.oneActivityInfo.title || $.oneActivityInfo.taskName || $.oneActivityInfo.shopName};等待完成`);
-        await takePostRequest('zoo_collectScore');
-        if ($.callbackInfo.code === 0 && $.callbackInfo.data.result.taskToken) {
-          await $.wait(8000);
-          let sendInfo = encodeURIComponent(`{"dataSource":"newshortAward","method":"getTaskAward","reqParams":"{\\"taskToken\\":\\"${$.callbackInfo.data.result.taskToken}\\"}","sdkVersion":"1.0.0","clientLanguage":"zh"}`)
-          await callbackResult(sendInfo)
-        } else if ($.oneTask.taskType === 5 || $.oneTask.taskType === 3 || $.oneTask.taskType === 26) {
-          await $.wait(2000);
-          console.log(`任务完成`);
-        } else {
-          console.log($.callbackInfo);
-          console.log(`任务失败`);
-          await $.wait(3000);
-        }
-      }
+  try {
+    $.signSingle = {};
+    $.homeData = {};
+    $.secretp = ``;
+    $.taskList = [];
+    $.shopSign = ``;
+    await takePostRequest('zoo_signSingle');
+    if (JSON.stringify($.signSingle) === `{}` || $.signSingle.bizCode !== 0) {
+      console.log($.signSingle.bizMsg);
+      return;
+    } else {
+      console.log(`\n获取活动信息`);
     }
+    await $.wait(1000);
     await takePostRequest('zoo_getHomeData');
+    await $.wait(1000);
+    await takePostRequest('zoo_getSignHomeData');
+    await $.wait(1000);
+    if($.signHomeData.todayStatus === 0){
+      console.log(`去签到`);
+      await takePostRequest('zoo_sign');
+      await $.wait(1000);
+    }else{
+      console.log(`已签到`);
+    }
+    await takePostRequest('zoo_getFeedDetail');
+    await $.wait(1000);
     let raiseInfo = $.homeData.result.homeMainInfo.raiseInfo;
     if (Number(raiseInfo.totalScore) > Number(raiseInfo.nextLevelScore) && raiseInfo.buttonStatus === 1) {
       console.log(`满足升级条件，去升级`);
-      await $.wait(1000);
+      await $.wait(3000);
       await takePostRequest('zoo_raise');
     }
-  }
-  //助力
-  // for (let i = 0; i < $.inviteList.length; i++) {
-  //     $.inviteId = $.inviteList[i];
-  //     await takePostRequest('help');
-  //     await $.wait(2000);
-  // }
-  //======================================================怪兽大作战==============================================================================================================
-  $.pkHomeData = {};
-  await takePostRequest('zoo_pk_getHomeData');
-  if (JSON.stringify($.pkHomeData) === '{}') {
-    console.log(`获取PK信息异常`);
-    return;
-  }
-  await $.wait(1000);
-  $.pkTaskList = [];
-  await takePostRequest('zoo_pk_getTaskDetail');
-  await $.wait(1000);
-  for (let i = 0; i < $.pkTaskList.length; i++) {
-    $.oneTask = $.pkTaskList[i];
-    if ($.oneTask.status === 1) {
-      $.activityInfoList = $.oneTask.shoppingActivityVos || $.oneTask.brandMemberVos || $.oneTask.followShopVo || $.oneTask.browseShopVo
-      for (let j = 0; j < $.activityInfoList.length; j++) {
-        $.oneActivityInfo = $.activityInfoList[j];
-        if ($.oneActivityInfo.status !== 1) {
-          continue;
+    //收金币
+    await $.wait(1000);
+    await takePostRequest('zoo_collectProduceScore');
+    await $.wait(1000);
+    await takePostRequest('zoo_getTaskDetail');
+    await $.wait(1000);
+    //做任务
+    for (let i = 0; i < $.taskList.length && $.secretp; i++) {
+      $.oneTask = $.taskList[i];
+      if ([1, 3, 5, 7, 9, 26].includes($.oneTask.taskType) && $.oneTask.status === 1) {
+        $.activityInfoList = $.oneTask.shoppingActivityVos || $.oneTask.brandMemberVos || $.oneTask.followShopVo || $.oneTask.browseShopVo
+        for (let j = 0; j < $.activityInfoList.length; j++) {
+          $.oneActivityInfo = $.activityInfoList[j];
+          if ($.oneActivityInfo.status !== 1) {
+            continue;
+          }
+          $.callbackInfo = {};
+          console.log(`做任务：${$.oneActivityInfo.title || $.oneActivityInfo.taskName || $.oneActivityInfo.shopName};等待完成`);
+          await takePostRequest('zoo_collectScore');
+          if ($.callbackInfo.code === 0 && $.callbackInfo.data && $.callbackInfo.data.result && $.callbackInfo.data.result.taskToken) {
+            await $.wait(8000);
+            let sendInfo = encodeURIComponent(`{"dataSource":"newshortAward","method":"getTaskAward","reqParams":"{\\"taskToken\\":\\"${$.callbackInfo.data.result.taskToken}\\"}","sdkVersion":"1.0.0","clientLanguage":"zh"}`)
+            await callbackResult(sendInfo)
+          } else if ($.oneTask.taskType === 5 || $.oneTask.taskType === 3 || $.oneTask.taskType === 26) {
+            await $.wait(2000);
+            console.log(`任务完成`);
+          } else {
+            console.log($.callbackInfo);
+            console.log(`任务失败`);
+            await $.wait(3000);
+          }
         }
-        console.log(`做任务：${$.oneActivityInfo.title || $.oneActivityInfo.taskName || $.oneActivityInfo.shopName};等待完成`);
-        await takePostRequest('zoo_pk_collectScore');
-        await $.wait(2000);
-        console.log(`任务完成`);
+      }
+      await takePostRequest('zoo_getHomeData');
+      let raiseInfo = $.homeData.result.homeMainInfo.raiseInfo;
+      if (Number(raiseInfo.totalScore) > Number(raiseInfo.nextLevelScore) && raiseInfo.buttonStatus === 1) {
+        console.log(`满足升级条件，去升级`);
+        await $.wait(1000);
+        await takePostRequest('zoo_raise');
       }
     }
+    //助力
+    // for (let i = 0; i < $.inviteList.length; i++) {
+    //     $.inviteId = $.inviteList[i];
+    //     await takePostRequest('help');
+    //     await $.wait(2000);
+    // }
+    //======================================================怪兽大作战==============================================================================================================
+    $.pkHomeData = {};
+    await takePostRequest('zoo_pk_getHomeData');
+    if (JSON.stringify($.pkHomeData) === '{}') {
+      console.log(`获取PK信息异常`);
+      return;
+    }
+    await $.wait(1000);
+    $.pkTaskList = [];
+    await takePostRequest('zoo_pk_getTaskDetail');
+    await $.wait(1000);
+    for (let i = 0; i < $.pkTaskList.length; i++) {
+      $.oneTask = $.pkTaskList[i];
+      if ($.oneTask.status === 1) {
+        $.activityInfoList = $.oneTask.shoppingActivityVos || $.oneTask.brandMemberVos || $.oneTask.followShopVo || $.oneTask.browseShopVo
+        for (let j = 0; j < $.activityInfoList.length; j++) {
+          $.oneActivityInfo = $.activityInfoList[j];
+          if ($.oneActivityInfo.status !== 1) {
+            continue;
+          }
+          console.log(`做任务：${$.oneActivityInfo.title || $.oneActivityInfo.taskName || $.oneActivityInfo.shopName};等待完成`);
+          await takePostRequest('zoo_pk_collectScore');
+          await $.wait(2000);
+          console.log(`任务完成`);
+        }
+      }
+    }
+    await $.wait(1000);
+    await takePostRequest('zoo_pk_getTaskDetail');
+    let skillList = $.pkHomeData.result.groupInfo.skillList || [];
+    //activityStatus === 1未开始，2 已开始
+    for (let i = 0; i < skillList.length && $.pkHomeData.result.activityStatus === 2; i++) {
+      if (Number(skillList[i].num) > 0) {
+        $.skillCode = skillList[i].code;
+        for (let j = 0; j < Number(skillList[i].num); j++) {
+          console.log(`使用技能`);
+          await takePostRequest('zoo_pk_doPkSkill');
+          await $.wait(2000);
+        }
+      }
+    }
+  } catch (e) {
+    $.logErr(e)
   }
-  await $.wait(1000);
-  // await takePostRequest('zoo_pk_getTaskDetail');
-  // let skillList = $.pkHomeData.result.groupInfo.skillList;
-  // for (let i = 0; i < skillList.length && $.pkHomeData.result.activityStatus === 1; i++) {
-  //     if(Number(skillList[i].num) > 0){
-  //         $.skillCode = skillList[i].code;
-  //         for (let j = 0; j < Number(skillList[i].num) ; j++) {
-  //             console.log(`使用技能`);
-  //             await takePostRequest('zoo_pk_doPkSkill');
-  //             await $.wait(2000);
-  //         }
-  //     }
-  // }
-  //助力
-  for (let i = 0; i < $.pkInviteList.length; i++) {
-    $.pkInviteId = $.pkInviteList[i];
-    await takePostRequest('pkHelp');
-  }
-
 }
 
 async function takePostRequest(type) {
@@ -388,6 +394,7 @@ async function dealReturn(type, data) {
     case 'zoo_pk_getHomeData':
       if (data.code === 0) {
         console.log(`PK互助码：${data.data.result.groupInfo.groupAssistInviteId}`);
+        if (data.data.result.groupInfo.groupAssistInviteId) $.pkInviteList.push(data.data.result.groupInfo.groupAssistInviteId);
         $.pkHomeData = data.data;
       }
       break;
@@ -409,7 +416,8 @@ async function dealReturn(type, data) {
       break
     case 'zoo_sign':
       if(data.code === 0 && data.data.bizCode === 0) {
-        console.log(`签到获得：${data.data.result.redPacketValue} 红包`);
+        console.log(`签到获得成功`);
+        if (data.data.result.redPacketValue) console.log(`签到获得：${data.data.result.redPacketValue} 红包`);
       }else{
         console.log(`签到失败`);
         console.log(data);

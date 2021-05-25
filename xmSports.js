@@ -2,7 +2,7 @@
  * @Author: LXK9301 https://github.com/LXK9301
  * @Date: 2020-11-01 13:43:28 
  * @Last Modified by:   LXK9301
- * @Last Modified time: 2020-11-03 13:43:28 
+ * @Last Modified time: 2021-4-22 13:43:28
  */
 /*
 小米运动修改微信支付宝运动步数
@@ -15,18 +15,18 @@ hostname = account.huami.com
 Surge
 [Script]
 小米运动 = type=cron,cronexp="15 17 * * *",wake-system=1,timeout=3600,script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/xmSports.js
-小米运动获取Token = type=http-response,pattern=^https:\/\/account\.huami\.com\/v2\/client\/login, requires-body=1, max-size=0, script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/backUp/xmSports.js
+小米运动获取Token = type=http-response,pattern=^https:\/\/account\.huami\.com\/v2\/client\/login, requires-body=1, max-size=0, script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/xmSports.js
 圈X
 [task_local]
 # 小米运动
-15 17 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/backUp/xmSports.js, tag=小米运动, img-url=https://ghproxy.com/https://raw.githubusercontent.com/58xinian/icon/master/xmyd.png, enabled=true
+15 17 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/xmSports.js, tag=小米运动, img-url=https://ghproxy.com/https://raw.githubusercontent.com/58xinian/icon/master/xmyd.png, enabled=true
 [rewrite_local]
 # 小米运动获取Token
-^https:\/\/account\.huami\.com\/v2\/client\/login url script-response-body https://jdsharedresourcescdn.azureedge.net/jdresource/backUp/xmSports.js
+^https:\/\/account\.huami\.com\/v2\/client\/login url script-response-body https://jdsharedresourcescdn.azureedge.net/jdresource/xmSports.js
 Loon
 [Script]
-cron "15 17 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/backUp/xmSports.js, tag=小米运动
-http-response ^https:\/\/account\.huami\.com\/v2\/client\/login script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/backUp/xmSports.js, requires-body=true, timeout=3600, tag=小米运动获取Token
+cron "15 17 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/xmSports.js, tag=小米运动
+http-response ^https:\/\/account\.huami\.com\/v2\/client\/login script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/xmSports.js, requires-body=true, timeout=3600, tag=小米运动获取Token
  */
 
 const $ = new Env('小米运动');
@@ -54,7 +54,7 @@ function getToken() {
 }
 
 async function start() {
-  login_token = $.getdata('xmSportsToken') ? $.getdata('xmSportsToken') : login_token;
+  login_token = $.isNode() ? (process.env.XM_SPORT_TOKEN ? process.env.XM_SPORT_TOKEN : login_token) : ($.getdata('xmSportsToken') ? $.getdata('xmSportsToken') : login_token);
   // console.log(`login_token:::${login_token}`)
   if (login_token) {
     await get_app_token(login_token);
@@ -74,6 +74,7 @@ async function start() {
     }
   } else {
     $.log('暂无Token')
+    $.log(`\n\n获取TOKEN方法：\nAPP Store下载小米运动APP\n登入小米运动(登录方式必须是手机号码+密码(没有就用手机号码注册),下面的第三方账号(小米账号,Apple,微信)授权登录不行)\n登录成功后在 我的->第三方接入->绑定支付宝,微信\n小米运动只要不退出登录，就会自动获取新的token,即永久有效`)
     //$.msg($.name, `失败`, '暂无Token')
   }
   $.done()
