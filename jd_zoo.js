@@ -9,7 +9,7 @@ PK互助：内部账号自行互助(排名靠前账号得到的机会多),多余
 地图任务：已添加，抽奖未添加
 金融APP任务：未完成，后期添加
 活动时间：2021-05-24至2021-06-20
-脚本更新时间：2021-05-26 15:20
+脚本更新时间：2021-05-26 18:00
 脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
 ===================quantumultx================
 [task_local]
@@ -34,13 +34,15 @@ const pKHelpAuthorFlag = true;//是否助力作者PK  true 助力，false 不助
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [];
 $.cookie = '';
-$.inviteList = [];
+$.inviteList = [
+  'ZXTKT0225KkcRB8c_VODck-nl_8IdgFjRWn6-7zx55awQ',
+];
 $.pkInviteList = [];
 $.secretpInfo = {};
 $.innerPkInviteList = [
-    'sSKNX-MpqKOJsNu-ys_QB8uQqFkCdEeVDMGDHZg04xSunvZqdHKnylpSunootOm02pDQ',
-    'sSKNX-MpqKOJsNv74MOnRO1-y24JzNJfEGle1Ooa7gtNStMf5n0b6pOxJ2-G',
-    'sSKNX-MpqKOUsPHLzP-MQ8sgU5F_0euaHLLGd6Y_Ng7Xhu2RkM0EMvUKJQ',
+  'sSKNX-MpqKOJsNu-ys_QB8uQqFkCdEeVDMGDHZg04xSunvZqdHKnylpSunootOm02pDQ',
+  'sSKNX-MpqKOJsNv74MOnRO1-y24JzNJfEGle1Ooa7gtNStMf5n0b6pOxJ2-G',
+  'sSKNX-MpqKOUsPHLzP-MQ8sgU5F_0euaHLLGd6Y_Ng7Xhu2RkM0EMvUKJQ',
 ];
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
@@ -59,13 +61,13 @@ if ($.isNode()) {
     return;
   }
   console.log('活动入口：京东APP-》搜索 玩一玩-》瓜分20亿\n' +
-      '邀请好友助力：内部账号自行互助(排名靠前账号得到的机会多)\n' +
-      'PK互助：内部账号自行互助(排名靠前账号得到的机会多),多余的助力次数会默认助力作者内置助力码\n' +
-      '小程序任务：已完成\n' +
-      '地图任务：已添加，抽奖暂未添加\n' +
-      '金融APP任务：未完成，后期添加\n' +
-      '活动时间：2021-05-24至2021-06-20\n' +
-      '脚本更新时间：2021-05-26 9:55');
+    '邀请好友助力：内部账号自行互助(排名靠前账号得到的机会多)\n' +
+    'PK互助：内部账号自行互助(排名靠前账号得到的机会多),多余的助力次数会默认助力作者内置助力码\n' +
+    '小程序任务：已完成\n' +
+    '地图任务：已添加，抽奖暂未添加\n' +
+    '金融APP任务：未完成，后期添加\n' +
+    '活动时间：2021-05-24至2021-06-20\n' +
+    '脚本更新时间：2021-05-26 9:55');
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
       $.cookie = cookiesArr[i];
@@ -126,12 +128,12 @@ if ($.isNode()) {
     }
   }
 })()
-    .catch((e) => {
-      $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
-    })
-    .finally(() => {
-      $.done();
-    })
+  .catch((e) => {
+    $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
+  })
+  .finally(() => {
+    $.done();
+  })
 
 async function zoo() {
   try {
@@ -209,6 +211,18 @@ async function zoo() {
       }
     }
     //===================================图鉴里的店铺====================================================================
+    if (new Date().getUTCHours() + 8 >= 17 && new Date().getUTCHours() + 8 <= 18) {//分享
+      $.myMapList = [];
+      await takePostRequest('zoo_myMap');
+      for (let i = 0; i < $.myMapList.length; i++) {
+        await $.wait(3000);
+        $.currentScence = i + 1;
+        if ($.myMapList[i].isFirstShare === 1) {
+          console.log(`去分享${$.myMapList[i].partyName}`);
+          await takePostRequest('zoo_getWelfareScore');
+        }
+      }
+    }
     if (new Date().getUTCHours() + 8 >= 14 && new Date().getUTCHours() + 8 <= 17){//30个店铺，为了避免代码执行太久，下午2点到5点才做店铺任务
       console.log(`去做店铺任务`);
       $.shopInfoList = [];
@@ -252,6 +266,21 @@ async function zoo() {
             }
           }
         }
+        // await $.wait(1000);
+        // let boxLotteryNum = $.shopResult.boxLotteryNum;
+        // for (let j = 0; j < boxLotteryNum; j++) {
+        //   console.log(`开始第${j+1}次拆盒`)
+        //   //抽奖
+        //   await takePostRequest('zoo_boxShopLottery');
+        //   await $.wait(3000);
+        // }
+        // let wishLotteryNum = $.shopResult.wishLotteryNum;
+        // for (let j = 0; j < wishLotteryNum; j++) {
+        //   console.log(`开始第${j+1}次能量抽奖`)
+        //   //抽奖
+        //   await takePostRequest('zoo_wishShopLottery');
+        //   await $.wait(3000);
+        // }
         await $.wait(3000);
       }
     }
@@ -280,13 +309,21 @@ async function zoo() {
         }
       }
     }
-    //助力
-    // for (let i = 0; i < $.inviteList.length; i++) {
-    //     $.inviteId = $.inviteList[i];
-    //     await takePostRequest('help');
-    //     await $.wait(2000);
+    //=======================================================京东金融=================================================================================
+    // $.jdjrTaskList = [];
+    // await takePostRequest('jdjrTaskDetail');
+    // await $.wait(1000);
+    // console.log(`11111：${$.jdjrTaskList.length}`)
+    // for (let i = 0; i < $.jdjrTaskList.length; i++) {
+    //   if($.jdjrTaskList[i].status !== '1'){
+    //       continue;
+    //   }
+    //   $.taskId = $.jdjrTaskList[i].id;
+    //   console.log(`去做任务：${$.jdjrTaskList[i].name}`)
+    //   await takePostRequest('jdjrAcceptTask');
+    //   await $.wait(8000);
     // }
-    //======================================================怪兽大作战==============================================================================================================
+    //======================================================怪兽大作战=================================================================================
     $.pkHomeData = {};
     await takePostRequest('zoo_pk_getHomeData');
     if (JSON.stringify($.pkHomeData) === '{}') {
@@ -419,6 +456,30 @@ async function takePostRequest(type) {
     case 'qryCompositeMaterials':
       body = `functionId=qryCompositeMaterials&body={"qryParam":"[{\\"type\\":\\"advertGroup\\",\\"mapTo\\":\\"resultData\\",\\"id\\":\\"05371960\\"}]","activityId":"2s7hhSTbhMgxpGoa9JDnbDzJTaBB","pageId":"","reqSrc":"","applyKey":"jd_star"}&client=wh5&clientVersion=1.0.0`;
       myRequest = await getPostRequest(`qryCompositeMaterials`,body);
+      break;
+    case 'zoo_boxShopLottery':
+      body = `functionId=zoo_boxShopLottery&body={"shopSign":"${$.shopSign}"}&client=wh5&clientVersion=1.0.0`;
+      myRequest = await getPostRequest(`zoo_boxShopLottery`,body);
+      break;
+    case `zoo_wishShopLottery`:
+      body = `functionId=zoo_wishShopLottery&body={"shopSign":"${$.shopSign}"}&client=wh5&clientVersion=1.0.0`;
+      myRequest = await getPostRequest(`zoo_boxShopLottery`,body);
+      break;
+    case `zoo_myMap`:
+      body = `functionId=zoo_myMap&body={}&client=wh5&clientVersion=1.0.0`;
+      myRequest = await getPostRequest(`zoo_myMap`,body);
+      break;
+    case 'zoo_getWelfareScore':
+      body = getBody(type);
+      myRequest = await getPostRequest(`zoo_getWelfareScore`,body);
+      break;
+    case 'jdjrTaskDetail':
+      body = `reqData={"eid":"","sdkToken":"jdd014JYKVE2S6UEEIWPKA4B5ZKBS4N6Y6X5GX2NXL4IYUMHKF3EEVK52RQHBYXRZ67XWQF5N7XB6Y2YKYRTGQW4GV5OFGPDPFP3MZINWG2A01234567"}`;
+      myRequest = await getPostRequest(`listTask`,body);
+      break;
+    case 'jdjrAcceptTask':
+      body = `reqData={"eid":"","sdkToken":"jdd014JYKVE2S6UEEIWPKA4B5ZKBS4N6Y6X5GX2NXL4IYUMHKF3EEVK52RQHBYXRZ67XWQF5N7XB6Y2YKYRTGQW4GV5OFGPDPFP3MZINWG2A01234567","id":"${$.taskId}"}`;
+      myRequest = await getPostRequest(`acceptTask`,body);
       break;
     default:
       console.log(`错误${type}`);
@@ -573,6 +634,32 @@ async function dealReturn(type, data) {
         console.log(`获取到${$.shopInfoList.length}个店铺`);
       }
       break
+    case 'zoo_boxShopLottery':
+      console.log(JSON.stringify(data));
+      break
+    case 'zoo_wishShopLottery':
+      console.log(JSON.stringify(data));
+      break
+    case `zoo_myMap`:
+      if (data.code === 0) {
+        $.myMapList = data.data.result.sceneMap.sceneInfo;
+      }
+      break;
+    case 'zoo_getWelfareScore':
+      if (data.code === 0) {
+        console.log(`分享成功，获得：${data.data.result.score}`);
+      }
+      break;
+    case 'jdjrTaskDetail':
+      if (data.resultCode === 0) {
+        $.jdjrTaskList = data.resultData.top;
+      }
+      break;
+    case 'jdjrAcceptTask':
+      if (data.resultCode === 0) {
+        console.log(`领任务成功`);
+      }
+      break;
     default:
       console.log(`未判断的异常${type}`);
   }
@@ -610,7 +697,10 @@ function callbackResult(info) {
 }
 
 async function getPostRequest(type, body) {
-  const url = `https://api.m.jd.com/client.action?functionId=${type}`;
+  let url = `https://api.m.jd.com/client.action?functionId=${type}`;
+  if(type === 'listTask' || type === 'acceptTask' ){
+    url = `https://ms.jr.jd.com/gw/generic/hy/h5/m/${type}`;
+  }
   const method = `POST`;
   const headers = {
     'Accept': `application/json, text/plain, */*`,
@@ -641,6 +731,8 @@ function getBody(type) {
     taskBody = `functionId=zoo_pk_assistGroup&body={"taskId":2,"ss":"{\\"extraData\\":{\\"is_trust\\":true,\\"sign\\":\\"${sign}\\",\\"fpb\\":\\"\\",\\"time\\":${time},\\"encrypt\\":\\"3\\",\\"nonstr\\":\\"${nonstr}\\",\\"jj\\":\\"\\",\\"cf_v\\":\\"1.0.2\\",\\"client_version\\":\\"2.2.1\\",\\"buttonid\\":\\"jmdd-react-smash_62\\",\\"sceneid\\":\\"homePageh5\\"},\\"secretp\\":\\"${$.secretp}\\",\\"random\\":\\"${rnd}\\"}","inviteId":"${$.pkInviteId}","actionType":1}&client=wh5&clientVersion=1.0.0`;
   } else if (type === 'zoo_collectProduceScore') {
     taskBody = `functionId=zoo_collectProduceScore&body={"ss":"{\\"extraData\\":{\\"is_trust\\":true,\\"sign\\":\\"${sign}\\",\\"fpb\\":\\"\\",\\"time\\":${time},\\"encrypt\\":\\"3\\",\\"nonstr\\":\\"${nonstr}\\",\\"jj\\":\\"\\",\\"cf_v\\":\\"1.0.2\\",\\"client_version\\":\\"2.2.1\\",\\"buttonid\\":\\"jmdd-react-smash_0\\",\\"sceneid\\":\\"homePageh5\\"},\\"secretp\\":\\"${$.secretp}\\",\\"random\\":\\"${rnd}\\"}"}&client=wh5&clientVersion=1.0.0`;
+  } else if(type === 'zoo_getWelfareScore'){
+    taskBody = `functionId=zoo_getWelfareScore&body={"type":2,"currentScence":${$.currentScence},"ss":"{\\"extraData\\":{\\"is_trust\\":true,\\"sign\\":\\"${sign}\\",\\"fpb\\":\\"\\",\\"time\\":${time},\\"encrypt\\":\\"3\\",\\"nonstr\\":\\"${nonstr}\\",\\"jj\\":\\"\\",\\"cf_v\\":\\"1.0.2\\",\\"client_version\\":\\"2.2.1\\",\\"buttonid\\":\\"jmdd-react-smash_62\\",\\"sceneid\\":\\"homePageh5\\"},\\"secretp\\":\\"${$.secretp}\\",\\"random\\":\\"${rnd}\\"}"}&client=wh5&clientVersion=1.0.0`;
   } else {
     taskBody = `functionId=${type}&body={"taskId":"${$.oneTask.taskId}","taskToken":"${$.oneActivityInfo.taskToken}","actionType":1,"ss":"{\\"extraData\\":{\\"is_trust\\":true,\\"sign\\":\\"${sign}\\",\\"fpb\\":\\"\\",\\"time\\":${time},\\"encrypt\\":\\"3\\",\\"nonstr\\":\\"${nonstr}\\",\\"jj\\":\\"\\",\\"cf_v\\":\\"1.0.2\\",\\"client_version\\":\\"2.2.1\\",\\"buttonid\\":\\"jmdd-react-smash_62\\",\\"sceneid\\":\\"homePageh5\\"},\\"secretp\\":\\"${$.secretp}\\",\\"random\\":\\"${rnd}\\"}","itemId":"${$.oneActivityInfo.itemId}","shopSign":"${$.shopSign}"}&client=wh5&clientVersion=1.0.0`
   }
@@ -728,8 +820,8 @@ function TotalBean() {
 
 function randomWord(randomFlag, min, max) {
   let str = "",
-      range = min,
-      arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    range = min,
+    arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
   // 随机产生
   if (randomFlag) {
     range = Math.round(Math.random() * (max - min)) + min;
@@ -743,16 +835,16 @@ function randomWord(randomFlag, min, max) {
 
 function minusByByte(t, n) {
   var e = t.length
-      , r = n.length
-      , o = Math.max(e, r)
-      , i = toAscii(t)
-      , a = toAscii(n)
-      , s = ""
-      , u = 0;
+    , r = n.length
+    , o = Math.max(e, r)
+    , i = toAscii(t)
+    , a = toAscii(n)
+    , s = ""
+    , u = 0;
   for (e !== r && (i = add0(i, o),
-      a = this.add0(a, o)); u < o;)
+    a = this.add0(a, o)); u < o;)
     s += Math.abs(i[u] - a[u]),
-        u++;
+      u++;
   return s
 }
 
@@ -760,7 +852,7 @@ function toAscii(t) {
   var n = "";
   for (var e in t) {
     var r = t[e]
-        , o = /[a-zA-Z]/.test(r);
+      , o = /[a-zA-Z]/.test(r);
     if (t.hasOwnProperty(e))
       if (o)
         n += getLastAscii(r);
@@ -788,7 +880,7 @@ function wordsToBytes(t) {
 function bytesToHex(t) {
   for (var n = [], e = 0; e < t.length; e++)
     n.push((t[e] >>> 4).toString(16)),
-        n.push((15 & t[e]).toString(16));
+      n.push((15 & t[e]).toString(16));
   return n.join("")
 }
 
@@ -801,7 +893,7 @@ function stringToBytes(t) {
 
 function bytesToWords(t) {
   for (var n = [], e = 0, r = 0; e < t.length; e++,
-      r += 8)
+    r += 8)
     n[r >>> 5] |= t[e] << 24 - r % 32;
   return n
 }
@@ -809,15 +901,15 @@ function bytesToWords(t) {
 function getSign(t) {
   t = stringToBytes(t)
   var e = bytesToWords(t)
-      , i = 8 * t.length
-      , a = []
-      , s = 1732584193
-      , u = -271733879
-      , c = -1732584194
-      , f = 271733878
-      , h = -1009589776;
+    , i = 8 * t.length
+    , a = []
+    , s = 1732584193
+    , u = -271733879
+    , c = -1732584194
+    , f = 271733878
+    , h = -1009589776;
   e[i >> 5] |= 128 << 24 - i % 32,
-      e[15 + (i + 64 >>> 9 << 4)] = i;
+    e[15 + (i + 64 >>> 9 << 4)] = i;
   for (var l = 0; l < e.length; l += 16) {
     for (var p = s, g = u, v = c, d = f, y = h, m = 0; m < 80; m++) {
       if (m < 16)
@@ -828,20 +920,21 @@ function getSign(t) {
       }
       var _ = (s << 5 | s >>> 27) + h + (a[m] >>> 0) + (m < 20 ? 1518500249 + (u & c | ~u & f) : m < 40 ? 1859775393 + (u ^ c ^ f) : m < 60 ? (u & c | u & f | c & f) - 1894007588 : (u ^ c ^ f) - 899497514);
       h = f,
-          f = c,
-          c = u << 30 | u >>> 2,
-          u = s,
-          s = _
+        f = c,
+        c = u << 30 | u >>> 2,
+        u = s,
+        s = _
     }
     s += p,
-        u += g,
-        c += v,
-        f += d,
-        h += y
+      u += g,
+      c += v,
+      f += d,
+      h += y
   }
   return [s, u, c, f, h]
 }
 
 // prettier-ignore
 function Env(t,e){"undefined"!=typeof process&&JSON.stringify(process.env).indexOf("GIT_HUB")>-1&&process.exit(0);class s{constructor(t){this.env=t}send(t,e="GET"){t="string"==typeof t?{url:t}:t;let s=this.get;return"POST"===e&&(s=this.post),new Promise((e,i)=>{s.call(this,t,(t,s,r)=>{t?i(t):e(s)})})}get(t){return this.send.call(this.env,t)}post(t){return this.send.call(this.env,t,"POST")}}return new class{constructor(t,e){this.name=t,this.http=new s(this),this.data=null,this.dataFile="box.dat",this.logs=[],this.isMute=!1,this.isNeedRewrite=!1,this.logSeparator="\n",this.startTime=(new Date).getTime(),Object.assign(this,e),this.log("",`🔔${this.name}, 开始!`)}isNode(){return"undefined"!=typeof module&&!!module.exports}isQuanX(){return"undefined"!=typeof $task}isSurge(){return"undefined"!=typeof $httpClient&&"undefined"==typeof $loon}isLoon(){return"undefined"!=typeof $loon}toObj(t,e=null){try{return JSON.parse(t)}catch{return e}}toStr(t,e=null){try{return JSON.stringify(t)}catch{return e}}getjson(t,e){let s=e;const i=this.getdata(t);if(i)try{s=JSON.parse(this.getdata(t))}catch{}return s}setjson(t,e){try{return this.setdata(JSON.stringify(t),e)}catch{return!1}}getScript(t){return new Promise(e=>{this.get({url:t},(t,s,i)=>e(i))})}runScript(t,e){return new Promise(s=>{let i=this.getdata("@chavy_boxjs_userCfgs.httpapi");i=i?i.replace(/\n/g,"").trim():i;let r=this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");r=r?1*r:20,r=e&&e.timeout?e.timeout:r;const[o,h]=i.split("@"),n={url:`http://${h}/v1/scripting/evaluate`,body:{script_text:t,mock_type:"cron",timeout:r},headers:{"X-Key":o,Accept:"*/*"}};this.post(n,(t,e,i)=>s(i))}).catch(t=>this.logErr(t))}loaddata(){if(!this.isNode())return{};{this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e);if(!s&&!i)return{};{const i=s?t:e;try{return JSON.parse(this.fs.readFileSync(i))}catch(t){return{}}}}}writedata(){if(this.isNode()){this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e),r=JSON.stringify(this.data);s?this.fs.writeFileSync(t,r):i?this.fs.writeFileSync(e,r):this.fs.writeFileSync(t,r)}}lodash_get(t,e,s){const i=e.replace(/\[(\d+)\]/g,".$1").split(".");let r=t;for(const t of i)if(r=Object(r)[t],void 0===r)return s;return r}lodash_set(t,e,s){return Object(t)!==t?t:(Array.isArray(e)||(e=e.toString().match(/[^.[\]]+/g)||[]),e.slice(0,-1).reduce((t,s,i)=>Object(t[s])===t[s]?t[s]:t[s]=Math.abs(e[i+1])>>0==+e[i+1]?[]:{},t)[e[e.length-1]]=s,t)}getdata(t){let e=this.getval(t);if(/^@/.test(t)){const[,s,i]=/^@(.*?)\.(.*?)$/.exec(t),r=s?this.getval(s):"";if(r)try{const t=JSON.parse(r);e=t?this.lodash_get(t,i,""):e}catch(t){e=""}}return e}setdata(t,e){let s=!1;if(/^@/.test(e)){const[,i,r]=/^@(.*?)\.(.*?)$/.exec(e),o=this.getval(i),h=i?"null"===o?null:o||"{}":"{}";try{const e=JSON.parse(h);this.lodash_set(e,r,t),s=this.setval(JSON.stringify(e),i)}catch(e){const o={};this.lodash_set(o,r,t),s=this.setval(JSON.stringify(o),i)}}else s=this.setval(t,e);return s}getval(t){return this.isSurge()||this.isLoon()?$persistentStore.read(t):this.isQuanX()?$prefs.valueForKey(t):this.isNode()?(this.data=this.loaddata(),this.data[t]):this.data&&this.data[t]||null}setval(t,e){return this.isSurge()||this.isLoon()?$persistentStore.write(t,e):this.isQuanX()?$prefs.setValueForKey(t,e):this.isNode()?(this.data=this.loaddata(),this.data[e]=t,this.writedata(),!0):this.data&&this.data[e]||null}initGotEnv(t){this.got=this.got?this.got:require("got"),this.cktough=this.cktough?this.cktough:require("tough-cookie"),this.ckjar=this.ckjar?this.ckjar:new this.cktough.CookieJar,t&&(t.headers=t.headers?t.headers:{},void 0===t.headers.Cookie&&void 0===t.cookieJar&&(t.cookieJar=this.ckjar))}get(t,e=(()=>{})){t.headers&&(delete t.headers["Content-Type"],delete t.headers["Content-Length"]),this.isSurge()||this.isLoon()?(this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.get(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)})):this.isQuanX()?(this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t))):this.isNode()&&(this.initGotEnv(t),this.got(t).on("redirect",(t,e)=>{try{if(t.headers["set-cookie"]){const s=t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();s&&this.ckjar.setCookieSync(s,null),e.cookieJar=this.ckjar}}catch(t){this.logErr(t)}}).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)}))}post(t,e=(()=>{})){if(t.body&&t.headers&&!t.headers["Content-Type"]&&(t.headers["Content-Type"]="application/x-www-form-urlencoded"),t.headers&&delete t.headers["Content-Length"],this.isSurge()||this.isLoon())this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.post(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)});else if(this.isQuanX())t.method="POST",this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t));else if(this.isNode()){this.initGotEnv(t);const{url:s,...i}=t;this.got.post(s,i).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)})}}time(t,e=null){const s=e?new Date(e):new Date;let i={"M+":s.getMonth()+1,"d+":s.getDate(),"H+":s.getHours(),"m+":s.getMinutes(),"s+":s.getSeconds(),"q+":Math.floor((s.getMonth()+3)/3),S:s.getMilliseconds()};/(y+)/.test(t)&&(t=t.replace(RegExp.$1,(s.getFullYear()+"").substr(4-RegExp.$1.length)));for(let e in i)new RegExp("("+e+")").test(t)&&(t=t.replace(RegExp.$1,1==RegExp.$1.length?i[e]:("00"+i[e]).substr((""+i[e]).length)));return t}msg(e=t,s="",i="",r){const o=t=>{if(!t)return t;if("string"==typeof t)return this.isLoon()?t:this.isQuanX()?{"open-url":t}:this.isSurge()?{url:t}:void 0;if("object"==typeof t){if(this.isLoon()){let e=t.openUrl||t.url||t["open-url"],s=t.mediaUrl||t["media-url"];return{openUrl:e,mediaUrl:s}}if(this.isQuanX()){let e=t["open-url"]||t.url||t.openUrl,s=t["media-url"]||t.mediaUrl;return{"open-url":e,"media-url":s}}if(this.isSurge()){let e=t.url||t.openUrl||t["open-url"];return{url:e}}}};if(this.isMute||(this.isSurge()||this.isLoon()?$notification.post(e,s,i,o(r)):this.isQuanX()&&$notify(e,s,i,o(r))),!this.isMuteLog){let t=["","==============📣系统通知📣=============="];t.push(e),s&&t.push(s),i&&t.push(i),console.log(t.join("\n")),this.logs=this.logs.concat(t)}}log(...t){t.length>0&&(this.logs=[...this.logs,...t]),console.log(t.join(this.logSeparator))}logErr(t,e){const s=!this.isSurge()&&!this.isQuanX()&&!this.isLoon();s?this.log("",`❗️${this.name}, 错误!`,t.stack):this.log("",`❗️${this.name}, 错误!`,t)}wait(t){return new Promise(e=>setTimeout(e,t))}done(t={}){const e=(new Date).getTime(),s=(e-this.startTime)/1e3;this.log("",`🔔${this.name}, 结束! 🕛 ${s} 秒`),this.log(),(this.isSurge()||this.isQuanX()||this.isLoon())&&$done(t)}}(t,e)}
+
 
