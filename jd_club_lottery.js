@@ -10,7 +10,7 @@ Modified from https://github.com/Zero-S1/JD_tools/blob/master/JD_vvipclub.py
 ============QuantumultX==============
 [task_local]
 #摇京豆
-5 0,23 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_club_lottery.js, tag=摇京豆, img-url=https://ghproxy.com/https://raw.githubusercontent.com/58xinian/icon/master/jdyjd.png, enabled=true
+5 0,23 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_club_lottery.js, tag=摇京豆, img-url=https://gayhub.lensu.workers.dev/58xinian/icon/master/jdyjd.png, enabled=true
 =================Loon===============
 [Script]
 cron "5 0,23 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_club_lottery.js,tag=摇京豆

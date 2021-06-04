@@ -6,7 +6,7 @@
 ============Quantumultx===============
 [task_local]
 #618动物联萌收集金币
-0-59/30 * * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_zooCollect.js, tag=618动物联萌收集金币, img-url=https://ghproxy.com/https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+0-59/30 * * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_zooCollect.js, tag=618动物联萌收集金币, img-url=https://gayhub.lensu.workers.dev/Orz-3/mini/master/Color/jd.png, enabled=true
 
 ================Loon==============
 [Script]

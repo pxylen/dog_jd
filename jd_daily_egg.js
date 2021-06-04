@@ -7,7 +7,7 @@ Last Modified time: 2020-11-20 14:11:01
 ============Quantumultx===============
 [task_local]
 #天天提鹅
-10 * * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_daily_egg.js, tag=天天提鹅, img-url=https://ghproxy.com/https://raw.githubusercontent.com/58xinian/icon/master/jdte.png, enabled=true
+10 * * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_daily_egg.js, tag=天天提鹅, img-url=https://gayhub.lensu.workers.dev/58xinian/icon/master/jdte.png, enabled=true
 
 ================Loon==============
 [Script]

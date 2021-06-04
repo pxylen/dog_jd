@@ -8,7 +8,7 @@
 ============Quantumultx===============
 [task_local]
 # 京东赚赚
-10 0 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_jdzz.js, tag=京东赚赚, img-url=https://ghproxy.com/https://raw.githubusercontent.com/58xinian/icon/master/jdzz.png, enabled=true
+10 0 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_jdzz.js, tag=京东赚赚, img-url=https://gayhub.lensu.workers.dev/58xinian/icon/master/jdzz.png, enabled=true
 
 ================Loon==============
 [Script]

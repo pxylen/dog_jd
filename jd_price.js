@@ -5,8 +5,8 @@
 所以订单下单时间以及发货、收货时间，也可能占用很多天，60天内的订单进行保价是正常的。
 没进行过保价的60天内的订单。查询一次，不符合保价的，不会再次申请保价。
 支持云端cookie使用
-修改自：https://ghproxy.com/https://raw.githubusercontent.com/ZCY01/daily_scripts/main/jd/jd_priceProtect.js
-修改自：https://ghproxy.com/https://raw.githubusercontent.com/id77/QuantumultX/master/task/jdGuaranteedPrice.js
+修改自：https://gayhub.lensu.workers.dev/ZCY01/daily_scripts/main/jd/jd_priceProtect.js
+修改自：https://gayhub.lensu.workers.dev/id77/QuantumultX/master/task/jdGuaranteedPrice.js
 
 京东保价页面脚本：https://static.360buyimg.com/siteppStatic/script/priceskus-phone.js
 iOS同时支持使用 NobyDa 与 domplin 脚本的京东 cookie
@@ -18,7 +18,7 @@ iOS同时支持使用 NobyDa 与 domplin 脚本的京东 cookie
 ============Quantumultx===============
 [task_local]
 #京东保价
-0 2 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_price.js, tag=京东保价, img-url=https://ghproxy.com/https://raw.githubusercontent.com/Orz-3/task/master/jd.png, enabled=true
+0 2 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_price.js, tag=京东保价, img-url=https://gayhub.lensu.workers.dev/Orz-3/task/master/jd.png, enabled=true
 
 ================Loon==============
 [Script]

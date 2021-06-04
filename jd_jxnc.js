@@ -15,7 +15,7 @@
 
 ==========================Quantumultx=========================
 [task_local]
-0 9,12,18 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_jxnc.js, tag=京喜农场, img-url=https://ghproxy.com/https://raw.githubusercontent.com/58xinian/icon/master/jxnc.png, enabled=true
+0 9,12,18 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_jxnc.js, tag=京喜农场, img-url=https://gayhub.lensu.workers.dev/58xinian/icon/master/jxnc.png, enabled=true
 =========================Loon=============================
 [Script]
 cron "0 9,12,18 * * *" script-path=https://jdsharedresourcescdn.azureedge.net/jdresource/jd_jxnc.js,tag=京喜农场

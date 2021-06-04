@@ -1,5 +1,5 @@
 /*
-京东价格保护：脚本更新地址 https://ghproxy.com/https://raw.githubusercontent.com/ZCY01/daily_scripts/main/jd/jd_try.js
+京东价格保护：脚本更新地址 https://gayhub.lensu.workers.dev/ZCY01/daily_scripts/main/jd/jd_try.js
 脚本兼容: QuantumultX, Node.js
 
 ⚠️ 非常耗时的脚本。最多可能执行半小时！
@@ -8,10 +8,10 @@
 ==========================Quantumultx=========================
 [task_local]
 # 取关京东店铺商品，请在 boxjs 修改取消关注店铺数量
-5 10 * * * https://ghproxy.com/https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_unsubscribe.js, tag=取关京东店铺商品, enabled=true
+5 10 * * * https://gayhub.lensu.workers.dev/lxk0301/jd_scripts/master/jd_unsubscribe.js, tag=取关京东店铺商品, enabled=true
 
 # 京东价格保护
-30 10 * * * https://ghproxy.com/https://raw.githubusercontent.com/ZCY01/daily_scripts/main/jd/jd_try.js, tag=京东试用, img-url=https://ghproxy.com/https://raw.githubusercontent.com/ZCY01/img/master/jdtryv1.png, enabled=true
+30 10 * * * https://gayhub.lensu.workers.dev/ZCY01/daily_scripts/main/jd/jd_try.js, tag=京东试用, img-url=https://gayhub.lensu.workers.dev/ZCY01/img/master/jdtryv1.png, enabled=true
  */
 const $ = new Env('京东试用')
 let cookiesArr = [],
@@ -509,7 +509,7 @@ function jsonParse(str) {
 }
 
 // 来自 @chavyleung 大佬
-// https://ghproxy.com/https://raw.githubusercontent.com/chavyleung/scripts/master/Env.js
+// https://gayhub.lensu.workers.dev/chavyleung/scripts/master/Env.js
 function Env(name, opts) {
 	class Http {
 		constructor(env) {

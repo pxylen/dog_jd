@@ -10,7 +10,7 @@
 ============Quantumultx===============
 [task_local]
 #京东极速版
-0 7 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed_sign.js, tag=京东极速版, img-url=https://ghproxy.com/https://raw.githubusercontent.com/Orz-3/task/master/jd.png, enabled=true
+0 7 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_speed_sign.js, tag=京东极速版, img-url=https://gayhub.lensu.workers.dev/Orz-3/task/master/jd.png, enabled=true
 
 ================Loon==============
 [Script]

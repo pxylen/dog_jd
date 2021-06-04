@@ -10,7 +10,7 @@ cron 5 0,13,19 * * * jd_cfd.js
 ============Quantumultx===============
 [task_local]
 #京喜财富岛
-5 0,13,19 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_cfd.js, tag=京喜财富岛, img-url=https://ghproxy.com/https://raw.githubusercontent.com/58xinian/icon/master/jxcfd.png, enabled=true
+5 0,13,19 * * * https://jdsharedresourcescdn.azureedge.net/jdresource/jd_cfd.js, tag=京喜财富岛, img-url=https://gayhub.lensu.workers.dev/58xinian/icon/master/jxcfd.png, enabled=true
 
 ================Loon==============
 [Script]
