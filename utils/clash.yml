@@ -15,8 +15,10 @@ dns:
     - 114.114.114.114
     - 1.2.4.8
 
+
 proxies:
-  - {name: 🇸🇬 新加坡1(白嫖机)-只能翻墙不能添加host-用上你的大屌去嫖-嫖不挂说明屌不行-0.1x, server: qj.jklist.ga, port: 80, type: vmess, uuid: 5cf2ecb0-9165-4760-8e8a-381ce547a6ef, alterId: 1, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: /, ws-headers: {Host: qj.jklist.ga}}
+  - {name: 🇸🇬 新加坡2-aga-内置电信a.189.cn混淆, server: sg.jklist.ga, port: 84, type: vmess, uuid: 353bb583-c842-4485-b23c-216b17f5d90c, alterId: 1, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: /TS/recharge/tzUrl.html, ws-headers: {Host: pull.free.video.10010.com}}
+
 
 proxy-providers:
   HK:
@@ -29,6 +31,7 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
       interval: 300
 
+
   JP:
     type: http
     path: ./Proxy/jp.yml
@@ -38,6 +41,7 @@ proxy-providers:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 300
+
 
   BP:
     type: http
@@ -113,6 +117,7 @@ proxy-groups:
     type: select
     proxies:
       - REJECT
+
 
   - name: 🐟 漏网之鱼
     type: select
