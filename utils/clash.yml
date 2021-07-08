@@ -112,6 +112,7 @@ proxy-groups:
     type: select
     proxies:
       - REJECT
+      - DIRECT
 
 
   - name: 🐟 漏网之鱼
