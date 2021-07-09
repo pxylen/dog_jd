@@ -59,31 +59,23 @@ proxy-groups:
       - 🚀 手动切换
 
 
-  - name: 🎯 全球直连
-    type: select
-    proxies:
-      - DIRECT
-      - 🚀 节点选择
-
-
   - name: 🔯 故障转移
     type: fallback
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
-      - 🇯🇵 日本节点
-      - 🇭🇰 香港节点
       - 🇨🇳 白嫖节点
+      - 🇭🇰 香港节点
+      - 🇯🇵 日本节点
 
 
 
   - name: 🚀 手动切换
     type: select
     proxies:
-      - 🇯🇵 日本节点
       - 🇭🇰 香港节点
+      - 🇯🇵 日本节点
       - 🇨🇳 白嫖节点
-
 
 
   - name: 🇭🇰 香港节点
@@ -108,11 +100,18 @@ proxy-groups:
       - BP
 
 
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+
+
   - name: 🍃 应用净化
     type: select
     proxies:
       - REJECT
-      - DIRECT
+      - 🎯 全球直连
 
 
   - name: 🐟 漏网之鱼
@@ -120,6 +119,7 @@ proxy-groups:
     proxies:
       - 🚀 节点选择
       - 🎯 全球直连
+
 
 
 rule-providers:

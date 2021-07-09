@@ -15,9 +15,6 @@ dns:
     - 114.114.114.114
     - 1.2.4.8
 
-proxies:
-  - {name: 🇨🇳 ML_江苏_100M, server: 61.177.235.21, port: 80, type: vmess, uuid: 5d7b677a-d59a-4c61-b207-7fc5623cea43, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: /Cache, ws-headers: {Host: pull.free.video.10010.com}}
-  - {name: ML_厦门_1000M, server: 58.23.228.61, port: 80, type: vmess, uuid: 78d0b300-1317-4069-b264-8abb874ca5fc, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: /Cache, ws-headers: {Host: pull.free.video.10010.com}}
 
 proxy-providers:
   BP:
@@ -41,8 +38,6 @@ proxy-groups:
     interval: 300
     proxies:
       - 🇨🇳 白嫖节点
-      - 🇨🇳 ML_江苏_100M
-      - ML_厦门_1000M
 
 
 
