@@ -1,2 +1,3 @@
 proxies:
   - {name: 🏳️‍🌈 流量站-免费-香港-AWS-5G, server: 18.162.213.103, port: 8080, type: vmess, uuid: 353bb583-c842-4485-b23c-216b17f5d90c, alterId: 1, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: /TS/recharge/tzUrl.html, ws-headers: {Host: a.189.cn}}
+  - {name: 🇩🇪 德国-免流, server: 194.39.205.186, port: 80, type: vmess, uuid: 523aa298-d955-42d1-a445-bdd20d06d55e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: /, ws-headers: {Host: pull.free.video.10010.com}}
