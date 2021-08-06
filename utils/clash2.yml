@@ -52,15 +52,13 @@ proxy-groups:
     type: select
     proxies:
       - REJECT
-      - 🎯 全球直连
+      - 🚀 节点选择
 
 
   - name: 🐟 漏网之鱼
     type: select
     proxies:
       - 🚀 节点选择
-      - 🎯 全球直连
-
 
 
 rule-providers:
