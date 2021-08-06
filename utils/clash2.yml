@@ -32,7 +32,7 @@ proxy-groups:
 
 
   - name: 🚀 节点选择
-    type: fallback
+    type: select
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
@@ -41,7 +41,7 @@ proxy-groups:
 
 
   - name: 🇨🇳 白嫖节点
-    type: fallback
+    type: select
     url: http://www.gstatic.com/generate_204
     interval: 300
     use:
