@@ -181,20 +181,12 @@ rule-providers:
 
 rules:
   - DOMAIN-KEYWORD,ip138,🚀 节点选择
-  - DOMAIN-SUFFIX,ipchaxun.com,🚀 节点选择
-  - DOMAIN,jdsharedresourcescdn.azureedge.net,🚀 节点选择
   - DOMAIN-KEYWORD,github,🚀 节点选择
   - DOMAIN-SUFFIX,ghproxy.com,🎯 全球直连
-  - DOMAIN-KEYWORD,lanhuapp,🎯 全球直连
-  - DOMAIN-KEYWORD,51zhaoyou,🎯 全球直连
   - DOMAIN-KEYWORD,jiguang,🎯 全球直连
   - DOMAIN-KEYWORD,jpush,🎯 全球直连
-  - DOMAIN-KEYWORD,wolong,🎯 全球直连
-  - DOMAIN-KEYWORD,kkkk,🎯 全球直连
   - DOMAIN-KEYWORD,oray,🎯 全球直连
-  - DOMAIN,api.tgmmvip.com,🎯 全球直连
   - DOMAIN,profile.se.360.cn,🎯 全球直连
-  - DOMAIN,ml.mxbok.com,🎯 全球直连
   - RULE-SET,anti-ad-clash,🍃 应用净化
   - RULE-SET,proxy,🚀 节点选择
   - RULE-SET,icloud,🎯 全球直连
