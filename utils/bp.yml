@@ -1,6 +1,6 @@
 proxies:
   - {name: 🇮🇳 印度 | Mumbai, server: in02.holiganfan.com, port: 10088, type: trojan, password: 826646df-e2a6-42ae-a685-05da8af37382, sni: in02.holiganfan.com, skip-cert-verify: false, udp: true}
-  - {name: 🇸🇬 〔VIP〕新加坡02, server: sg22.holiganfan.com, port: 10088, type: trojan, password: 826646df-e2a6-42ae-a685-05da8af37382, sni: sg22.holiganfan.com, skip-cert-verify: false, udp: true}
   - {name: 🇯🇵 日本 | 东京, server: jp10.holiganfan.com, port: 10088, type: trojan, password: 826646df-e2a6-42ae-a685-05da8af37382, sni: jp10.holiganfan.com, skip-cert-verify: false, udp: true}
-  - {name: "🇸🇬 [白嫖]??Azure | 新加坡--落地", server: sg20.holiganfan.com, port: 10088, type: trojan, password: 826646df-e2a6-42ae-a685-05da8af37382, sni: sg20.holiganfan.com, skip-cert-verify: false, udp: true}
+  - {name: 🇸🇬 新加坡 01, server: sg23.holiganfan.com, port: 10088, type: trojan, password: 826646df-e2a6-42ae-a685-05da8af37382, sni: sg23.holiganfan.com, skip-cert-verify: false, udp: true}
+  - {name: 🇸🇬 新加坡 02, server: sg25.holiganfan.com, port: 10088, type: trojan, password: 826646df-e2a6-42ae-a685-05da8af37382, sni: sg25.holiganfan.com, skip-cert-verify: false, udp: true}
   - {name: 🏳️‍🌈 流量站-白嫖1-俄罗斯-(端口8080限制1ip), server: 45.147.201.175, port: 8080, type: vmess, uuid: a86637d8-5bc6-4e45-965a-b1a20e400aa6, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: /TS/recharge/tzUrl.html, ws-headers: {Host: pull.free.video.10010.com}}
