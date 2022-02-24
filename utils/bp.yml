@@ -1,4 +1,2 @@
 proxies:
   - {name: 🇭🇰  v2云千兆香港 ➤ x1, server: hkfree.v2yun.vip, port: 80, type: vmess, uuid: ead2990f-1c8f-3c93-80ee-2804df1a873e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: /, ws-headers: {Host: hkfree.v2yun.vip}, udp: true}
-  - {name: 🇨🇳 中国 湖南联通1000m, server: 113.240.72.144, port: 80, type: vmess, uuid: ed70d88c-c8ea-3f89-981a-6d468b804fcf, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: "/cn2?ed=2048", ws-headers: {Host: gd.189.cn}, udp: true}
-  - {name: 🇭🇰 香港 解锁100m 0.5x, server: 112.120.42.248, port: 89, type: vmess, uuid: ed70d88c-c8ea-3f89-981a-6d468b804fcf, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: "/?ed=2050", ws-headers: {Host: gd.189.cn}, udp: true}
