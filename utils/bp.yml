@@ -1,2 +1,2 @@
 proxies:
-  - {name: 开刷, server: jp.istby.xyz, port: 80, type: vmess, uuid: 176ce8c0-726a-420a-f531-8747cf0d79e7, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, udp: true}
+  - {name: 自用, server: jp.istby.xyz, port: 80, type: vmess, uuid: 176ce8c0-726a-420a-f531-8747cf0d79e7, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, udp: true}
