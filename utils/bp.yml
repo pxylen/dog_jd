@@ -1,3 +1,2 @@
 proxies:
-  - {name: v2云节点 ➤1 公益免费 ➤ x0, server: shyd.ddnsguru.com, port: 58777, type: vmess, uuid: 1b6463ea-9e25-38ef-a87c-e76da8813138, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: chinaunicom-playe-free.10010.com}}, udp: true}
-  - {name: v2云节点 ➤2 公益免费 ➤ x0, server: shyd.ddnsguru.com, port: 31817, type: vmess, uuid: 1b6463ea-9e25-38ef-a87c-e76da8813138, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /, headers: {Host: chinaunicom-playe-free.10010.com}}, udp: true}
+  - {name: 开刷, server: jp.istby.xyz, port: 80, type: vmess, uuid: 176ce8c0-726a-420a-f531-8747cf0d79e7, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, udp: true}
