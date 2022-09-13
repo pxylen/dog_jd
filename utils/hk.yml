@@ -1,17 +1,33 @@
 proxies:
-  - {name: 🇭🇰 香港1-V2RAY, server: hk01-vm0.ikuuu.casa, port: 447, type: vmess, uuid: d27a32a9-ef65-3ef1-8ee2-99330c2345cf, alterId: 1, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: hk01-vm0.ikuuu.casa}}
-#  - {name: 🇯🇵 日本1-V2ray, server: jp01-vm0.ikuuu.casa, port: 447, type: vmess, uuid: d27a32a9-ef65-3ef1-8ee2-99330c2345cf, alterId: 1, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: jp01-vm0.ikuuu.casa}}
-  - {name: 🇭🇰 香港2-V2RAY, server: hk02-vm0.ikuuu.casa, port: 447, type: vmess, uuid: d27a32a9-ef65-3ef1-8ee2-99330c2345cf, alterId: 1, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: hk02-vm0.ikuuu.casa}}
-#  - {name: 🇯🇵 日本2-V2RAY, server: jp02-vm0.ikuuu.casa, port: 447, type: vmess, uuid: d27a32a9-ef65-3ef1-8ee2-99330c2345cf, alterId: 1, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: jp02-vm0.ikuuu.casa}}
-  - {name: 🇭🇰 香港3-V2RAY, server: hk03-vm0.ikuuu.casa, port: 892, type: vmess, uuid: d27a32a9-ef65-3ef1-8ee2-99330c2345cf, alterId: 1, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: hk03-vm0.ikuuu.casa}}
-#  - {name: 🇯🇵 日本3-V2RAY, server: jp03-vm0.ikuuu.casa, port: 447, type: vmess, uuid: d27a32a9-ef65-3ef1-8ee2-99330c2345cf, alterId: 1, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: jp03-vm0.ikuuu.casa}}
-  - {name: 🇭🇰 香港4-V2Ray, server: hk04-vm0.ikuuu.casa, port: 892, type: vmess, uuid: d27a32a9-ef65-3ef1-8ee2-99330c2345cf, alterId: 1, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: /hls/cctv5phd.ts, ws-headers: {Host: hk04-vm0.ikuuu.casa}}
-#  - {name: 🇯🇵 日本4-V2Ray, server: jp04-vm0.ikuuu.casa, port: 447, type: vmess, uuid: d27a32a9-ef65-3ef1-8ee2-99330c2345cf, alterId: 1, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: jp04-vm0.ikuuu.casa}}
-  - {name: 🇭🇰 香港5-V2Ray, server: hk05-vm0.ikuuu.casa, port: 447, type: vmess, uuid: d27a32a9-ef65-3ef1-8ee2-99330c2345cf, alterId: 1, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: hk05-vm0.ikuuu.casa}}
-#  - {name: 🇯🇵 日本5-V2Ray, server: jp05-vm0.ikuuu.casa, port: 447, type: vmess, uuid: d27a32a9-ef65-3ef1-8ee2-99330c2345cf, alterId: 1, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: jp05-vm0.ikuuu.casa}}
-  - {name: 🇭🇰 香港6-V2Ray, server: hk06-vm0.ikuuu.casa, port: 447, type: vmess, uuid: d27a32a9-ef65-3ef1-8ee2-99330c2345cf, alterId: 1, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: hk06-vm0.ikuuu.casa}}
-#  - {name: 🇯🇵 日本6-V2Ray, server: jp06-vm0.ikuuu.casa, port: 447, type: vmess, uuid: d27a32a9-ef65-3ef1-8ee2-99330c2345cf, alterId: 1, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: jp06-vm0.ikuuu.casa}}
-  - {name: 🇭🇰 香港7-V2Ray, server: hk07-vm0.ikuuu.casa, port: 447, type: vmess, uuid: d27a32a9-ef65-3ef1-8ee2-99330c2345cf, alterId: 1, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: hk07-vm0.ikuuu.casa}}
-  - {name: 🇭🇰 香港8-V2Ray, server: hk08-vm0.ikuuu.casa, port: 447, type: vmess, uuid: d27a32a9-ef65-3ef1-8ee2-99330c2345cf, alterId: 1, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: hk08-vm0.ikuuu.casa}}
-  - {name: 🇭🇰 香港9-V2Ray, server: hk09-vm0.ikuuu.casa, port: 447, type: vmess, uuid: d27a32a9-ef65-3ef1-8ee2-99330c2345cf, alterId: 1, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: hk09-vm0.ikuuu.casa}}
-  - {name: 🇭🇰 香港10-V2Ray, server: hk10-vm0.ikuuu.casa, port: 447, type: vmess, uuid: d27a32a9-ef65-3ef1-8ee2-99330c2345cf, alterId: 1, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: hk10-vm0.ikuuu.casa}}
+  - {name: "🇭🇰 Lv2 香港 01 [1.5]", server: moblev2.mipglxi.cn, port: 5601, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇭🇰 Lv2 香港 02 [1.5]", server: moblev2.mipglxi.cn, port: 5602, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇭🇰 Lv2 香港 03 [1.5]", server: moblev2.mipglxi.cn, port: 5603, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇭🇰 Lv2 香港 04 [1.5]", server: moblev2.mipglxi.cn, port: 5604, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇭🇰 Lv2 香港 05 [1.5]", server: moblev2.mipglxi.cn, port: 5605, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇭🇰 Lv2 香港 06 [1.5]", server: moblev2.mipglxi.cn, port: 5606, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇭🇰 Lv2 香港 07 [1.5]", server: moblev2.mipglxi.cn, port: 5607, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇭🇰 Lv2 香港 08 [1.5]", server: moblev2.mipglxi.cn, port: 5608, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇸🇬 Lv2 新加坡 01 [1.5]", server: moblev2.mipglxi.cn, port: 5609, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇸🇬 Lv2 新加坡 02 [1.5]", server: moblev2.mipglxi.cn, port: 5610, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇸🇬 Lv2 新加坡 03 [1.5]", server: moblev2.mipglxi.cn, port: 5611, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇸🇬 Lv2 新加坡 04 [1.5]", server: moblev2.mipglxi.cn, port: 5612, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇸🇬 Lv2 新加坡 05 [1.5]", server: moblev2.mipglxi.cn, port: 5613, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇸🇬 Lv2 新加坡 06 [1.5]", server: moblev2.mipglxi.cn, port: 5614, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇯🇵 Lv2 日本 01 [1.5]", server: unicomv2.mipglxi.cn, port: 5615, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇯🇵 Lv2 日本 02 [1.5]", server: unicomv2.mipglxi.cn, port: 5616, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇯🇵 Lv2 日本 03 [1.5]", server: unicomv2.mipglxi.cn, port: 5617, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇯🇵 Lv2 日本 04 [1.5]", server: unicomv2.mipglxi.cn, port: 5618, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇯🇵 Lv2 日本 05 [1.5]", server: unicomv2.mipglxi.cn, port: 5619, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇯🇵 Lv2 日本 06 [1.5]", server: unicomv2.mipglxi.cn, port: 5620, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇨🇳 Lv2 台湾 01 [1.5]", server: moblev2.mipglxi.cn, port: 5621, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇨🇳 Lv2 台湾 02 [1.5]", server: moblev2.mipglxi.cn, port: 5622, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇨🇳 Lv2 台湾 03 [1.5]", server: moblev2.mipglxi.cn, port: 5623, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇨🇳 Lv2 台湾 04 [1.5]", server: moblev2.mipglxi.cn, port: 5624, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇨🇳 Lv2 台湾 05 [1.5]", server: moblev2.mipglxi.cn, port: 5625, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇨🇳 Lv2 台湾 06 [1.5]", server: moblev2.mipglxi.cn, port: 5626, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇺🇸 Lv2 美国 01 [1.5]", server: unicomus.mipglxi.cn, port: 5627, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇺🇸 Lv2 美国 02 [1.5]", server: unicomus.mipglxi.cn, port: 5628, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇺🇸 Lv2 美国 03 [1.5]", server: unicomus.mipglxi.cn, port: 5629, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇺🇸 Lv2 美国 04 [1.5]", server: unicomus.mipglxi.cn, port: 5630, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇺🇸 Lv2 美国 05 [1.5]", server: unicomus.mipglxi.cn, port: 5631, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
+  - {name: "🇺🇸 Lv2 美国 06 [1.5]", server: unicomus.mipglxi.cn, port: 5632, type: ss, cipher: aes-128-gcm, password: 6354c025-38fc-4fad-86ac-e92fd2c90f4a}
